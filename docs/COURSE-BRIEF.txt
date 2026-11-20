@@ -1,0 +1,365 @@
+​
+VN-UK Institute for Research and Executive Education
+Department Computer Science and Engineering
+FINAL PROJECT BRIEF
+Programme
+Computer Science and Engineering
+Course
+ADVANCED WEB DEVELOPMENT - CSB35050
+Assignment title 
+Final Project
+Weighting in Final Grade: 
+50%
+Academic Year / Semester
+Lecturer(s)
+Quyen Nguyen Huu
+Assignment Brief
+Assignment Overview:
+The project involves developing a PHP web application using the Laravel framework. The application will include features such as user authentication, user interface, RESTful API endpoints, and robust system logging and monitoring capabilities. 
+Students are free to choose the functions to perform as long as they meet the assessment criteria and time allowed.
+Objectives:
+Implement version control to track changes and ensure an organized development workflow. Utilize Git for source code management, and establish a branching strategy for efficient collaboration.
+Design a normalized database schema to support the application's functionality. Implement migrations to create and modify database tables. Seed the database with initial data for testing and development.
+Design and implement a user-friendly interface using Laravel's Blade templating engine. Ensure responsiveness and a positive user experience across various devices.
+Develop a RESTful API to provide programmatic access to the application's resources. Follow best practices for API design, including proper authentication, versioning, and documentation using Laravel's built-in tools.
+Integrate logging mechanisms to capture and store relevant system events. Implement monitoring tools to track application performance, identify potential issues, and facilitate proactive maintenance.
+Deliverables:
+Source code repository with organized branches and commit history.
+Database schema with migrations and seeders for initial data.
+User interface implemented according to design specifications.
+RESTful API with proper authentication and documentation.
+System logging and monitoring integrated into the application.
+Duration:
+ 5 weeks
+ Format
+Group assignment, build an PHP web application on the top of Laravel Framework.
+ Assessment Criteria
+Task 1. Source code track changes and development workflow (1 marks)
+Requirement:
+(a) Storage the source code on Github (0.25 marks)
+(b) Follow best practices when writing Git commit messages (0.25 marks)
+(c) Utilize GitHub Issues for managing tickets (0.25 marks)
+(d) Utilize GitHub Workflow (0.25 marks)
+Task 2. Database schema design, migration and seeding (1 marks)
+Requirement:
+(a) Implement Database Design & Migrations (0.5 marks)
+(b) Implement Database Seeding (0.5 marks)
+Task 3. Implement User Interface & Functionality (3 marks)
+Requirement:
+(a) Utilize Laravel Blade, Laravel Livewire and Tailwind CSS (0.25 marks)
+(b) Implement User Registration and Login features (0.25 marks) 
+(c) Implement Forms with CSRF Protection and Server Side Validations (0.25 marks)
+(e) Implement query, filter and display data from Database (0.25 marks)
+(f) Integrate external APIs into web applications (1 marks)
+(g) Implement Unit Test & Integration Test (1 marks)
+Task 4. Implement REST API (2 marks)
+Requirement:
+(a) Implement Resource Controllers to perform CRUD actions on a Resource (0.5 marks)
+(b) Secure API by Token via Laravel Sanctum (0.25 marks)
+(c) Install and setup Scramble to manage API Documentations (0.25 marks)
+(d) Implement Unit Test & Integration Test (1 marks)
+Task 5. Implement System Logging & Monitoring (1 marks)
+Requirement:
+(a) Install and setup Telescope to monitoring application insights (0.25 marks)
+(b) Config error handling & logging  (0.25 marks)
+(c) Config slow query alert (0.25 marks)
+(d) Install and setup server monitoring tools (0.25 marks)
+Task 6. Scalability and Performance Optimization (2 marks)
+Requirement:
+(a) Implement Asynchronous Processing (0.5 marks)
+(b) Implement Resource Loading Optimization (0.5 marks)
+(c) Implement Caching Strategies (0.5 marks)
+(d) Mitigation of Common Antipatterns (0.5 marks)
+Important Notes:
+The 
+Rubric
+ section below details the criteria for each item. 
+You must refer to it
+ to understand the expectations, as it will be used to evaluate your work.
+This document includes a 
+Guidelines
+ section with instructional materials. Please consult it to aid your understanding and task completion.
+Students must use PHP with the Laravel framework for this project
+. If you plan to use a different tech stack or techniques not covered in this course, 
+inform the lecturer and seek approval
+. Unapproved work will not be evaluated to prevent cheating, such as buying source code or hiring someone else to complete the project, which is strictly prohibited.
+Guidelines
+Task 1. 
+Follow instruction in 
+Lab: Git Workflow
+ to create account, workflow and commit messages
+Task 2. 
+Follow instruction in Lab: Laravel Framework at section 
+Working with Database
+Task 3.
+ Follow instruction in following resources:
+Module. HTML & CSS at section 
+Tables
+, and
+ 
+Forms
+Module. Security and section at section 
+Common Threat Vectors
+Lab: 
+Tailwind CSS
+Lab: 
+Layout & Responsive Web
+Lab: Laravel Framework at section 
+Build the User Interface
+, 
+and 
+Testing
+Task 4.
+ Follow instruction in Lab: Laravel Framework at section 
+Build an REST API
+, and 
+Security
+Task 5.
+ Follow instruction in following resources:
+Module. Security and section at 
+Security Best Practices
+Lab. Laravel Framework at section 
+Error Handling & Logging
+, and 
+Deployment
+Writing Good and Clean Code Guide
+To ensure your code is maintainable, readable, and efficient, please refer to the 
+Guide to Writing Good and Clean Code
+ provided in the supplementary document. This guide includes best practices and actionable tips that will help you meet the quality standards expected in this project.
+UI/UX Peer Review & Evaluation Guide
+The UI/UX of your project will be evaluated around three main criteria: usability, aesthetics, and user-friendliness. The guidelines for each are as follows:
+Usability
+Simplicity and Clarity: The interface should be easy to use and not create difficulties for users.
+Information Clarity: Information and functions on the website should be easy to find and clearly understandable.
+Navigability: Users should be able to move between pages and functions easily and logically.
+System Feedback: The system should provide appropriate feedback when users perform actions (e.g., error notifications, success confirmations).
+Multi-Device Support: The website should display well on various types of devices (desktop, tablet, mobile).
+Aesthetics
+Consistent Design: The interface should have a consistent design regarding colors, fonts, and styles.
+Logical Layout: Elements on the page should be arranged in a logical manner to avoid a cluttered appearance.
+Use of Colors and Images: Colors and images should be appropriate for the content and purpose of the website, avoiding being too glaring or mismatched.
+User-Friendliness
+Easy to Learn: New users should be able to quickly understand how to use the interface.
+Time Efficiency: The interface should help users complete tasks quickly without requiring many steps.
+Customization: The interface can be adjusted to suit the needs and habits of individual users (if applicable).
+Rubric
+Task
+Requirement
+Marks
+Checklist
+Task 1
+Storage the source code on Github
+0.25
+Successfully sets up a repository on GitHub for the project.
+Chooses an appropriate repository name and description.
+Follow best practices when writing Git commit messages
+0.25
+Writes clear and concise commit messages that accurately describe the purpose of each commit.
+Utilizes references to GitHub issues or other relevant artifacts in commit messages.
+Commits changes atomically, focusing on a single task or logical change per commit.
+Utilize GitHub Issues for managing tickets
+0.25
+Creates well-defined and informative GitHub issues
+Ensures each issue includes a clear description and, if applicable, acceptance criteria.
+Utilize GitHub Workflow
+0.25
+Pull Requests, associated Topic Branches, and GitHub Issues linked to each Pull Request.
+Task 2
+Implement Database Design & Migrations
+0.5
+Efficient database schema design that aligns with the application's requirements.
+Chooses appropriate data types for each column, considering data integrity and efficiency.
+Consider
+ normalization and relationships among tables.
+Writes well-structured migration files that accurately reflect the designed database schema.
+Follows Laravel conventions for defining tables, columns, indexes, and foreign keys.
+Implement Database Seeding
+0.5
+Utilizes Model, Factory & Seeder Classes.
+Ensures data insert and query properly in the database.
+Task 3
+Utilize Laravel Blade, Laravel Livewire and Tailwind CSS
+0.25
+Effectively uses Tailwind CSS utility classes to style HTML elements.
+Utilizes Tailwind CSS features to implement responsive design.
+Implements proper escaping and sanitization of user inputs in Blade templates to prevent XSS vulnerabilities.
+Ensures that common elements are abstracted into reusable components.
+Implement User Registration and Login features
+0.25
+Implements a user registration form.
+Stores user passwords securely using hashing techniques.
+Implements a login mechanism for registered users.
+Creates a user profile page or dashboard for authenticated users.
+Displays relevant user information.
+Implement Forms with CSRF Protection and Server Side Validations
+0.25
+Create the form with necessary fields
+Implements CSRF protection measures to secure form submissions.
+Implements server-side validation rules for form inputs.
+Provides meaningful error messages for validation failures.
+Implement query, filter and display data from Database
+0.25
+Implement dynamic filtering using Laravel Eloquent ORM to allow users to narrow down data based on their input.
+Utilize Laravel Blade templates and components to effectively display the filtered data in a user-friendly format.
+Integrate external APIs into web applications
+1
+Choose the external service that fits your feature (e.g., SendGrid for emails, Sentry for error logging, S3 for file storage, Stripe for payment).
+Read the provider’s documentation to understand how to use their API or SDK.
+Set up and integrate the API or SDK into your application, ensuring authentication is correctly configured.
+Implement error handling and logging to manage issues and monitor API interactions
+Implement Unit Test & Integration Test
+1
+Writes comprehensive unit tests for individual components and functions.
+Ensures a high level of code coverage (more than 70%).
+Task 4
+Implement Resource Controllers to perform CRUD actions on a Resource
+0.5
+Leverage Laravel Eloquent ORM to interact with the database efficiently and follow best practices.
+Implement standard CRUD operations according to Laravel conventions, including thorough server-side validation.
+Provides meaningful error responses with appropriate HTTP status codes.
+Secure API by Token via Laravel Sanctum
+0.25
+Integrates Laravel Sanctum and ensures proper configuration of Sanctum for token management.
+Utilizes Sanctum's token scopes and permissions to control access to API resources.
+Install and setup Scramble to manage API Documentations
+0.25
+Installs and configures Scramble for managing API documentation.
+Ensures that documentation is automatically generated based on API code.
+Implement Unit Test & Integration Test
+1
+Writes comprehensive unit tests for individual components and functions of the API.
+Achieves a high level of code coverage (more than 70%).
+Task 5
+Install and setup Telescope to monitoring application insights
+0.25
+Installs Telescope and integrates it into the application.
+Ensures proper configuration and compatibility with the application.
+Config error handling & logging
+0.25
+Configures Laravel to handle errors gracefully, providing clear and user-friendly error pages.
+Configures logging to record relevant information for debugging and monitoring.
+Configure error reporting to promptly notify admins or developers of critical errors.
+Config slow query alert
+0.25
+Implements an alerting mechanism to notify administrators when slow queries are detected.
+Install and setup server monitoring tools
+0.25
+Configures the monitoring tool to track essential server metrics such as CPU usage, memory usage, disk space, and network activity.
+Implements alerting rules based on predefined thresholds for critical server metrics.
+Task 6
+Implement Asynchronous Processing
+0.5
+Identify processes that can be executed asynchronously (e.g., background tasks, non-blocking I/O operations).
+Utilize appropriate asynchronous programming techniques (e.g., Promises, async/await in JavaScript, background jobs in backend frameworks).
+Implement error handling for asynchronous operations.
+Thoroughly test asynchronous processes for reliability, efficiency, and to prevent data issues.
+Implement Resource Loading Optimization
+0.5
+Apply lazy loading, code-splitting, and deferring non-critical resources.
+Optimize images and videos for web performance (e.g., using responsive images, compression, formats like WebP).
+Minimize and bundle JavaScript and CSS files.
+Implement prefetching and 
+prerendering
+ strategies.
+Implement Caching Strategies
+0.5
+Determine which parts of the application can benefit from caching (e.g., static assets, API responses).
+Configure appropriate caching mechanisms (e.g., browser caching, server-side caching, CDN).
+Set cache headers correctly (e.g., Cache-Control, ETag) to manage content expiration and validation.
+Implement cache invalidation strategies to ensure users receive the latest content when necessary.
+Mitigation of Common Antipatterns
+0.5
+Identify common scalability and performance antipatterns (e.g., database bottlenecks, inefficient algorithms). Refactor code to eliminate or mitigate the identified antipatterns.
+Optimize database queries and reduce unnecessary load on the database (e.g., by using indexes, avoiding N+1 queries).
+Ensure that logging, monitoring, and profiling tools are in place to detect and prevent antipatterns in production.
+Examination Requirements Towards The Course Learning Outcomes
+Code
+Course Learning Outcomes
+Number of Tasks
+Tasks
+Mapping
+Weight
+CLO1
+Apply software design principles and design patterns to create structured, maintainable, and high-quality web applications.
+2
+Task 3
+Task 4
+11%
+CLO2
+Utilize modern web development tools and frameworks to create functional, efficient, and responsive web applications, incorporating best practices for both client-side and server-side development.
+2
+Task 1
+Task 3
+11%
+CLO3
+Design and implement data models, managing database interactions by ensuring data integrity, security, and consistency through ORM, CRUD operations, validation, sanitization, and transaction management.
+2
+Task 2
+Task 4
+11%
+CLO4
+Develop and secure RESTful APIs using authentication and authorization mechanisms, and provide comprehensive documentation for their usage.
+1
+Task 4
+6%
+CLO5
+Integrate external APIs into web applications by consuming data from third-party services, effectively handling responses and errors.
+1
+Task 3
+6%
+CLO6
+Design and manage scalable web applications by implementing asynchronous processes, profiling and monitoring performance, mitigating common antipatterns, and applying scalability principles to optimize resource-intensive operations.
+2
+Task 5
+Task 6
+11%
+CLO7
+Implement Unit and Integration Testing to ensure code functionality, identify and address bugs early, and maintain system integrity during development and deployment.
+2
+Task 3
+Task 4
+11%
+CLO8
+Optimize web performance by applying techniques like resource loading optimization, code-splitting, and media performance improvements to enhance user experience and reduce load times.
+1
+Task 6
+6%
+CLO9
+Apply secure coding practices and perform ongoing monitoring, troubleshooting, and debugging to mitigate common vulnerabilities and ensure the reliability of web applications.
+4
+Task 3
+Task 4
+Task 5
+Task 6
+21%
+CLO10
+Deploy web applications effectively by ensuring proper configuration, optimization, and continuous monitoring to support smooth operation and rapid issue resolution.
+1
+Task 5
+6%
+Grading Methods
+As this is a group project, both teamwork and individual contributions will be evaluated to ensure a fair assessment.
+Group Marks will be assessed using a rubric based on your team’s success in completing the required tasks.
+Each student must submit a Self-Report for all 5 sprints. Late or missing reports will result in a 10% deduction from the final group mark, as they are essential for evaluating individual contributions. If your involvement in the project is minimal, unclear, or not aligned with the project goals, you may receive fewer marks than your teammates.
+Important: 
+Each student who wishes to take the final test 
+MUST
+ complete 
+the required assignments
+Bonus for Innovation
+Efforts beyond the course scope that benefit the project may earn bonus points, as recognized by the lecturer, to reward creativity and extra contributions.
+Submission Guidelines
+Upload project source code on GitHub
+Written report in the README.md file, located at the root folder of the project source code. Report must have:
+How to run the application
+Project overviews and used tools
+List features of projects and screenshots
+Database diagram (ERD)
+Any other additional information that lecture should know about project
+Record a screencast not to exceed 10 minutes in length, in which students demonstrate the project's functionality. Be certain that every requirement of the specification, above, is demonstrated in video. There’s no need to show code in this video, just your application in action; we’ll review code on GitHub. Upload that video to YouTube (as unlisted or public, but not private) or somewhere else. Please ensure a minimum quality of 720p in MP4.
+FINAL PROJECT BRIEF REVIEWER
+Da Nang, December 10
+th
+ 2025
+LECTURER IN CHARGE
+Nguyễn Hữu Quyền

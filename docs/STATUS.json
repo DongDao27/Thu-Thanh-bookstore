@@ -1,0 +1,585 @@
+{
+  "schema_version": 1,
+  "project": "Thu Thanh Bookstore",
+  "spec_version": "2.0",
+  "phase": "BACKEND",
+  "current_task_id": "B00-DONG-PR",
+  "next_task_id": "B07",
+  "implementation_state": "D114_readme_foundation_published_dong_feature_in_progress",
+  "backend_gate": "externally_blocked",
+  "frontend_gate": "authorized_scoped",
+  "frontend_authorization": {
+    "decision": "D34",
+    "scope": "F00-F03 on verified local APIs; real payments/report/release remain gated",
+    "requested_by": "owner_2026-10-22"
+  },
+  "release_gate": "not_started",
+  "branch": "feat/d87-nextjs-figma-padding",
+  "last_verified_commit": null,
+  "git_dirty": true,
+  "last_checkpoint_at": "2026-11-20T23:25:07+07:00",
+  "last_test_run": {
+    "at": "2026-11-20T00:45:17+07:00",
+    "command": "php artisan test --log-junit=storage/logs/phpunit-d107-final.xml (after full MySQL cluster deletion)",
+    "result": "passed",
+    "tests": 177,
+    "assertions": 2170,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "database": "isolated PostgreSQL thu_thanh_test",
+    "evidence": "backend/storage/logs/phpunit-d107-final.xml"
+  },
+  "blockers": [
+    "D67 real Sandbox accepted receipt/paid order verified read-only. Full QueryDr/expiry/reconciliation provider acceptance remains pending;2historical orders still reconciliation_required.",
+    "10k concurrent capacity not verified; Docker/k6/staging unavailable.",
+    "Owner canvas and course/deployment acceptance pending.",
+    "D106 local main PostgreSQL+restore and pluginV38 verified. Production VPS/domain/provider/remoteCI/load acceptance and owner nativeFigma import remain pending (B00-PG-LIVE/B07)."
+  ],
+  "external_inputs_pending": [
+    "Owner reimports V40 plugin and reviews native canvas; web flows synced D85.",
+    "Resolve2historic reconciliation orders/QueryDr99 with VNPAY; real accepted receipt exists in Sandbox. Do not manually mark older orders paid.",
+    "Owner has no hosting yet; production capacity acceptance waits for future staging infrastructure",
+    "Resend verified sender/from-address/HTTPS frontend origin and actual recovery email delivery acceptance",
+    "D105 VPS/domain/Vercel project, Resend verified sender/API key, Pusher app credentials; actual staging/cutover authorization and backup/restore acceptance."
+  ],
+  "notes": "D114 owner approved customized README baseline and it is on main;Dong D1/D2 local committed,D3/featurepush/draftPR in progress. No source merge/backend commit/deploy.",
+  "figma": {
+    "status": "V40_offline_verified_owner_import_pending",
+    "manifest_version": "V40",
+    "artifact": "output/figma/THUTHANH-FIGMA-V40.zip",
+    "sha256": "da2bc5de92196fec1ca92d3f578fe525d54c1c9eab7d9717df277b3e7fdf6669",
+    "prototype_screens": 212,
+    "landing_review_frames": 2,
+    "platforms": 2,
+    "flows_per_platform": 7,
+    "local_mock": "passed;nativegeometry/scrollbars/fixedactions/readonlyreview/money/routes/upgradeV39/manualphotos/rollback/cancel",
+    "browser_svg_preview": "9mobileviews+desktoprank/footer visually inspected D112",
+    "cloud_canvas": "not_run; user selected offline plugin",
+    "web_sync_pending": "Owner imports V40 then Run/Present;cloudcanvasnot_run",
+    "images": "35source-verified losslessPNG unchanged D110",
+    "user_flow_diagrams": 8,
+    "mobile": "commerceapp402x874/searchheader/2column292pxcards/rails/recommendgrid/contextualback/activetabs/fixedpurchase+checkoutCTA/compactcart/readonlyreview/ordercards/accountshortcuts"
+  },
+  "cleanup": {
+    "report": "docs/CLEANUP.json",
+    "status": "partial:39targets deleted_verified;3private metadata deletions blocked",
+    "restoration_available_for_deleted_targets": false
+  },
+  "blocked_actions": [
+    {
+      "action": "Delete3private catalog rollback directories",
+      "source": "automatic approval review",
+      "reason": "blocked by policy; no detailed reason provided",
+      "paths": [
+        "backend/storage/app/private/catalog-description-backups",
+        "backend/storage/app/private/catalog-gallery-backups",
+        ".runtime/sandbox-backend/storage/app/private/catalog-gallery-backups"
+      ]
+    }
+  ],
+  "purchase_audit": {
+    "at": "2026-11-16T17:00:50+07:00",
+    "scope": "Read-only business/UI source audit, existing automated tests on isolated DB; no app behavior changes",
+    "backend": {
+      "tests": 45,
+      "assertions": 362,
+      "groups": [
+        "CheckoutTest",
+        "PaymentTest",
+        "CartQuoteTest",
+        "CheckoutConcurrencyTest",
+        "PaymentExpiryConcurrencyTest"
+      ],
+      "evidence": [
+        "backend/storage/logs/phpunit-d103.xml",
+        "backend/storage/logs/phpunit-d103-extra.xml"
+      ]
+    },
+    "browser": {
+      "tests": 14,
+      "scope": "purchase-related subset; not full24",
+      "result": "passed",
+      "evidence": "output/e2e/report/index.html",
+      "provider": "fixture/emulator, not real merchant acceptance"
+    },
+    "windows": {
+      "supported_in_principle": true,
+      "local_already_running": true,
+      "production_windows_server_verified": false,
+      "linux_config_not_portable": "systemd/PHP-FPM Unix socket/Nginx recipe requires native Windows service/IIS/FastCGI/proxy/scheduler configuration"
+    },
+    "findings": [
+      {
+        "priority": "P1",
+        "finding": "Buy now adds item to existing cart; checkout snapshots all items",
+        "kind": "business choice requiring decision",
+        "source": "frontend/src/components/store-provider.jsx;backend/app/Services/QuoteService.php"
+      },
+      {
+        "priority": "P1",
+        "finding": "Checkout has quote,order confirmation,order detail and separate payment clicks",
+        "kind": "UX improvement proposal",
+        "source": "frontend/src/app/checkout/page.jsx"
+      },
+      {
+        "priority": "P1",
+        "finding": "Cart checkout disabled by CSS/aria without keyboard navigation guard",
+        "kind": "source-confirmed accessibility gap; backend validates stock",
+        "source": "frontend/src/app/cart/page.jsx;frontend/src/app/styles/base.css"
+      },
+      {
+        "priority": "P2",
+        "finding": "Empty direct checkout shows form before EMPTY_CART response",
+        "kind": "source-confirmed UX gap",
+        "source": "frontend/src/app/checkout/page.jsx"
+      },
+      {
+        "priority": "P2",
+        "finding": "Cancel success plus cart refresh failure shares generic catch",
+        "kind": "source-confirmed feedback gap",
+        "source": "frontend/src/app/orders/[code]/page.jsx"
+      },
+      {
+        "priority": "P2",
+        "finding": "Polling ends silently after30reads; draft address is not restored on reload",
+        "kind": "source-confirmed UX improvement",
+        "source": "frontend/src/lib/use-order-polling.js;frontend/src/app/checkout/page.jsx"
+      }
+    ],
+    "unchanged": [
+      "application code/business contracts",
+      "main/Sandbox data and env",
+      "schema",
+      "Figma/EM3",
+      "deployment",
+      "Git commits/remotes"
+    ],
+    "not_verified": [
+      "real VNPAY/query/reconcile",
+      "real SMTP",
+      "WindowsServer production",
+      "user-study conversion gains"
+    ]
+  },
+  "purchase_experience": {
+    "decision": "D104",
+    "status": "verified_local",
+    "backend": {
+      "tests": 171,
+      "assertions": 2144,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 100.401508,
+      "junit": "backend/storage/logs/phpunit-d104.xml"
+    },
+    "frontend": {
+      "syntax_files": 68,
+      "api_tests": 9,
+      "build": "passed22static+2dynamic",
+      "e2e_distinct_cases_verified": 29,
+      "full_run": "27passed/2failed harness",
+      "final_last_failed_rerun": "2passed; test-only mock and delivery locator corrections",
+      "report": "output/e2e/report/index.html (latest2cases)",
+      "font": "CDP actual custom Nunito NFC/NFD passed",
+      "utf8_files": 70,
+      "overflow_widths": [
+        375,
+        768,
+        1440
+      ]
+    },
+    "deployment": "guide_only; dualboot100GB; OS version unknown; no Ubuntu changes",
+    "not_verified": [
+      "real VNPAY/query/reconcile acceptance",
+      "SMTP delivery",
+      "Ubuntu runtime/HTTPS/restore",
+      "10k load",
+      "user-study conversion"
+    ]
+  },
+  "infrastructure": {
+    "decision": "D106",
+    "source_status": "verified_local_with_business_data",
+    "target": {
+      "frontend": "Next.js16/Vercel",
+      "api": "Laravel12/PHP8.4/VPS",
+      "database": "PostgreSQL17",
+      "dns_proxy": "Cloudflare",
+      "mail": "Resend",
+      "realtime": "Pusher private order invalidation"
+    },
+    "live_task_id": "B00-PG-LIVE",
+    "live_status": "externally_blocked",
+    "data_cutover": "completed_local;26tables canonical hashes and restore drill matched; production deployment not_run",
+    "local_runtime": "main PostgreSQL127.0.0.1:55432/thu_thanh; API8000/web3000 running; isolated tests thu_thanh_test",
+    "git_commit_created": false,
+    "deployment_performed": false,
+    "security_report": "docs/SECURITY-PERFORMANCE.md",
+    "provider_delivery": "fake tests only; live not_run",
+    "checks": {
+      "backend_tests": 177,
+      "backend_assertions": 2170,
+      "coverage_percent": 91.35,
+      "http_cookie_csrf_checks": 19,
+      "queue_scheduler_smoke": "passed",
+      "frontend_syntax_files": 70,
+      "frontend_tests": 11,
+      "frontend_build": "passed22static+2dynamic",
+      "browser_e2e": "29/29passed5.1min",
+      "composer_audit": "0advisories",
+      "npm_audit": "0vulnerabilities",
+      "backend_pint": "passed",
+      "yaml_parse": "5files passed",
+      "scramble_export": "passed",
+      "search_plan": "GIN index used on20000rollback-onlysynthetic products; not production benchmark",
+      "database_transfer": "26tables hash/count matched",
+      "restore_drill": "passed separate DB",
+      "image_http": "219/219HTTP200",
+      "sequence_audit": "22passed",
+      "production_preflight": "guard verified by tests; local incomplete production config intentionally fails"
+    },
+    "not_verified": [
+      "live Cloudflare/Vercel/VPS TLS+AOP/firewall/client-IP/cookies/cache",
+      "Resend actual delivery and Pusher live socket/reconnect/logout",
+      "PostgreSQL restore/data/media verification on VPS; local main/Sandbox migration+restore passed D106/D107",
+      "remote GitHub CI and staging load",
+      "real provider acceptance outstanding from B07"
+    ],
+    "data_readiness_audit": {
+      "at": "2026-11-20T00:25:42+07:00",
+      "main_driver": "pgsql",
+      "database": "thu_thanh",
+      "host": "127.0.0.1:55432",
+      "tables_matched": 26,
+      "row_counts": {
+        "categories": 6,
+        "failed_jobs": 0,
+        "job_batches": 0,
+        "jobs": 0,
+        "newsletter_subscriptions": 0,
+        "password_reset_tokens": 0,
+        "personal_access_tokens": 0,
+        "products": 137,
+        "sessions": 1,
+        "settings": 0,
+        "users": 2,
+        "carts": 1,
+        "product_images": 219,
+        "quotes": 9,
+        "cart_items": 11,
+        "orders": 8,
+        "payment_attempts": 0,
+        "payment_receipts": 0,
+        "reconciliation_cases": 0,
+        "refunds": 0,
+        "idempotency_keys": 8,
+        "inventory_movements": 153,
+        "order_items": 11,
+        "order_status_histories": 14,
+        "payment_events": 0,
+        "stock_reservations": 11
+      },
+      "canonical_hashes_matched": true,
+      "restore_verified": true,
+      "sequence_audit": {
+        "sequences_checked": 22,
+        "all_at_or_above_existing_ids": true
+      },
+      "image_files_missing": 0,
+      "http_images": {
+        "images": 219,
+        "http_200": 219
+      },
+      "key_and_password_hashes": "preserved",
+      "backup_dir_private": ".runtime/d106-cutover",
+      "data_history": "all source business states preserved, including reserved stock and uncertain payments; no synthetic paid records",
+      "source_mysql_retained": false,
+      "production_deploy": "not_run",
+      "source_mysql_retained_at_D106_audit": true,
+      "mysql_cleanup_current": "D107 completed; shared EM3 cluster and MySQL backups deleted with owner authorization",
+      "postgresql_backups_retained": true
+    }
+  },
+  "mysql_cleanup": {
+    "at": "2026-11-20T00:45:17+07:00",
+    "status": "deleted_verified",
+    "authorization": "Owner explicitly confirmed deletion of both EM3 databases and entire shared MySQL cluster",
+    "mysql_cluster_targets_deleted": [
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\mysql-data",
+        "directory": true,
+        "files": 277,
+        "bytes": 342905836,
+        "reparse_points": 0
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\mysql-8.4.13-winx64",
+        "directory": true,
+        "files": 296,
+        "bytes": 1263141970,
+        "reparse_points": 0
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\mysql-admin.cnf",
+        "directory": false,
+        "files": 1,
+        "bytes": 102,
+        "reparse_points": 0
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\mysql.ini",
+        "directory": false,
+        "files": 1,
+        "bytes": 365,
+        "reparse_points": 0
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\mysql-error.log",
+        "directory": false,
+        "files": 1,
+        "bytes": 37376,
+        "reparse_points": 0
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\mysql.pid",
+        "directory": false,
+        "files": 1,
+        "bytes": 5,
+        "reparse_points": 0
+      }
+    ],
+    "project_files_and_backups_deleted": [
+      {
+        "path": "D:\\ThuThanh-WebDesign\\scripts\\transfer-mysql-to-postgresql.php",
+        "bytes": 6752
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\scripts\\verify-postgresql-transfer.php",
+        "bytes": 3091
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\scripts\\lib\\database-transfer.php",
+        "bytes": 2130
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\scripts\\prepare-local-db.php",
+        "bytes": 287
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\d106-cutover\\legacy.env",
+        "bytes": 1504
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\d106-cutover\\testing.env.original",
+        "bytes": 394
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\d106-cutover\\mysql-original.sql",
+        "bytes": 823389
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\d106-cutover\\snapshot.private.json",
+        "bytes": 306743
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\d107-sandbox\\legacy.env",
+        "bytes": 1823
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\d107-sandbox\\snapshot.private.json",
+        "bytes": 314352
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\d105-readonly-data-check.php",
+        "bytes": 2014
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\d107-inspect.php",
+        "bytes": 682
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\d107-provision.php",
+        "bytes": 1382
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\d106-app-cutover.py",
+        "bytes": 1990
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\d106-extract-library.py",
+        "bytes": 497
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\d106-plugin-update.py",
+        "bytes": 10878
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\d106-images-http.py",
+        "bytes": 838
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\d106-sequence-audit.php",
+        "bytes": 1366
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\scripts\\mysql-local.ps1",
+        "bytes": 3450
+      },
+      {
+        "path": "D:\\ThuThanh-WebDesign\\.runtime\\d106-cutover\\php.ini.original",
+        "bytes": 70913
+      }
+    ],
+    "total_file_bytes_removed": 1607640129,
+    "em3_mysql_databases_deleted": [
+      "thu_thanh_em3",
+      "thu_thanh_em3_test"
+    ],
+    "remaining_project_mysql_schemas": [],
+    "remaining_project_mysql_runtime": false,
+    "postgresql_main_verified": true,
+    "postgresql_sandbox_verified": true,
+    "postgresql_sandbox_receipts_preserved": 2,
+    "main_product_count": 137,
+    "backend_tests": 177,
+    "backend_assertions": 2170,
+    "main_http_status": 200,
+    "web_http_status": 200,
+    "mysql_port_3307": "not_listening",
+    "preserved": [
+      "PostgreSQL main/test/restore/Sandbox",
+      "PostgreSQL dumps",
+      "APP_KEY and private PostgreSQL envs",
+      "public product uploads",
+      "FigmaV38 and source",
+      "EM3 source repository outside this workspace"
+    ],
+    "historical_audit_mentions_retained": true,
+    "vendor_framework_database_drivers_untouched": true
+  },
+  "repository_audit": {
+    "decision": "D108",
+    "at": "2026-11-20T01:06:40+07:00",
+    "status": "verified_local",
+    "report": "docs/REPOSITORY-AUDIT.md",
+    "evidence": ".runtime/d108-repository-audit.json",
+    "first_party_files": 681,
+    "frontend_syntax_files": 70,
+    "frontend_tests": 11,
+    "environment_tests": 2,
+    "environment_assertions": 7,
+    "http_csrf_checks": 19,
+    "figma_prototype": "passed214frames/35products/3279routes",
+    "asset_verification": "136originals/35losslessPNGpassed",
+    "full_backend_build_e2e_rerun": false
+  },
+  "local_loading_recovery": {
+    "decision": "D109",
+    "at": "2026-11-20T03:53:19+07:00",
+    "frontend_syntax_files": 71,
+    "frontend_tests": 16,
+    "build": "passed22static+2dynamic",
+    "get_deadline_ms": 15000,
+    "browser": {
+      "home": 53,
+      "catalogCards": 25,
+      "detail": "Giấy note 5 màu",
+      "hungCatalog": {
+        "errorAfterMs": 15760,
+        "retry": 1
+      },
+      "retryRecovered": true,
+      "hungAuth": {
+        "homeRecoveredAfterMs": 16258
+      },
+      "pageErrors": []
+    },
+    "evidence": ".runtime/d109-browser-result.json",
+    "frontend_start_helper": "scripts/start-frontend.ps1",
+    "main_products": 137,
+    "web_api_proxy_http": 200,
+    "no_data_schema_changes": true
+  },
+  "newsletter_and_figma": {
+    "decision": "D110",
+    "at": "2026-11-20T04:18:06+07:00",
+    "evidence": ".runtime/d110-evidence.json",
+    "report": "docs/FIGMA-REVIEW.md",
+    "backend_tests": 5,
+    "backend_assertions": 33,
+    "frontend_tests": 16,
+    "frontend_syntax_files": 71,
+    "frontend_build": "passed",
+    "targeted_e2e": "1/1passed;isolatedPostgreSQL",
+    "newsletter": "email-only;submit records subscription intent;CSRF/throttle/idempotent preserved",
+    "main_data_schema": "unchanged",
+    "native_canvas": "owner_import_pending"
+  },
+  "completion_guide": {
+    "decision": "D111",
+    "at": "2026-11-20T17:09:45+07:00",
+    "artifact": "docs/HUONG-DAN-HOAN-THIEN-DU-AN-THU-THANH.docx",
+    "sha256": "489988e231b1f25d52a261ccf1bd2248164565c4a8563c5ea893726231f17843",
+    "bytes": 55124,
+    "pages": 16,
+    "headings": 15,
+    "tables": 7,
+    "external_official_links": 10,
+    "word_open": "passed16pages",
+    "word_export_pdf": "passed_private_review_only",
+    "docx_openxml_zip": "passed",
+    "vietnamese_and_command_paths": "passed",
+    "visual_review": "contact sheet16pages,cover,VNPAY,TLS-deploy checked;no near-empty or split chapter pages",
+    "app_tests": "not_rerun;documentation-only",
+    "application_database_provider_deploy_changes": false,
+    "original_sha256_D111": "f9874a08e4ed2d0096b2cd51005e6cb55bd55869c0662d59757508398cd77786",
+    "updated_by": "D112",
+    "version_reference": "V40"
+  },
+  "mobile_commerce_polish": {
+    "decision": "D112",
+    "at": "2026-11-20T18:20:11+07:00",
+    "evidence": ".runtime/d112-evidence.json",
+    "frontend_tests": 16,
+    "frontend_syntax_files": 71,
+    "build": "passed",
+    "figma_routes": 3130,
+    "scrollbar": "webnativewheel+keyboardpassed;pluginviewportnativewithillustrativerailthumb;noarrowjumpbuttons",
+    "native_canvas": "owner_import_pending",
+    "backend_business_schema_changes": false
+  },
+  "team_commit_guide": {
+    "decision": "D113",
+    "at": "2026-11-20T22:43:17+07:00",
+    "status": "verified_local",
+    "report": "docs/PHAN-CONG-VA-COMMIT.md",
+    "manifest": "docs/COMMIT-FILES.csv",
+    "files": 688,
+    "thien": 388,
+    "dong": 300,
+    "powershell_blocks": 10,
+    "evidence": ".runtime/d113-evidence.json",
+    "target_has_branches": false,
+    "initial_main_exception": "owner_decision_pending",
+    "github_mutation": false
+  },
+  "publication": {
+    "decision": "D114",
+    "status": "in_progress",
+    "repository": "DongDao27/Thu-Thanh-bookstore",
+    "branch": "feat/dong-storefront-figma-docs",
+    "worktree": "D:/ThuThanh-review-dong",
+    "dong_files": 300,
+    "thien_files_remaining": 388,
+    "pr": null,
+    "initial_main_exception": "owner_approved_customized_readme_foundation",
+    "evidence": ".runtime/d114-evidence.json",
+    "merge": "not_authorized_by_current_task",
+    "at": "2026-11-20T23:25:07+07:00",
+    "foundation_commit": "e37d579b519321b496d7ecb323a9b63bf78b5588",
+    "frontend_commit": "9554286",
+    "figma_commit": "3671bb8"
+  }
+}
