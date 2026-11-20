@@ -1,4 +1,6 @@
-# Bắt đầu / tiếp tục — D114, 20/11/2026
+# Bắt đầu / tiếp tục — D115, 21/11/2026
+
+D115: V41 offline đã kiểm;101màn mobile native đã patch nhưng8UserFlow/finalQA còn chờ vì FigmaStarterquota. Source ở D:/ThuThanh-review-dong/thu-thanh-figma-clicon;khôngrestoredeletionplugin ởworkspacegốc. Xem docs/FIGMA-REVIEW.md;chạy ZIPV41 chế độ Mobile+UserFlow để áp dụng đầy đủ.
 
 Đọc AGENTS → STATUS → HANDOFF → PROGRESS mới nhất → DECISIONS → PRD/task và đặc tả liên quan; kiểm git status/branch/diff/log/source trước sửa. Không reset/clean/ghi đè dirty work hay bootstrap lại ứng dụng.
 
@@ -8,7 +10,7 @@ D114: [PR Đông#22](https://github.com/DongDao27/Thu-Thanh-bookstore/pull/22) �
 - Main local: PostgreSQL `127.0.0.1:55432/thu_thanh`, API `localhost:8000`, web `localhost:3000`. Tests chỉ `thu_thanh_test`, không chạy PHPUnit và E2E đồng thời. Không suy ra dịch vụ đang chạy từ tài liệu: kiểm port/HTTP thực tế.
 - Backend gate `externally_blocked`, release `not_started`. D34 cho phép frontend trong phạm vi API đã kiểm; không tự nâng gate từ tests local. B07 và B00-PG-LIVE cần nghiệm thu provider/hạ tầng thật.
 - [README](README.md) là tổng quan; [chạy local](docs/CHAY-WEB-VA-LARAVEL.md), [deploy từng bước](docs/DEPLOYMENT.md), [bàn giao](docs/HANDOFF.md) là hướng dẫn hiện hành. PROGRESS/DECISIONS giữ sự kiện lịch sử, không phải runbook hiện tại.
-- Figma offline V40: `output/figma/THUTHANH-FIGMA-V40.zip`, source `thu-thanh-figma-clicon/`; xem [hướng dẫn import](thu-thanh-figma-clicon/HUONG-DAN.md). Cần Run sau import; canvas native chưa nghiệm thu. Mobile là thiết kế app theo quyết định đã chốt.
+- Figma offline V41: `output/figma/THUTHANH-FIGMA-V41.zip`, source `thu-thanh-figma-clicon/`; xem [hướng dẫn import](thu-thanh-figma-clicon/HUONG-DAN.md). Cần Run sau import; canvas native chưa nghiệm thu. Mobile là thiết kế app theo quyết định đã chốt.
 - Giữ APP_KEY/env/uploads/workbook/ảnh gốc/PostgreSQL data và dump private. `.runtime` và `output` không vào Git. D102/D107 cho phép xóa các bản cũ đã ghi trong CLEANUP; không tái tạo rollback MySQL đã xóa. Ba thư mục metadata catalog cũ có kết quả chặn riêng trong STATUS/CLEANUP, không coi là MySQL.
 
 Mỗi task ghi acceptance trước sửa, kiểm thực, cập nhật TASKS → PROGRESS → HANDOFF → STATUS; done chỉ khi acceptance đạt. Giữ `last_verified_commit=null` nếu chưa có commit và `git_dirty` đúng thực tế. Không tự commit/push/deploy/gửi mail hay payment thật từ yêu cầu sửa tài liệu.

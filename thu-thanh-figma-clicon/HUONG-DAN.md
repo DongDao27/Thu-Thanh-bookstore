@@ -1,37 +1,44 @@
-# Plugin Figma Thu Thanh V40 — email-only, mobile app và User Flow
+# Import và cập nhật Figma — Thu Thanh V41
 
-Bản hiện hành theo D110. Đây là plugin offline sinh layer editable; không tự cập nhật canvas khi chỉ thay source/ZIP trên máy.
+V41 sửa mobile và User Flow theo phản hồi ngày21/11/2026. Manifest vẫn dùng ID plugin cũ để nhận diện các bản đã dựng. Không cần thay cấu hình mạng hoặc nhập API key.
 
-## Import và cập nhật
+## Cập nhật file Figma hiện tại
 
-1. Giải nén `output/figma/THUTHANH-FIGMA-V40.zip` vào thư mục riêng.
-2. Figma Design → Plugins → Development → Import plugin from manifest → chọn `manifest.json` vừa giải nén.
-3. Mở plugin, kiểm panel ghi **V40**, chọn kịch bản thanh toán rồi bấm **Cập nhật thiết kế · Hai nền tảng**. Chờ hoàn tất; chỉ import không thay canvas.
-4. Bấm **Landing page · Bản duyệt riêng** để xem desktop/app; bấm **User Flow · 8 luồng hoạt động** để đến section sơ đồ bên dưới.
-5. Bấm Máy tính hoặc Điện thoại, chọn luồng rồi Present. Có thể sửa text/ảnh/Auto Layout bằng layer Figma.
+1. Giải nén `THUTHANH-FIGMA-V41.zip` vào thư mục riêng, giữ đủ5file.
+2. Figma → Plugins → Development → Import plugin from manifest → chọn `manifest.json` trong bản V41. Nếu đã import bản cũ, chọn lại manifest bản mới để tránh chạy nhầm code.
+3. Mở file Thu Thanh cần sửa; chạy plugin. Trong **Phạm vi cập nhật**, giữ lựa chọn **Mobile + User Flow (giữ nguyên trang desktop)**.
+4. Nhấn **Cập nhật thiết kế**, chờ thông báo thành công. Chế độ này giữ nguyên các node trên trang desktop, cập nhật trang mobile và Landing page có8UserFlow. Với file mới chưa có desktop, plugin sẽ tạo đủ hai nền tảng.
+5. Dùng nút **Điện thoại** để mở màn đầu, hoặc **User Flow** để tới sơ đồ trên Landing. Present và kiểm các thao tác trong checklist dưới.
 
-Plugin nhận diện vùng V39/V38 và các bản cũ để thay đúng phần managed; giữ node ngoài vùng plugin và ảnh chủ dự án thay tay. Hủy/lỗi trước commit giữ bản trước. Ghi chú ngoài vùng plugin có thể làm vị trí bộ mới dịch sang bên để tránh chồng lấp.
+Plugin thay các node do plugin quản lý khi dựng xong; nên nhân bản file trước nếu đã sửa tay nhiều. Lỗi hoặc nhấn Dừng giữ bản trước; ảnh sản phẩm sửa tay và node ngoài vùng plugin được bảo toàn. Không chạy đồng thời hai bản plugin.
 
-## Thay đổi V40
+## Mobile V41
 
-- Newsletter desktop chỉ email + Đăng ký; bỏ dòng tick. Website/API cũng đổi email-only, giữ validation/CSRF/throttle/chống trùng; không gửi consent:true ngầm.
-- Desktop giữ header76/lề2%/5cột/catalog25trang/Mới10/Gợi ý15 không trùng; chi tiết đầy đủ, auth giữ số lượng, Mua ngay riêng giữ giỏ, quote → review → đặt/thanh toán và trạng thái lỗi/pending/expiry/manual refresh.
-- Mobile **402×874 là thiết kế app**: status bar, app bar/back,4tab và home indicator; không breadcrumb/footer/map/partner web. Home có search,6shortcut danh mục, feed cuộn ngang; catalog2cột. Không bê hai banner biên tập desktop sang app. Chưa triển khai ứng dụng native.
-- Landing page có section **User Flow · Luồng hoạt động** với8sơ đồ editable có bước/điều kiện/mũi tên: khám phá; tài khoản; giỏ/Mua ngay; giao hàng/VNPAY; nhận tại quầy; theo dõi/hủy; quản trị; bản tin website. Đây là sơ đồ giải thích, không gọi provider.
+- Bốn tab Trang chủ/Danh mục/Giỏ hàng/Tài khoản luôn hiện ở màn thường. Hộp thoại mở trên màn nền và giữ đóng/quay lại theo ngữ cảnh.
+- Header112px, điều hướng80px ở cuối khung874px. Trang có hành động mua dùng thêm72px phía trên tab; nội dung cuộn có viewport riêng, không nằm phía sau CTA.
+- Chi tiết: nút icon **Thêm vào giỏ hàng** và chữ **Mua ngay**; giữ sản phẩm/số lượng qua đăng nhập, Mua ngay không xóa giỏ đã lưu.
+- Giỏ hàng gọn: hàng/số lượng/xóa, tạm tính và chú thích phí một lần; nút **Thanh toán**. Chọn giao/nhận tại cửa hàng ở bước thông tin.
+- Form checkout: **Tiếp tục**; bước xem lại chỉ đọc có **Thay đổi** và **Đặt hàng/Đặt trước**. Phí và tổng tiền vẫn đúng theo loại đơn.
+- Không dùng ghi chú kỹ thuật hoặc marketing thừa thay thông tin sản phẩm/trạng thái cần thiết.
 
-## Dữ liệu và kiểm tra
+## User Flow trên Landing
 
-35SKU lấy mẫu, không giới hạn137SKU website. Giá/đơn/QR là dữ liệu minh họa; Return không tự quyết định paid. Cả35ảnh mẫu PNG giữ nguyên pixel nguồn đã kiểm SHA256; ảnh thay tay được ưu tiên giữ khi chạy lại.
+8sơ đồ editable: khám phá, tài khoản, giỏ/Mua ngay, giao hàng/thanh toán, nhận tại cửa hàng, theo dõi/hủy, quản trị và bản tin. Hình tròn vàng bắt đầu; hình chữ nhật xanh nhạt là thao tác; hình thoi là quyết định; hình tròn xanh lá kết thúc. Mũi tên có nhãn và đường quay lại, không dùng chữ BƯỚC/ĐIỀU KIỆN trên mỗi node.
 
-Từ root: `python thu-thanh-figma-clicon/build.py`, `node scripts/test-figma-clicon.cjs`, `python scripts/verify-store-assets.py`. Test kiểm geometry/containment/labels/navigation/auth/money/quantity,upgradeV38/manual photos/atomic rollback/cancel và kết quả thanh toán. Preview SVG ở `output/figma/preview`, manifest luồng ở `output/figma/LUONG-THIET-KE.json`.
+Luồng mô tả điều người dùng thấy/làm. Mua ngay giữ giỏ cũ; Return không tự quyết định đã trả; chưa rõ tiền thì chờ xác nhận/đối soát; không hủy hoặc trả tồn khi chưa xác nhận chưa thanh toán. Bản tin chỉ email + Đăng ký, không checkbox.
 
-Mock/preview browser không thay nghiệm thu Figma native: chủ dự án cần import/Run/Present. Không có cloud file link trong tác vụ này; chưa sửa hoặc kiểm một canvas cloud cụ thể.
+## Present: kiểm nhanh
 
+1. Trang chủ → danh mục/tìm kiếm → chi tiết; tab luôn nhìn thấy khi cuộn.
+2. Thêm giỏ/Mua ngay ở chi tiết → đăng nhập hoặc đăng ký → tiếp tục đúng lựa chọn, số lượng1–2; không ghi thêm hàng khi quay lại.
+3. Giỏ → đổi số lượng/xóa → Thanh toán → giao/nhận tại quầy → Tiếp tục → xem lại/Thay đổi → Đặt hàng.
+4. Kiểm thành công/thất bại/chờ/hết hạn/đối soát, đơn hàng và hủy; không biến trạng thái chưa rõ thành paid.
+5. Tab/CTA không che trường cuối, giá hoặc hàng cuối; trên mỗi màn chỉ có một home indicator, dưới tab bar.
 
-## V40 — scrollbar, footer và mobile commerce
+Đây là prototype35SKU mẫu; luồng mua tương tác minh họa bằng cuốn Toán1 đầu tiên, số lượng1–2. Các SKU khác không được gán nhầm giao dịch của cuốn đầu. Website thật dùng Laravel API và catalog hiện hành. QR là mẫu vô hại, không chuyển tiền; plugin không gọi email/provider/DB.
 
-- Desktop bestseller: bỏ hai nút lên/xuống, có rail/thumb scrollbar và viewport overflow dọc. Trong Present, cuộn nội dung bằng con lăn/trackpad/vuốt. Rail/thumb trong thiết kế minh họa trạng thái đầu; không phải DOM scrollbar của trình duyệt. Website dùng scrollbar native thật và hỗ trợ bàn phím chọn hạng.
-- Footer desktop: khoảng heading/link và dòng liên kết được thu gọn; không còn các hàng48px cách quá xa. Mobile app không có footer website.
-- Mobile: search cố định trên app bar;6shortcut danh mục; thẻ sản phẩm292px,2cột; bestseller và sản phẩm mới dạngrail; gợi ý dạnggrid. Tab đang chọn có nền/nhấn màu rõ. Chỉ tham khảo pattern app mua sắm, giữ nhận diện Thu Thanh; không chép thương hiệu/campaign Shopee.
-- Chi tiết có thanh Thêm giỏ/Mua ngay cố định và số lượng rõ. Giỏ/tổng tiền gọn; checkout có bước Thông tin/Xác nhận, màn review chỉ đọc và cho Thay đổi; CTA cố định tách khỏi tabbar. Đơn hàng dùng filter trạng thái/card rõ; tài khoản có shortcut Đơn hàng/Giỏ.
-- Giữ auth/quantity/directcart/quote-review và quy tắc paid/tồn; không thay API/backend/dữ liệu. Tám UserFlow và bảo toàn ảnh sửa tay/rollback vẫn được kiểm; cần import V40 và Run để canvas thật đổi.
+## Build và kiểm tra source
+
+`python thu-thanh-figma-clicon/build.py` tạo ZIP V41 trong output/figma. `node scripts/test-figma-clicon.cjs` kiểm geometry, route, tiền/số lượng,8UserFlow, cập nhật riêng mobile giữ desktop, nâng bản V40 và rollback/cancel. Nếu source catalog không nằm ở backend/database/catalog.json trên máy kiểm, đặt biến test-only THUTHANH_CATALOG_SOURCE trỏ tới snapshot catalog đã xác minh; không đưa snapshot private vào Git.
+
+Native Figma đã được sửa một phần qua MCP ngày21/11; giới hạn lượt gọi Starter chặn phần kiểm cuối/UserFlow. **Phải chạy V41 trong file để áp dụng đầy đủ bản mới**; preview/mock không thay nghiệm thu canvas thật. Xem docs/FIGMA-REVIEW.md để phân biệt bằng chứng native và offline.

@@ -1,3 +1,31 @@
+# Rà soát Figma — V41 / D115, 21/11/2026
+
+File chủ dự án: https://www.figma.com/design/H6ixSJmRWBtwI9B1CDhEBi/Untitled?node-id=7-25879 . Phiên MCP:7acb55df-2d5d-4f0d-a642-987524fdd59e.
+
+## Đã sửa trực tiếp và phần chưa thể xác nhận
+
+Đọc canvas106mobileframes phát hiện root Auto Layout/constraints làm bar ở y âm hoặc574, che nội dung như screenshot. Đã sửa trực tiếp101màn thường: viewport cuộn riêng, nav4đích ở y794, CTA ở y722 khi cần, chi tiết có icon giỏ và Mua ngay; giữ29binding hành động. 5khung hộp thoại giữ cơ chế trên màn nền. Sau bulk mutation thành công, Figma Starter báo hết lượt MCP nên không thể chụp/đọc kiểm cuối hoặc thay8UserFlow trên canvas. Không tuyên bố native đã hoàn tất. Hai screenshot native đầu chỉ là bước sửa thử, không phải chứng cứ cuối.
+
+## Bản offline hoàn thiện để áp dụng
+
+ZIP THUTHANH-FIGMA-V41.zip và source ở D:/ThuThanh-review-dong/thu-thanh-figma-clicon. Plugin trong workspace gốc đã bị xóa ngoài phiên; không tự restore hoặc ghi đè deletion đó. Bản ZIP mới được bàn giao trong output/figma tại workspace gốc.
+
+V41 dùng viewport112..722 khi có CTA,112..794 khi không; tab bar794..874. CTA và nav tách biệt, constraints MIN; không áp dụng Auto Layout cho shell định vị này. Nội dung bên trong vẫn dùng Auto Layout. Nav là instance của component dùng chung. Giỏ bỏ nút/tiền lặp thừa, phí vẫn là tạm tính tới checkout. Form Tiếp tục, review Đặt hàng/Đặt trước. Icon thêm giỏ có đúng route và trạng thái disabled, không dùng biểu tượng không bấm được.
+
+8UserFlow editable được vẽ lại: circle Start/End, rectangle thao tác, diamond quyết định, nhánh có nhãn và loop; cùng centerline, không chữ BƯỚC/ĐIỀU KIỆN thừa. Giữ authintent/quantity/directcart/money/paid/reconcile/cancel invariants, không thêm API/DB/provider. Chế độ mặc định trong UI **Mobile + User Flow** giữ các node desktop nguyên ID, cập nhật mobile và Landing; full build vẫn có cho file mới.
+
+## Kiểm thực
+
+Mock cuối V41:214screens (212prototype+2review),8diagram,3pages,3287routes,35SKU;27925nodes/depth14. Kiểm mọi viewport/nav/action bands; nav ở tất cả101màn thường; shared navigation component,29purchase/primarybindings. Giá/số lượng/login/register/directBuy/quote-review/payment outcomes/admin/cancel và labels/containment đạt. UpgradeV40/39/38vàcácbảncũ, ảnh sửa tay, rollback/cancel và mobile-only giữdesktopIDs đạt. Log có injected failure/cancel chủ ý, cuối passed/exit0.
+
+Playwright đã render9màn app và2sơ đồ từ SVG các lớp mock, không phải screenshot native Figma cuối. Ảnh output/figma-d115/browse-v41.png,checkout-v41.png,account-v41.png,user-flow-v41.png. Cart/checkout/chi tiết giữ tab+CTA không chồng nhau; sơ đồ dùng đúng shape và không che labels. Ảnh136originals/35PNG không đổi; node syntax/build/ZIP kiểm riêng. Không chạy lại Laravel/website tests cho thay đổi plugin, không gọi provider.
+
+## Bước còn lại để hoàn tất native
+
+Giải nén V41 → import manifest → chạy plugin trong file trên → giữ **Mobile + User Flow** → **Cập nhật thiết kế** → Present. Chỉ import không cập nhật canvas. Chủ dự án kiểm native sau Run; hoặc tiếp tục MCP khi quota được khôi phục. Trạng thái task in_progress cho tới khi áp dụng/kiểm phần native còn lại, không coi skipped/not_run là passed. Backend gate/release giữ nguyên.
+
+## Bằng chứng D112 trước đây (lịch sử)
+
 # Rà soát Figma offline — V40 / D112, 20/11/2026
 
 Bản hiện hành là `output/figma/THUTHANH-FIGMA-V40.zip`. Sửa theo hai screenshot chủ dự án: bestseller dùng viewport cuộn và rail/thumb thay nút mũi tên; footer link28px/step32px, heading gần nội dung hơn. Website giữ native scrollbar, footerdesktop30px+gap2; mobileweb giữ44px vùng chạm.

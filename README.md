@@ -58,7 +58,7 @@ Desktop dùng5cột, catalog25sản phẩm/trang; trang chủ tối đa10sản p
 | Realtime | Pusher, private channel theo đơn | App key public; secret chỉ ở API |
 | Thanh toán | VNPAY adapter, callback/IPN và đối soát | Sandbox trước nghiệm thu thật |
 | Kiểm tra | PHPUnit, Node test runner, Playwright, GitHub Actions | Database test cô lập |
-| Thiết kế | Plugin Figma offline V40, web/mobile và User Flow | Owner import/Run/Present |
+| Thiết kế | Plugin Figma offline V41, web/mobile và User Flow | Owner import/Run/Present |
 
 ## Kiến trúc và thiết kế
 
@@ -71,7 +71,7 @@ Trình duyệt → Next.js → Laravel API → PostgreSQL. API xử lý quyền 
 | `backend/app/` | Controllers, FormRequests, Policies, Services, Models, Jobs và Notifications |
 | `backend/database/`, `backend/tests/` | Migrations, dữ liệu catalog công khai và tests |
 | `deploy/`, `scripts/` | Mẫu triển khai, local helpers, kiểm thử/monitoring |
-| `thu-thanh-figma-clicon/` | Source/build/manifest của plugin Figma V40 |
+| `thu-thanh-figma-clicon/` | Source/build/manifest của plugin Figma V41 |
 | `docs/` | Đặc tả, runbook, báo cáo và checkpoint |
 
 ### Thiết kế và minh họa
@@ -146,7 +146,7 @@ Trong `backend/`: `php artisan app:environment-check`, `php artisan queue:failed
 | Frontend syntax/import | 71file đạt | D114 |
 | Frontend unit/API client | 16tests đạt | D114 |
 | Production build | 22static +2dynamic routes | D114 |
-| Plugin Figma V40 | 214screens,8UserFlow,3130routes; mock đạt | D114 |
+| Plugin Figma V41 | 214screens,8UserFlow,3287routes; mock đạt, native còn chờ | D115 |
 | Backend | 177tests,2170assertions, không lỗi/skipped | D107 |
 | Coverage backend | 91,35% | D106 |
 | Chromium E2E đầy đủ | 29/29 | D106 |

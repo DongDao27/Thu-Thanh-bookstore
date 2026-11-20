@@ -1,4 +1,12 @@
-# Bàn giao hiện hành — D114, 20/11/2026
+# Bàn giao hiện hành — D115, 21/11/2026
+
+Task F00-MOBILE-V41 in_progress vì native acceptance còn chờ. [Review](FIGMA-REVIEW.md) phân biệt rõ native/offline. FileFigma H6ixSJmRWBtwI9B1CDhEBi/mobilepage7:25879 đã patch thành công101màn thường,24CTA/5productbars/29bindings;5overlaysgiữ. Sau đó Figma Starter hết lượtMCP,không thể QA ảnh cuối hoặc cập nhật8UserFlow trong canvas. Đừng nói toàn bộFigma đã xong.
+
+SourceV41 hoàn thiện ở D:/ThuThanh-review-dong/thu-thanh-figma-clicon,khôngrestoreplugin bịxóa ở workspacegốc. ZIP bàn giao output/figma/THUTHANH-FIGMA-V41.zip;giải nén/importmanifest/chạy plugin **Mobile+UserFlow** mặc định rồi **Cập nhật thiết kế**. Chế độ này giữ nguyên desktopIDs,update mobile/Landing và8flow chuẩn. User cần Present để nghiệm thu native hoặc tiếp tụcMCP khiquotareset. Chỉ import không đổi canvas.
+
+Kiểm V41 mock214screens/8flow/3287routes/27925nodes/depth14;101normalmobile navalways,CTA722/nav794;money/auth/quantity/directcart/payment/cancel/upgradeV40/manualphotos/rollback/cancel/mobileonly đạt. Preview9app+2flow ở output/figma-d115 đãxem,khôngphảinativefinal. Evidence .runtime/d115-evidence.json/log d115-figma-final.log. No backend/business/schema/provider/deploy/merge;gatesexternally_blocked/not_started giữ. PR22 được quan sát OPEN/ready (đã đổi khỏi draft ngoài phiên);giữ nguyên trạng thái,không merge.388fileThiện khôngchạm. Checkpoint cập nhật một người,giữ nguyên originalGitindex/branch/remotePayment và mọi userdeletions/privateDB/keys/media.
+
+## Bàn giao D114 (lịch sử)
 
 Task B00-DONG-PR hoàn tất xuất bản theo yêu cầu. **[PR#22](https://github.com/DongDao27/Thu-Thanh-bookstore/pull/22) đang OPEN/draft**, base main, branch feat/dong-storefront-figma-docs,authorDongDao27. Chưa merge source hoặc deploy. Backend/release gates vẫn externally_blocked/not_started; tiếp B07/B00-PG-LIVE và Thiện PR backend.
 

@@ -1,10 +1,932 @@
 [
-  {"id":"discover","title":"01 · Khám phá sản phẩm","note":"Guest xem được catalog và chi tiết. Web dùng menu/header; app dùng search, shortcut và bottom navigation.","nodes":[["home","Trang chủ",0,0],["catalog","Danh mục / tìm kiếm",1,0],["filter","Lọc, sắp xếp, phân trang",2,0],["detail","Chi tiết sản phẩm",3,0],["quantity","Chọn số lượng",4,0],["intent","Thêm giỏ / Mua ngay",5,0],["empty","Không có kết quả",2,1],["retry","Đổi từ khóa / Thử lại",3,1]],"edges":[["home","catalog"],["catalog","filter"],["filter","detail","Có hàng"],["detail","quantity"],["quantity","intent"],["filter","empty","Rỗng / lỗi"],["empty","retry"],["retry","catalog","Đọc lại"]]},
-  {"id":"auth","title":"02 · Tài khoản và tiếp tục thao tác","note":"Giữ sản phẩm/số lượng/ý định qua đăng nhập. Không thêm hàng chỉ vì đóng dialog hoặc quay lại.","nodes":[["intent","Thao tác cần tài khoản",0,0],["session","Đã đăng nhập?",1,0,"decision"],["login","Đăng nhập / đăng ký",2,0],["validate","Thông tin hợp lệ?",3,0,"decision"],["continue","Tiếp tục đúng ý định",4,0],["account","Tài khoản / đăng xuất",5,0],["error","Báo lỗi, cho sửa lại",3,1],["forgot","Quên mật khẩu → email",1,1],["reset","Link hợp lệ → đổi mật khẩu",2,1]],"edges":[["intent","session"],["session","login","Chưa"],["session","continue","Đã có phiên"],["login","validate"],["validate","continue","Đúng"],["validate","error","Sai"],["error","login","Thử lại"],["login","forgot","Quên mật khẩu"],["forgot","reset"],["reset","login"],["continue","account"]]},
-  {"id":"checkout","title":"03 · Giỏ hàng và Mua ngay riêng","note":"Laravel tính lại giá/tồn. Mua ngay không thêm/xóa giỏ đã lưu; request đặt đơn dùng Idempotency-Key.","nodes":[["detail","Sản phẩm + số lượng",0,0],["action","Chọn cách mua",1,0,"decision"],["cart","Giỏ: sửa số lượng / xóa",2,0],["receive","Chọn giao / nhận tại quầy",3,0],["quote","Lấy báo giá từ Laravel",4,0],["review","Review → Đặt hàng",5,0],["direct","Mua ngay: checkout riêng",2,1],["invalid","Giá/tồn đổi hoặc giỏ rỗng",4,1],["refresh","Sửa lựa chọn / lấy quote mới",5,1]],"edges":[["detail","action"],["action","cart","Thêm giỏ"],["action","direct","Mua ngay"],["cart","receive"],["direct","receive","Giữ giỏ cũ"],["receive","quote"],["quote","review","Hợp lệ"],["quote","invalid","Không hợp lệ"],["invalid","refresh"],["refresh","quote"]]},
-  {"id":"delivery","title":"04 · Giao hàng và thanh toán VNPAY","note":"Giữ tồn 5 phút; retry không gia hạn. Return không tự quyết định paid: chữ ký, amount/reference và xác nhận server là căn cứ.","nodes":[["review","Xác nhận báo giá",0,0],["order","Tạo một đơn, giữ tồn 5 phút",1,0],["provider","Khởi tạo / mở VNPAY",2,0],["verify","Server xác minh giao dịch",3,0,"decision"],["paid","Đã thanh toán",4,0],["fulfill","Chuẩn bị → giao → hoàn tất",5,0],["initfail","Khởi tạo lỗi: về đơn đã tạo",2,1],["uncertain","Chưa rõ → chờ đối soát",3,1],["unpaid","Xác nhận chưa trả / hết hạn",4,1]],"edges":[["review","order"],["order","provider"],["provider","verify","Return / IPN / QueryDr"],["verify","paid","Hợp lệ, đã trả"],["paid","fulfill"],["provider","initfail","Lỗi mở cổng"],["initfail","provider","Thử lại khi còn hạn"],["verify","uncertain","Kết quả chưa rõ"],["verify","unpaid","Chưa trả"],["uncertain","verify","Đối soát / đọc lại"]]},
-  {"id":"pickup","title":"05 · Nhận tại cửa hàng","note":"Giữ tồn 24 giờ; không tự gia hạn. Tiền mặt do admin xác nhận, QR chỉ paid sau xác minh server; giao hàng khi đủ điều kiện.","nodes":[["review","Review đơn nhận tại quầy",0,0],["order","Tạo đơn, giữ tồn 24 giờ",1,0],["code","Mã đơn / trạng thái",2,0],["ready","Cửa hàng chuẩn bị, sẵn sàng",3,0],["pay","Trả tiền mặt / QR tại quầy",4,0],["handover","Đủ thanh toán → bàn giao",5,0],["online","Có thể thanh toán trước",2,1],["verify","Xác minh tiền / giao dịch",4,1,"decision"],["pending","Chưa rõ → đối soát",5,1]],"edges":[["review","order"],["order","code"],["code","ready"],["ready","pay"],["pay","verify"],["verify","handover","Đã trả hợp lệ"],["verify","pending","Chưa rõ"],["code","online"],["online","verify","VNPAY"],["pending","verify","Kiểm tra lại"]]},
-  {"id":"orders","title":"06 · Theo dõi và hủy đơn","note":"Chỉ chủ đơn/admin được đọc. Realtime chỉ báo thay đổi rồi đọc API. Chỉ hủy/release khi xác nhận chưa thanh toán.","nodes":[["orders","Đơn hàng của tôi",0,0],["owner","Kiểm tra quyền sở hữu",1,0,"decision"],["detail","Chi tiết đơn",2,0],["state","Trạng thái cho phép hủy?",3,0,"decision"],["cancel","Hủy + trả tồn một lần",4,0],["merge","Gộp hàng về giỏ một lần",5,0],["track","Pusher / polling → đọc API",2,1],["review","Chưa rõ tiền → đối soát",3,1],["deny","Không đủ quyền: từ chối",1,1]],"edges":[["orders","owner"],["owner","detail","Đúng quyền"],["owner","deny","Sai quyền"],["detail","state","Yêu cầu hủy"],["state","cancel","Đã xác nhận chưa trả"],["cancel","merge"],["detail","track","Theo dõi"],["track","detail"],["state","review","Chưa rõ / đang xử lý"],["review","detail","Đọc trạng thái mới"]]},
-  {"id":"admin","title":"07 · Quản trị nhà sách","note":"Laravel kiểm role, giá, tồn và trạng thái. Ghi lịch sử điều chỉnh/đối soát; không sửa giá hoặc snapshot đơn cũ theo catalog mới.","nodes":[["login","Đăng nhập quản trị",0,0],["role","Có quyền admin?",1,0,"decision"],["dashboard","Dashboard",2,0],["catalog","Sản phẩm / danh mục / ảnh",3,0],["stock","Điều chỉnh tồn có lý do",4,0],["orders","Xử lý và bàn giao đơn",5,0],["denied","Từ chối truy cập",1,1],["reports","Doanh thu / CSV",3,1],["reconcile","Đối soát thanh toán",4,1],["audit","Lịch sử và kiểm kết quả",5,1]],"edges":[["login","role"],["role","dashboard","Admin"],["role","denied","Không"],["dashboard","catalog"],["catalog","stock"],["stock","orders"],["dashboard","reports"],["orders","reconcile"],["reconcile","audit"],["reports","audit"]]},
-  {"id":"newsletter","title":"08 · Đăng ký nhận bản tin trên website","note":"Chỉ email + Đăng ký. Thao tác gửi ghi ý định đăng ký; không checkbox hoặc consent:true ẩn, không tự gửi campaign.","nodes":[["footer","Footer: nhập email",0,0],["submit","Nhấn Đăng ký",1,0],["csrf","CSRF + giới hạn tần suất",2,0],["validate","Email hợp lệ?",3,0,"decision"],["save","Normalize + unique email",4,0],["done","Thông báo đã ghi nhận",5,0],["error","Email sai / lỗi / quá giới hạn",3,1],["retry","Sửa email / thử lại",4,1]],"edges":[["footer","submit"],["submit","csrf"],["csrf","validate"],["validate","save","Hợp lệ"],["save","done","Mới / đã có đều 202"],["validate","error","Không hợp lệ"],["csrf","error","419 / 429"],["error","retry"],["retry","submit"]]}
+  {
+    "id": "discover",
+    "title": "01 · Tìm và xem sản phẩm",
+    "note": "Người dùng duyệt danh mục, tìm kiếm và xem đúng sản phẩm; không có kết quả thì đổi lựa chọn.",
+    "nodes": [
+      [
+        "start",
+        "Bắt đầu",
+        0,
+        0,
+        "start"
+      ],
+      [
+        "home",
+        "Mở Trang chủ",
+        1,
+        0,
+        "step"
+      ],
+      [
+        "catalog",
+        "Tìm kiếm hoặc chọn danh mục",
+        2,
+        0,
+        "step"
+      ],
+      [
+        "match",
+        "Có sản phẩm phù hợp?",
+        3,
+        0,
+        "decision"
+      ],
+      [
+        "detail",
+        "Xem chi tiết sản phẩm",
+        4,
+        0,
+        "step"
+      ],
+      [
+        "quantity",
+        "Chọn số lượng",
+        5,
+        0,
+        "step"
+      ],
+      [
+        "end",
+        "Chọn cách mua",
+        6,
+        0,
+        "end"
+      ],
+      [
+        "empty",
+        "Đổi từ khóa hoặc bộ lọc",
+        3,
+        1,
+        "step"
+      ]
+    ],
+    "edges": [
+      [
+        "start",
+        "home"
+      ],
+      [
+        "home",
+        "catalog"
+      ],
+      [
+        "catalog",
+        "match"
+      ],
+      [
+        "match",
+        "detail",
+        "Có"
+      ],
+      [
+        "match",
+        "empty",
+        "Không"
+      ],
+      [
+        "empty",
+        "catalog",
+        "Tìm lại"
+      ],
+      [
+        "detail",
+        "quantity"
+      ],
+      [
+        "quantity",
+        "end"
+      ]
+    ]
+  },
+  {
+    "id": "auth",
+    "title": "02 · Đăng nhập và tiếp tục mua",
+    "note": "Giữ đúng sản phẩm, số lượng và ý định qua đăng nhập. Quay lại hoặc đóng hộp thoại không tự thêm hàng.",
+    "nodes": [
+      [
+        "start",
+        "Bắt đầu",
+        0,
+        0,
+        "start"
+      ],
+      [
+        "intent",
+        "Nhấn thêm giỏ hoặc Mua ngay",
+        1,
+        0,
+        "step"
+      ],
+      [
+        "session",
+        "Đã đăng nhập?",
+        2,
+        0,
+        "decision"
+      ],
+      [
+        "continue",
+        "Tiếp tục thao tác đã chọn",
+        5,
+        0,
+        "step"
+      ],
+      [
+        "end",
+        "Tiếp tục mua",
+        6,
+        0,
+        "end"
+      ],
+      [
+        "login",
+        "Đăng nhập hoặc tạo tài khoản",
+        2,
+        1,
+        "step"
+      ],
+      [
+        "valid",
+        "Thông tin đúng?",
+        3,
+        1,
+        "decision"
+      ],
+      [
+        "error",
+        "Hiện lỗi và cho sửa lại",
+        4,
+        1,
+        "step"
+      ],
+      [
+        "reset",
+        "Gửi liên kết đổi mật khẩu",
+        1,
+        1,
+        "step"
+      ]
+    ],
+    "edges": [
+      [
+        "start",
+        "intent"
+      ],
+      [
+        "intent",
+        "session"
+      ],
+      [
+        "session",
+        "continue",
+        "Có"
+      ],
+      [
+        "session",
+        "login",
+        "Không"
+      ],
+      [
+        "login",
+        "valid"
+      ],
+      [
+        "valid",
+        "continue",
+        "Có"
+      ],
+      [
+        "valid",
+        "error",
+        "Không"
+      ],
+      [
+        "error",
+        "login",
+        "Sửa lại"
+      ],
+      [
+        "login",
+        "reset",
+        "Quên mật khẩu"
+      ],
+      [
+        "reset",
+        "login",
+        "Đổi xong"
+      ],
+      [
+        "continue",
+        "end"
+      ]
+    ]
+  },
+  {
+    "id": "checkout",
+    "title": "03 · Thêm giỏ hoặc Mua ngay",
+    "note": "Mua ngay không thêm/xóa giỏ đã lưu. Giá, tồn và phí được kiểm lại trước khi người dùng xác nhận đặt hàng.",
+    "nodes": [
+      [
+        "start",
+        "Bắt đầu",
+        0,
+        0,
+        "start"
+      ],
+      [
+        "detail",
+        "Xem sản phẩm và số lượng",
+        1,
+        0,
+        "step"
+      ],
+      [
+        "choice",
+        "Chọn Mua ngay?",
+        2,
+        0,
+        "decision"
+      ],
+      [
+        "cart",
+        "Giỏ hàng: sửa số lượng, xóa",
+        3,
+        0,
+        "step"
+      ],
+      [
+        "receive",
+        "Chọn cách nhận, điền thông tin",
+        4,
+        0,
+        "step"
+      ],
+      [
+        "review",
+        "Xem lại hàng, phí và tổng tiền",
+        5,
+        0,
+        "step"
+      ],
+      [
+        "end",
+        "Xác nhận đơn",
+        6,
+        0,
+        "end"
+      ],
+      [
+        "direct",
+        "Thanh toán riêng sản phẩm này",
+        3,
+        1,
+        "step"
+      ],
+      [
+        "valid",
+        "Giá và tồn còn hợp lệ?",
+        4,
+        1,
+        "decision"
+      ],
+      [
+        "changed",
+        "Báo thay đổi, sửa lựa chọn",
+        5,
+        1,
+        "step"
+      ]
+    ],
+    "edges": [
+      [
+        "start",
+        "detail"
+      ],
+      [
+        "detail",
+        "choice"
+      ],
+      [
+        "choice",
+        "cart",
+        "Không: thêm giỏ"
+      ],
+      [
+        "choice",
+        "direct",
+        "Có"
+      ],
+      [
+        "cart",
+        "receive"
+      ],
+      [
+        "direct",
+        "receive",
+        "Giữ giỏ cũ"
+      ],
+      [
+        "receive",
+        "valid"
+      ],
+      [
+        "valid",
+        "review",
+        "Có"
+      ],
+      [
+        "valid",
+        "changed",
+        "Không"
+      ],
+      [
+        "changed",
+        "receive",
+        "Kiểm tra lại"
+      ],
+      [
+        "review",
+        "end"
+      ]
+    ]
+  },
+  {
+    "id": "delivery",
+    "title": "04 · Giao hàng và thanh toán",
+    "note": "Giữ tồn 5 phút, thử lại không gia hạn. Return không tự quyết định paid; chỉ xác nhận đã trả sau khi backend kiểm giao dịch.",
+    "nodes": [
+      [
+        "start",
+        "Bắt đầu",
+        0,
+        0,
+        "start"
+      ],
+      [
+        "review",
+        "Nhấn Đặt hàng",
+        1,
+        0,
+        "step"
+      ],
+      [
+        "order",
+        "Nhận mã đơn và hạn thanh toán",
+        2,
+        0,
+        "step"
+      ],
+      [
+        "provider",
+        "Mở VNPAY và thanh toán",
+        3,
+        0,
+        "step"
+      ],
+      [
+        "result",
+        "Kết quả thanh toán?",
+        4,
+        0,
+        "decision"
+      ],
+      [
+        "paid",
+        "Hiện Đã thanh toán",
+        5,
+        0,
+        "step"
+      ],
+      [
+        "end",
+        "Theo dõi giao hàng",
+        6,
+        0,
+        "end"
+      ],
+      [
+        "pending",
+        "Hiện Đang xác nhận",
+        4,
+        1,
+        "step"
+      ],
+      [
+        "failed",
+        "Báo chưa trả hoặc đã hết hạn",
+        5,
+        1,
+        "step"
+      ]
+    ],
+    "edges": [
+      [
+        "start",
+        "review"
+      ],
+      [
+        "review",
+        "order"
+      ],
+      [
+        "order",
+        "provider"
+      ],
+      [
+        "provider",
+        "result"
+      ],
+      [
+        "result",
+        "paid",
+        "Đã trả"
+      ],
+      [
+        "paid",
+        "end"
+      ],
+      [
+        "result",
+        "pending",
+        "Chờ xác nhận"
+      ],
+      [
+        "pending",
+        "result",
+        "Đọc lại trạng thái"
+      ],
+      [
+        "result",
+        "failed",
+        "Chưa trả"
+      ],
+      [
+        "failed",
+        "provider",
+        "Thử lại còn hạn"
+      ]
+    ]
+  },
+  {
+    "id": "pickup",
+    "title": "05 · Nhận hàng tại cửa hàng",
+    "note": "Đơn nhận tại cửa hàng giữ tồn 24 giờ. Nhân viên xác nhận tiền mặt hoặc giao dịch hợp lệ trước khi bàn giao.",
+    "nodes": [
+      [
+        "start",
+        "Bắt đầu",
+        0,
+        0,
+        "start"
+      ],
+      [
+        "review",
+        "Xác nhận đơn nhận tại cửa hàng",
+        1,
+        0,
+        "step"
+      ],
+      [
+        "order",
+        "Nhận mã đơn và chờ chuẩn bị",
+        2,
+        0,
+        "step"
+      ],
+      [
+        "choice",
+        "Thanh toán trước?",
+        3,
+        0,
+        "decision"
+      ],
+      [
+        "counter",
+        "Đến cửa hàng, thanh toán",
+        4,
+        0,
+        "step"
+      ],
+      [
+        "handover",
+        "Nhân viên kiểm tiền và giao hàng",
+        5,
+        0,
+        "step"
+      ],
+      [
+        "end",
+        "Nhận hàng xong",
+        6,
+        0,
+        "end"
+      ],
+      [
+        "online",
+        "Thanh toán qua VNPAY",
+        3,
+        1,
+        "step"
+      ],
+      [
+        "verify",
+        "Đã xác nhận tiền?",
+        4,
+        1,
+        "decision"
+      ],
+      [
+        "pending",
+        "Chờ xác nhận, chưa bàn giao",
+        5,
+        1,
+        "step"
+      ]
+    ],
+    "edges": [
+      [
+        "start",
+        "review"
+      ],
+      [
+        "review",
+        "order"
+      ],
+      [
+        "order",
+        "choice"
+      ],
+      [
+        "choice",
+        "counter",
+        "Không"
+      ],
+      [
+        "choice",
+        "online",
+        "Có"
+      ],
+      [
+        "counter",
+        "handover"
+      ],
+      [
+        "online",
+        "verify"
+      ],
+      [
+        "verify",
+        "handover",
+        "Có"
+      ],
+      [
+        "verify",
+        "pending",
+        "Không"
+      ],
+      [
+        "pending",
+        "verify",
+        "Kiểm tra lại"
+      ],
+      [
+        "handover",
+        "end"
+      ]
+    ]
+  },
+  {
+    "id": "orders",
+    "title": "06 · Theo dõi và hủy đơn",
+    "note": "Chỉ chủ đơn/admin được đọc. Chỉ hủy/release khi xác nhận chưa thanh toán; tiền chưa rõ phải chờ đối soát.",
+    "nodes": [
+      [
+        "start",
+        "Bắt đầu",
+        0,
+        0,
+        "start"
+      ],
+      [
+        "orders",
+        "Mở Đơn hàng của tôi",
+        1,
+        0,
+        "step"
+      ],
+      [
+        "detail",
+        "Xem chi tiết và trạng thái",
+        2,
+        0,
+        "step"
+      ],
+      [
+        "choice",
+        "Muốn hủy đơn?",
+        3,
+        0,
+        "decision"
+      ],
+      [
+        "allowed",
+        "Đơn được phép hủy?",
+        4,
+        0,
+        "decision"
+      ],
+      [
+        "confirm",
+        "Xác nhận hủy",
+        5,
+        0,
+        "step"
+      ],
+      [
+        "end",
+        "Đã hủy, hàng về giỏ",
+        6,
+        0,
+        "end"
+      ],
+      [
+        "track",
+        "Theo dõi cập nhật mới",
+        3,
+        1,
+        "step"
+      ],
+      [
+        "denied",
+        "Hiện lý do, giữ trạng thái đơn",
+        4,
+        1,
+        "step"
+      ]
+    ],
+    "edges": [
+      [
+        "start",
+        "orders"
+      ],
+      [
+        "orders",
+        "detail"
+      ],
+      [
+        "detail",
+        "choice"
+      ],
+      [
+        "choice",
+        "allowed",
+        "Có"
+      ],
+      [
+        "choice",
+        "track",
+        "Không"
+      ],
+      [
+        "track",
+        "detail",
+        "Đọc lại"
+      ],
+      [
+        "allowed",
+        "confirm",
+        "Có"
+      ],
+      [
+        "allowed",
+        "denied",
+        "Không"
+      ],
+      [
+        "denied",
+        "detail",
+        "Xem trạng thái"
+      ],
+      [
+        "confirm",
+        "end"
+      ]
+    ]
+  },
+  {
+    "id": "admin",
+    "title": "07 · Quản trị nhà sách",
+    "note": "Kiểm quyền admin trước thao tác. Điều chỉnh tồn, thanh toán và đối soát có lịch sử; không sửa snapshot đơn cũ.",
+    "nodes": [
+      [
+        "start",
+        "Bắt đầu",
+        0,
+        0,
+        "start"
+      ],
+      [
+        "login",
+        "Đăng nhập quản trị",
+        1,
+        0,
+        "step"
+      ],
+      [
+        "role",
+        "Có quyền quản trị?",
+        2,
+        0,
+        "decision"
+      ],
+      [
+        "dashboard",
+        "Mở Tổng quan",
+        3,
+        0,
+        "step"
+      ],
+      [
+        "work",
+        "Quản lý sản phẩm, tồn và đơn",
+        4,
+        0,
+        "step"
+      ],
+      [
+        "audit",
+        "Kiểm kết quả và lịch sử",
+        5,
+        0,
+        "step"
+      ],
+      [
+        "end",
+        "Hoàn tất",
+        6,
+        0,
+        "end"
+      ],
+      [
+        "denied",
+        "Thông báo không có quyền",
+        2,
+        1,
+        "step"
+      ],
+      [
+        "reports",
+        "Xem doanh thu, xử lý đối soát",
+        4,
+        1,
+        "step"
+      ]
+    ],
+    "edges": [
+      [
+        "start",
+        "login"
+      ],
+      [
+        "login",
+        "role"
+      ],
+      [
+        "role",
+        "dashboard",
+        "Có"
+      ],
+      [
+        "role",
+        "denied",
+        "Không"
+      ],
+      [
+        "denied",
+        "login",
+        "Đăng nhập lại"
+      ],
+      [
+        "dashboard",
+        "work"
+      ],
+      [
+        "dashboard",
+        "reports"
+      ],
+      [
+        "work",
+        "audit"
+      ],
+      [
+        "reports",
+        "audit"
+      ],
+      [
+        "audit",
+        "end"
+      ]
+    ]
+  },
+  {
+    "id": "newsletter",
+    "title": "08 · Đăng ký nhận bản tin",
+    "note": "Website chỉ cần email và nhấn Đăng ký, không checkbox. Email sai hoặc quá giới hạn hiển thị lỗi dễ hiểu; không tự gửi chiến dịch.",
+    "nodes": [
+      [
+        "start",
+        "Bắt đầu",
+        0,
+        0,
+        "start"
+      ],
+      [
+        "email",
+        "Nhập email ở footer",
+        1,
+        0,
+        "step"
+      ],
+      [
+        "submit",
+        "Nhấn Đăng ký",
+        2,
+        0,
+        "step"
+      ],
+      [
+        "valid",
+        "Email hợp lệ?",
+        3,
+        0,
+        "decision"
+      ],
+      [
+        "save",
+        "Ghi nhận đăng ký",
+        4,
+        0,
+        "step"
+      ],
+      [
+        "success",
+        "Hiện thông báo thành công",
+        5,
+        0,
+        "step"
+      ],
+      [
+        "end",
+        "Hoàn tất",
+        6,
+        0,
+        "end"
+      ],
+      [
+        "error",
+        "Hiện lỗi, hướng dẫn sửa email",
+        3,
+        1,
+        "step"
+      ]
+    ],
+    "edges": [
+      [
+        "start",
+        "email"
+      ],
+      [
+        "email",
+        "submit"
+      ],
+      [
+        "submit",
+        "valid"
+      ],
+      [
+        "valid",
+        "save",
+        "Có"
+      ],
+      [
+        "valid",
+        "error",
+        "Không"
+      ],
+      [
+        "error",
+        "email",
+        "Sửa lại"
+      ],
+      [
+        "save",
+        "success"
+      ],
+      [
+        "success",
+        "end"
+      ]
+    ]
+  }
 ]

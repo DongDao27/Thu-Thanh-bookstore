@@ -19,15 +19,15 @@ for logo in logos:
     data['brands'].append({**logo, 'image': base64.b64encode(content).decode('ascii')})
 data['brandSvgs'] = {tone: (project / f'frontend/public/brand/logo-{tone}.svg').read_text(encoding='utf-8') for tone in ['dark', 'light']}
 data['userFlows'] = json.loads((root / 'src/user-flows.json').read_text(encoding='utf-8'))
-data['build'] = {'version': 40, 'source_sha256': hashlib.sha256((root / 'src/plugin.js').read_bytes()).hexdigest(), 'logo_count': len(logos)}
+data['build'] = {'version': 41, 'source_sha256': hashlib.sha256((root / 'src/plugin.js').read_bytes()).hexdigest(), 'logo_count': len(logos)}
 data['bestsellerIds'] = list(dict.fromkeys(data['bestsellerIds'] + [p['id'] for p in data['products']]))[:10]
 assert source.count('/*__DATA__*/') == 1
 (root / 'code.js').write_text(source.replace('/*__DATA__*/', 'const DATA = ' + json.dumps(data, ensure_ascii=False, separators=(',', ':')) + ';'), encoding='utf-8')
-target = project / 'output/figma/THUTHANH-FIGMA-V40.zip'
+target = project / 'output/figma/THUTHANH-FIGMA-V41.zip'
 target.parent.mkdir(parents=True, exist_ok=True)
 with zipfile.ZipFile(target, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
     for name in ['manifest.json', 'code.js', 'ui.html', 'ICONS-LICENSE.txt', 'HUONG-DAN.md']:
         archive.write(root / name, name)
 with zipfile.ZipFile(target) as archive:
     assert archive.testzip() is None
-print(json.dumps({'version': 40, 'products': len(data['products']), 'logo_count': len(logos), 'archive': str(target), 'sha256': hashlib.sha256(target.read_bytes()).hexdigest()}))
+print(json.dumps({'version': 41, 'products': len(data['products']), 'logo_count': len(logos), 'archive': str(target), 'sha256': hashlib.sha256(target.read_bytes()).hexdigest()}))

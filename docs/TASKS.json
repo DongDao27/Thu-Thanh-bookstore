@@ -2037,6 +2037,44 @@
       ],
       "actual_commit": "078eba591c662f0d3596dec769fe40e41d3c1a68",
       "completed_at": "2026-11-20T23:29:43+07:00"
+    },
+    {
+      "id": "F00-MOBILE-V41",
+      "title": "D115 persistent mobile commerce navigation and standard user-flow diagrams",
+      "phase": "FRONTEND",
+      "status": "in_progress",
+      "depends_on": [
+        "F00-APP-POLISH",
+        "B00-DONG-PR"
+      ],
+      "functions": [],
+      "files": [
+        "thu-thanh-figma-clicon/src/plugin.js",
+        "thu-thanh-figma-clicon/src/user-flows.json",
+        "scripts/test-figma-clicon.cjs",
+        "docs/FIGMA-REVIEW.md"
+      ],
+      "acceptance": [
+        "101 ordinary mobile screens retain navigation with safe content/action bands",
+        "Cart icon/Buy now preserve original auth/quantity/order routes",
+        "8 editable flowcharts use start/end circles and decision diamonds",
+        "Apply and verify all requested changes in native Figma file"
+      ],
+      "required_checks": [
+        "plugin-mock-geometry-business-upgrade-rollback",
+        "native-figma-audit",
+        "flow-label-and-shape-containment",
+        "mobile-only-preserves-desktop",
+        "offline-preview"
+      ],
+      "evidence": [
+        "MCP native patch returned success:101screens/24actionbars/5productbars/29bindings;5overlay frames preserved.",
+        "Figma Starter call limit blocks native final screenshots and canvas UserFlow update;not passed.",
+        "Offline V41 mock passed214screens/8diagrams/3287routes/27925nodes/depth14;mobile-only preservesdesktop,upgradeV40/manualphoto/rollback/cancel passed.",
+        "Playwright previews9appviews+2flows reviewed;syntax/build/archive verification and artifact hash in .runtime/d115-evidence.json."
+      ],
+      "actual_commit": null,
+      "notes": "Offline source complete; native full acceptance pending owner Run V41 or restored MCP quota."
     }
   ],
   "github_schedule_sync": {

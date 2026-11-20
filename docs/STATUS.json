@@ -3,9 +3,9 @@
   "project": "Thu Thanh Bookstore",
   "spec_version": "2.0",
   "phase": "BACKEND",
-  "current_task_id": "B00-DONG-PR",
-  "next_task_id": "B07",
-  "implementation_state": "D114_dong_draft_PR22_published_thien_backend_pending",
+  "current_task_id": "F00-MOBILE-V41",
+  "next_task_id": "F00-MOBILE-V41",
+  "implementation_state": "D115_V41_offline_verified_native_partial_tool_quota_pending",
   "backend_gate": "externally_blocked",
   "frontend_gate": "authorized_scoped",
   "frontend_authorization": {
@@ -17,7 +17,7 @@
   "branch": "feat/d87-nextjs-figma-padding",
   "last_verified_commit": null,
   "git_dirty": true,
-  "last_checkpoint_at": "2026-11-20T23:29:43+07:00",
+  "last_checkpoint_at": "2026-11-21T04:36:13+07:00",
   "last_test_run": {
     "at": "2026-11-20T00:45:17+07:00",
     "command": "php artisan test --log-junit=storage/logs/phpunit-d107-final.xml (after full MySQL cluster deletion)",
@@ -43,23 +43,23 @@
     "Resend verified sender/from-address/HTTPS frontend origin and actual recovery email delivery acceptance",
     "D105 VPS/domain/Vercel project, Resend verified sender/API key, Pusher app credentials; actual staging/cutover authorization and backup/restore acceptance."
   ],
-  "notes": "D114 Dong-only source published draftPR22,299PRfiles+approvedREADMEbase;Thien388remain. Frontend hostedpassed,E2Efailedmissingbackend,draftkept. No merge/deploy/backendcommit;originalGit/data preserved.",
+  "notes": "D115 V41 offline verified;native101screenspatched but StarterMCPquotablocks flowcanvas/finalQA. Keep in_progress;ownerRunV41needed. Sourceclone preserved original plugin deletions;no backend/deploy/merge.",
   "figma": {
-    "status": "V40_offline_verified_owner_import_pending",
-    "manifest_version": "V40",
-    "artifact": "output/figma/THUTHANH-FIGMA-V40.zip",
-    "sha256": "da2bc5de92196fec1ca92d3f578fe525d54c1c9eab7d9717df277b3e7fdf6669",
+    "status": "V41_offline_verified_native_mobile_partial_flow_pending",
+    "manifest_version": "V41",
+    "artifact": "output/figma/THUTHANH-FIGMA-V41.zip",
+    "sha256": "02911b29537eaf6e241799306cd726fd13220915a40ab0278004e780bb83af38",
     "prototype_screens": 212,
     "landing_review_frames": 2,
     "platforms": 2,
     "flows_per_platform": 7,
-    "local_mock": "passed;nativegeometry/scrollbars/fixedactions/readonlyreview/money/routes/upgradeV39/manualphotos/rollback/cancel",
+    "local_mock": "passed214screens/8flows/3287routes;native101patched,finalQA/flowcanvasblocked",
     "browser_svg_preview": "9mobileviews+desktoprank/footer visually inspected D112",
-    "cloud_canvas": "not_run; user selected offline plugin",
-    "web_sync_pending": "Owner imports V40 then Run/Present;cloudcanvasnot_run",
+    "cloud_canvas": "partial:101mobilepatched;Starterquotaexhausted;8flowandfinalQApending",
+    "web_sync_pending": "Owner Run V41 mobile+UserFlow or restore MCP quota",
     "images": "35source-verified losslessPNG unchanged D110",
     "user_flow_diagrams": 8,
-    "mobile": "commerceapp402x874/searchheader/2column292pxcards/rails/recommendgrid/contextualback/activetabs/fixedpurchase+checkoutCTA/compactcart/readonlyreview/ordercards/accountshortcuts"
+    "mobile": "separate scrolling viewport,cart icon+Buy now,CTA722,always-visible4tabs794,compactcart"
   },
   "cleanup": {
     "report": "docs/CLEANUP.json",
@@ -583,12 +583,30 @@
     "figma_commit": "3671bb887921e508638d7a43e98ae4b6c2fe0036",
     "task_result": "done",
     "pr_number": 22,
-    "draft": true,
+    "draft": false,
     "source_commit": "078eba591c662f0d3596dec769fe40e41d3c1a68",
     "pr_files": 299,
     "thien_files_committed": 0,
     "frontend_hosted_ci": "passed_source_commit",
     "browser_hosted_ci": "failed_missing_backend_expected_dependency",
-    "final_document_checkpoint": "after_PR_creation;final_head_in_private_evidence"
+    "final_document_checkpoint": "after_PR_creation;final_head_in_private_evidence",
+    "remote_state": "OPEN",
+    "observed_at": "2026-11-21T04:38:33+07:00"
+  },
+  "mobile_v41": {
+    "decision": "D115",
+    "at": "2026-11-21T04:36:13+07:00",
+    "status": "in_progress_native_acceptance",
+    "offline": "verified",
+    "native_screens_patched": 101,
+    "native_overlay_frames_preserved": 5,
+    "native_user_flow": "pending",
+    "native_final_screenshots": "blocked_starter_tool_call_limit",
+    "session_id": "7acb55df-2d5d-4f0d-a642-987524fdd59e",
+    "source": "D:/ThuThanh-review-dong/thu-thanh-figma-clicon",
+    "evidence": ".runtime/d115-evidence.json",
+    "sha256": "02911b29537eaf6e241799306cd726fd13220915a40ab0278004e780bb83af38",
+    "source_publish": "PR22; exact head in private evidence",
+    "pr_draft": false
   }
 }
