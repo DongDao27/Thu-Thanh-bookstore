@@ -2005,7 +2005,7 @@
       "id": "B00-DONG-PR",
       "title": "D114 publish Dong source through a draft PR and hand off Thien backend",
       "phase": "BACKEND",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "B00-TEAM-COMMIT-GUIDE"
       ],
@@ -2031,9 +2031,12 @@
         "Prepared separate D:/ThuThanh-review-dong with 300 byte-identical source files, no actual-env-secret/GitHub-token/private-key matches.",
         "71 JS/import files,16 frontend tests,production build22static+2dynamic,plugin214screens/3130routes/8flows and asset verification passed.",
         "GitHub branches=[]; initial README foundation permission requested asynchronously. No dependent remote mutations before reply.",
-        "Owner explicitly approved README matching Daily Vocabulary structure as base. Customized README only pushed to main: e37d579b519321b496d7ecb323a9b63bf78b5588. Dong D1=9554286,D2=3671bb8 local commits; D3/feature push/PR still in progress. No merge/backend commit."
+        "Owner explicitly approved README matching Daily Vocabulary structure as base. Customized README only pushed to main: e37d579b519321b496d7ecb323a9b63bf78b5588. Dong D1=9554286,D2=3671bb8 local commits; D3/feature push/PR still in progress. No merge/backend commit.",
+        "Draft PR#22 OPEN/main verified,authorDongDao27;exact299files,0Thien files;main only approved README. D1=9554286,D2=3671bb8,D3=078eba5 published. Frontend hosted CI passed;browser failed specifically because backend folder absent,expected dependency,not passed. No merge/deploy.",
+        "Thien handoff ZIP390entries=388publicsource+manifest+guide,CRC/source-match/secret check passed;4PowerShellguideblocks parsed. Final docs checkpoint committed separately after PR creation;finalSHA in private evidence."
       ],
-      "actual_commit": null
+      "actual_commit": "078eba591c662f0d3596dec769fe40e41d3c1a68",
+      "completed_at": "2026-11-20T23:29:43+07:00"
     }
   ],
   "github_schedule_sync": {
@@ -2475,5 +2478,15 @@
     "status": "verified_local",
     "version": "V40",
     "evidence": ".runtime/d112-evidence.json"
+  },
+  "dong_publication": {
+    "decision": "D114",
+    "at": "2026-11-20T23:29:43+07:00",
+    "pr": "https://github.com/DongDao27/Thu-Thanh-bookstore/pull/22",
+    "source_commit": "078eba591c662f0d3596dec769fe40e41d3c1a68",
+    "draft": true,
+    "status": "source_published_review_backend_pending",
+    "thien_files_remaining": 388,
+    "evidence": ".runtime/d114-evidence.json"
   }
 }

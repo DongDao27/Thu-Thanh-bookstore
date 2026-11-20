@@ -2,7 +2,7 @@
 
 Đọc AGENTS → STATUS → HANDOFF → PROGRESS mới nhất → DECISIONS → PRD/task và đặc tả liên quan; kiểm git status/branch/diff/log/source trước sửa. Không reset/clean/ghi đè dirty work hay bootstrap lại ứng dụng.
 
-D114: chủ dự án cho phép commit/PR phần Đông300file trong clone riêng; [guide chỉ cho Thiện388file](docs/PHAN-CONG-VA-COMMIT.md), [manifest](docs/COMMIT-FILES.csv). Chủ repo đã chấp thuận README nền theo Daily Vocabulary; README-only commit đã lên main, source còn qua draftPR. Không push workspace gốc có originPayment. Publication in_progress, không merge/deploy; theo STATUS/HANDOFF mới nhất.
+D114: [PR Đông#22](https://github.com/DongDao27/Thu-Thanh-bookstore/pull/22) đã mở draft/main:299filePR+1README nền được chủ repo chấp thuận. [Thiện còn388file và lệnhPR](docs/PHAN-CONG-VA-COMMIT.md), [manifest](docs/COMMIT-FILES.csv). Frontend hostedpassed,E2Ethiếubackend chưađạt;không merge/deploy. Publicationclone D:/ThuThanh-review-dong;không push workspace gốc originPayment. Theo STATUS/HANDOFF hiện hành.
 
 - Stack hiện hành: Next.js 16 JavaScript/JSX trên Vercel, Laravel 12/PHP 8.4 trên VPS, PostgreSQL 17, Cloudflare, Resend, Pusher (D98/D105). Main và Sandbox đã chuyển PostgreSQL; cụm MySQL cùng backup đã xóa theo D107, kể cả EM3 trong cụm được chủ dự án cho phép. Source EM3 ở repo khác không thuộc phạm vi.
 - Main local: PostgreSQL `127.0.0.1:55432/thu_thanh`, API `localhost:8000`, web `localhost:3000`. Tests chỉ `thu_thanh_test`, không chạy PHPUnit và E2E đồng thời. Không suy ra dịch vụ đang chạy từ tài liệu: kiểm port/HTTP thực tế.

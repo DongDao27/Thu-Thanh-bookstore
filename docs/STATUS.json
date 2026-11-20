@@ -5,7 +5,7 @@
   "phase": "BACKEND",
   "current_task_id": "B00-DONG-PR",
   "next_task_id": "B07",
-  "implementation_state": "D114_readme_foundation_published_dong_feature_in_progress",
+  "implementation_state": "D114_dong_draft_PR22_published_thien_backend_pending",
   "backend_gate": "externally_blocked",
   "frontend_gate": "authorized_scoped",
   "frontend_authorization": {
@@ -17,7 +17,7 @@
   "branch": "feat/d87-nextjs-figma-padding",
   "last_verified_commit": null,
   "git_dirty": true,
-  "last_checkpoint_at": "2026-11-20T23:25:07+07:00",
+  "last_checkpoint_at": "2026-11-20T23:29:43+07:00",
   "last_test_run": {
     "at": "2026-11-20T00:45:17+07:00",
     "command": "php artisan test --log-junit=storage/logs/phpunit-d107-final.xml (after full MySQL cluster deletion)",
@@ -43,7 +43,7 @@
     "Resend verified sender/from-address/HTTPS frontend origin and actual recovery email delivery acceptance",
     "D105 VPS/domain/Vercel project, Resend verified sender/API key, Pusher app credentials; actual staging/cutover authorization and backup/restore acceptance."
   ],
-  "notes": "D114 owner approved customized README baseline and it is on main;Dong D1/D2 local committed,D3/featurepush/draftPR in progress. No source merge/backend commit/deploy.",
+  "notes": "D114 Dong-only source published draftPR22,299PRfiles+approvedREADMEbase;Thien388remain. Frontend hostedpassed,E2Efailedmissingbackend,draftkept. No merge/deploy/backendcommit;originalGit/data preserved.",
   "figma": {
     "status": "V40_offline_verified_owner_import_pending",
     "manifest_version": "V40",
@@ -567,19 +567,28 @@
   },
   "publication": {
     "decision": "D114",
-    "status": "in_progress",
+    "status": "source_published_review_backend_pending",
     "repository": "DongDao27/Thu-Thanh-bookstore",
     "branch": "feat/dong-storefront-figma-docs",
     "worktree": "D:/ThuThanh-review-dong",
     "dong_files": 300,
     "thien_files_remaining": 388,
-    "pr": null,
-    "initial_main_exception": "owner_approved_customized_readme_foundation",
+    "pr": "https://github.com/DongDao27/Thu-Thanh-bookstore/pull/22",
+    "initial_main_exception": "owner_approved_and_readme_only_published",
     "evidence": ".runtime/d114-evidence.json",
     "merge": "not_authorized_by_current_task",
-    "at": "2026-11-20T23:25:07+07:00",
+    "at": "2026-11-20T23:29:43+07:00",
     "foundation_commit": "e37d579b519321b496d7ecb323a9b63bf78b5588",
-    "frontend_commit": "9554286",
-    "figma_commit": "3671bb8"
+    "frontend_commit": "9554286283d235c339a43522be2944e468853d96",
+    "figma_commit": "3671bb887921e508638d7a43e98ae4b6c2fe0036",
+    "task_result": "done",
+    "pr_number": 22,
+    "draft": true,
+    "source_commit": "078eba591c662f0d3596dec769fe40e41d3c1a68",
+    "pr_files": 299,
+    "thien_files_committed": 0,
+    "frontend_hosted_ci": "passed_source_commit",
+    "browser_hosted_ci": "failed_missing_backend_expected_dependency",
+    "final_document_checkpoint": "after_PR_creation;final_head_in_private_evidence"
   }
 }

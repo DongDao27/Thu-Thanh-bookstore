@@ -2,6 +2,8 @@
 
 Cập nhật D114, 20/11/2026. Repo: [DongDao27/Thu-Thanh-bookstore](https://github.com/DongDao27/Thu-Thanh-bookstore). Chủ repo đã chấp thuận README nền theo cách tổ chức của Daily Vocabulary; chỉ README được đưa lên main lúc khởi tạo. Phần source Đông qua branch **`feat/dong-storefront-figma-docs`** và draft PR vào `main`; không merge source trong lần này. File này dành cho Thiện thực hiện phần còn lại bằng tài khoản của Thiện, sau đó review chéo.
 
+**PR Đông đã mở: [#22](https://github.com/DongDao27/Thu-Thanh-bookstore/pull/22)**, đang draft. Frontend Actions trên source commit đạt; browser/E2E báo thiếu thư mục backend vì388file của Thiện chưa được đưa lên. Không merge PR Đông trước khi hoàn tất các bước backend và review bên dưới.
+
 ## 1. Thiện commit những file nào?
 
 [COMMIT-FILES.csv](COMMIT-FILES.csv) là danh sách từng file. Lọc `owner=thien`, `commit=T1`: **388 file**. Đông giữ300 file (`D1=258`, `D2=12`, `D3=30`), trong đó README đã thuộc commit nền nên PR có299file, D3 thêm29file. Không commit backend thay Thiện. Tỷ lệ60/40 là trách nhiệm dự kiến, không phải số commit hoặc xác nhận tác giả toàn bộ code cũ.
