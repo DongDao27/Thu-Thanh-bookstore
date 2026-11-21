@@ -1,0 +1,72 @@
+name: Backend
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    services:
+      postgres:
+        image: postgres:17-bookworm
+        env:
+          POSTGRES_DB: thu_thanh_test
+          POSTGRES_USER: thu_thanh_test
+          POSTGRES_PASSWORD: ci-isolated-test-only
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd="pg_isready -U thu_thanh_test -d thu_thanh_test"
+          --health-interval=5s --health-timeout=5s --health-retries=20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: pdo_pgsql, mbstring, fileinfo, bcmath
+          tools: composer:v2
+          coverage: xdebug
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install -r ../scripts/monitoring-requirements.txt
+      - run: composer install --no-interaction --prefer-dist
+      - name: Configure isolated test environment
+        run: |
+          cp .env.testing.example .env.testing
+          php artisan key:generate --env=testing
+        env:
+          DB_PORT: 5432
+          DB_PASSWORD: ci-isolated-test-only
+      - run: composer validate --strict
+      - run: composer check-platform-reqs
+      - run: php vendor/bin/pint --test
+      - run: php artisan migrate --env=testing --force
+        env: &test-env
+          DB_PORT: 5432
+          DB_PASSWORD: ci-isolated-test-only
+      - run: php artisan app:environment-check --env=testing
+        env: *test-env
+      - run: php artisan test --log-junit=storage/logs/phpunit.xml --coverage-clover=storage/logs/coverage.xml
+        env:
+          <<: *test-env
+          XDEBUG_MODE: coverage
+      - run: php ../scripts/check-coverage.php storage/logs/coverage.xml
+      - run: php artisan scramble:export --env=testing --path=storage/logs/openapi.generated.json
+        env: *test-env
+      - run: php ../scripts/auth-cookie-smoke.php
+        env: *test-env
+      - run: php ../scripts/ops-smoke.php
+        env: *test-env
+      - run: composer audit
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: backend-verification
+          path: |
+            backend/storage/logs/phpunit.xml
+            backend/storage/logs/coverage.xml
+            backend/storage/logs/openapi.generated.json

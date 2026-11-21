@@ -1,0 +1,18 @@
+[Unit]
+Description=Thu Thanh Laravel queue
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=deploy
+Group=www-data
+WorkingDirectory=/srv/thu-thanh
+ExecStart=/usr/bin/php8.4 /srv/thu-thanh/current/backend/artisan queue:work database --sleep=3 --tries=5 --timeout=60 --max-time=3600
+Restart=always
+RestartSec=3
+TimeoutStopSec=90
+KillSignal=SIGTERM
+UMask=0007
+
+[Install]
+WantedBy=multi-user.target
