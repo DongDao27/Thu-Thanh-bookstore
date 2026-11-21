@@ -1,3 +1,11 @@
+# Staging Linux — cập nhật 22/11/2026
+
+D116 thay yêu cầu Pusher bắt buộc bằng polling hiện có cho release này. Dùng `BROADCAST_CONNECTION=null` trên VPS, không đặt NEXT_PUBLIC_PUSHER_APP_KEY/CLUSTER trên Vercel. Không cần tạo app Pusher. Nếu chủ động dùng Pusher sau này, credentials phải đủ và kiểm private-channel thực tế; preflight không chấp nhận cấu hình Pusher nửa vời. Các kiểm bắt buộc Resend/VNPAY/HTTPS/DB/queue vẫn giữ.
+
+AHV ECO1 Ubuntu24.04: API staging api-staging.nhasachthuthanh.id.vn; database thu_thanh_staging; migrate role thu_thanh_migrate và runtime role thu_thanh_app. Screenshots chủ dự án xác nhận PHP8.4.28/PG17.12/Composer2.11.2, UFW22/80/443, DBloopback, TLS OriginCA và GlobalAOP:proxy200/direct400. Chưa có app/data deploy; không xem healthz TLS là kiểm Laravel/provider.
+
+Local Linux đã có hướng dẫn riêng trong workspace gốc; dùng Node24 cho local/CI/Vercel, python3 cho Linux. Hai mục Pusher/bản Windows trong runbook lịch sử bên dưới chỉ áp dụng nếu chủ động chọn lại, không phải yêu cầu cho release này.
+
 # Hoàn thiện và triển khai từng bước — D108 / 20/11/2026
 
 Stack: Next.js/Vercel, Laravel 12/PHP 8.4/VPS, PostgreSQL 17, Cloudflare, Resend, Pusher. Đây là runbook chuẩn bị và nghiệm thu; chưa phải biên bản đã deploy. Các bước 1–2 chạy trên Windows; bước VPS chạy qua SSH trên Linux. Thay domain ví dụ bằng domain bạn sở hữu.
@@ -134,7 +142,7 @@ Chỉ một scheduler: không thêm cron hoặc schedule:work song song timer. W
 
 ## 9. Deploy frontend lên Vercel
 
-Import Git repo, chọn Root Directory **frontend**, framework Next.js, Node **22.x**, build `npm run build`. Theo [env frontend](../frontend/.env.production.example):
+Import Git repo, chọn Root Directory **frontend**, framework Next.js, Node **24.x**, build `npm run build`. Theo [env frontend](../frontend/.env.production.example):
 
 ```dotenv
 LARAVEL_INTERNAL_URL=https://api.books.example.com

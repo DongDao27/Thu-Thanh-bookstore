@@ -1,3 +1,5 @@
+> D116 (22/11/2026): chủ dự án bỏ yêu cầu Pusher cho release này; dùng polling hiện có. Các mục Pusher bên dưới giữ làm lịch sử/tùy chọn, không chặn release polling-only. Resend/payment/CI và các kiểm bắt buộc khác vẫn giữ.
+
 > Hiện hành D112 (20/11/2026): PostgreSQL 17 cho main/test/Sandbox; MySQL và backup đã xóa theo D107. Stack Vercel/VPS/Cloudflare/Resend/Pusher, plugin V40. Hướng dẫn vận hành: [DEPLOYMENT](DEPLOYMENT.md). Ghi chép D cũ bên dưới giữ đúng thời điểm.
 
 # Đối chiếu yêu cầu môn — D91, 12/11/2026

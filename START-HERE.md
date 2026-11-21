@@ -1,3 +1,5 @@
+D11622/11:staging source fixes locally verified179backendtests/29E2E;uncommitted fix/staging-readiness. Read currentHANDOFF. Polling-only release replaces mandatoryPusher. Next review/publishPR/hostedCI;noapp/data deploy or gateupgrade.
+
 # Bắt đầu / tiếp tục — D115, 21/11/2026
 
 D115: V41 offline đã kiểm;101màn mobile native đã patch nhưng8UserFlow/finalQA còn chờ vì FigmaStarterquota. Source ở D:/ThuThanh-review-dong/thu-thanh-figma-clicon;khôngrestoredeletionplugin ởworkspacegốc. Xem docs/FIGMA-REVIEW.md;chạy ZIPV41 chế độ Mobile+UserFlow để áp dụng đầy đủ.

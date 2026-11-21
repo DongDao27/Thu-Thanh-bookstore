@@ -26,7 +26,7 @@ await available(18082);
 await available(3100);
 if (!existsSync(join(root, 'backend/.env.testing'))) throw new Error('Prepare private backend/.env.testing for thu_thanh_test first.');
 // PostgreSQL must already be running; this runner never provisions application data.
-run('python', ['scripts/prepare-e2e.py']);
+run(process.platform === 'win32' ? 'python' : 'python3', ['scripts/prepare-e2e.py']);
 const modules = join(root, '.runtime/e2e-frontend/node_modules');
 if (!existsSync(modules)) symlinkSync(join(frontend, 'node_modules'), modules, process.platform === 'win32' ? 'junction' : 'dir');
 const seed = run('php', ['backend/tests/Support/e2e-seed.php'], root, true);

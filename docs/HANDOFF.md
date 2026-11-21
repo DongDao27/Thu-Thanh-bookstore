@@ -1,3 +1,13 @@
+# Staging source readiness — 22/11/2026
+
+B00-STAGING-READINESS done LOCAL ONLY. Branch fix/staging-readiness based on main fead78aa8e7c16df1ab39ef9f4ee5c07e8ce09fd. Changes uncommitted;no push/PR/deploy. Next:review changes,commit/push branch and open PR to main,run hostedCI and review before merge;only then publish reviewed revision to staging.
+
+Source:backend workflow replaces unsupported YAML merge with job env;Node24 CI;Linux E2E uses python3;selected product cover/campaign images eager loading;polling-only deployment preflight and tests;runbook/envtemplates updated for D116. No order/payment/stock/schema/auth changes. Optional Pusher remains compatible;missing configured Pusher still fails. Other deployment checks unchanged.
+
+Verified:backend179tests2180assertions/coverage91.37%,Pint from backend cwd,HTTPcookieCSRF19/isolatedqueue+schedulersmoke;frontend71syntax16tests/build22static2dynamic/E2E29of29passed2.3min;actionlint1.7.12(shellchecknot_run),composer/npm audits0,docs/assetschecks passed. Evidence.runtime/staging-readiness-evidence.json;E2Eoutput/e2e/report/index.html. Tests only isolated thu_thanh_test;main/Sandbox/env/keys/media untouched. HostedCI of this uncommitted patch not_run.
+
+Owner screenshots show AHVECO1 Ubuntu24.04/PHP8.4.28/PG17.12/Composer2.11.2,SSHkey/UFW,DBloopback and stagingDBrolesUTCextensions,OriginCA+GlobalAOP proxy200/direct400,services active after reboot. This is owner-provided evidence,not an agentSSHinspection. Noapp/data/env published to VPS. Resendmail.nhasachthuthanh.id.vn Verified;credentials stay private. Owner explicitly declinedPusher:D116polling-only. Live mail/payment/provider/datarestore/load and nativeFigma acceptance still pending. Keep gates externally_blocked/not_started.
+
 # Bàn giao hiện hành — D115, 21/11/2026
 
 Task F00-MOBILE-V41 in_progress vì native acceptance còn chờ. [Review](FIGMA-REVIEW.md) phân biệt rõ native/offline. FileFigma H6ixSJmRWBtwI9B1CDhEBi/mobilepage7:25879 đã patch thành công101màn thường,24CTA/5productbars/29bindings;5overlaysgiữ. Sau đó Figma Starter hết lượtMCP,không thể QA ảnh cuối hoặc cập nhật8UserFlow trong canvas. Đừng nói toàn bộFigma đã xong.

@@ -21,6 +21,9 @@ jobs:
         options: >-
           --health-cmd="pg_isready -U thu_thanh_test -d thu_thanh_test"
           --health-interval=5s --health-timeout=5s --health-retries=20
+    env:
+      DB_PORT: 5432
+      DB_PASSWORD: ci-isolated-test-only
     steps:
       - uses: actions/checkout@v4
       - uses: shivammathur/setup-php@v2
@@ -38,29 +41,18 @@ jobs:
         run: |
           cp .env.testing.example .env.testing
           php artisan key:generate --env=testing
-        env:
-          DB_PORT: 5432
-          DB_PASSWORD: ci-isolated-test-only
       - run: composer validate --strict
       - run: composer check-platform-reqs
       - run: php vendor/bin/pint --test
       - run: php artisan migrate --env=testing --force
-        env: &test-env
-          DB_PORT: 5432
-          DB_PASSWORD: ci-isolated-test-only
       - run: php artisan app:environment-check --env=testing
-        env: *test-env
       - run: php artisan test --log-junit=storage/logs/phpunit.xml --coverage-clover=storage/logs/coverage.xml
         env:
-          <<: *test-env
           XDEBUG_MODE: coverage
       - run: php ../scripts/check-coverage.php storage/logs/coverage.xml
       - run: php artisan scramble:export --env=testing --path=storage/logs/openapi.generated.json
-        env: *test-env
       - run: php ../scripts/auth-cookie-smoke.php
-        env: *test-env
       - run: php ../scripts/ops-smoke.php
-        env: *test-env
       - run: composer audit
       - uses: actions/upload-artifact@v4
         if: always()

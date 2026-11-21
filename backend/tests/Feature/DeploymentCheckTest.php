@@ -16,6 +16,32 @@ class DeploymentCheckTest extends TestCase
 
     public function test_complete_configuration_passes_but_sync_queue_fails_without_exposing_secrets(): void
     {
+        $this->configureDeployment();
+        $this->artisan('app:deployment-check')->assertSuccessful();
+        config(['queue.default' => 'sync']);
+        $this->artisan('app:deployment-check')->expectsOutput('FAIL Persistent cache and asynchronous queue')->doesntExpectOutputToContain('fixture-private')->assertFailed();
+    }
+
+    public function test_polling_only_needs_no_pusher_credentials(): void
+    {
+        $this->configureDeployment();
+        foreach ([null, 'null'] as $driver) {
+            config(['broadcasting.default' => $driver, 'broadcasting.connections.pusher' => []]);
+            $this->artisan('app:deployment-check')->expectsOutput('PASS Order updates: polling-only or configured Pusher')->assertSuccessful();
+        }
+    }
+
+    public function test_missing_pusher_credentials_or_nonpersistent_broadcast_driver_fail(): void
+    {
+        $this->configureDeployment();
+        config(['broadcasting.connections.pusher.secret' => null]);
+        $this->artisan('app:deployment-check')->expectsOutput('FAIL Order updates: polling-only or configured Pusher')->assertFailed();
+        config(['broadcasting.default' => 'log']);
+        $this->artisan('app:deployment-check')->expectsOutput('FAIL Order updates: polling-only or configured Pusher')->assertFailed();
+    }
+
+    private function configureDeployment(): void
+    {
         config([
             'app.env' => 'staging', 'app.debug' => false,
             'app.url' => 'https://api.example.test', 'app.frontend_url' => 'https://books.example.test',
@@ -28,8 +54,5 @@ class DeploymentCheckTest extends TestCase
             'payments.vnpay.deferred' => false, 'payments.vnpay.merchant' => 'fixture',
             'payments.vnpay.secret' => 'fixture-private', 'payments.vnpay.return_url' => 'https://books.example.test/payment/vnpay-return',
         ]);
-        $this->artisan('app:deployment-check')->assertSuccessful();
-        config(['queue.default' => 'sync']);
-        $this->artisan('app:deployment-check')->expectsOutput('FAIL Persistent cache and asynchronous queue')->doesntExpectOutputToContain('fixture-private')->assertFailed();
     }
 }
