@@ -1,0 +1,29 @@
+{
+  "name": "thu-thanh-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname localhost --port 3000",
+    "build": "next build",
+    "start": "next start --hostname localhost --port 3000",
+    "check": "node ../scripts/check-frontend.mjs",
+    "format": "prettier --write \"src/**/*.{js,jsx}\" \"tests/**/*.js\" \"e2e/**/*.js\" *.js",
+    "test:api": "node --test tests/*.test.js",
+    "test:e2e": "node ../scripts/e2e.mjs"
+  },
+  "dependencies": {
+    "next": "16.4.6",
+    "pusher-js": "^8.6.0",
+    "qrcode": "^1.5.4",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@babel/parser": "^8.1.2",
+    "@playwright/test": "1.64.1",
+    "@tailwindcss/postcss": "4.3.3",
+    "prettier": "^3.10.1",
+    "tailwindcss": "4.3.3"
+  },
+  "type": "module"
+}

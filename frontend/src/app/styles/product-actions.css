@@ -1,0 +1,140 @@
+.product-actions-block {
+  min-width: 0;
+  width: 100%;
+}
+.product-card > .product-actions-block {
+  margin-top: auto;
+  border-top: 1px solid var(--line);
+  padding: 16px;
+  margin-inline: -16px;
+  width: calc(100% + 32px);
+}
+.product-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 56px;
+  gap: 12px;
+  align-items: stretch;
+}
+.product-actions .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 56px;
+  padding: 16px;
+  margin: 0;
+  line-height: 1.25;
+  font:
+    700 14px/1.25 var(--font-store),
+    Arial,
+    sans-serif;
+}
+.product-actions .product-add {
+  width: 56px;
+  height: 56px;
+  padding: 16px;
+  color: var(--brand);
+  border: 1px solid var(--action);
+  background: white;
+}
+.product-actions-block .notice {
+  margin-top: 8px;
+}
+.bestseller-rank-panel {
+  min-width: 0;
+  background: white;
+}
+.ranking-hint {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+  padding: 12px 16px;
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+}
+.bestseller-ranking {
+  height: 580px;
+  max-height: 580px;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+  scrollbar-color: #8da4c9 var(--soft);
+  overscroll-behavior: contain;
+}
+.bestseller-ranking::-webkit-scrollbar {
+  width: 8px;
+}
+.bestseller-ranking::-webkit-scrollbar-track {
+  background: var(--soft);
+}
+.bestseller-ranking::-webkit-scrollbar-thumb {
+  background: #8da4c9;
+  border-radius: 8px;
+  border: 2px solid var(--soft);
+}
+@media (max-width: 760px) {
+  .bestseller-ranking {
+    height: 252px;
+    max-height: 252px;
+  }
+}
+@media (max-width: 420px) {
+  .clicon-home > .home-collection > .product-grid,
+  .product-grid.catalog-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .product-actions .product-buy { font-size: 14px; }
+}
+
+@media (max-width: 760px) {
+  .product-card > .product-actions-block {
+    margin-inline: -10px;
+    width: calc(100% + 20px);
+  }
+  .product-actions .product-buy { font-size: 12px; }
+}
+
+@media (min-width: 1280px) {
+  .clicon-home > .home-collection > .product-grid,
+  .product-grid.catalog-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+/* Compact cards share the same image, title and action rows. */
+.clicon-home > .home-collection > .product-grid,
+.product-grid.catalog-grid {
+  gap: 12px;
+}
+.product-grid .product-card {
+  padding: 10px;
+  gap: 8px;
+}
+.product-grid .product-card .product-image {
+  height: 180px;
+  padding: 4px;
+}
+.product-grid .product-card h3 {
+  min-height: 63px;
+  font-size: 14px;
+  line-height: 21px;
+}
+.product-grid .product-card .product-bottom {
+  min-height: 50px;
+}
+.product-grid .product-card > .product-actions-block {
+  padding: 10px;
+  margin-inline: -10px;
+  width: calc(100% + 20px);
+}
+.product-grid .product-actions {
+  grid-template-columns: minmax(0, 1fr) 44px;
+  gap: 8px;
+}
+.product-grid .product-actions .button {
+  min-height: 44px;
+  padding: 8px;
+}
+.product-grid .product-actions .product-add {
+  width: 44px;
+  height: 44px;
+}
