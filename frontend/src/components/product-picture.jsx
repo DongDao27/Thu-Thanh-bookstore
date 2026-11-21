@@ -4,6 +4,7 @@ import { imageSrc } from "@/lib/product-images";
 export function ProductPicture({
   product,
   priority = false,
+  loading,
   sizes = "(max-width: 420px) 92vw, (max-width: 700px) 44vw, (max-width: 1100px) 30vw, (max-width: 1279px) 23vw, (max-width: 1799px) 16vw, 12vw",
 }) {
   const src = imageSrc(product.images[0].url);
@@ -28,6 +29,7 @@ export function ProductPicture({
       sizes={sizes}
       style={{ objectFit: "contain" }}
       priority={priority}
+      loading={loading}
     />
   );
 }

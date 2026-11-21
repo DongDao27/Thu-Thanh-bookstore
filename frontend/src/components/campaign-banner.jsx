@@ -18,7 +18,7 @@ export function CampaignBanner({ id }) {
     height: banner.height,
     alt: banner.alt,
     sizes,
-    loading: header ? "eager" : "lazy",
+    loading: "eager",
     fetchPriority: header ? "high" : "auto",
   });
   const mobile = banner.mobile

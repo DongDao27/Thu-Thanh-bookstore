@@ -95,7 +95,7 @@ export function BestsellerShowcase({ products }) {
             href={`/products/${product.id}`}
           >
             {product.images.length ? (
-              <ProductPicture product={product} />
+              <ProductPicture product={product} loading="eager" />
             ) : (
               <Icon name="book" size={64} />
             )}

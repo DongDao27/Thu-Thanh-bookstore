@@ -42,7 +42,7 @@ Phân công trách nhiệm dự kiến Đông60%/Thiện40%; không dùng số f
 | Khách hàng | Đăng ký/đăng nhập, khôi phục mật khẩu, hồ sơ, giỏ hàng, Mua ngay, checkout giao hàng hoặc nhận tại cửa hàng |
 | Theo dõi đơn | Chi tiết đơn, trạng thái xử lý/thanh toán, hủy khi đủ điều kiện, cập nhật qua realtime hoặc polling |
 | Quản trị | Sản phẩm/ảnh, nhập và điều chỉnh tồn, xử lý đơn, đối soát thanh toán, báo cáo doanh thu |
-| Tích hợp | VNPAY Sandbox, email Resend, Pusher private channels, đăng ký bản tin chỉ nhập email và nhấn Đăng ký |
+| Tích hợp | VNPAY Sandbox, email Resend, polling trạng thái đơn (Pusher tùy chọn), đăng ký bản tin chỉ nhập email và nhấn Đăng ký |
 
 Desktop dùng5cột, catalog25sản phẩm/trang; trang chủ tối đa10sản phẩm mới và15gợi ý không trùng các feed ưu tiên. Giá, tồn, quyền và trạng thái do Laravel xác nhận; giao diện không tự quyết định kết quả thanh toán.
 
@@ -55,14 +55,14 @@ Desktop dùng5cột, catalog25sản phẩm/trang; trang chủ tối đa10sản p
 | Database | PostgreSQL17 | VPS; main/test tách riêng |
 | DNS và proxy | Cloudflare, HTTPS và giới hạn truy cập origin | Domain của chủ dự án |
 | Email | Resend và queue Laravel | Sender/domain phải xác minh |
-| Realtime | Pusher, private channel theo đơn | App key public; secret chỉ ở API |
+| Trạng thái đơn | Polling hiện có; Pusher tùy chọn | Release D116 không cần credentials Pusher |
 | Thanh toán | VNPAY adapter, callback/IPN và đối soát | Sandbox trước nghiệm thu thật |
 | Kiểm tra | PHPUnit, Node test runner, Playwright, GitHub Actions | Database test cô lập |
 | Thiết kế | Plugin Figma offline V41, web/mobile và User Flow | Owner import/Run/Present |
 
 ## Kiến trúc và thiết kế
 
-Trình duyệt → Next.js → Laravel API → PostgreSQL. API xử lý quyền truy cập, transaction, giá/tồn và trạng thái; queue/scheduler đảm nhiệm tác vụ nền. Resend, Pusher và VNPAY là các dịch vụ bên ngoài cần cấu hình và nghiệm thu riêng.
+Trình duyệt → Next.js → Laravel API → PostgreSQL. API xử lý quyền truy cập, transaction, giá/tồn và trạng thái; queue/scheduler đảm nhiệm tác vụ nền. Resend và VNPAY cần cấu hình và nghiệm thu riêng. D116 dùng polling; chỉ nghiệm thu Pusher nếu chủ động bật lại.
 
 | Thư mục | Nội dung |
 | --- | --- |
@@ -181,7 +181,7 @@ Xem [bảo mật/hiệu năng](docs/SECURITY-PERFORMANCE.md), [API](docs/API.md)
 | Vercel/VPS | Project/root directory, env API, PHP/dependencies | HTTPS, cookie/CSRF/CORS, worker/scheduler và health |
 | Cloudflare | DNS, TLS, bảo vệ origin | Firewall/AOP/client-IP và bypass cache riêng tư |
 | Resend | API key server-only, sender/domain và DNS | Email khôi phục/bản tin nhận thật, retry/failed jobs |
-| Pusher | App/cluster, key public và secret server | Auth private channel, cập nhật đúng đơn, polling dự phòng |
+| Trạng thái đơn | D116 dùng polling; không cần app Pusher | Kiểm đọc lại trạng thái đơn và quyền owner/admin |
 | VNPAY | Sandbox merchant/hash secret, Return/IPN/QueryDr config | Success/fail/cancel/replay/late/expiry/reconcile, không chỉ Return |
 
 Không có domain/VPS/provider credentials không đồng nghĩa integration đã nghiệm thu. Không gửi keys trong README, Issue hoặc PR.
@@ -196,7 +196,7 @@ Feature branch → commit đúng file phụ trách → push branch → Pull Requ
 
 ## Triển khai và phần còn lại
 
-Backend gate **externally_blocked**, release **not_started**. Còn nghiệm thu VPS/Vercel/domain/TLS, email Resend/Pusher thật, VNPAY QueryDr/expiry/reconciliation và hai đơn lịch sử chưa rõ kết quả, backup offsite/restore, remote CI/load và canvas Figma native.
+Backend gate **externally_blocked**, release **not_started**. Còn nghiệm thu VPS/Vercel/domain/TLS, email Resend và polling thực tế, VNPAY QueryDr/expiry/reconciliation và hai đơn lịch sử chưa rõ kết quả, backup offsite/restore, remote CI/load và canvas Figma native.
 
 Triển khai thực tế cần yêu cầu riêng và môi trường đích; source vào main chưa tự cho phép deploy. [Hướng dẫn triển khai](docs/DEPLOYMENT.md) và [file Word hoàn thiện dự án](docs/HUONG-DAN-HOAN-THIEN-DU-AN-THU-THANH.docx) ghi thứ tự và checklist.
 

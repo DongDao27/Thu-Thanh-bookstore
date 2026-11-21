@@ -1,3 +1,5 @@
+D116 (22/11/2026): release này dùng polling/reload trạng thái đơn đã có, không bắt buộc Pusher theo yêu cầu mới nhất. Các luật server/payment/tồn và các gate khác giữ nguyên.
+
 # PRD Thu Thanh 2.0 — backend trước
 
 D110: bản tin chỉ cần email và bấm Đăng ký, không checkbox/consent payload; server ghi thời điểm ý định đăng ký, giữ CSRF/throttle/normalize/unique. Plugin offline V39: mobile là app, Landing thêm User Flow editable. D110 thay yêu cầu checkbox D43.

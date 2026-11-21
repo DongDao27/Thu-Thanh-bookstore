@@ -3,9 +3,9 @@
   "project": "Thu Thanh Bookstore",
   "spec_version": "2.0",
   "phase": "BACKEND",
-  "current_task_id": "F00-MOBILE-V41",
-  "next_task_id": "F00-MOBILE-V41",
-  "implementation_state": "D115_V41_offline_verified_native_partial_tool_quota_pending",
+  "current_task_id": "B00-STAGING-READINESS",
+  "next_task_id": "B00-PG-LIVE",
+  "implementation_state": "staging_source_local_verified_hosted_ci_pending",
   "backend_gate": "externally_blocked",
   "frontend_gate": "authorized_scoped",
   "frontend_authorization": {
@@ -14,10 +14,10 @@
     "requested_by": "owner_2026-10-22"
   },
   "release_gate": "not_started",
-  "branch": "feat/d87-nextjs-figma-padding",
+  "branch": "fix/staging-readiness",
   "last_verified_commit": null,
   "git_dirty": true,
-  "last_checkpoint_at": "2026-11-21T04:36:13+07:00",
+  "last_checkpoint_at": "2026-11-22T03:18:02+07:00",
   "last_test_run": {
     "at": "2026-11-20T00:45:17+07:00",
     "command": "php artisan test --log-junit=storage/logs/phpunit-d107-final.xml (after full MySQL cluster deletion)",
@@ -32,18 +32,18 @@
   },
   "blockers": [
     "D67 real Sandbox accepted receipt/paid order verified read-only. Full QueryDr/expiry/reconciliation provider acceptance remains pending;2historical orders still reconciliation_required.",
-    "10k concurrent capacity not verified; Docker/k6/staging unavailable.",
+    "10k concurrent capacity not verified;owner staging VPS prepared,application/load acceptance not_run.",
     "Owner canvas and course/deployment acceptance pending.",
     "D106 local main PostgreSQL+restore and pluginV38 verified. Production VPS/domain/provider/remoteCI/load acceptance and owner nativeFigma import remain pending (B00-PG-LIVE/B07)."
   ],
   "external_inputs_pending": [
-    "Owner reimports V40 plugin and reviews native canvas; web flows synced D85.",
-    "Resolve2historic reconciliation orders/QueryDr99 with VNPAY; real accepted receipt exists in Sandbox. Do not manually mark older orders paid.",
-    "Owner has no hosting yet; production capacity acceptance waits for future staging infrastructure",
-    "Resend verified sender/from-address/HTTPS frontend origin and actual recovery email delivery acceptance",
-    "D105 VPS/domain/Vercel project, Resend verified sender/API key, Pusher app credentials; actual staging/cutover authorization and backup/restore acceptance."
+    "Owner completes V41 native canvas/UserFlow acceptance;plugin source exists in merged target repository.",
+    "Resolve2historic reconciliation orders/QueryDr99 withVNPAY;realacceptedSandboxreceipt exists.Do not manually mark older orders paid.",
+    "AHV/domain/TLS/AOP reported ready byowner;Vercel project,app publish,live cookies/client-IP/cache/load acceptance pending.",
+    "Resend sending domain verified inowner screenshot;private APIkey/sender config onVPS and actual recoveryemail delivery pending.",
+    "D116 polling-only release does not require Pusher;review/publish fixed source PR,hostedCI,staging data/media restore and backup acceptance pending."
   ],
-  "notes": "D115 V41 offline verified;native101screenspatched but StarterMCPquotablocks flowcanvas/finalQA. Keep in_progress;ownerRunV41needed. Sourceclone preserved original plugin deletions;no backend/deploy/merge.",
+  "notes": "D116 polling-only source and CI fixes verified locally;uncommitted branch;publish PR and hostedCI next. Backend/release gates unchanged.",
   "figma": {
     "status": "V41_offline_verified_native_mobile_partial_flow_pending",
     "manifest_version": "V41",
@@ -208,12 +208,12 @@
       "database": "PostgreSQL17",
       "dns_proxy": "Cloudflare",
       "mail": "Resend",
-      "realtime": "Pusher private order invalidation"
+      "realtime": "Polling/reload;Pusher optional perD116"
     },
     "live_task_id": "B00-PG-LIVE",
     "live_status": "externally_blocked",
     "data_cutover": "completed_local;26tables canonical hashes and restore drill matched; production deployment not_run",
-    "local_runtime": "main PostgreSQL127.0.0.1:55432/thu_thanh; API8000/web3000 running; isolated tests thu_thanh_test",
+    "local_runtime": "Local PG55432 started for isolated tests;E2Eservers exited;VPSinfra owner-operated,appnotdeployed.",
     "git_commit_created": false,
     "deployment_performed": false,
     "security_report": "docs/SECURITY-PERFORMANCE.md",
@@ -241,11 +241,11 @@
       "production_preflight": "guard verified by tests; local incomplete production config intentionally fails"
     },
     "not_verified": [
-      "live Cloudflare/Vercel/VPS TLS+AOP/firewall/client-IP/cookies/cache",
-      "Resend actual delivery and Pusher live socket/reconnect/logout",
-      "PostgreSQL restore/data/media verification on VPS; local main/Sandbox migration+restore passed D106/D107",
-      "remote GitHub CI and staging load",
-      "real provider acceptance outstanding from B07"
+      "Live app Cloudflare/Vercel/VPS client-IP/cookies/cache;infrastructure TLS/AOP verified only viaowner screenshots.",
+      "Resend actual recoveryemail delivery and polling behavior through deployedapp.",
+      "PostgreSQL data/media restore verification onVPS;empty stagingDB prepared byowner.",
+      "Hosted GitHubCI for currentpatch and stagingload.",
+      "Real provider acceptance outstanding fromB07."
     ],
     "data_readiness_audit": {
       "at": "2026-11-20T00:25:42+07:00",
@@ -608,5 +608,23 @@
     "sha256": "02911b29537eaf6e241799306cd726fd13220915a40ab0278004e780bb83af38",
     "source_publish": "PR22; exact head in private evidence",
     "pr_draft": false
+  },
+  "staging_preparation": {
+    "base_commit": "fead78aa8e7c16df1ab39ef9f4ee5c07e8ce09fd",
+    "status": "local_verified_uncommitted",
+    "evidence": ".runtime/staging-readiness-evidence.json",
+    "checks": {
+      "backend_tests": 179,
+      "backend_assertions": 2180,
+      "coverage_percent": 91.37,
+      "e2e": "29/29passed2.3min",
+      "frontend_tests": 16,
+      "frontend_build": "passed",
+      "actionlint": "passed"
+    },
+    "hosted_ci": "not_run_for_patch",
+    "remote_mutations": false,
+    "deployment": false,
+    "infrastructure": "owner screenshots TLS/AOPproxy200direct400/servicesactive;appnotdeployed"
   }
 }

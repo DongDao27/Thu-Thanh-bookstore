@@ -2075,6 +2075,41 @@
       ],
       "actual_commit": null,
       "notes": "Offline source complete; native full acceptance pending owner Run V41 or restored MCP quota."
+    },
+    {
+      "id": "B00-STAGING-READINESS",
+      "title": "CI and polling-only staging preparation",
+      "phase": "BACKEND",
+      "status": "done",
+      "depends_on": [
+        "B00"
+      ],
+      "functions": [],
+      "files": [
+        ".github/workflows/backend.yml",
+        "backend/app/Console/Commands/DeploymentCheck.php",
+        "frontend/src/components/"
+      ],
+      "acceptance": [
+        "Backend workflow valid without unsupported YAML merge keys; existing checks stay enforced",
+        "Image/scroll E2E failures resolved without suppressing browser issues",
+        "Polling-only preflight accepted; incomplete configured Pusher still rejected",
+        "Backend tests,frontend check/tests/build and full E2E pass on isolated test database"
+      ],
+      "required_checks": [
+        "workflow-validation",
+        "backend-tests",
+        "frontend-check-test-build",
+        "browser-e2e"
+      ],
+      "evidence": [
+        "Local PHP8.4.28/PG17.12/Node24.22.3:backend179tests2180assertions,coverage91.37%,Pint/backendcwd,19HTTPcookieCSRF and operational smoke passed.",
+        "Frontend71syntax16tests/build22static2dynamic/fullE2E29of29passed2.3min;known responsive/imageLCP regression passed with browser warning guard unchanged.",
+        "Actionlint1.7.12 passed (shellcheck not_run);composer/npm audits0;docs21required61tasks56API79links;assets136original35PNG passed.",
+        "Private evidence .runtime/staging-readiness-evidence.json and logs;no remote commit/push/PR/hostedrerun/deploy/provider call."
+      ],
+      "actual_commit": null,
+      "notes": "Local source preparation done only. Hosted CI and live staging/provider acceptance remain pending; do not raise backend/release gates."
     }
   ],
   "github_schedule_sync": {

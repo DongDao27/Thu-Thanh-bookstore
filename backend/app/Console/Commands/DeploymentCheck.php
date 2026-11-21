@@ -19,6 +19,10 @@ class DeploymentCheck extends Command
             return $url && ($url['scheme'] ?? '') === 'https' && ! empty($url['host'])
                 && ! isset($url['user']) && ! isset($url['pass']) && ! isset($url['query']) && ! isset($url['fragment']);
         };
+        $broadcasting = config('broadcasting.default');
+        $pollingOnly = in_array($broadcasting, [null, 'null'], true);
+        $pusherReady = $broadcasting === 'pusher'
+            && collect(['key', 'secret', 'app_id'])->every(fn ($key) => filled(config('broadcasting.connections.pusher.'.$key)));
         $checks = [
             'Production/staging environment' => in_array(config('app.env'), ['production', 'staging'], true),
             'Debug disabled' => config('app.debug') === false,
@@ -28,7 +32,7 @@ class DeploymentCheck extends Command
             'Secure HttpOnly host-only session cookie' => config('session.secure') === true && config('session.http_only') === true && ! config('session.domain') && config('session.same_site') === 'lax',
             'Persistent cache and asynchronous queue' => in_array(config('cache.default'), ['database', 'redis'], true) && in_array(config('queue.default'), ['database', 'redis'], true),
             'Resend configured' => config('mail.default') === 'resend' && filled(config('services.resend.key')) && filter_var(config('mail.from.address'), FILTER_VALIDATE_EMAIL),
-            'Pusher configured' => config('broadcasting.default') === 'pusher' && collect(['key', 'secret', 'app_id'])->every(fn ($key) => filled(config('broadcasting.connections.pusher.'.$key))),
+            'Order updates: polling-only or configured Pusher' => $pollingOnly || $pusherReady,
             'VNPAY integration enabled and configured' => config('payments.vnpay.deferred') === false && filled(config('payments.vnpay.merchant')) && filled(config('payments.vnpay.secret')) && $https(config('payments.vnpay.return_url')),
         ];
         try {
@@ -42,7 +46,7 @@ class DeploymentCheck extends Command
         foreach ($checks as $label => $passed) {
             $this->line(($passed ? 'PASS ' : 'FAIL ').$label);
         }
-        $this->line('Configuration checks only. Live TLS/firewall, mail, sockets, merchant acceptance and load still require verification.');
+        $this->line('Configuration checks only. Live TLS/firewall, mail, order updates, merchant acceptance and load still require verification.');
 
         return in_array(false, array_map('boolval', $checks), true) ? self::FAILURE : self::SUCCESS;
     }
