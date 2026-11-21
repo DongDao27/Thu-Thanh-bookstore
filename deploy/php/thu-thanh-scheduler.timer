@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Thu Thanh Laravel scheduler every minute
+
+[Timer]
+OnCalendar=*-*-* *:*:00
+Persistent=true
+Unit=thu-thanh-scheduler.service
+
+[Install]
+WantedBy=timers.target

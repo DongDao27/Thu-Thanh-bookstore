@@ -1,0 +1,21 @@
+# Legacy before D105: do not enable on the API VPS; Next.js is hosted by Vercel.
+[Unit]
+Description=Thu Thanh Next.js
+After=network.target
+
+[Service]
+Type=simple
+User=deploy
+Group=www-data
+WorkingDirectory=/srv/thu-thanh/current/frontend
+Environment=NODE_ENV=production
+Environment=HOSTNAME=127.0.0.1
+Environment=PORT=3000
+Environment=LARAVEL_INTERNAL_URL=http://127.0.0.1:8080
+ExecStart=/usr/bin/node /srv/thu-thanh/current/frontend/.next/standalone/server.js
+Restart=always
+RestartSec=3
+UMask=0007
+
+[Install]
+WantedBy=multi-user.target
