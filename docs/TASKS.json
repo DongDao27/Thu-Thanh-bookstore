@@ -89,6 +89,31 @@
         "Clone GitHub0067580 trong clusterPG17 socket-only riêng: cài/build đạt; backend179/2180assertions,coverage91.37%,frontend16/check71files/E2E29,HTTPauth19,queue/scheduler fixture vàScramble đạt. Composer/npm audit không báo advisory.",
         "Đã tái hiện5 khoảng trống: Lighthouse mobile53–55 LCP7.0–7.6s CLS0.49; fresh seed0products; guestAPIkhôngJSONAccept500; READMEthiếuPython/monitoring;thiếuảnhminhhoạ. Báo cáo output/grading-audit-2026-11-23.html ngoàiGit. Audit hoàn tất không đồng nghĩa đã sửa các phát hiện."
       ]
+    },
+    {
+      "id": "GRADING-FIX",
+      "title": "Khắc phục các phát hiện clone/security/performance theo rubric",
+      "phase": "MAINTENANCE",
+      "status": "in_progress",
+      "depends_on": [
+        "GRADING-AUDIT"
+      ],
+      "acceptance": [
+        "API guest luôn401 JSON, có regression thựcHTTP",
+        "Demo seeder local/testing có sản phẩm/ảnh, idempotent, không tài khoản mặc định hoặc ghi đè dữ liệu thật",
+        "Trang chủ hiển thị tài nguyên chính ngay, giảm CLS/LCP và tải ảnh dưới màn hình khi cần; giữ nghiệp vụ và tests",
+        "README đủ cài/chạy/test/monitoring, ERD và screenshots; chạy lại clone sạch,CI và đo Lighthouse sau deploy"
+      ],
+      "required_checks": [
+        "backend-coverage",
+        "auth-http",
+        "demo-seed",
+        "frontend-build",
+        "browser-e2e",
+        "lighthouse",
+        "fresh-clone"
+      ],
+      "evidence": []
     }
   ]
 }

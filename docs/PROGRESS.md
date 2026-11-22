@@ -25,3 +25,9 @@ Kết quả GRADING-AUDIT: clone GitHub0067580 cài dependency/build được;17
 Phát hiện chưa sửa: trang chủ chờauth vàrequesttuần tự trước render; clone migrate/seed chỉ6danhmục/0sảnphẩm; APIguestthiếuAcceptJSONtrả500 vì route login không tồn tại (JSONAccepttrả401); thiếu bước monitoring/Python/testsetup vàảnhminhhoạ trongREADME. Chủ dự án xác nhận thầy đã chấp nhậnNext.js. Figma/video không phải blockerbảnnộp theoD120. Không sửaapp hoặcdeploy trongđợtaudit.
 
 Đọc cấu hình live có chọn lọc quaSSH: debugfalse,monitoringtrue,Telescopefalse,cache/queue database. Không in secrets. Monitoring đã bật trênVPS; thiếu hướng dẫn demo clone không đồng nghĩa thiếu implementation.
+
+## 23/11/2026 — GRADING-FIX bắt đầu
+
+Chủ dự án yêu cầu cải thiện bài theo rubric. Tiêu chí: sửa API401, demo seed an toàn, giảm LCP/CLS/tải ảnh, README cài/test/monitoring và ảnh minh họa; kiểm trước xuất bản. Không đổi nghiệp vụ thanh toán, QueryDr99 hoặc bật scheduler thật.
+
+GRADING-FIX source: APIguest401 mọiAccept có HTTPregression; explicitDemoCatalogSeeder24sảnphẩm/ảnh với env/databaseguard và testkhôngghiđè; bannerServerComponent, fetchsongsong, cropSVGoptimizer/lazy và mainminheight giữCLS0; READMEcài/test/monitoring/rubric và2ảnhdữliệugiả. Local181/2193,coverage91,37%,HTTP22,frontend16/check/build đạt;29E2Ecũ và2regressionhomepage đạt. Candidate đang chuẩn bị CI/freshclone/deploy; không đánh dấu hoàn thành trước kiểm remote.

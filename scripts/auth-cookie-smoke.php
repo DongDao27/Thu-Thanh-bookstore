@@ -63,6 +63,11 @@ try {
         }
     }
     $assert($ready, 'HTTP server boots');
+    foreach (['*/*', 'text/html', 'application/json'] as $accept) {
+        $guest = $client->get('/api/v1/admin/operations', ['headers' => ['Accept' => $accept]]);
+        $body = json_decode((string) $guest->getBody(), true);
+        $assert($guest->getStatusCode() === 401 && ($body['error']['code'] ?? null) === 'UNAUTHENTICATED', 'Guest API returns JSON401 for '.$accept);
+    }
     $assert($client->get('/sanctum/csrf-cookie')->getStatusCode() === 204, 'CSRF cookie issued');
     $credentials = ['identifier' => $email, 'password' => $password];
     $assert($client->post('/api/v1/auth/login', ['json' => $credentials])->getStatusCode() === 419, 'Missing CSRF rejected over HTTP');

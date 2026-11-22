@@ -2,9 +2,9 @@
   "schema_version": 1,
   "project": "Thu Thanh Bookstore",
   "phase": "MAINTENANCE",
-  "current_task_id": "GRADING-AUDIT",
+  "current_task_id": "GRADING-FIX",
   "next_task_id": null,
-  "implementation_state": "rubric_audit_complete_findings_unresolved",
+  "implementation_state": "grading_fixes_local_verified_pending_ci_deploy",
   "backend_gate": "externally_blocked",
   "frontend_gate": "authorized_scoped",
   "frontend_authorization": {
@@ -13,8 +13,8 @@
   },
   "release_gate": "sandbox_deployed",
   "branch": "main",
-  "last_verified_commit": "0067580",
-  "git_dirty": false,
+  "last_verified_commit": null,
+  "git_dirty": true,
   "website": "https://nhasachthuthanh.id.vn",
   "api": "https://api.nhasachthuthanh.id.vn",
   "repository": "DongDao27/Thu-Thanh-bookstore",
@@ -33,7 +33,7 @@
   "blockers": [
     "Representative large-load and continuous24x7 operations are not verified."
   ],
-  "notes": "Project audit verified 20 remote items; this checkpoint changes documentation only. Six incomplete items remain open; D119 unchanged.",
+  "notes": "Issue25 tracks grading fixes. Local181/2193,coverage91.37,HTTP22,frontend16/build,home regressions passed. Freshclone/hostedCI/live measurements pending. D119 unchanged.",
   "last_checkpoint_at": "2026-11-23T02:34:35.295861+07:00",
   "last_test_run": {
     "at": "2026-11-22T15:59:37+07:00",
