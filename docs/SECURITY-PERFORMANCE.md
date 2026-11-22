@@ -31,3 +31,5 @@ Banner public được render phía server, không chờ auth/catalog. Các requ
 Kiểm local source cải thiện:181 backend/2.193assertions,coverage91,37%;22 kiểm HTTPcookie/CSRF/token/guest401;16 frontend tests và build/check đạt. Bộ29E2E hiện có đạt; regression banner khi API chậm và responsive ranking cũng đạt riêng. Hosted CI và số đo website sau triển khai đang được kiểm tiếp.
 
 Hai lần baseline Lighthouse mobile trên website:53/55,LCP7,6/7,0s,CLS0,49,~5.599KiB. Bản production local tối ưu:90/100 performance,100/100 best practices,CLS0,~1.395KiB,LCP3,7s. Đây là lab mobile trên máy kiểm; không thay số đo website triển khai, không phải kiểm tải lớn hoặc chứng nhận bảo mật tuyệt đối.
+
+Sau mergePR26: hostedCI backend/frontend/30E2E đã đạt trên candidatec9bd205. Frontendwebsite đã triển khai: hai lần Lighthousemobile92/94,bestpractices100,CLS0,LCP3,4/3,0s,payload1470/1386KiB. LCP vẫn cần theo dõi trên thiết bị/mạng thực; điểmlab không bảo đảm điểm môn học. Backendfix401 đang chờ operatorkíchhoạt/reloadPHP-FPM; không gọi nó là đã sửa trênwebsite trước khi kiểm live.

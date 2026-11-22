@@ -1,3 +1,7 @@
+GRADING-FIX đang chờ duy nhất bước operator kích hoạt backend: `sudo bash /srv/thu-thanh/private-transfer/grading-fix/activate.sh` trên VPS. Đã gửi câu hỏi bất đồng bộ; không cần gửi mật khẩu. Releasec9bd205 có marker/preflight, shared.env/storage giữ nguyên; scriptkiểmSHA/path/config, switch/reloadPHP-FPM vàworker, probeHTTP200/401,rollbacknếulỗi. Current vẫn23842a5 khi kiểm cuối; chưa đánh dấu done.
+
+Đã xong: PR26 merge maincd2c20f; hosted181backend/2193assertions,30E2E,frontend vàfreshGitHubclone đã kiểm. Frontend live92/94Lighthousemobile,CLS0,bestpractices100; report output/grading-performance-2026-11-23.report.html. Sauoperatorchạy: kiểmreadlink/APIguest401/dịchvụ; ghi kết quả thật, đóngissue25 vàProjectitem khiđạt. Khôngseed/migrate/resetAPP_KEY/queryVNPAY/schedulerthật. Bằng chứng private .runtime/grading-fix.
+
 GRADING-FIX đã có source/test local; đang chờ fresh clone, hosted CI và triển khai kiểm lại. API401/DemoCatalogSeeder24,181backend/2193assertions,HTTP22,16frontend và build; homepage regression đạt. Bản productionlocal90performance/CLS0. Không sửa QueryDr/payment/scheduler; không seed dữ liệu thật.
 
 GRADING-FIX đang thực hiện theo yêu cầu chủ dự án; chưa ghi hoàn tất trước tests/deploy/đo hiệu năng. Giữ tất cả env/dữ liệu/backup thật; không gọi QueryDr99.

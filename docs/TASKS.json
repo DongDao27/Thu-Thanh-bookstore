@@ -113,7 +113,10 @@
         "lighthouse",
         "fresh-clone"
       ],
-      "evidence": []
+      "evidence": [
+        "PR26 merged; candidatec9bd205 hosted backend/frontend and30E2E passed on push/PR. Fresh GitHub clone installed PHP/Node/Python dependencies, demo24products/24images/0users,181backend/2193assertions,coverage91.37%,HTTP22,ops/frontend/build/repository all passed.",
+        "Frontend live mobile Lighthouse92/94, best practices100, CLS0, LCP3.4/3.0s, payload1470/1386KiB. Backend releasec9bd205 prepared and preflight verified; activation still needs operator sudo/PHP-FPM reload. D119 unchanged."
+      ]
     }
   ]
 }
