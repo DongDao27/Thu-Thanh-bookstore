@@ -56,6 +56,37 @@ test("generated API documentation stays admin-only through the Next proxy", asyn
     { sessionCookie: [] },
   ]);
 });
+test("home banners render in HTML before slow catalog APIs finish", async ({
+  page,
+}) => {
+  let release;
+  const gate = new Promise((resolve) => {
+    release = resolve;
+  });
+  await page.route("**/api/v1/storefront", async (route) => {
+    await gate;
+    await route.continue();
+  });
+  await page.route("**/api/v1/products?**", async (route) => {
+    await gate;
+    await route.continue();
+  });
+  try {
+    const response = await page.goto("/", { waitUntil: "domcontentloaded" });
+    expect(await response.text()).toContain("Sách mới tháng này");
+    await expect(
+      page.getByAltText("Sách mới tháng này", { exact: true }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("region", { name: "Đang tải sản phẩm" }),
+    ).toBeVisible();
+  } finally {
+    release();
+  }
+  await expect(
+    page.getByRole("heading", { name: "Sản phẩm mới", exact: true }),
+  ).toBeVisible();
+});
 async function register(page) {
   await page.goto("/register");
   const d = page.getByRole("dialog");
