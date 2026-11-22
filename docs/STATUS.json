@@ -2,9 +2,9 @@
   "schema_version": 1,
   "project": "Thu Thanh Bookstore",
   "phase": "MAINTENANCE",
-  "current_task_id": "PROJECT-AUDIT",
+  "current_task_id": "GRADING-AUDIT",
   "next_task_id": null,
-  "implementation_state": "project_audited_remote_verified",
+  "implementation_state": "rubric_audit_complete_findings_unresolved",
   "backend_gate": "externally_blocked",
   "frontend_gate": "authorized_scoped",
   "frontend_authorization": {
@@ -13,7 +13,7 @@
   },
   "release_gate": "sandbox_deployed",
   "branch": "main",
-  "last_verified_commit": "b287d3e42c91c23d0e950a16a182524221f78af1",
+  "last_verified_commit": "0067580",
   "git_dirty": false,
   "website": "https://nhasachthuthanh.id.vn",
   "api": "https://api.nhasachthuthanh.id.vn",
@@ -34,7 +34,7 @@
     "Representative large-load and continuous24x7 operations are not verified."
   ],
   "notes": "Project audit verified 20 remote items; this checkpoint changes documentation only. Six incomplete items remain open; D119 unchanged.",
-  "last_checkpoint_at": "2026-11-22T16:33:37.166987+07:00",
+  "last_checkpoint_at": "2026-11-23T02:34:35.295861+07:00",
   "last_test_run": {
     "at": "2026-11-22T15:59:37+07:00",
     "backend_tests": 179,
@@ -67,5 +67,28 @@
     ],
     "state_consistency_verified": 20,
     "project_closed": false
+  },
+  "grading_audit": {
+    "source_commit": "0067580",
+    "estimated_score": 8.5,
+    "official_score": false,
+    "nextjs_approved_by_lecturer_owner_confirmed": true,
+    "figma_video_required": false,
+    "backend_tests": 179,
+    "backend_assertions": 2180,
+    "statement_coverage_percent": 91.37,
+    "e2e": 29,
+    "frontend_tests": 16,
+    "lighthouse_mobile": [
+      53,
+      55
+    ],
+    "unresolved": [
+      "mobile_LCP_CLS",
+      "fresh_clone_demo_catalog",
+      "API_guest_non_JSON_500",
+      "monitoring_setup_docs",
+      "README_screenshots"
+    ]
   }
 }

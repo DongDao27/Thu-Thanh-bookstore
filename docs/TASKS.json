@@ -65,6 +65,30 @@
       "evidence": [
         "22/11/2026: 14 issue closed/Closed, 6 issue open/In progress (#4,#12,#13,#19,#20,#21). Snapshot và kết quả API ở .runtime/project-close ngoài Git. Không sửa thanh toán hoặc bật scheduler."
       ]
+    },
+    {
+      "id": "GRADING-AUDIT",
+      "title": "Kiểm tra clone mới và đối chiếu rubric CSB35050, security/performance",
+      "phase": "MAINTENANCE",
+      "status": "done",
+      "depends_on": [
+        "PROJECT-AUDIT"
+      ],
+      "acceptance": [
+        "Đánh giá theo rubric môn web; loại Figma và slide/video theo xác nhận chủ dự án",
+        "Kiểm clone từ GitHub trong database riêng, dependency audit, coverage, HTTP security và đo performance",
+        "Ghi rõ điểm thiếu bằng chứng và kết quả thực, không sửa payment/QueryDr99 hoặc bật scheduler thật"
+      ],
+      "required_checks": [
+        "fresh-clone",
+        "backend-coverage",
+        "security-audit",
+        "performance-measurement"
+      ],
+      "evidence": [
+        "Clone GitHub0067580 trong clusterPG17 socket-only riêng: cài/build đạt; backend179/2180assertions,coverage91.37%,frontend16/check71files/E2E29,HTTPauth19,queue/scheduler fixture vàScramble đạt. Composer/npm audit không báo advisory.",
+        "Đã tái hiện5 khoảng trống: Lighthouse mobile53–55 LCP7.0–7.6s CLS0.49; fresh seed0products; guestAPIkhôngJSONAccept500; READMEthiếuPython/monitoring;thiếuảnhminhhoạ. Báo cáo output/grading-audit-2026-11-23.html ngoàiGit. Audit hoàn tất không đồng nghĩa đã sửa các phát hiện."
+      ]
     }
   ]
 }

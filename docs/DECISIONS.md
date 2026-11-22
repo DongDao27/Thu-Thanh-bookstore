@@ -14,3 +14,7 @@
 - **D119 (22/11/2026):** chủ dự án chấp nhận luồng thanh toán Sandbox thành công và yêu cầu bỏ qua việc điều tra QueryDr 99. Không truy vấn lại, không sửa adapter hoặc trạng thái đơn, không tự bật scheduler tài chính. Dọn tài liệu chia commit/hướng dẫn hoàn thiện, hoàn thiện README, đưa thiết kế/catalog về đúng thư mục và đổi origin sang repo nhà sách. Giữ source chức năng, tests, giấy phép, dữ liệu và backup riêng. Commit đầy đủ trên lịch sử main của repo hiện tại; không force push.
 
 Lịch sử tài liệu trước khi rút gọn được giữ trong snapshot private ngoài Git. Quy tắc nghiệp vụ chi tiết vẫn ở DOMAIN-RULES, API và DATABASE; không đổi hợp đồng khi dọn repository.
+
+- **D120 (23/11/2026):** chủ dự án xác nhận Figma thuộc môn khác, bản nộp môn web chỉ gồm link GitHub và domain. Đánh giá lại theo rubric CSB35050 và khả năng clone/cài/chạy, ưu tiên security/performance. Không yêu cầu canvas Figma hoặc slide/video để đóng phạm vi môn web; không xóa thiết kế của môn khác. Ngoại lệ Next.js vẫn theo D34/D98; không tuyên bố đã dùng Blade/Livewire. D119 về thanh toán giữ nguyên.
+
+D120 bổ sung: chủ dự án xác nhận giảng viên đã chấp nhận Next.js thay Blade/Livewire. Đánh giá theo xác nhận này, không đổi stack hoặc tự dựng bằng chứng phê duyệt.
