@@ -2,9 +2,9 @@
   "schema_version": 1,
   "project": "Thu Thanh Bookstore",
   "phase": "MAINTENANCE",
-  "current_task_id": "REPO-CLEANUP",
+  "current_task_id": "PROJECT-AUDIT",
   "next_task_id": null,
-  "implementation_state": "repository_cleaned_local_verified_published",
+  "implementation_state": "project_audited_remote_verified",
   "backend_gate": "externally_blocked",
   "frontend_gate": "authorized_scoped",
   "frontend_authorization": {
@@ -13,7 +13,7 @@
   },
   "release_gate": "sandbox_deployed",
   "branch": "main",
-  "last_verified_commit": "b2e04f23290ea6480864a762428ead061118466b",
+  "last_verified_commit": "b287d3e42c91c23d0e950a16a182524221f78af1",
   "git_dirty": false,
   "website": "https://nhasachthuthanh.id.vn",
   "api": "https://api.nhasachthuthanh.id.vn",
@@ -33,8 +33,8 @@
   "blockers": [
     "Representative large-load and continuous24x7 operations are not verified."
   ],
-  "notes": "Owner authorized repository cleanup and full publication; do not touch QueryDr99 or payments.",
-  "last_checkpoint_at": "2026-11-22T16:01:46+07:00",
+  "notes": "Project audit verified 20 remote items; this checkpoint changes documentation only. Six incomplete items remain open; D119 unchanged.",
+  "last_checkpoint_at": "2026-11-22T16:33:37.166987+07:00",
   "last_test_run": {
     "at": "2026-11-22T15:59:37+07:00",
     "backend_tests": 179,
@@ -53,5 +53,19 @@
     "source_commit": "b2e04f23290ea6480864a762428ead061118466b",
     "force_push": false,
     "old_history": "archive/payment-main; private snapshot retained"
+  },
+  "github_project": {
+    "number": 4,
+    "closed_issues": 14,
+    "open_issues": [
+      4,
+      12,
+      13,
+      19,
+      20,
+      21
+    ],
+    "state_consistency_verified": 20,
+    "project_closed": false
   }
 }

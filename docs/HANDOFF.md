@@ -1,3 +1,5 @@
+Đã hoàn tất PROJECT-AUDIT ngày 22/11/2026: GitHub Project 4 có 14 mục Closed, 6 mục In progress (#4, #12, #13, #19, #20, #21). Đã đối chiếu lại issue state và Project sau cập nhật. Project vẫn mở vì còn phần chưa nghiệm thu; không tự gọi các mục đó là hoàn thành. Snapshot private ở .runtime/project-close. Không có thay đổi ứng dụng hoặc thanh toán trong đợt này.
+
 # Bàn giao repository
 
 Đã hoàn tất REPO-CLEANUP: source ứng dụng đồng bộ bản main đã kiểm, README gọn, tài liệu chia commit/hướng dẫn hoàn thiện cũ đã bỏ; thiết kế ở design/figma và workbook ở data/catalog. code.js/ZIP Figma là output build, không theo dõi trong Git. Source công cụ vận hành ở deploy/ops.

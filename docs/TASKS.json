@@ -46,6 +46,25 @@
       "evidence": [
         "Website main-domain, luồng Sandbox/IPN, queue, SSH, backup/restore và offsite laptop đã được kiểm. QueryDr 99 được chủ dự án yêu cầu bỏ qua, không tiếp tục điều tra."
       ]
+    },
+    {
+      "id": "PROJECT-AUDIT",
+      "title": "Đối chiếu và đồng bộ GitHub Project 4 với nghiệm thu thực tế",
+      "phase": "MAINTENANCE",
+      "status": "done",
+      "depends_on": [
+        "REPO-CLEANUP"
+      ],
+      "acceptance": [
+        "Đọc 20 item và issue thực tế; chỉ đóng phần chức năng đã kiểm chứng",
+        "Đối chiếu lại issue state với cột Project; giữ mở phần thiếu nghiệm thu"
+      ],
+      "required_checks": [
+        "github-issue-project-state-consistency"
+      ],
+      "evidence": [
+        "22/11/2026: 14 issue closed/Closed, 6 issue open/In progress (#4,#12,#13,#19,#20,#21). Snapshot và kết quả API ở .runtime/project-close ngoài Git. Không sửa thanh toán hoặc bật scheduler."
+      ]
     }
   ]
 }
