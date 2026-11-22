@@ -75,7 +75,7 @@ test("home banners render in HTML before slow catalog APIs finish", async ({
     const response = await page.goto("/", { waitUntil: "domcontentloaded" });
     expect(await response.text()).toContain("Sách mới tháng này");
     await expect(
-      page.getByAltText("Sách mới tháng này", { exact: true }),
+      page.getByRole("img", { name: "Sách mới tháng này", exact: true }),
     ).toBeVisible();
     await expect(
       page.getByRole("region", { name: "Đang tải sản phẩm" }),

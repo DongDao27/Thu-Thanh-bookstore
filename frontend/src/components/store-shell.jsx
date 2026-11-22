@@ -96,7 +96,7 @@ export function StoreShell({ children }) {
           </div>
         </div>
       </header>
-      <main id="main" tabIndex={-1}>
+      <main id="main" tabIndex={-1} style={{ minHeight: "100svh" }}>
         {children}
       </main>
       {!adminArea && (
