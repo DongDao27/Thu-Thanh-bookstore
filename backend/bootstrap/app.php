@@ -25,6 +25,10 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->prepend(RequestContext::class);
         $middleware->replace(TrustProxies::class, TrustStoreProxies::class);
+        // API authentication must not resolve a nonexistent web login route,
+        // including clients which send Accept: */* or text/html.
+        $middleware->redirectGuestsTo(fn (Request $request) => $request->is('api/*')
+            ? null : rtrim(config('app.frontend_url'), '/').'/login');
         $middleware->alias([
             'role' => RequireRole::class,
             'session-only' => RequireSessionAuthentication::class,
