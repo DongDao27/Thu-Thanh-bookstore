@@ -35,3 +35,9 @@ GRADING-FIX source: APIguest401 mọiAccept có HTTPregression; explicitDemoCata
 PR26 đã merge (main cd2c20f, cây source giống candidatec9bd205 đã kiểm). Hosted backend/frontend và30E2E push/PR đều đạt. Clone mới từGitHub đã càiComposer/npm/Python, migrate/seed24sảnphẩm/24ảnh/0user,181test/2193assertions,coverage91,37%,HTTP22,ops/frontend/build vàrepositorycheck đạt. Website frontend đã triển khai; Lighthousemobile2lần92/94,bestpractices100,CLS0,LCP3,4/3,0s,payload1470/1386KiB.
 
 Chưa hoàn tất GRADING-FIX: backendc9bd205 đã chuẩn bị, shared.env/storage giữ nguyên vàpreflight đạt, nhưngcurrentVPSvẫn23842a5. Chờ operator chạy sudo bash /srv/thu-thanh/private-transfer/grading-fix/activate.sh đểswitch/reloadOPcache/worker;scriptcórollback. Chưa gọi QueryDr, seed hay migration trênVPS. Sau kích hoạt cần kiểm APIguest401/readiness/dịch vụ rồi cập nhậtcheckpointdone vàđóngissue25.
+
+
+Kích hoạt backend lần đầu không đạt và đã rollback về23842a5; nginx/PHP-FPM/worker active, /up200. Kiểm tra thấy bootstrap/cache/*.php thuộcdeploy:deploy660 vàthưmụccache mấtsetgid, khiếnwww-data không đọcđược. Đã sửa scriptprivateactivate.sh đểchuẩnhóa quyềncache, bootcheckaswww-data trướcswitch, chờreadiness vàghi bước lỗi. bash-n vàremote--check đạt; chờoperator chạy lạisudo, chưa đánh dấu livebackendpass.
+
+
+GRADING-FIX hoàn tất: operator kích hoạt c9bd205 thành công sau khi sửa quyền cache. Đã kiểm lại bằng SSH: current trỏ c9bd205; Nginx, PHP-FPM và worker active; cache deploy:www-data 0660. Deployment configuration checks đều PASS. Kiểm HTTP bên ngoài 11/11 đạt: homepage, /up, categories/products 200; www 308 về apex; admin operations 401 cho */*, text/html và application/json qua cả API lẫn frontend proxy. Bộ kiểm ban đầu kỳ vọng urllib tự theo 308 nên báo một lỗi; đã kiểm rõ Location và sửa tiêu chí đúng cho redirect, không sửa website. Không gọi QueryDr hoặc thay dữ liệu thật. Đóng issue #25 và chuyển item tương ứng sang Closed sau khi xác minh.

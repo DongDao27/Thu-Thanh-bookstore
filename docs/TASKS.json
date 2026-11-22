@@ -94,7 +94,7 @@
       "id": "GRADING-FIX",
       "title": "Khắc phục các phát hiện clone/security/performance theo rubric",
       "phase": "MAINTENANCE",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "GRADING-AUDIT"
       ],
@@ -115,7 +115,7 @@
       ],
       "evidence": [
         "PR26 merged; candidatec9bd205 hosted backend/frontend and30E2E passed on push/PR. Fresh GitHub clone installed PHP/Node/Python dependencies, demo24products/24images/0users,181backend/2193assertions,coverage91.37%,HTTP22,ops/frontend/build/repository all passed.",
-        "Frontend live mobile Lighthouse92/94, best practices100, CLS0, LCP3.4/3.0s, payload1470/1386KiB. Backend releasec9bd205 prepared and preflight verified; activation still needs operator sudo/PHP-FPM reload. D119 unchanged."
+        "Frontend live: mobile Lighthouse 92/94, best practices 100, CLS 0, LCP 3.4/3.0s, payload 1470/1386KiB. Backend c9bd205 activated after correcting generated cache permissions; www-data boot, deployment configuration and 11 live HTTP checks passed. Nginx/PHP-FPM/worker active. D119 unchanged."
       ]
     }
   ]

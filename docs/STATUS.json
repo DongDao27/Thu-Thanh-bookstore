@@ -4,7 +4,7 @@
   "phase": "MAINTENANCE",
   "current_task_id": "GRADING-FIX",
   "next_task_id": null,
-  "implementation_state": "grading_fixes_frontend_live_backend_activation_pending",
+  "implementation_state": "grading_fixes_verified_and_deployed",
   "backend_gate": "externally_blocked",
   "frontend_gate": "authorized_scoped",
   "frontend_authorization": {
@@ -33,19 +33,19 @@
   "blockers": [
     "Representative large-load and continuous24x7 operations are not verified."
   ],
-  "notes": "Issue25 tracks grading fixes. Local181/2193,coverage91.37,HTTP22,frontend16/build,home regressions passed. Freshclone/hostedCI/live measurements pending. D119 unchanged.",
-  "last_checkpoint_at": "2026-11-23T03:06:13.113425+07:00",
+  "notes": "GRADING-FIX complete: fresh clone, hosted CI and live activation verified. D119 retained; no official grade or large-load certification.",
+  "last_checkpoint_at": "2026-11-23T03:18:00+07:00",
   "last_test_run": {
-    "at": "2026-11-22T15:59:37+07:00",
-    "backend_tests": 179,
-    "backend_assertions": 2180,
-    "e2e": 29,
+    "at": "2026-11-23T03:18:00+07:00",
+    "backend_tests": 181,
+    "backend_assertions": 2193,
+    "e2e": 30,
     "frontend_tests": 16,
     "frontend_build": "passed",
-    "repository_links": "14 documents/22 links passed",
+    "repository_links": "14 documents/26 local links passed",
     "figma": "V41 offline passed",
     "assets": "passed",
-    "environment": "local isolated PostgreSQL thu_thanh_test; no live payment mutation"
+    "environment": "fresh GitHub clone with isolated PostgreSQL; hosted CI; 11 live read-only HTTP checks"
   },
   "publication_branch": "chore/repository-cleanup-20261122",
   "publication": {
@@ -83,7 +83,7 @@
       53,
       55
     ],
-    "unresolved": [
+    "baseline_unresolved": [
       "mobile_LCP_CLS",
       "fresh_clone_demo_catalog",
       "API_guest_non_JSON_500",
@@ -108,7 +108,12 @@
     ],
     "frontend_live_cls": 0,
     "backend_release_prepared": "c9bd205",
-    "backend_current": "23842a5",
-    "remaining": "operator sudo activation and live API verification"
+    "backend_current": "c9bd205",
+    "remaining": null,
+    "live_http_checks": 11,
+    "services": "nginx/php8.4-fpm/worker active",
+    "status": "done",
+    "issue_state": "closed",
+    "project_status": "Closed"
   }
 }
