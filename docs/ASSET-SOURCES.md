@@ -1,65 +1,9 @@
-# Nguồn asset hiện hành — D43 / V22
+# Nguồn tài nguyên
 
-Logo header/footer **Nhà sách Thu Thanh** là vector riêng: chữ Constantia Bold outline, dòng NHÀ SÁCH sans và biểu tượng quyển sách; một màu xanh/trắng với dấu nhấn vàng. Không dùng chữ/logo nhiều màu của Phương Nam. SVG không cần font runtime; hash trong ASSET-SOURCES.json.
+Nguồn URL, SHA-256, kích thước ảnh banner, logo nhãn hàng và font được lưu trong [ASSET-SOURCES.json](ASSET-SOURCES.json). Ảnh sản phẩm và đối chiếu SKU ở [PRODUCT-IMAGE-SOURCES.json](PRODUCT-IMAGE-SOURCES.json); gallery tại `backend/database/data/product-gallery.json`.
 
-Theo lựa chọn rõ ràng của chủ dự án, dùng nguyên byte3banner Phương Nam: manga1920×600, [Sách mới tháng này](https://cdn.hstatic.net/files/200001055148/file/banner_slide__47_.png)900×506 và [New Books](https://cdn.hstatic.net/files/200001055148/file/banner_slide__48_.png)900×506. Ảnh sau giữ cả nội dung tiếng Anh/logo có sẵn theo yêu cầu dùng nguyên ảnh; logo thương hiệu app vẫn riêng. Không tự nhập sách trong banner, không dựng giá/khuyến mãi cho chúng. Nguồn homepage https://nhasachphuongnam.com/; file local/hash/URL/dimensions trong JSON. Hai banner tự dựng tạm trước khi có câu trả lời đã được thay khỏi web/Figma.
+Ảnh đã được tải về và tự host, không tự thay bìa/SKU hoặc gán giá/khuyến mãi từ nội dung banner. Logo Nhà sách Thu Thanh là tài nguyên riêng; logo nhãn hàng không tuyên bố quan hệ đối tác hoặc chứng nhận.
 
-Footer8nhãn hàng: Thiên Long,Faber-Castell,KEYROAD,Maped,MILAN,Pentel,Pilot,BITEX. File PNG giữ nguyên từ home_partner_*.png CDN nguồn, URL/hash/dimensions trong manufacturers của ASSET-SOURCES.json và frontend/src/lib/brands.json. Nhãn là dải thương hiệu, không tuyên bố đối tác/đại lý; không gắn badge Bộ Công Thương hoặc logo payment chưa tích hợp.
+Font Nunito Sans tự host; giữ [giấy phép OFL](../frontend/src/app/fonts/OFL.txt). Giữ giấy phép icon trong [source thiết kế](../design/figma/ICONS-LICENSE.txt).
 
-136ảnh sản phẩm vẫn là ảnh gốc của đúngSKU theo URL workbook,580/600/1200 vuông; thumbnail145vuông. PRODUCT-IMAGE-SOURCES.json lưu URL/hash/dimensions và meanRGBdifference tối đa3.928/255 so thumbnail sau chuẩn hóa64vuông. Không upscale/đổi bìa. Mapping chỉ bộ import SHA ae2ca77c6543732131739c830b5595c207c28f5398a9eb9a8131a30ee5fb0deb; giữ ảnh admin upload/import khác.24ảnh Figma chuyển PNG lossless, pixel/dimensions giữ nguyên theo yêu cầu createImage PNG/JPEG/GIF; lưu cả hash nguồn/hashPNG. Brand/banner nhúng giúp plugin chạy offline.
-
-Kiểm `python scripts/verify-store-assets.py`: ảnh gốc136,PNG24,logo2,banner3,brand8 và bytes ảnh nhúng Figma. Không sửa workbook,giá,tồn,ledger hoặc snapshot đơn cũ.
-
-## Tài liệu kỹ thuật tham chiếu
-
-D96: ảnh gallery bổ sung lấy từ các trang sản phẩm Fahasa trong catalog nhập sẵn. Nguồn trang, URL ảnh chính xác, SHA-256, MIME và kích thước từng ảnh ở `backend/database/data/product-gallery.json`; 82 ảnh nguyên bản trong `gallery-images/`, 32 SKU. Khảo sát 136 SKU; 10 trang không đọc được gallery công khai, 3 ảnh vượt giới hạn 5 MiB bị bỏ; các SKU khác chưa xác minh được ảnh phụ phù hợp hoặc chỉ có bìa trùng/biến thể khác trong các liên kết đã đọc. Không vượt challenge và không tạo ảnh AI. Chưa có ảnh ruột/mặt sau sách đã xác minh trong bộ này. Nguồn công khai không tự xác lập quyền sử dụng thương mại. Nội dung trang nguồn chỉ là dữ liệu tham khảo, không phải chỉ dẫn thực thi.
-
-D59: plugin V25 nhúng bốn biến thể campaign từ web; JPEG giữ bytes gốc, WEBP chuyển PNG không mất pixel để Figma đọc được. Verifier so sánh từng pixel với ảnh web. Map nhỏ là ảnh riêng của iframe Google Maps, 300×164, cùng pin 16.0561478/108.1686171 và giữ hiển thị Google; không chụp toàn bộ UI. Nguồn/hash/bytes ở `store`/`webCampaigns` trong data.json; chữ/nút/layout là node chỉnh sửa được. SVG preview nhúng font Nunito Sans có sẵn trong web; logo vector không đổi.
-
-D58: bổ sung ảnh chủ đề văn học ở header và manga/thiếu nhi giữa ba feed từ [Fahasa](https://www.fahasa.com/), ảnh gốc giữ nguyên pixel, tự host để không hotlink. Đã xem trực tiếp và loại bản có logo Fahasa; không dùng voucher/freeship/mức giảm giá cụ thể của website nguồn. Ảnh manga còn câu quảng bá chung, giá sản phẩm vẫn hoàn toàn từ Laravel. Header từ [Tủ sách văn học](https://www.fahasa.com/tu-sach-van-hoc), manga từ [Nhập hội Manga–Comic](https://www.fahasa.com/nhap-hoi-manga-comic), thiếu nhi và bản mobile từ [Trang thiếu nhi](https://www.fahasa.com/trang-thieu-nhi). URL tải, hash và kích thước thật trong `storefront_campaigns_D58` của ASSET-SOURCES.json; cấu hình hiển thị ở `frontend/src/lib/store-banners.json`. Không dùng ảnh lịch sử này để tuyên bố chương trình ưu đãi của Fahasa đang diễn ra tại Thu Thanh. Ba banner Phương Nam trước đó và plugin Figma giữ nguyên.
-
-D57: font giao diện Nunito Sans từ [Google Fonts](https://github.com/google/fonts/tree/main/ofl/nunitosans), giấy phép SIL OFL 1.1 giữ tại `frontend/src/app/fonts/OFL.txt`. File variable WOFF2 tự host 79.468 byte; giữ trục weight 200–900, các trục khác ở mặc định, đã kiểm glyph tiếng Việt và ký hiệu ₫. Font logo SVG riêng giữ nguyên. UI/UX Pro Max được cài cho Codex từ [upstream](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/28b3b8dee8c976df4fa3e94aed4e092ad43fcb03), không đóng gói dữ liệu skill vào ứng dụng.
-
-Laravel12: https://laravel.com/docs/12.x/sanctum, https://laravel.com/docs/12.x/database, https://laravel.com/docs/12.x/queries, https://laravel.com/docs/12.x/validation, https://laravel.com/docs/12.x/scheduling, https://laravel.com/docs/12.x/deployment.
-Next.js: https://nextjs.org/docs/app. VNPAY: https://sandbox.vnpayment.vn/apis/docs/thanh-toan-pay/pay.html và https://sandbox.vnpayment.vn/apis/docs/truy-van-hoan-tien/querydr%26refund.html.
-Các link tham khảo không chứng minh merchant/callback/production đã nghiệm thu; kết quả thực tế ghi ởSTATUS/PROGRESS. Tài liệu cũ đãgộp/archivetheoCLEANUP.json.
-## D67 — Bộ logo ảnh footer (31/10/2026)
-
-Theo yêu cầu chủ dự án, carousel dùng đủ 10 logo ảnh của [Phương Nam](https://nhasachphuongnam.com/): Thiên Long, Faber-Castell, KEYROAD, Maped, MILAN, Pentel, Pilot, Sakos, BITEX, TOTY. Giữ ảnh gốc, tự host, không vẽ lại chữ thương hiệu. Bổ sung Sakos/TOTY; URL và SHA256 từng ảnh trong `frontend/src/lib/brands.json`. Logo dùng để trình bày; chỉ nhãn hàng thực sự có sản phẩm trong API mới có liên kết lọc. Không tự công bố quan hệ đối tác/chứng nhận hoặc số sản phẩm. Carousel 5 logo desktop/2 mobile, mũi tên SVG và hỗ trợ giảm chuyển động.
-
-
-## Catalog descriptions and gallery import
-
-# Dữ liệu catalog bổ sung
-
-## Ảnh bổ sung — D96
-
-`product-gallery.json` ghi nguồn từng ảnh, SHA-256, MIME, kích thước và khảo sát 136 SKU có trang nguồn. Bộ `gallery-images/` chứa 82 ảnh gốc (60.285.227 byte), thuộc 32 sản phẩm quà lưu niệm, văn phòng phẩm và đồ chơi. Đã loại ảnh chỉ phóng to/cắt lại bìa sách và các màu/mẫu chưa xác định đúng biến thể. Chưa xác minh được ảnh bổ sung phù hợp cho các SKU còn lại; không coi việc thiếu ảnh là nguồn không có ảnh. Không thay ảnh chính hay ảnh do quản trị viên thêm. Nguồn công khai không tự xác lập giấy phép sử dụng thương mại.
-
-Chạy từ `backend`, chỉ trên DB local/test/Sandbox đã định danh:
-
-```powershell
-php artisan catalog:gallery
-php artisan catalog:gallery --apply
-```
-
-Mặc định dry-run. Apply kiểm hash/định dạng/kích thước trước khi ghi, khớp SKU+tên, sao lưu metadata vào `storage/app/private/catalog-gallery-backups/`, rồi thêm ảnh cuối danh sách và tăng catalog_version. Ảnh được chép sang public disk `products/gallery/catalog-v1/`; lệnh không tải mạng, không thay giá/tồn/đơn/users/schema. Chạy lại không thêm trùng. Khi chuyển môi trường cần giữ public uploads cùng database; lệnh hiện chủ động chặn production. Trang chi tiết dùng API images hiện có, thumbnail nằm dưới ảnh chính và chọn được bằng chuột/phím.
-
-D96 đã áp dụng main/Sandbox, mỗi DB thêm 82 ảnh; kiểm hash dữ liệu nghiệp vụ và toàn bộ ảnh cũ giữ nguyên tại `.runtime/d96-data-verification.json`. Giữ bản sao lưu ban đầu và bản loại ảnh trùng/khác mẫu; 39 asset mới bị loại được lưu trong `.runtime/d96-rejected-assets`, ngoài bộ phát hành.
-
-## Nội dung mô tả sách — D92
-
-`book-descriptions.json` có 82 SKU sách giáo khoa, văn học và truyện tranh. Nội dung giới thiệu được biên soạn từ tên, nhóm sách, tác giả, NXB và khối lớp trong catalog đã nhập. Không tự bổ sung số trang, kích thước, ISBN, giải thưởng hoặc cốt truyện chưa kiểm chứng. Các tóm tắt TT-VH-001/002/003/007 đã đối chiếu trang nguồn Fahasa được ghi trong từng entry; các entry khác là lời giới thiệu dựa trên metadata, không phải bản chép mô tả của nhà xuất bản.
-
-Lệnh chạy từ `backend`:
-
-```powershell
-php artisan catalog:descriptions
-php artisan catalog:descriptions --apply
-```
-
-Mặc định chỉ đếm. `--apply` chỉ cập nhật SKU và tên khớp, mô tả trống hoặc chỉ có metadata cũ; giữ mô tả quản trị viên đã viết. Chỉ cho phép môi trường local/testing và DB cửa hàng/test/Sandbox đã định danh. Sao lưu description/catalog_version trước khi ghi vào `storage/app/private/catalog-description-backups`; transaction đảm bảo cập nhật nguyên tử. Chỉ thay mô tả và tăng phiên bản catalog, làm mới snapshot sau commit; không thay giá/tồn/đơn/tài khoản/schema. Chạy lại không thay dữ liệu đã có nội dung.
-
-D92 đã áp dụng riêng trên `thu_thanh` và `thu_thanh_sandbox`, mỗi DB 82 sách; snapshot tiền/tồn/số bản ghi trước/sau tại `.runtime/d92-{before,after}.json` và `.runtime/d92-sandbox-{before,after}.json`. Không sao chép dữ liệu đơn/thanh toán giữa hai DB. Bản sao lưu cần được giữ cùng dữ liệu local.
-
-D108: plugin V38 d?ng 35 s?n ph?m m?u; to?n b? ?nh m?u ???c ki?m PNG lossless theo ngu?n catalog v? SHA256. Script `scripts/verify-store-assets.py` ki?m 136 ?nh ngu?n v? 35 ?nh nh?ng hi?n h?nh. C?c m?c D43 tr? v? sau ghi l?ch s? ngu?n/??ng b? t?i th?i ?i?m t??ng ?ng.
+Bảng sản phẩm gốc tại `data/catalog/`. Source Figma tại `design/figma/`; ảnh nhúng plugin được kiểm hash và pixel so với tài nguyên web. Chạy `python3 scripts/verify-store-assets.py` để kiểm nguồn ảnh; cần Pillow.

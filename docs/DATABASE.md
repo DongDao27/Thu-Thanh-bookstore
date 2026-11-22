@@ -1,5 +1,3 @@
-> Hiện hành D112 (20/11/2026): PostgreSQL 17 cho main/test/Sandbox; MySQL và backup đã xóa theo D107. Stack Vercel/VPS/Cloudflare/Resend/Pusher, plugin V40. Hướng dẫn vận hành: [DEPLOYMENT](DEPLOYMENT.md). Ghi chép D cũ bên dưới giữ đúng thời điểm.
-
 # Database contract 2.0
 
 ## D91 — Bảng vận hành và ERD
@@ -42,9 +40,9 @@ erDiagram
 ```
 
 Quan hệ tokenable là polymorphic logic, không phải FK users vật lý. Các quan hệ optional thể hiện nullable FK; refunds chỉ giữ schema/historical records, writes vẫn bị chính sách hiện hành chặn. Các bảng hạ tầng độc lập: sessions/password_reset_tokens, cache/cache_locks, jobs/job_batches/failed_jobs, settings, newsletter_subscriptions, operational_alerts và telescope_monitoring; không bịa quan hệ FK giữa bảng alert với đơn/tài khoản.
-Database đích D105: PostgreSQL17, UTF8, connection UTC; timestamps(6) without time zone lưu UTC khi có race/time logic. ID BIGINT identity/sequence; giá/amount BIGINT có CHECK nonnegative vì PostgreSQL không có unsigned. Các bằng chứng MySQL phía dưới là lịch sử trước cutover. Enum dùng PHP backed enum + VARCHAR có validation/check phù hợp, tránh DB ENUM khó migrate.
+Database đích D105: PostgreSQL17, UTF8, connection UTC; timestamps(6) without time zone lưu UTC khi có race/time logic. ID BIGINT identity/sequence; giá/amount BIGINT có CHECK nonnegative vì PostgreSQL không có unsigned. Enum dùng PHP backed enum + VARCHAR có validation/check phù hợp, tránh DB ENUM khó migrate.
 Mọi bảng có created_at/updated_at nếu không phải append-only event; event có created_at và processed_at.
-Money: unsigned bigint VND integer, không float. JSON API giữ dưới ngưỡng safe integer đã validate; giới hạn phát triển đề xuất 1 tỷ VND/order.
+Money: BIGINT có CHECK nonnegative, VND integer, không float. JSON API giữ dưới ngưỡng safe integer đã validate; giới hạn phát triển đề xuất 1 tỷ VND/order.
 Các giới hạn là engineering defaults, xem DECISIONS.
 
 ## Bảng và trường
@@ -101,7 +99,7 @@ Seed sáu danh mục idempotent theo slug; demo products riêng, tạo có stock
 Production không chạy DatabaseSeeder chứa Faker. Test factory tách dataset và không gửi email/provider thật.
 
 
-D41: không thêm/sửa schema. Dashboard aggregate đọc products/categories/orders/order_items; ngày báo cáo Asia/Ho_Chi_Minh, timestamps và connection vẫn UTC. MySQL engine portable local3307, persistentfiles .runtime/mysql-data; Laravel/Eloquent không thay database engine. Hướng dẫn giải thích ở CHAY-WEB-VA-LARAVEL.md.
+Dashboard aggregate đọc products/categories/orders/order_items; ngày báo cáo Asia/Ho_Chi_Minh, timestamps và connection UTC.
 
 
 ## D43 — newsletter_subscriptions
@@ -118,11 +116,11 @@ Archive sản phẩm dùng products.is_active=false và tăng catalog_version d�
 
 ## D45 — dữ liệu demo tách riêng, không migration dữ liệu thật
 
-Không thêm cột discount_percent: chỉ persist list_price/sale_price/catalog_version. MySQL8 window function giới hạn ứng viên gợi ý mỗi category. Không thêm index chỉ vì đoán hiệu năng; workload hiện1korders/136SKU đã có FK/index nguồn, public snapshot được cache.
+Không thêm cột discount_percent: chỉ persist list_price/sale_price/catalog_version. PostgreSQL window function giới hạn ứng viên gợi ý mỗi category. Không thêm index chỉ vì đoán hiệu năng; workload hiện1korders/136SKU đã có FK/index nguồn, public snapshot được cache.
 
 `thu_thanh_demo` được tạo local riêng với user DB/private env/APP_KEY/cookie/storage riêng; clone read-only catalog từ thu_thanh, không clone khách/đơn thật. Seed1000paidorders/accepted demo receipts và stock movements qua reserve/consume, totals/quantity đúng, business keys chống trùng. Tạo giá giảm/tồn mô phỏng chỉ trong demo. Dùng provider=demo, không fake chữ ký VNPAY. Prepare-demo/seed từ chối production và DB thật; chạy lại cùngseed bỏ qua1000đơn. Các bản ghi QA local không thuộc doanh số thực.
 
-D105: production overlay Redis là tùy chọn cho cache/session/queue; PostgreSQL quyết định tiền/tồn và unique/locks (thay MySQL). Cache invalidation sau commit, không giữ global cache-row lock trong transaction tồn kho. Xem DEPLOYMENT.md cho phần chưa đo trên production.
+D105: production overlay Redis là tùy chọn cho cache/session/queue; PostgreSQL quyết định tiền/tồn và unique/locks (thay MySQL). Cache invalidation sau commit, không giữ global cache-row lock trong transaction tồn kho. Xem SECURITY-PERFORMANCE.md cho phạm vi kiểm chứng.
 
 ## D51 — Password reset, không thêm migration
 

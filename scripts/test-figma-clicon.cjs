@@ -107,7 +107,7 @@ for(const [method,type] of Object.entries({createPage:'PAGE',createFrame:'FRAME'
   figma[method]=()=>{const n=new Node(type); (type==='PAGE'?root:figma.currentPage).appendChild(n); return n;};
 figma.createNodeFromSvg=(svg)=>{const n=new Node('FRAME');n.svgSource=svg;figma.currentPage.appendChild(n);return n;};
 let bundledData;
-vm.runInNewContext(fs.readFileSync(process.env.THUTHANH_PLUGIN_SOURCE||require('node:path').join(__dirname,'../thu-thanh-figma-clicon/code.js'),'utf8').replace('catch (e) { const detail=', 'catch (e) { if(!String(e.message).startsWith("Đã dừng tạo"))console.error(e.stack); const detail=')+'\ncapture(DATA);',{figma,__html__:'',setTimeout,console,capture:d=>bundledData=d});
+vm.runInNewContext(fs.readFileSync(process.env.THUTHANH_PLUGIN_SOURCE||require('node:path').join(__dirname,'../design/figma/code.js'),'utf8').replace('catch (e) { const detail=', 'catch (e) { if(!String(e.message).startsWith("Đã dừng tạo"))console.error(e.stack); const detail=')+'\ncapture(DATA);',{figma,__html__:'',setTimeout,console,capture:d=>bundledData=d});
 async function build() {
   messages.length=0; await figma.ui.onmessage({type:'build'});
   assert(!messages.some(m=>m.type==='error'),JSON.stringify(messages.at(-1)));
@@ -117,7 +117,7 @@ async function build() {
 // This executes the real plugin against an in-memory Figma API, not a live canvas.
 (async()=>{
   const path=require('node:path'),crypto=require('node:crypto');
-  const dir=path.join(__dirname,'../thu-thanh-figma-clicon'),data=JSON.parse(JSON.stringify(bundledData));assert.equal(data.build.version,41);assert.equal(data.build.source_sha256,crypto.createHash('sha256').update(fs.readFileSync(path.join(dir,'src/plugin.js'))).digest('hex'));
+  const dir=path.join(__dirname,'../design/figma'),data=JSON.parse(JSON.stringify(bundledData));assert.equal(data.build.version,41);assert.equal(data.build.source_sha256,crypto.createHash('sha256').update(fs.readFileSync(path.join(dir,'src/plugin.js'))).digest('hex'));
   assert.equal(data.products.length,35);assert.equal(new Set(data.products.map(p=>p.id)).size,35);
   assert.equal(data.additionalBanners.length,2);for(const banner of data.additionalBanners){assert.equal(crypto.createHash('sha256').update(Buffer.from(banner.image,'base64')).digest('hex'),banner.sha256);assert.equal(banner.width,900);assert.equal(banner.height,506);}
   assert.equal(data.products[0].id,'TT-SGK-002');for(const cat of new Set(data.products.map(p=>p.category)))assert(data.products.filter(p=>p.category===cat).length>=4);

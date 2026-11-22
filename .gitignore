@@ -17,4 +17,9 @@
 /.vscode/
 /.playwright-cli/
 /output/
-/thu-thanh-figma-clicon/xem-truoc/*.svg
+
+# Generated Python and design build artifacts.
+**/__pycache__/
+*.py[cod]
+/design/figma/xem-truoc/*.svg
+/design/figma/code.js

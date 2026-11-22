@@ -22,7 +22,7 @@ for asset in assets['products']:
         assert min(image.size) >= 580
     assert asset['status'] == 'verified_original'
     assert asset['mean_rgb_difference'] <= 8
-data = json.loads((ROOT / 'thu-thanh-figma-clicon/src/data.json').read_text(encoding='utf-8'))
+data = json.loads((ROOT / 'design/figma/src/data.json').read_text(encoding='utf-8'))
 for product in data['products']:
     asset = next(a for a in assets['products'] if a['sku'] == product['id'])
     encoded = base64.b64decode(product['image'])

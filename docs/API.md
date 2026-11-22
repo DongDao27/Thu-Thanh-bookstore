@@ -36,7 +36,7 @@ Customer chỉ được cấp catalog:read/orders:read; admin catalog:read/catal
 
 Scramble viewer `/docs/api`, JSON `/docs/api.json`: chỉ admin session, kể cả local. Sinh từ routes/controllers/validation với security scheme phân biệt cookie+CSRF và Bearer; export `php artisan scramble:export --env=testing --path=storage/logs/openapi.generated.json`. Bản OpenAPI trong docs vẫn là contract kiểm khớp source; bản generated là artifact từ Scramble, không chứa dữ liệu người dùng. Website Next proxy /docs và /telescope về Laravel; quyền vẫn được Laravel kiểm.
 
-Telescope `/telescope` chỉ mở sau khi bật TELESCOPE_ENABLED và migrate bảng mới, luôn chỉ admin session. Không lưu request/response body/header/cookies, SQL/bindings, exception message/trace arguments hoặc danh tính người dùng. Chỉ giữ method/status/duration/memory, mẫu URI, timing query và tên lỗi. Job watcher tắt vì failed-job updates của package có thể vượt entry filter; queue vẫn được kiểm bằng worker smoke/failed_jobs. Chi tiết bật local và nghiệm thu trong [COURSE-CHECKLIST](COURSE-CHECKLIST.md).
+Telescope `/telescope` chỉ mở sau khi bật TELESCOPE_ENABLED và migrate bảng mới, luôn chỉ admin session. Không lưu request/response body/header/cookies, SQL/bindings, exception message/trace arguments hoặc danh tính người dùng. Chỉ giữ method/status/duration/memory, mẫu URI, timing query và tên lỗi. Job watcher tắt vì failed-job updates của package có thể vượt entry filter; queue vẫn được kiểm bằng worker smoke/failed_jobs. Chi tiết bật local và nghiệm thu trong [vận hành và bảo mật](SECURITY-PERFORMANCE.md).
 
 Prefix **/api/v1**, đặc tả máy đọc ở [openapi.json](openapi.json). ApiRouteContractTest đối chiếu route/method thực tế; các test resource/validation/quyền kiểm hành vi. Kết quả này không thay nghiệm thu merchant VNPAY thật. Giao diện khách/admin do Next.js, nghiệp vụ và dữ liệu do Laravel.
 
@@ -95,7 +95,7 @@ PaymentAttempt trả id,order_code,status,expires_at,payment_url,qr_content,qr_k
 
 Return frontend tại `/payment/vnpay-return` gửi vnp_* về API. Chữ ký sai422; signed success chỉ kích hoạt query server→VNPAY ngoài khóa DB. Chỉ query/IPN đã xác minh mới phân bổ receipt/paid và trừ tồn một lần. Query chưa rõ giữ pending; signed failure cho retry khi còn hạn. Reload/retry không gia hạn. Duplicate/late/mismatch không ghi nhận doanh số hoặc trừ tồn hai lần; các ca cần đối soát giữ luật backend.
 
-D55 cho phép Sandbox trong env private với merchant của chủ dự án, code/env mẫu vẫn deferred mặc định. Chủ dự án xác nhận chưa có giao dịch merchant thực tế. Production, QR tại quầy và IPN public vẫn cần cấu hình/nghiệm thu riêng; xem [hướng dẫn](CHAY-WEB-VA-LARAVEL.md#thanh-toán-vnpay-sandbox).
+D55 cho phép Sandbox trong env private với merchant của chủ dự án, code/env mẫu vẫn deferred mặc định. Luồng Sandbox/IPN đã được chủ dự án kiểm tra thành công. Production, QR tại quầy và IPN public vẫn cần cấu hình/nghiệm thu riêng; xem [cấu hình môi trường](../README.md).
 
 ## Admin
 

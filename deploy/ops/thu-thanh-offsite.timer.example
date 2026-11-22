@@ -1,0 +1,9 @@
+[Unit]
+Description=Pull private backup when laptop user session is available
+[Timer]
+OnCalendar=*-*-* *:45:00
+OnStartupSec=2min
+RandomizedDelaySec=60
+Persistent=true
+[Install]
+WantedBy=timers.target

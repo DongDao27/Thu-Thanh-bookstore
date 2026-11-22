@@ -1,0 +1,7 @@
+[Unit]
+Description=Verified private Thu Thanh offsite backup
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 %h/.local/bin/thu-thanh-offsite-pull.py
+UMask=0077
+TimeoutStartSec=600
