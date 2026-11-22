@@ -4,7 +4,7 @@ namespace Deployer;
 
 require 'recipe/laravel.php';
 
-// Run with Deployer 7 from the repository root; see docs/DEPLOYMENT.md.
+// Run with Deployer 7 from the repository root; see README.md and docs/SECURITY-PERFORMANCE.md.
 set('application', 'thu-thanh');
 set('repository', getenv('DEPLOY_REPOSITORY') ?: 'git@github.com:DongDao27/Thu-Thanh-bookstore.git');
 set('branch', 'main');

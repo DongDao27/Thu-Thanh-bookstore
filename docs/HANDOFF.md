@@ -1,3 +1,7 @@
+GRADING-FIX đã có source/test local; đang chờ fresh clone, hosted CI và triển khai kiểm lại. API401/DemoCatalogSeeder24,181backend/2193assertions,HTTP22,16frontend và build; homepage regression đạt. Bản productionlocal90performance/CLS0. Không sửa QueryDr/payment/scheduler; không seed dữ liệu thật.
+
+GRADING-FIX đang thực hiện theo yêu cầu chủ dự án; chưa ghi hoàn tất trước tests/deploy/đo hiệu năng. Giữ tất cả env/dữ liệu/backup thật; không gọi QueryDr99.
+
 GRADING-AUDIT hoàn tất 23/11/2026 trên cloneGitHub0067580:179backend/2180assertions,coverage91,37%,16frontend/check/build,29E2E,HTTPauth19 vàopsfixture đạt. Báo cáo private ở .runtime/grading-audit và output/grading-audit-2026-11-23.html.
 
 Cần xử lý trước kỳ vọng10đ: hiệu năngmobile53–55/LCP7–7,6s/CLS0,49; dữ liệu demo clone mới0products; APIguestthiếuAcceptJSONtrả500 vì thiếu route login; READMEthiếuPython/monitoring/testsetup vàscreenshots. Chưa sửa các lỗi này; không đụng live/payment/scheduler. TheoD120,Figma/slide/video ngoài phạm vi nộp; chủ dự án xác nhận thầy đã chấp nhậnNext.js.
