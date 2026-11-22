@@ -12,7 +12,7 @@
       "id": "REPO-CLEANUP",
       "title": "Dọn repository, hoàn thiện README và xuất bản thay đổi",
       "phase": "MAINTENANCE",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [],
       "acceptance": [
         "Giữ source, dữ liệu, khóa và backup; loại tài liệu hướng dẫn trùng/lỗi thời",
@@ -27,7 +27,7 @@
         "e2e"
       ],
       "evidence": [
-        "Root-workspace verification: backend179tests/2180assertions, E2E29/29, frontend16/16/check71/build22pages passed; repository14docs/22links/OpenAPI passed; FigmaV41offline214screens/3287routes passed;136originalimages/35PNGasset checks passed;workbookbytes unchanged;stagedprivate-artifact/key/token scan and gitdiff whitespace passed. Application source matches main23842a5 ignoring LF normalization; CI adds repository checker. QueryDr/payment/scheduler untouched. Publication pending."
+        "Đã kiểm trên source root: backend179/2180assertions, E2E29/29, frontend16/16/check/build;14docs/22links/OpenAPI;FigmaV41offline214screens/3287routes;136originals/35PNG;workbookhash và scanprivate/secret/whitespace đạt. Commit b2e04f2 đã push nhánh chore/repository-cleanup-20261122 vào đúngrepo;main fast-forward sau hostedCI."
       ]
     },
     {

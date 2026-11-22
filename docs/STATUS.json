@@ -3,8 +3,8 @@
   "project": "Thu Thanh Bookstore",
   "phase": "MAINTENANCE",
   "current_task_id": "REPO-CLEANUP",
-  "next_task_id": "REPO-CLEANUP",
-  "implementation_state": "main_domain_live_repository_cleanup_in_progress",
+  "next_task_id": null,
+  "implementation_state": "repository_cleaned_local_verified_published",
   "backend_gate": "externally_blocked",
   "frontend_gate": "authorized_scoped",
   "frontend_authorization": {
@@ -12,9 +12,9 @@
     "scope": "Verified API and existing frontend"
   },
   "release_gate": "sandbox_deployed",
-  "branch": "chore/repository-cleanup-20261122",
-  "last_verified_commit": null,
-  "git_dirty": true,
+  "branch": "main",
+  "last_verified_commit": "b2e04f23290ea6480864a762428ead061118466b",
+  "git_dirty": false,
   "website": "https://nhasachthuthanh.id.vn",
   "api": "https://api.nhasachthuthanh.id.vn",
   "repository": "DongDao27/Thu-Thanh-bookstore",
@@ -34,7 +34,7 @@
     "Representative large-load and continuous24x7 operations are not verified."
   ],
   "notes": "Owner authorized repository cleanup and full publication; do not touch QueryDr99 or payments.",
-  "last_checkpoint_at": "2026-11-22T15:59:37+07:00",
+  "last_checkpoint_at": "2026-11-22T16:01:46+07:00",
   "last_test_run": {
     "at": "2026-11-22T15:59:37+07:00",
     "backend_tests": 179,
@@ -46,5 +46,12 @@
     "figma": "V41 offline passed",
     "assets": "passed",
     "environment": "local isolated PostgreSQL thu_thanh_test; no live payment mutation"
+  },
+  "publication_branch": "chore/repository-cleanup-20261122",
+  "publication": {
+    "method": "fast_forward_after_hosted_ci",
+    "source_commit": "b2e04f23290ea6480864a762428ead061118466b",
+    "force_push": false,
+    "old_history": "archive/payment-main; private snapshot retained"
   }
 }

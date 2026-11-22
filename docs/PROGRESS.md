@@ -4,7 +4,7 @@
 
 Đã lưu snapshot private của lịch sử Git, index, config và 682 file làm việc trước khi dọn. Đồng bộ lại các bản sửa CI/ảnh/polling từ main23842a5; giữ nguyên logic thanh toán. Chuyển source thiết kế sang design/figma và workbook gốc sang data/catalog; cập nhật đường dẫn build/verifier. Bỏ checklist môn học, hướng dẫn hoàn thiện, chia commit và launcher PowerShell cũ. Viết lại README và checkpoint gọn.
 
-Kiểm tra local đã đạt: 179 backend/2.180 assertions, 29 E2E, 16 frontend; build/check/import, 14 tài liệu/22 liên kết/OpenAPI, Figma V41 và nguồn ảnh đạt. Workbook di chuyển giữ nguyên byte. Không phát hiện secret/runtime trong các file chuẩn bị commit. Đang xuất bản branch dựa trên main của repo nhà sách.
+Kiểm tra local đã đạt: 179 backend/2.180 assertions, 29 E2E, 16 frontend; build/check/import, 14 tài liệu/22 liên kết/OpenAPI, Figma V41 và nguồn ảnh đạt. Workbook di chuyển giữ nguyên byte. Không phát hiện secret/runtime trong các file chuẩn bị commit. Đã commit và push branch dựa trên main23842a5 của repo nhà sách. Source commit b2e04f2; cập nhật main bằng fast-forward sau khi hosted CI đạt. Bộ tài liệu kiểm chứng được giữ trong .runtime/repository-cleanup ngoài Git.
 
 ## Bằng chứng vận hành trước đợt dọn
 
