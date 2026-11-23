@@ -20,3 +20,5 @@ Lịch sử tài liệu trước khi rút gọn được giữ trong snapshot pr
 D120 bổ sung: chủ dự án xác nhận giảng viên đã chấp nhận Next.js thay Blade/Livewire. Đánh giá theo xác nhận này, không đổi stack hoặc tự dựng bằng chứng phê duyệt.
 
 - **D121 (23/11/2026):** chủ dự án yêu cầu rà soát và cải thiện bảo mật cùng email xác nhận đăng ký bản tin. Đăng ký mới gửi email “Bạn đã đăng ký nhận bản tin của Nhà sách Thu Thanh” qua mailer/queue hiện có sau commit; đăng ký trùng giữ response202 và không gửi lại. Đây là xác nhận giao dịch đăng ký, không tự gửi campaign hoặc gửi hàng loạt cho danh sách cũ. Thay quy định cũ trong API về không gửi email xác nhận; D110 và D119 giữ nguyên.
+
+- **D122 (23/11/2026):** chủ dự án yêu cầu tick/đóng toàn bộ GitHub Project4 và chốt bản nộp GitHub/domain. Checklist hiện hành phản ánh đối chiếu/đóng phạm vi; không biến mục chưa thực hiện thành bằng chứng đã test. Figma thuộc môn khác; nghiên cứu người dùng, QR tại quầy live và scheduler vận hành chưa được chứng minh sẽ đóng với lý do không tiếp tục trong phạm vi bản nộp, không bật tính năng hoặc bịa review. Bằng chứng source/tests/Sandbox và các giới hạn vẫn giữ.

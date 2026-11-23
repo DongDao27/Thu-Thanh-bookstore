@@ -151,6 +151,29 @@
         "shell-syntax",
         "deployment-readiness"
       ]
+    },
+    {
+      "id": "SUBMISSION-CLOSE",
+      "title": "Chốt checklist, đóng Project4 và kiểm link bản nộp",
+      "phase": "MAINTENANCE",
+      "status": "done",
+      "depends_on": [
+        "SECURITY-NEWSLETTER"
+      ],
+      "acceptance": [
+        "Tất cả22item Project4 Closed vàprojectclosed",
+        "Checklist hiện hành đã đối chiếu, giữ lịch sử và lý do notplanned khi chưa nghiệm thu",
+        "GitHubpublic/domain/API kiểm được vàkhôngdeploylại vì thay trạng thái"
+      ],
+      "required_checks": [
+        "github-project-consistency",
+        "issue-closure-reasons",
+        "submission-links"
+      ],
+      "evidence": [
+        "22item/6remaining inspected; website/API200,repoPUBLIC,main3b3caa0hostedCIpassed.",
+        "Readback verified22/22issuesclosed,22/22ProjectitemsClosed,Project4closed,activechecklistschecked.18completed;4not_planned (#4,#12,#13,#19) with explicit scope/evidence limits. Historical checklists preserved as dated notes, not false completion."
+      ]
     }
   ]
 }

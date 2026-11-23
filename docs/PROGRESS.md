@@ -57,3 +57,11 @@ Theo địa chỉ chủ dự án cung cấp, đã submit một đăng ký bản 
 
 
 SECURITY-NEWSLETTER hoàn tất: chủ dự án xác nhận đã nhận email xác nhận đăng ký bản tin. Source/hostedCI/livehạ tầng vàdeliveryinbox đã kiểm; đóngissue27 vàchuyểnProjectitemClosed. Không cần operator chạy lại activation. Đã sửa lỗi riêng ởprivateprobe, không dùng thông báo passed sai trước đó làm bằng chứng.
+
+
+## 23/11/2026 — Chốt GitHub Project và bản nộp
+
+Chủ dự án yêu cầu đóng tất cả. Đã đối chiếu22item,6cònIn progress (#4,#12,#13,#19,#20,#21). Website/API200,repoPUBLIC vàCI Backend/Frontend/E2E của main3b3caa0 đạt. Chuẩn bị cập nhật checklist hiện hành theoD122, giữ nguyên lịch sử riêng; task không chứng minh được không được gọi đã nghiệm thu production.
+
+
+SUBMISSION-CLOSE hoàn tất: đọc lại API xác nhận22/22issuesClosed và22/22itemsClosed,Project4closed.18issuecompleted,4not_planned (#4Figma,#12QRquầylive,#13schedulerlive,#19nghiêncứungườidùng) có lýdo/phạmvicụthể. Checklist hiện hành đãtick các bước đối chiếu/chốt; các mục lịch sử chưa kiểm đổi thành ghi chú, không tick giả review/humanstudy/providerlive. GitHubPUBLIC,website/API200,CI main3b3caa0 đạt; đủchốt nộp GitHub/domain trong phạmviSandbox đã chấp nhận. Không thay sourceapp hoặcdeploy lại.

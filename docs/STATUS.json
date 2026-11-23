@@ -2,9 +2,9 @@
   "schema_version": 1,
   "project": "Thu Thanh Bookstore",
   "phase": "MAINTENANCE",
-  "current_task_id": "SECURITY-NEWSLETTER",
+  "current_task_id": "SUBMISSION-CLOSE",
   "next_task_id": null,
-  "implementation_state": "security_newsletter_verified_and_deployed",
+  "implementation_state": "submission_ready_project_closed",
   "backend_gate": "externally_blocked",
   "frontend_gate": "authorized_scoped",
   "frontend_authorization": {
@@ -13,7 +13,7 @@
   },
   "release_gate": "sandbox_deployed",
   "branch": "main",
-  "last_verified_commit": "f149bc1eb1e035042f8e2e9edda4a205ad984247",
+  "last_verified_commit": "3b3caa0af5fb6171106f4b78534b0ca4effd643b",
   "git_dirty": false,
   "website": "https://nhasachthuthanh.id.vn",
   "api": "https://api.nhasachthuthanh.id.vn",
@@ -33,8 +33,8 @@
   "blockers": [
     "Representative large-load and continuous24x7 operations are not verified."
   ],
-  "notes": "PR28 security/newsletter live625a042 verified; corrected standalone probe; restricted workerPASS UID33; owner confirmed newsletter inbox receipt. D119 unchanged.",
-  "last_checkpoint_at": "2026-11-23T22:58:09.426148+07:00",
+  "notes": "Submission GitHub/domain verified. Project4closed with22/22Closed items/issues:18completed,4notplanned per D122. No app/deploy change; production limitations retained.",
+  "last_checkpoint_at": "2026-11-23T23:08:15.595845+07:00",
   "last_test_run": {
     "at": "2026-11-23T03:18:00+07:00",
     "backend_tests": 185,
@@ -56,17 +56,17 @@
   },
   "github_project": {
     "number": 4,
-    "closed_issues": 14,
-    "open_issues": [
+    "closed_issues": 22,
+    "open_issues": [],
+    "state_consistency_verified": 22,
+    "project_closed": true,
+    "completed_issues": 18,
+    "not_planned_issues": [
       4,
       12,
       13,
-      19,
-      20,
-      21
-    ],
-    "state_consistency_verified": 20,
-    "project_closed": false
+      19
+    ]
   },
   "grading_audit": {
     "source_commit": "0067580",
@@ -136,5 +136,13 @@
     "status": "done",
     "issue_state": "closed",
     "project_status": "Closed"
+  },
+  "submission": {
+    "ready": true,
+    "repository_public": true,
+    "website_http": 200,
+    "api_http": 200,
+    "scope": "course GitHub/domain,Next.js accepted,VNPAY Sandbox",
+    "remaining_required_steps": []
   }
 }
