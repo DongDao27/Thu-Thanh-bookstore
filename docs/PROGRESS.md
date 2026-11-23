@@ -65,3 +65,11 @@ Chủ dự án yêu cầu đóng tất cả. Đã đối chiếu22item,6cònIn p
 
 
 SUBMISSION-CLOSE hoàn tất: đọc lại API xác nhận22/22issuesClosed và22/22itemsClosed,Project4closed.18issuecompleted,4not_planned (#4Figma,#12QRquầylive,#13schedulerlive,#19nghiêncứungườidùng) có lýdo/phạmvicụthể. Checklist hiện hành đãtick các bước đối chiếu/chốt; các mục lịch sử chưa kiểm đổi thành ghi chú, không tick giả review/humanstudy/providerlive. GitHubPUBLIC,website/API200,CI main3b3caa0 đạt; đủchốt nộp GitHub/domain trong phạmviSandbox đã chấp nhận. Không thay sourceapp hoặcdeploy lại.
+
+
+## 23/11/2026 — Biên tập README
+
+Theo yêu cầu chủ dự án, sửa README theo hướng tài liệu sản phẩm/kỹ thuật; bỏ nhận xét chấm điểm và rubric. Giữ các bước clone/setup/demo/test đã kiểm và mô tả VNPAY Sandbox chính xác. Không thay source ứng dụng, không cần deploy thủ công.
+
+
+README-POLISH hoàn tất: README giới thiệu sản phẩm, có ảnh storefront/admin, bảng công nghệ/kiến trúc, hướng dẫn local6bước, test/coverage vàAPI/monitoring, liên kết tài liệu và thành viên. Đã bỏ toàn bộrubric/nhận xét chấm điểm và ghi chú thầy chấp nhậnstack. VNPAY được mô tảSandbox trung tính; bản tin đưa vào tính năng/email. Đối chiếu command với source, repository14docs/26links vàdiffcheck đạt. Không sửaapp/database/deploy; Project4giữclosed.

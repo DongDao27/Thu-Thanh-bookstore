@@ -2,7 +2,7 @@
   "schema_version": 1,
   "project": "Thu Thanh Bookstore",
   "phase": "MAINTENANCE",
-  "current_task_id": "SUBMISSION-CLOSE",
+  "current_task_id": "README-POLISH",
   "next_task_id": null,
   "implementation_state": "submission_ready_project_closed",
   "backend_gate": "externally_blocked",
@@ -13,7 +13,7 @@
   },
   "release_gate": "sandbox_deployed",
   "branch": "main",
-  "last_verified_commit": "3b3caa0af5fb6171106f4b78534b0ca4effd643b",
+  "last_verified_commit": "6a1085dc9c84c1e6c856e346e12a51d5cc36b3f1",
   "git_dirty": false,
   "website": "https://nhasachthuthanh.id.vn",
   "api": "https://api.nhasachthuthanh.id.vn",
@@ -33,8 +33,8 @@
   "blockers": [
     "Representative large-load and continuous24x7 operations are not verified."
   ],
-  "notes": "Submission GitHub/domain verified. Project4closed with22/22Closed items/issues:18completed,4notplanned per D122. No app/deploy change; production limitations retained.",
-  "last_checkpoint_at": "2026-11-23T23:08:15.595845+07:00",
+  "notes": "README polished: removed grading/rubric commentary, reorganized product/setup/testing docs. Repository links and diff passed; app/runtime unchanged,Project4closed.",
+  "last_checkpoint_at": "2026-11-23T23:24:24.142883+07:00",
   "last_test_run": {
     "at": "2026-11-23T03:18:00+07:00",
     "backend_tests": 185,

@@ -174,6 +174,29 @@
         "22item/6remaining inspected; website/API200,repoPUBLIC,main3b3caa0hostedCIpassed.",
         "Readback verified22/22issuesclosed,22/22ProjectitemsClosed,Project4closed,activechecklistschecked.18completed;4not_planned (#4,#12,#13,#19) with explicit scope/evidence limits. Historical checklists preserved as dated notes, not false completion."
       ]
+    },
+    {
+      "id": "README-POLISH",
+      "title": "Biên tập README giới thiệu dự án và hướng dẫn chạy chuyên nghiệp",
+      "phase": "MAINTENANCE",
+      "status": "done",
+      "depends_on": [
+        "SUBMISSION-CLOSE"
+      ],
+      "acceptance": [
+        "Bỏ ngôn ngữ chấm điểm/rubric, giới thiệu rõ sản phẩm và kiến trúc",
+        "Giữ đủ hướng dẫn clone/setup/demo/test/monitoring chính xác, mô tả Sandbox trung tính",
+        "Kiểm liên kết/Markdown và xuất bản thay đổi tài liệu, không thay ứng dụng"
+      ],
+      "required_checks": [
+        "repository-links",
+        "markdown-review",
+        "git-diff-check"
+      ],
+      "evidence": [
+        "README biên tập lại theo sản phẩm/tính năng/kiến trúc/local setup/test/monitoring/tài liệu/thành viên; bỏ rubric và nhận xét chấm điểm; giữ mô tảSandbox cùng lệnh clone/demo/test đã đối chiếu source.",
+        "python3 scripts/check-repository.py đạt14documents/26links; gitdiffcheck đạt; kiểm không còn từ ngữ chấm điểm trongREADME. Chỉ thay tài liệu, không chạy lại test ứng dụng hoặc deploy thủ công."
+      ]
     }
   ]
 }

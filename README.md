@@ -1,61 +1,101 @@
 # Nhà sách Thu Thanh
 
-Website bán sách và đồ dùng học tập, gồm cửa hàng trực tuyến và trang quản trị catalog, tồn kho, đơn hàng, thanh toán và doanh thu.
+Nền tảng bán sách và đồ dùng học tập, kết hợp cửa hàng trực tuyến với hệ thống quản trị sản phẩm, tồn kho, đơn hàng và doanh thu.
 
-**Website:** [nhasachthuthanh.id.vn](https://nhasachthuthanh.id.vn) · **Repository:** [DongDao27/Thu-Thanh-bookstore](https://github.com/DongDao27/Thu-Thanh-bookstore)
+[Truy cập website](https://nhasachthuthanh.id.vn) · [Tài liệu API](docs/API.md) · [Thiết kế database](docs/DATABASE.md) · [Bảo mật và vận hành](docs/SECURITY-PERFORMANCE.md)
 
-## Chức năng
+![Giao diện cửa hàng Thu Thanh với dữ liệu demo](docs/screenshots/storefront.jpg)
 
-- Tìm kiếm, lọc danh mục, xem giá và ảnh sản phẩm.
-- Đăng ký, đăng nhập, quản lý tài khoản và khôi phục mật khẩu qua email.
-- Giỏ hàng, mua ngay, báo giá theo giá/tồn hiện tại; nhận tại cửa hàng hoặc giao hàng.
-- Đặt hàng, thanh toán VNPAY Sandbox, xem trạng thái và lịch sử đơn.
-- Quản trị sản phẩm, ảnh, danh mục, điều chỉnh tồn, xử lý đơn và báo cáo doanh thu.
-- Cập nhật trạng thái bằng polling; Pusher là tùy chọn.
+## Tính năng
 
-**Thanh toán hiện dùng Sandbox, chưa nhận tiền thật.** Laravel quyết định quyền, giá, tồn và trạng thái thanh toán; trình duyệt không tự xác nhận đã trả tiền.
+### Cửa hàng trực tuyến
 
-## Công nghệ
+- Tìm kiếm và lọc sản phẩm theo danh mục, xem thông tin, giá và hình ảnh.
+- Đăng ký, đăng nhập, cập nhật tài khoản và khôi phục mật khẩu qua email.
+- Thêm giỏ hàng, mua ngay và tạo đơn với hai phương thức nhận hàng: tại cửa hàng hoặc giao tận nơi.
+- Thanh toán qua VNPAY Sandbox, theo dõi trạng thái và lịch sử đơn hàng.
+- Đăng ký nhận bản tin và nhận email xác nhận qua Resend.
+
+### Quản trị
+
+- Quản lý sản phẩm, danh mục và hình ảnh.
+- Tra cứu tồn kho, điều chỉnh số lượng và theo dõi lịch sử biến động.
+- Tra cứu, xử lý đơn hàng và theo dõi trạng thái thanh toán.
+- Xem tổng quan hoạt động và báo cáo doanh thu.
+
+<details>
+<summary>Xem giao diện quản trị sản phẩm</summary>
+
+![Giao diện quản trị sản phẩm với dữ liệu demo](docs/screenshots/admin-products.jpg)
+
+</details>
+
+## Công nghệ và kiến trúc
 
 | Thành phần | Công nghệ |
 |---|---|
-| Frontend | Next.js 16, React 19, JavaScript/JSX, Tailwind CSS |
-| Backend | Laravel 12, PHP 8.4, session cookie và CSRF |
-| Database | PostgreSQL 17 |
-| Hạ tầng | Vercel, Ubuntu VPS, Nginx/PHP-FPM, Cloudflare |
-| Email | Resend; queue database |
+| Giao diện | Next.js 16, React 19, JavaScript/JSX, Tailwind CSS |
+| API và nghiệp vụ | Laravel 12, PHP 8.4 |
+| Cơ sở dữ liệu | PostgreSQL 17 |
+| Xác thực | Laravel Sanctum, session cookie và CSRF; PAT cho client tích hợp |
+| Tác vụ nền | Laravel Queue với database driver |
+| Email | Resend |
+| Thanh toán | VNPAY Sandbox |
+| Triển khai | Vercel, Ubuntu VPS, Nginx, PHP-FPM, Cloudflare |
 
-## Cấu trúc
+Next.js cung cấp giao diện và chuyển tiếp các yêu cầu API đến Laravel. Laravel xử lý phân quyền, giá bán, tồn kho và trạng thái đơn hàng; PostgreSQL lưu trữ dữ liệu với các ràng buộc nhất quán.
+
+- **Đơn hàng và tồn kho:** báo giá có thời hạn; transaction, row lock và idempotency bảo vệ các thao tác đồng thời.
+- **Xác thực:** website dùng session cookie và CSRF; client tích hợp dùng token có phạm vi quyền, thời hạn và khả năng thu hồi.
+- **Hiệu năng:** banner render phía server, ảnh tối ưu và tải theo viewport; phân trang, eager loading, indexes và cache cho dữ liệu cửa hàng công khai.
+- **Tác vụ nền:** email được đưa vào queue sau commit; đăng ký bản tin trùng email không tạo thêm thư xác nhận.
+- **Cập nhật đơn hàng:** polling mặc định; Pusher là tùy chọn.
+
+## Cấu trúc repository
 
 ```text
-backend/          Laravel API, migration, dữ liệu chuẩn hóa và tests
-frontend/         Next.js, tài nguyên giao diện, unit tests và E2E
+backend/          Laravel API, nghiệp vụ, migrations, seeders và tests
+frontend/         Next.js, giao diện, tài nguyên và browser tests
+deploy/           Cấu hình triển khai, worker và công cụ vận hành
+scripts/          Công cụ phát triển, kiểm thử và kiểm tra repository
+data/catalog/     Dữ liệu sản phẩm gốc
+design/figma/     Tài nguyên thiết kế và User Flow
+docs/             Đặc tả API, database, nghiệp vụ và tài liệu kỹ thuật
 ```
 
-- `deploy/`: cấu hình container/VPS, worker, scheduler và công cụ vận hành.
-- `scripts/`: kiểm thử, kiểm tra dữ liệu và lệnh chạy local.
-- `design/figma/`: source plugin thiết kế desktop/mobile và User Flow.
-- `data/catalog/`: bảng sản phẩm gốc.
-- `docs/`: đặc tả API, database, nghiệp vụ, nguồn ảnh và trạng thái dự án.
+## Cài đặt local
 
-## Chạy từ bản clone mới
+### 1. Chuẩn bị môi trường
 
-Yêu cầu: PHP 8.4 + Composer, Node.js 24, PostgreSQL 17 và Python 3 có `venv`. PHP cần PDO PostgreSQL, cURL, mbstring, XML, fileinfo và GD; `composer check-platform-reqs` kiểm tra dependency thực tế. Giao diện Next.js đã được giảng viên chấp nhận theo xác nhận của chủ dự án.
+| Công cụ | Phiên bản / yêu cầu |
+|---|---|
+| PHP | 8.4; PDO PostgreSQL, cURL, mbstring, XML, fileinfo và GD |
+| Composer | 2.x |
+| Node.js | 24 |
+| PostgreSQL | 17 |
+| Python | Python 3 với `venv`; dùng cho monitoring và kiểm tra repository |
+
+### 2. Clone và cài dependencies
 
 ```bash
 git clone https://github.com/DongDao27/Thu-Thanh-bookstore.git
 cd Thu-Thanh-bookstore
+
 composer install --working-dir=backend
 npm ci --prefix frontend
+
 python3 -m venv .venv
 .venv/bin/python -m pip install -r scripts/monitoring-requirements.txt
+
 cp backend/.env.example backend/.env
 cp frontend/.env.example frontend/.env.local
 ```
 
-Windows: dùng `py -m venv .venv` và `.venv/Scripts/python.exe` thay cho `.venv/bin/python`. Không cần Docker khi đã cài các công cụ trên.
+Trên Windows, dùng `py -m venv .venv` và `.venv/Scripts/python.exe` thay cho `.venv/bin/python`. Các dịch vụ có thể chạy trực tiếp trên máy, không bắt buộc dùng Docker.
 
-Tạo role PostgreSQL có mật khẩu riêng và hai database **mới, riêng biệt**. Ví dụ trên Ubuntu, chạy bằng tài khoản quản trị PostgreSQL:
+### 3. Cấu hình PostgreSQL và biến môi trường
+
+Tạo role riêng và hai database dành cho demo và kiểm thử. Trên Ubuntu, chạy bằng tài khoản quản trị PostgreSQL:
 
 ```bash
 sudo -u postgres createuser --pwprompt thu_thanh_local
@@ -63,7 +103,29 @@ sudo -u postgres createdb --owner=thu_thanh_local thu_thanh_demo
 sudo -u postgres createdb --owner=thu_thanh_local thu_thanh_test
 ```
 
-Có thể tạo cùng role/database bằng pgAdmin trên Windows. Điền `DB_HOST`, `DB_PORT`, `DB_USERNAME`, `DB_PASSWORD` trong `backend/.env`, đặt `DB_DATABASE=thu_thanh_demo`, `APP_ENV=local`. Không dùng database website thật cho các bước này.
+Trên Windows, có thể tạo role và database tương ứng bằng pgAdmin.
+
+Cập nhật `backend/.env`:
+
+```dotenv
+APP_ENV=local
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=thu_thanh_demo
+DB_USERNAME=thu_thanh_local
+DB_PASSWORD="your-local-database-password"
+```
+
+Đặt `OPS_PYTHON_BINARY` thành đường dẫn tuyệt đối đến Python trong virtual environment, ví dụ `/path/Thu-Thanh-bookstore/.venv/bin/python`.
+
+Trong `frontend/.env.local`, cấu hình:
+
+```dotenv
+LARAVEL_INTERNAL_URL=http://localhost:8000
+```
+
+### 4. Khởi tạo dữ liệu demo
 
 ```bash
 cd backend
@@ -75,86 +137,122 @@ php artisan admin:create
 cd ..
 ```
 
-Seeder demo nạp **24 sản phẩm/6 danh mục có ảnh local**, giá/tồn minh họa; không tải mạng, không tạo tài khoản hoặc đơn hàng. Chỉ chạy trên `thu_thanh_demo`/`thu_thanh_test` với môi trường local/testing; chạy lại không đặt lại giá/tồn đã chỉnh. Admin được tạo tương tác bằng mật khẩu riêng, không có tài khoản mặc định. Khách tự đăng ký trên web.
+`DemoCatalogSeeder` tạo **24 sản phẩm thuộc 6 danh mục**, có ảnh local và giá/tồn minh họa. Seeder chỉ chạy trong môi trường local/testing với database `thu_thanh_demo` hoặc `thu_thanh_test`; chạy lại giữ các chỉnh sửa giá và tồn đã có.
 
-Mở terminal riêng từ thư mục gốc cho mỗi tiến trình:
+Lệnh `admin:create` tạo tài khoản quản trị tương tác bằng mật khẩu riêng. Seeder không tạo tài khoản mặc định hoặc đơn hàng; tài khoản khách hàng được đăng ký trên website.
+
+Các lệnh khởi tạo ở trên dành cho database local mới. Với môi trường đã có dữ liệu, giữ nguyên `APP_KEY` và database hiện hành.
+
+### 5. Chạy ứng dụng
+
+Mở ba terminal từ thư mục gốc repository, mỗi terminal chạy một tiến trình:
 
 ```bash
+# Terminal 1: Laravel API
 php backend/artisan serve --host=localhost --port=8000
+
+# Terminal 2: Next.js
 npm run dev --prefix frontend
+
+# Terminal 3: queue worker
 php backend/artisan queue:work database --tries=5 --timeout=60
 ```
 
-Web: `http://localhost:3000`; API: `http://localhost:8000`. `frontend/.env.local` đặt `LARAVEL_INTERNAL_URL=http://localhost:8000`. Dùng cùng hostname `localhost` khi đăng nhập để cookie/CSRF hoạt động đúng. Giữ nguyên APP_KEY nếu môi trường đã có dữ liệu.
+| Dịch vụ | Địa chỉ |
+|---|---|
+| Website | http://localhost:3000 |
+| API | http://localhost:8000 |
 
-Mặc định local dùng `MAIL_MAILER=log`, VNPAY hoãn vì chưa có credentials. Luồng giỏ/đặt đơn/quản trị chạy được; thanh toán Sandbox/email thật cần khóa riêng của người chạy. Không copy secrets website vào repo. E2E dùng provider/mail fixture, không cần khóa thật. Website công khai đã kiểm luồng Resend và VNPAY Sandbox/IPN; chưa nhận tiền thật.
+Sử dụng hostname `localhost` nhất quán khi đăng nhập để session cookie và CSRF hoạt động đúng.
 
-## Kiểm thử và coverage
+### 6. Email và thanh toán
 
-Chuẩn bị cấu hình test riêng, điền role/mật khẩu PostgreSQL vừa tạo trong `backend/.env.testing`; database phải là `thu_thanh_test`. Đặt `OPS_PYTHON_BINARY` trong cả `.env` và `.env.testing` thành **đường dẫn tuyệt đối tới Python trong `.venv`**, ví dụ `/path/Thu-Thanh-bookstore/.venv/bin/python`.
+Môi trường local mặc định dùng `MAIL_MAILER=log`; nội dung email được ghi vào `backend/storage/logs`. Để gửi qua Resend, cấu hình mailer, domain gửi đã xác minh và API key riêng theo các file môi trường mẫu, đồng thời giữ queue worker hoạt động.
+
+Tích hợp VNPAY trên website hiện sử dụng **Sandbox**. Local có thể chạy giỏ hàng, tạo đơn và quản trị trước khi cấu hình merchant Sandbox. Khóa dịch vụ được đặt trong `.env` riêng của từng môi trường; không commit vào Git hoặc đưa vào biến `NEXT_PUBLIC_*`.
+
+## Kiểm thử
+
+### Cấu hình database test
 
 ```bash
 cp backend/.env.testing.example backend/.env.testing
+```
+
+Cập nhật thông tin kết nối PostgreSQL trong `backend/.env.testing`, đặt `DB_DATABASE=thu_thanh_test` và `OPS_PYTHON_BINARY` thành đường dẫn tuyệt đối đến Python trong `.venv`.
+
+```bash
 (cd backend && php artisan key:generate --env=testing)
+```
+
+### Chạy các bộ kiểm tra
+
+```bash
+# Backend và yêu cầu môi trường PHP
 (cd backend && composer check-platform-reqs && php artisan test)
+
+# Frontend: API client, kiểm tra source và production build
 npm run test:api --prefix frontend
 npm run check --prefix frontend
 npm run build --prefix frontend
+
+# Browser E2E
 npx --prefix frontend playwright install chromium
 node scripts/e2e.mjs
+
+# Tài liệu và cấu trúc repository
 python3 scripts/check-repository.py
 ```
 
-Chạy backend và E2E **lần lượt**: chúng có quyền tạo lại bảng trong database test. E2E chỉ dùng `thu_thanh_test`, tạo dữ liệu/tài khoản giả riêng và provider fixture; cần cổng 18082/3100 trống. Không chạy `migrate:fresh` trên dữ liệu cửa hàng.
+Chạy backend tests và E2E lần lượt vì chúng tạo lại các bảng trong database test. E2E sử dụng dữ liệu, tài khoản và provider fixture riêng; cần hai cổng `18082` và `3100` trống. Các bộ kiểm thử không yêu cầu khóa Resend hoặc VNPAY thật.
 
-Khi đã cài Xdebug hoặc PCOV, đo coverage:
+### Coverage và smoke tests
+
+Cài Xdebug hoặc PCOV trước khi đo coverage:
 
 ```bash
 (cd backend && XDEBUG_MODE=coverage php artisan test --coverage-clover=storage/logs/coverage.xml)
 php scripts/check-coverage.php backend/storage/logs/coverage.xml
+
 php scripts/auth-cookie-smoke.php
 php scripts/ops-smoke.php
 ```
 
-Hai smoke script dùng `.env.testing` và từ chối database khác. GitHub Actions kiểm backend/coverage >70%, frontend và E2E; xem kết quả đúng commit tại tab Actions. Kết quả kiểm hiện hành và giới hạn nằm trong [bảo mật/hiệu năng](docs/SECURITY-PERFORMANCE.md).
+Hai smoke script đọc `.env.testing` và yêu cầu database `thu_thanh_test`. GitHub Actions chạy backend/coverage, frontend và browser E2E.
 
-## API, logging và monitoring để kiểm bài
+Kết quả kiểm chứng ngày **23/11/2026**: **185 backend tests**, **2.221 assertions**, **91,43% statement coverage** và **30 browser E2E tests** đạt. Chi tiết được ghi tại [bảo mật và hiệu năng](docs/SECURITY-PERFORMANCE.md).
 
-- Đăng nhập admin, mở `/docs/api` hoặc `/docs/api.json`: Scramble sinh từ code, chỉ admin được xem. REST version `/api/v1`; [OpenAPI và hợp đồng API](docs/API.md).
-- Website dùng session cookie + CSRF. Client ngoài dùng Sanctum PAT có abilities, hết hạn và revoke; không lưu bearer trong localStorage. API cấp token yêu cầu phiên đăng nhập, mật khẩu hiện tại và CSRF; chi tiết trong [API](docs/API.md).
-- Sau migration, bật `TELESCOPE_ENABLED=true`, `OPS_MONITORING_ENABLED=true`, đặt `OPS_PYTHON_BINARY` như trên trong `.env` **local**. Chạy `php backend/artisan config:clear`, đăng nhập admin rồi mở `/telescope`; đọc snapshot/cảnh báo tại API `/api/v1/admin/operations` cùng origin. Guest/customer bị chặn; dữ liệu nhạy cảm trong Telescope được lọc.
-- Chạy `php backend/artisan ops:monitor` để thu CPU/RAM/disk/network thực. Cảnh báo theo ngưỡng, có cooldown; `OPS_ALERT_EMAIL` tùy chọn, email đi qua queue sau commit. Log tại `backend/storage/logs`; không xuất bản log hoặc `.env`.
-- Trên demo local không dùng merchant thật, chạy `php backend/artisan schedule:work` ở terminal riêng để demo expiry/monitor/prune. Không bật scheduler website thật chỉ để kiểm bài. Kiểm slow-query/redaction, HTTP token/CSRF và async bằng test suite/smoke trên DB test.
+## API và giám sát
 
-## Ảnh minh họa và database
+- **REST API:** version `/api/v1`; tài liệu Scramble tại `/docs/api` và `/docs/api.json`, yêu cầu đăng nhập admin.
+- **Telescope:** theo dõi request, query và lỗi; lọc dữ liệu nhạy cảm và giới hạn quyền truy cập.
+- **Host monitoring:** thu thập CPU, RAM, disk và network qua Python; snapshot tại `/api/v1/admin/operations`, dành cho admin.
+- **Cảnh báo:** theo ngưỡng và cooldown; có thể gửi qua queue khi cấu hình `OPS_ALERT_EMAIL`.
+- **Logging:** log ứng dụng tại `backend/storage/logs`, kèm request ID để tra cứu.
 
-![Cửa hàng demo trên dữ liệu kiểm thử](docs/screenshots/storefront.jpg)
-![Quản trị sản phẩm trên dữ liệu kiểm thử](docs/screenshots/admin-products.jpg)
+Để sử dụng trên local, đặt `TELESCOPE_ENABLED=true`, `OPS_MONITORING_ENABLED=true` và cấu hình `OPS_PYTHON_BINARY`, sau đó chạy:
 
-Ảnh dùng dữ liệu giả local; không có thông tin khách hàng hoặc khóa dịch vụ.
+```bash
+php backend/artisan config:clear
+php backend/artisan ops:monitor
+```
 
-**[Sơ đồ ERD và thiết kế database](docs/DATABASE.md)**: migrations, khóa ngoại, ràng buộc tiền/tồn và quan hệ bảng. Laravel quyết định giá/tồn/quyền; quote/transaction/row lock và idempotency bảo vệ thao tác đồng thời. Public storefront có cache và invalidation; dữ liệu tài khoản/đơn hàng không chia sẻ cache.
+Đăng nhập admin để truy cập Telescope và các API giám sát. Có thể chạy `php backend/artisan schedule:work` trong một terminal riêng trên demo local để thực thi lịch expiry, monitoring và pruning. Cấu hình scheduler của môi trường triển khai được quản lý riêng theo [tài liệu vận hành](docs/SECURITY-PERFORMANCE.md).
 
-## Tài liệu kỹ thuật
+## Tài liệu
 
-[API](docs/API.md) · [OpenAPI](docs/openapi.json) · [Database](docs/DATABASE.md) · [Nghiệp vụ](docs/DOMAIN-RULES.md) · [Vận hành và bảo mật](docs/SECURITY-PERFORMANCE.md) · [Nguồn tài nguyên](docs/ASSET-SOURCES.md)
-
-## Đối chiếu rubric CSB35050
-
-| Tiêu chí | Bằng chứng trong repo |
+| Tài liệu | Nội dung |
 |---|---|
-| Git/workflow | Issues, topic branches, PR liên kết issue và workflows trong `.github/workflows` |
-| Database/seed | [ERD](docs/DATABASE.md), migrations/constraints, factories và `DemoCatalogSeeder` |
-| UI/chức năng/API ngoài | Next.js/Tailwind, auth/CSRF/validation; VNPAY Sandbox và Resend; PHPUnit và browser E2E |
-| REST API | Resource controllers, Sanctum PAT abilities/expiry/revoke, Scramble và kiểm quyền/ownership |
-| Logging/monitoring | Telescope redaction, error envelope/request ID, slow-query alerts, Python CPU/RAM/disk/network |
-| Hiệu năng | Database queue sau commit, banner render từ server, ảnh tối ưu/tải theo viewport, cache public + invalidation, pagination/eager loading/indexes và concurrency tests |
-
-Điểm do giảng viên đánh giá. Không dùng số test hoặc Lighthouse để tuyên bố hệ thống an toàn tuyệt đối, chịu tải lớn hoặc đã nhận tiền thật.
+| [API](docs/API.md) | Endpoints, xác thực và hợp đồng request/response |
+| [OpenAPI](docs/openapi.json) | Đặc tả API |
+| [Database và ERD](docs/DATABASE.md) | Quan hệ bảng, migrations và các ràng buộc dữ liệu |
+| [Nghiệp vụ](docs/DOMAIN-RULES.md) | Quy tắc đơn hàng, tồn kho và thanh toán |
+| [Bảo mật và vận hành](docs/SECURITY-PERFORMANCE.md) | Cấu hình triển khai, backup và kết quả kiểm chứng |
+| [Nguồn tài nguyên](docs/ASSET-SOURCES.md) | Nguồn ảnh và tài nguyên giao diện |
 
 ## Thành viên
 
-- **Đào Ngọc Đông — [DongDao27](https://github.com/DongDao27):** frontend, thiết kế và tài liệu.
-- **Thiện:** backend, database, thanh toán và hạ tầng.
-
-Đăng ký bản tin mới gửi email xác nhận qua queue/mailer hiện hành (Resend khi triển khai, log/array khi phát triển/test). Email trùng không gửi lại; worker cần đang chạy. Không tự gửi campaign hoặc email cho danh sách cũ.
+| Thành viên | Phụ trách |
+|---|---|
+| [Đào Ngọc Đông — DongDao27](https://github.com/DongDao27) | Frontend, thiết kế và tài liệu |
+| Thiện | Backend, database, thanh toán và hạ tầng |
