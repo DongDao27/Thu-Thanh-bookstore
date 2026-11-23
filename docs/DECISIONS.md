@@ -18,3 +18,5 @@ Lịch sử tài liệu trước khi rút gọn được giữ trong snapshot pr
 - **D120 (23/11/2026):** chủ dự án xác nhận Figma thuộc môn khác, bản nộp môn web chỉ gồm link GitHub và domain. Đánh giá lại theo rubric CSB35050 và khả năng clone/cài/chạy, ưu tiên security/performance. Không yêu cầu canvas Figma hoặc slide/video để đóng phạm vi môn web; không xóa thiết kế của môn khác. Ngoại lệ Next.js vẫn theo D34/D98; không tuyên bố đã dùng Blade/Livewire. D119 về thanh toán giữ nguyên.
 
 D120 bổ sung: chủ dự án xác nhận giảng viên đã chấp nhận Next.js thay Blade/Livewire. Đánh giá theo xác nhận này, không đổi stack hoặc tự dựng bằng chứng phê duyệt.
+
+- **D121 (23/11/2026):** chủ dự án yêu cầu rà soát và cải thiện bảo mật cùng email xác nhận đăng ký bản tin. Đăng ký mới gửi email “Bạn đã đăng ký nhận bản tin của Nhà sách Thu Thanh” qua mailer/queue hiện có sau commit; đăng ký trùng giữ response202 và không gửi lại. Đây là xác nhận giao dịch đăng ký, không tự gửi campaign hoặc gửi hàng loạt cho danh sách cũ. Thay quy định cũ trong API về không gửi email xác nhận; D110 và D119 giữ nguyên.

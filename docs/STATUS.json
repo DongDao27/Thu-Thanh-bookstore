@@ -2,9 +2,9 @@
   "schema_version": 1,
   "project": "Thu Thanh Bookstore",
   "phase": "MAINTENANCE",
-  "current_task_id": "GRADING-FIX",
+  "current_task_id": "SECURITY-NEWSLETTER",
   "next_task_id": null,
-  "implementation_state": "grading_fixes_verified_and_deployed",
+  "implementation_state": "security_newsletter_in_progress",
   "backend_gate": "externally_blocked",
   "frontend_gate": "authorized_scoped",
   "frontend_authorization": {
@@ -13,8 +13,8 @@
   },
   "release_gate": "sandbox_deployed",
   "branch": "main",
-  "last_verified_commit": "cd2c20f4932b3298ce618a308c32cbcc32804f3b",
-  "git_dirty": false,
+  "last_verified_commit": null,
+  "git_dirty": true,
   "website": "https://nhasachthuthanh.id.vn",
   "api": "https://api.nhasachthuthanh.id.vn",
   "repository": "DongDao27/Thu-Thanh-bookstore",
@@ -34,7 +34,7 @@
     "Representative large-load and continuous24x7 operations are not verified."
   ],
   "notes": "GRADING-FIX complete: fresh clone, hosted CI and live activation verified. D119 retained; no official grade or large-load certification.",
-  "last_checkpoint_at": "2026-11-23T03:18:00+07:00",
+  "last_checkpoint_at": "2026-11-23T21:55:06.409393+07:00",
   "last_test_run": {
     "at": "2026-11-23T03:18:00+07:00",
     "backend_tests": 181,

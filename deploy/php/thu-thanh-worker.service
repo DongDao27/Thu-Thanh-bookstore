@@ -4,7 +4,7 @@ After=network.target postgresql.service
 
 [Service]
 Type=simple
-User=deploy
+User=www-data
 Group=www-data
 WorkingDirectory=/srv/thu-thanh
 ExecStart=/usr/bin/php8.4 /srv/thu-thanh/current/backend/artisan queue:work database --sleep=3 --tries=5 --timeout=60 --max-time=3600
@@ -13,6 +13,11 @@ RestartSec=3
 TimeoutStopSec=90
 KillSignal=SIGTERM
 UMask=0007
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/srv/thu-thanh/shared/backend/storage /srv/thu-thanh/current/backend/bootstrap/cache
 
 [Install]
 WantedBy=multi-user.target

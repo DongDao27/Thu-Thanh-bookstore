@@ -2,7 +2,7 @@
 
 ## D110 — Đăng ký bản tin bằng email
 
-`POST /api/v1/newsletter/subscriptions` nhận duy nhất `{ "email": "reader@example.com" }`. Không yêu cầu checkbox hoặc payload consent. Hành động gửi form đăng ký ghi `consented_at` hiện có ở lần đầu; email normalize, unique/idempotent và response202 giống nhau khi đã đăng ký, không lộ email/id. CSRF và throttle10/phút giữ nguyên; field lạ/email sai trả422. Không tự gửi campaign hoặc email thật. D110 thay checkbox của D43, không đổi schema/lịch sử.
+`POST /api/v1/newsletter/subscriptions` nhận duy nhất `{ "email": "reader@example.com" }`. Không yêu cầu checkbox hoặc payload consent. Hành động gửi form đăng ký ghi `consented_at` hiện có ở lần đầu; email normalize, unique/idempotent và response202 giống nhau khi đã đăng ký, không lộ email/id. CSRF và throttle10/phút giữ nguyên; field lạ/email sai trả422. Đăng ký mới queue email xác nhận qua mailer hiện hành (Resend trên VPS) sau commit; job được mã hóa và retry tối đa3 lần. Email trùng không gửi lại; không gửi campaign hoặc backfill danh sách cũ. D110 thay checkbox của D43, không đổi schema/lịch sử.
 
 ## D104 — Mua ngay riêng
 

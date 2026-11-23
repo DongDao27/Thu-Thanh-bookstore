@@ -1,3 +1,5 @@
+SECURITY-NEWSLETTER đang thực hiện theo D121. Cần hoàn tất source/test, audit bằng chứng và triển khai kiểm lại; giữ env/dữ liệu thật.
+
 # Bàn giao repository
 
 GRADING-FIX đã hoàn tất. PR #26 đã merge; source candidate c9bd205 đã được kiểm trên clone mới từ GitHub, hosted CI và môi trường triển khai. VPS current trỏ `/srv/thu-thanh/releases/c9bd205`; Nginx, PHP-FPM và worker active. Release cũ 23842a5 được giữ để rollback.

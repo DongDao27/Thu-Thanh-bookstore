@@ -33,3 +33,19 @@ Kiểm local source cải thiện:181 backend/2.193assertions,coverage91,37%;22 
 Hai lần baseline Lighthouse mobile trên website:53/55,LCP7,6/7,0s,CLS0,49,~5.599KiB. Bản production local tối ưu:90/100 performance,100/100 best practices,CLS0,~1.395KiB,LCP3,7s. Đây là lab mobile trên máy kiểm; không thay số đo website triển khai, không phải kiểm tải lớn hoặc chứng nhận bảo mật tuyệt đối.
 
 Sau mergePR26: hostedCI backend/frontend/30E2E đã đạt trên candidatec9bd205. Frontendwebsite đã triển khai: hai lần Lighthousemobile92/94,bestpractices100,CLS0,LCP3,4/3,0s,payload1470/1386KiB. LCP vẫn cần theo dõi trên thiết bị/mạng thực; điểmlab không bảo đảm điểm môn học. Backend c9bd205 đã kích hoạt và kiểm lại trên website: guest admin API trả401 với */*, text/html và application/json qua API và frontend proxy. Tổng11 kiểm HTTP live đạt; Nginx/PHP-FPM/worker active. Quyền cache được sửa và boot bằng www-data đã đạt trước switch.
+
+
+## Rà soát bảo mật và bản tin — 23/11/2026
+
+Phạm vi: source Laravel/Next.js, dependency và lịch sử Git, HTTP công khai cùng 12 cổng TCP thường dùng trên VPS của chủ dự án. Không thực hiện DoS, brute force, kiểm tiền thật hoặc gọi QueryDr. API URL và SSH22 công khai không tự là lỗ hổng; bảo vệ dựa vào xác thực, CSRF, ownership và quyền hệ thống.
+
+- **SEC-01 / Medium / chờ áp dụng trên VPS:** source release đang có group-write cho www-data (143 file PHP app được kiểm). Nếu có đường thực thi mã trái phép khác, tài khoản PHP có thể sửa source để duy trì truy cập. `deploy/ops/harden-release.sh:16` thu hẹp source thành owner deploy, group chỉ đọc; chỉ bootstrap/cache và shared storage được ghi. Script không đi theo symlink sang shared.env/storage và kiểm quyền dưới www-data. Worker chuyển từ deploy sang www-data, bật NoNewPrivileges/ProtectHome/ProtectSystem và chỉ cho ghi cache/storage (`deploy/php/thu-thanh-worker.service:7`). Đây là giảm tác động sau xâm nhập, không phải bằng chứng đã tìm thấy đường RCE.
+- **SEC-02 / Low / chờ áp dụng trên VPS:** truy cập IP qua HTTP trả trang welcome200 và header nginx/1.24.0 (Ubuntu). `deploy/nginx/default-deny.conf:3` thay welcome site bằng404, ẩn version; defaultTLS từ chối host không khớp. Named API sites/AOP giữ nguyên. Đây là fingerprinting, chưa phải truy cập dữ liệu.
+
+Kiểm đã đạt: PostgreSQL chỉ127.0.0.1/::1; kiểm kết nối ngoài22/80/443 mở và9 cổng dịch vụ nội bộ không kết nối được trong timeout. SSH key-only/root disabled theo config hiện hành. Curl10 điểm nhạy cảm trả403/404/401 đúng; .env/.git/logs/phpinfo không được phục vụ, docs yêu cầu quyền, API orders/admin chưa đăng nhập401. Pythonurllib bịCloudflare chặn403 nên không dùng kết quả đó để suy ra Laravel an toàn; kiểm lại bằngcurl.
+
+Composer/npm audit không báo advisory. Gitleaks8.30.1 quét lịch sử tất cả refs với redaction:3 finding heuristic đều là đoạn văn lịch sử liệt kê tên biến/công cụ, đã đối chiếu; không có khóa thật trong3 kết quả này. Không coi một lượt scanner là chứng nhận không tồn tại secret hoặc lỗ hổng. Bằng chứng private ở.runtime/security-newsletter.
+
+Newsletter theoD121: notification mã hóa, dispatch sau commit, chỉ đăng ký mới gửi qua mailer đang cấu hình; trùng email không tạo job nữa. Tests kiểm worker thật với mailarray, rollback, normalizedduplicate, CSRF, throttle và nativeResend SDK dùng HTTPmock. Không gửi hàng loạt cho danh sách cũ. Queue retry có ngữ nghĩa at-least-once; không tuyên bố exactly-once khi provider chấp nhận thư nhưng phản hồi bị mất.
+
+Tham chiếu: [Laravel queued notifications](https://laravel.com/docs/12.x/notifications#queued-notifications-and-database-transactions), [Resend idempotency](https://resend.com/docs/dashboard/emails/idempotency-keys). Native Resend transport hiện tại không truyền idempotency HTTPheader; cần thay đổi có test riêng nếu muốn bảo đảm chống trùng khi retry ở cấp provider.
