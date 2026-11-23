@@ -15,7 +15,7 @@ set('shared_files', ['backend/.env']);
 set('shared_dirs', ['backend/storage']);
 set('writable_dirs', ['backend/bootstrap/cache', 'backend/storage']);
 set('writable_mode', 'chmod');
-set('writable_chmod_mode', '0770');
+set('writable_chmod_mode', '2770');
 set('writable_recursive', true);
 set('log_files', 'backend/storage/logs/*.log');
 set('laravel_version', function () {
@@ -63,6 +63,11 @@ foreach ([
     });
 }
 
+desc('Restricts PHP-FPM to generated cache and shared storage writes');
+task('app:harden-release', function () {
+    run('sudo /bin/bash {{release_path}}/deploy/ops/harden-release.sh {{release_path}}');
+});
+
 desc('Restarts processes using the published current release');
 task('app:restart', function () {
     run('sudo /usr/bin/systemctl reload php8.4-fpm');
@@ -75,9 +80,9 @@ desc('Publishes Laravel API on VPS; frontend is built and hosted by Vercel');
 task('deploy', [
     'app:preflight', 'deploy:prepare', 'deploy:vendors',
     'artisan:storage:link', 'artisan:config:cache', 'artisan:route:cache',
-    // No tracked resources/views directory remains in this API after scaffold cleanup.
+    // Notification mail views come from Laravel's built-in notification templates.
     'artisan:event:cache', 'artisan:migrate', 'artisan:app:deployment-check',
-    'deploy:symlink', 'app:restart', 'deploy:unlock', 'deploy:cleanup', 'deploy:success',
+    'app:harden-release', 'deploy:symlink', 'app:restart', 'deploy:unlock', 'deploy:cleanup', 'deploy:success',
 ]);
 
 after('deploy:failed', 'deploy:unlock');

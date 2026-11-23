@@ -117,6 +117,35 @@
         "PR26 merged; candidatec9bd205 hosted backend/frontend and30E2E passed on push/PR. Fresh GitHub clone installed PHP/Node/Python dependencies, demo24products/24images/0users,181backend/2193assertions,coverage91.37%,HTTP22,ops/frontend/build/repository all passed.",
         "Frontend live: mobile Lighthouse 92/94, best practices 100, CLS 0, LCP 3.4/3.0s, payload 1470/1386KiB. Backend c9bd205 activated after correcting generated cache permissions; www-data boot, deployment configuration and 11 live HTTP checks passed. Nginx/PHP-FPM/worker active. D119 unchanged."
       ]
+    },
+    {
+      "id": "SECURITY-NEWSLETTER",
+      "title": "Rà soát bề mặt tấn công và gửi xác nhận đăng ký bản tin",
+      "phase": "MAINTENANCE",
+      "status": "in_progress",
+      "depends_on": [
+        "GRADING-FIX"
+      ],
+      "acceptance": [
+        "Kiểm source/dependency/secret và các port, API công khai; ghi findings theo bằng chứng",
+        "Khắc phục finding đã xác nhận mà không đổi thanh toán hoặc dữ liệu thật",
+        "Đăng ký mới queue email xác nhận qua mailer Resend sau commit; trùng email không gửi lại; validation/CSRF/throttle giữ nguyên",
+        "Tests mail/queue/idempotency/failure và regression backend đạt; chuẩn bị deploy có rollback, kiểm live sau activation"
+      ],
+      "evidence": [
+        "Local184backend/2216assertions,coverage91.43%; bổ sungResendMock mới3/3 đạt (fullsuite tiếp theo xác nhận185). Dependency0advisories; 12ports,10curlprobes vàdirectTLS400 đã kiểm. SEC-01/02 chưa áp dụng trước activation."
+      ],
+      "required_checks": [
+        "backend-tests",
+        "coverage",
+        "newsletter-queue",
+        "resend-mock",
+        "dependency-audit",
+        "secret-history",
+        "live-exposure",
+        "shell-syntax",
+        "deployment-readiness"
+      ]
     }
   ]
 }

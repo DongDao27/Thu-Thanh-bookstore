@@ -41,3 +41,8 @@ Kích hoạt backend lần đầu không đạt và đã rollback về23842a5; n
 
 
 GRADING-FIX hoàn tất: operator kích hoạt c9bd205 thành công sau khi sửa quyền cache. Đã kiểm lại bằng SSH: current trỏ c9bd205; Nginx, PHP-FPM và worker active; cache deploy:www-data 0660. Deployment configuration checks đều PASS. Kiểm HTTP bên ngoài 11/11 đạt: homepage, /up, categories/products 200; www 308 về apex; admin operations 401 cho */*, text/html và application/json qua cả API lẫn frontend proxy. Bộ kiểm ban đầu kỳ vọng urllib tự theo 308 nên báo một lỗi; đã kiểm rõ Location và sửa tiêu chí đúng cho redirect, không sửa website. Không gọi QueryDr hoặc thay dữ liệu thật. Đóng issue #25 và chuyển item tương ứng sang Closed sau khi xác minh.
+
+
+## 23/11/2026 — SECURITY-NEWSLETTER bắt đầu
+
+Theo yêu cầu chủ dự án: cài skill security, kiểm source/API/ports/secret, sửa finding xác nhận; bổ sung email xác nhận đăng ký bản tin qua Resend. Tiêu chí ở TASKS. Không gọi QueryDr hoặc bật scheduler tài chính. Kiểm SSH ban đầu chỉ public listen22/80/443; PostgreSQL loopback. Phát hiện source release đang cho nhóm www-data quyền ghi cần thu hẹp; chưa áp dụng thay đổi trước test.
