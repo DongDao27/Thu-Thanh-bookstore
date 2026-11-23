@@ -4,7 +4,7 @@
   "phase": "MAINTENANCE",
   "current_task_id": "SECURITY-NEWSLETTER",
   "next_task_id": null,
-  "implementation_state": "security_newsletter_in_progress",
+  "implementation_state": "security_newsletter_source_verified_activation_pending",
   "backend_gate": "externally_blocked",
   "frontend_gate": "authorized_scoped",
   "frontend_authorization": {
@@ -13,8 +13,8 @@
   },
   "release_gate": "sandbox_deployed",
   "branch": "main",
-  "last_verified_commit": null,
-  "git_dirty": true,
+  "last_verified_commit": "f149bc1eb1e035042f8e2e9edda4a205ad984247",
+  "git_dirty": false,
   "website": "https://nhasachthuthanh.id.vn",
   "api": "https://api.nhasachthuthanh.id.vn",
   "repository": "DongDao27/Thu-Thanh-bookstore",
@@ -33,8 +33,8 @@
   "blockers": [
     "Representative large-load and continuous24x7 operations are not verified."
   ],
-  "notes": "GRADING-FIX complete: fresh clone, hosted CI and live activation verified. D119 retained; no official grade or large-load certification.",
-  "last_checkpoint_at": "2026-11-23T21:55:06.409393+07:00",
+  "notes": "PR28 merged; hosted185/2221,coverage91.43%,HTTP22,ops/frontend/30E2E passed. Candidate625a042 prepared; root activation pending; issue27 open.",
+  "last_checkpoint_at": "2026-11-23T22:10:02.578113+07:00",
   "last_test_run": {
     "at": "2026-11-23T03:18:00+07:00",
     "backend_tests": 181,
@@ -115,5 +115,17 @@
     "status": "done",
     "issue_state": "closed",
     "project_status": "Closed"
+  },
+  "security_newsletter": {
+    "issue": 27,
+    "pr": 28,
+    "candidate": "625a04281b8bb543ea516276d219057fe8872565",
+    "backend_current": "c9bd205",
+    "backend_tests": 185,
+    "assertions": 2221,
+    "coverage_percent": 91.43,
+    "e2e": 30,
+    "new_commit_secret_findings": 0,
+    "remaining": "operator root activation, live restricted-worker/default-site verification and owner newsletter receipt"
   }
 }

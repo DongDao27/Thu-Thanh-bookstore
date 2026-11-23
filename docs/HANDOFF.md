@@ -1,15 +1,19 @@
-SECURITY-NEWSLETTER đang thực hiện theo D121. Cần hoàn tất source/test, audit bằng chứng và triển khai kiểm lại; giữ env/dữ liệu thật.
-
 # Bàn giao repository
 
-GRADING-FIX đã hoàn tất. PR #26 đã merge; source candidate c9bd205 đã được kiểm trên clone mới từ GitHub, hosted CI và môi trường triển khai. VPS current trỏ `/srv/thu-thanh/releases/c9bd205`; Nginx, PHP-FPM và worker active. Release cũ 23842a5 được giữ để rollback.
+SECURITY-NEWSLETTER (D121) đang chờ operator root activation. PR #28 đã merge; source candidate625a042 được chuẩn bị trên VPS, current vẫn c9bd205. Chưa đánh dấu các sửa quyền/defaultsite/worker hoặc email bản tin là đã hoạt động trên website. Issue #27 và Project item đang In progress.
 
-Kiểm chứng: 181 backend tests / 2.193 assertions, coverage 91,37%; 22 HTTP auth checks; 16 frontend tests và build; 30 browser tests trên hosted CI. Demo seed local/testing tạo 24 sản phẩm/ảnh, không tài khoản mặc định. Sau activation, 11 kiểm tra HTTP live đạt; API guest trả 401 với mọi Accept đã kiểm qua cả API và frontend proxy.
+Lệnh tiếp theo, trong SSH deploy@thu-thanh-staging:
 
-Lighthouse mobile live hai lần: performance 92/94, CLS 0, LCP 3,4/3,0s, best practices 100. Baseline trước sửa là 53/55 và CLS 0,49. Báo cáo private: `output/grading-performance-2026-11-23.report.html`; bằng chứng khác ở `.runtime/grading-fix`. Đây là đo lab, không phải chứng nhận tải lớn hoặc bảo mật tuyệt đối.
+```bash
+sudo bash /srv/thu-thanh/private-transfer/security-newsletter/activate.sh
+```
 
-Lỗi activation đầu tiên đã rollback an toàn. Cache Artisan thuộc deploy:deploy 0660 làm www-data không đọc được; script private đã sửa nhóm/quyền, kiểm boot bằng www-data trước switch, chờ readiness và ghi bước lỗi. Lần kích hoạt sau đạt.
+Script kiểm SHA/shared paths, backup service, quyền source (chỉ cache/storage cho PHP ghi), boot aswww-data, cài worker hạn quyền và default-deny Nginx, kiểm cấu hình, chuyển release và reload, kiểm HTTP và job probe không email/provider. Có rollback release/config khi lỗi. SSH không có sudo không mật khẩu; operator cần tự nhập riêng. Giữ cửa sổ SSH mở.
 
-Không cần chạy lại activation. Không có công việc tiếp theo bắt buộc trong phạm vi GRADING-FIX. Issue #25 được đóng sau kiểm live; các mục ngoài phạm vi hoặc chưa nghiệm thu khác không tự coi là hoàn tất. Điểm chính thức do giảng viên quyết định; Next.js được chấp nhận theo xác nhận chủ dự án. Figma/video không thuộc bản nộp môn web (D120).
+Kiểm chứng source: hosted185 backend tests/2.221 assertions,coverage91,43%,HTTPauth22,ops fixture,frontend và30browser tests đạt. Mail tests kiểm notification encrypted/afterCommit/rollback/duplicate, worker thật với mailarray, Resend SDK HTTPmock và lỗi provider. Đăng ký mới mới gửi email; email đã có không gửi lại. Chưa tự gửi testmail hoặc backfill danh sách cũ.
 
-Giữ APP_KEY, .env, database, uploads, private transfer và backup ngoài Git. VNPAY vẫn Sandbox; không gọi QueryDr 99, không bật scheduler tài chính theo D119. Backup/offsite laptop cần mạng và phiên hoạt động; giám sát 24/7 và tải lớn chưa được chứng minh. Origin là repo nhà sách; không dùng lại repo Payment cũ hoặc force push.
+Security audit: PostgreSQL loopback, public22/80/443;9cổng nội bộ không kết nối được trong targetedprobe;10sensitiveHTTPchecks đạt,corskhôngreflectoriginlạ,CSRF419,directTLSnocert400. Dependency0advisories. Gitleaks lịch sử3finding làvăn bản;commitsmới0. SEC-01 medium quyền ghi source/worker vàSEC-02lowdefaultNginx fingerprinting được xác nhận, chờ áp dụng. Nginx candidate chỉ dùng testports để kiểm nonroot; rootcheck thật nằm trong activation. Báo cáo docs/SECURITY-PERFORMANCE.md, bằng chứng private.runtime/security-newsletter.
+
+GRADING-FIX trước đó đã hoàn tất; frontend mobile92/94,CLS0,LCP3,4/3,0s. Đợt này không sửafrontend hoặc đo lại hiệu năng. Không phải chứng nhận pentest/tải lớn/điểm10.
+
+Sau operator chạy: kiểm current625a042, services/workerUserwww-data/ProtectSystemstrict, sourcekhôngghiđược, rawIP404 vàapi200/401; xác nhận email bằng một đăng ký mới do chủ dự án thực hiện; cập nhật checkpoints vàđóngissue27 khi acceptance đạt. Giữenv,APP_KEY,database,uploads,backup vàoldrelease. Không seed/migrate/queryVNPAY/bậtfinancialscheduler.

@@ -133,7 +133,9 @@
         "Tests mail/queue/idempotency/failure và regression backend đạt; chuẩn bị deploy có rollback, kiểm live sau activation"
       ],
       "evidence": [
-        "Local184backend/2216assertions,coverage91.43%; bổ sungResendMock mới3/3 đạt (fullsuite tiếp theo xác nhận185). Dependency0advisories; 12ports,10curlprobes vàdirectTLS400 đã kiểm. SEC-01/02 chưa áp dụng trước activation."
+        "PR28 merged; candidate625a042 prepared on VPS without switching current. Hosted185backend/2221assertions,coverage91.43%,HTTP22,ops,frontend and30E2E passed. SupabasePreview skipped, not a pass.",
+        "Composer/npm0advisories; Gitleaks newcommits0findings, historical3prosefalsepositives reviewed.12 targetedports;10sensitivecurlprobes;untrustedCORS not reflected; CSRF419 andoriginTLS400 checked.",
+        "Nginx default-deny validated with testports18080/18443 (root80/443 check pending), systemd-analyze verify and shell syntax passed. Activation script includes backup/rollback,www-data boot and restricted worker probe. Root activation/live newsletter delivery remain pending."
       ],
       "required_checks": [
         "backend-tests",

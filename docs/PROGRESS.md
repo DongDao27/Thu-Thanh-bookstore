@@ -46,3 +46,6 @@ GRADING-FIX hoàn tất: operator kích hoạt c9bd205 thành công sau khi sử
 ## 23/11/2026 — SECURITY-NEWSLETTER bắt đầu
 
 Theo yêu cầu chủ dự án: cài skill security, kiểm source/API/ports/secret, sửa finding xác nhận; bổ sung email xác nhận đăng ký bản tin qua Resend. Tiêu chí ở TASKS. Không gọi QueryDr hoặc bật scheduler tài chính. Kiểm SSH ban đầu chỉ public listen22/80/443; PostgreSQL loopback. Phát hiện source release đang cho nhóm www-data quyền ghi cần thu hẹp; chưa áp dụng thay đổi trước test.
+
+
+SECURITY-NEWSLETTER: PR #28 đã merge main f149bc1, source candidate625a042 đã chuẩn bị trên VPS, current vẫn c9bd205. Hosted CI185tests/2221assertions,coverage91,43%,HTTP22,ops/frontend và30E2E đạt; SupabasePreview skipped. Script activation đã kiểm cú pháp/preflight; default-deny Nginx đạt trên testports18080/18443, fullroot80/443 chưa chạy. Còn operator sudo kích hoạt, kiểm lại worker UID/quyền source/defaultIP và thư xác nhận live; issue27/Project giữ In progress. Không gọi QueryDr hoặc gửi bulkmail.
