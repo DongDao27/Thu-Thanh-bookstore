@@ -3,12 +3,20 @@
 namespace Tests\Feature;
 
 use App\Models\NewsletterSubscription;
+use App\Notifications\NewsletterSubscribed;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
 class NewsletterTest extends TestCase
 {
     use RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        Notification::fake();
+    }
 
     public function test_guest_can_subscribe_with_email_only_and_normalized_email(): void
     {
@@ -18,6 +26,7 @@ class NewsletterTest extends TestCase
         $this->assertDatabaseHas('newsletter_subscriptions', ['email' => 'reader@example.test']);
         $this->assertNotNull(NewsletterSubscription::first()->consented_at);
         $this->assertDatabaseCount('users', 0);
+        Notification::assertSentOnDemand(NewsletterSubscribed::class, fn ($notification, $channels, $notifiable) => $channels === ['mail'] && $notifiable->routes['mail'] === 'reader@example.test');
     }
 
     public function test_duplicate_is_idempotent_and_does_not_reveal_existing_subscription(): void
@@ -30,6 +39,7 @@ class NewsletterTest extends TestCase
         $this->assertSame($first, $again);
         $this->assertDatabaseCount('newsletter_subscriptions', 1);
         $this->assertTrue(NewsletterSubscription::first()->consented_at->equalTo($consent));
+        Notification::assertSentOnDemandTimes(NewsletterSubscribed::class, 1);
     }
 
     public function test_invalid_or_missing_email_and_unexpected_fields_do_not_write(): void
@@ -38,6 +48,7 @@ class NewsletterTest extends TestCase
             $this->postJson('/api/v1/newsletter/subscriptions', $body)->assertUnprocessable();
         }
         $this->assertDatabaseCount('newsletter_subscriptions', 0);
+        Notification::assertNothingSent();
     }
 
     public function test_newsletter_is_rate_limited(): void

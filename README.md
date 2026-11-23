@@ -156,3 +156,5 @@ Hai smoke script dùng `.env.testing` và từ chối database khác. GitHub Act
 
 - **Đào Ngọc Đông — [DongDao27](https://github.com/DongDao27):** frontend, thiết kế và tài liệu.
 - **Thiện:** backend, database, thanh toán và hạ tầng.
+
+Đăng ký bản tin mới gửi email xác nhận qua queue/mailer hiện hành (Resend khi triển khai, log/array khi phát triển/test). Email trùng không gửi lại; worker cần đang chạy. Không tự gửi campaign hoặc email cho danh sách cũ.
