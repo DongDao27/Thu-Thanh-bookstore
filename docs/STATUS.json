@@ -4,7 +4,7 @@
   "phase": "MAINTENANCE",
   "current_task_id": "SECURITY-NEWSLETTER",
   "next_task_id": null,
-  "implementation_state": "security_newsletter_source_verified_activation_pending",
+  "implementation_state": "security_newsletter_verified_and_deployed",
   "backend_gate": "externally_blocked",
   "frontend_gate": "authorized_scoped",
   "frontend_authorization": {
@@ -33,12 +33,12 @@
   "blockers": [
     "Representative large-load and continuous24x7 operations are not verified."
   ],
-  "notes": "PR28 merged; hosted185/2221,coverage91.43%,HTTP22,ops/frontend/30E2E passed. Candidate625a042 prepared; root activation pending; issue27 open.",
-  "last_checkpoint_at": "2026-11-23T22:10:02.578113+07:00",
+  "notes": "PR28 security/newsletter live625a042 verified; corrected standalone probe; restricted workerPASS UID33; owner confirmed newsletter inbox receipt. D119 unchanged.",
+  "last_checkpoint_at": "2026-11-23T22:58:09.426148+07:00",
   "last_test_run": {
     "at": "2026-11-23T03:18:00+07:00",
-    "backend_tests": 181,
-    "backend_assertions": 2193,
+    "backend_tests": 185,
+    "backend_assertions": 2221,
     "e2e": 30,
     "frontend_tests": 16,
     "frontend_build": "passed",
@@ -120,12 +120,21 @@
     "issue": 27,
     "pr": 28,
     "candidate": "625a04281b8bb543ea516276d219057fe8872565",
-    "backend_current": "c9bd205",
+    "backend_current": "625a042",
     "backend_tests": 185,
     "assertions": 2221,
     "coverage_percent": 91.43,
     "e2e": 30,
     "new_commit_secret_findings": 0,
-    "remaining": "operator root activation, live restricted-worker/default-site verification and owner newsletter receipt"
+    "remaining": null,
+    "worker_uid": 33,
+    "source_group_writable_files": 0,
+    "live_http_checks": 6,
+    "raw_ip_http": 404,
+    "raw_ip_tls": "handshake_rejected",
+    "newsletter_live": "HTTP202,job1to0,failed0;ownerconfirmedreceipt",
+    "status": "done",
+    "issue_state": "closed",
+    "project_status": "Closed"
   }
 }

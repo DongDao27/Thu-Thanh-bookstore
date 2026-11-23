@@ -1,19 +1,13 @@
 # Bàn giao repository
 
-SECURITY-NEWSLETTER (D121) đang chờ operator root activation. PR #28 đã merge; source candidate625a042 được chuẩn bị trên VPS, current vẫn c9bd205. Chưa đánh dấu các sửa quyền/defaultsite/worker hoặc email bản tin là đã hoạt động trên website. Issue #27 và Project item đang In progress.
+SECURITY-NEWSLETTER (D121): bản625a042 đã kích hoạt trên VPS. **Không chạy lại activate.sh.** PR #28 đã merge; chủ dự án đã xác nhận nhận email thử, issue #27/Project item được đóng sau nghiệm thu.
 
-Lệnh tiếp theo, trong SSH deploy@thu-thanh-staging:
+Đã kiểm live: current625a042; Nginx/PHP-FPM/worker active; workerUserwww-data,ProtectSystemstrict,ProtectHomeyes,NoNewPrivilegesyes. FilePHPapp group-write0, source index0640. RawIPHTTP404 không lộversion; rawIPHTTPS bị từ chối.6 HTTPchecks vàdeploymentconfig đạt.
 
-```bash
-sudo bash /srv/thu-thanh/private-transfer/security-newsletter/activate.sh
-```
+Scriptprobe ban đầu dùng fileproof660 ownerwww-data màdeploy không đọc được; PHP handler trả0 gây thông báo passed sai. Đã sửa privatequeue-probe.php sangdatabasecache/catchThrowable, activation yêu cầuJSONPASS. Kiểm lại thực tế PASS workerPID55457/UID33 ở tiến trình riêng; invalidinput trảexit1. Không nới quyền file hoặc thêmdeploy vào groupPHP.
 
-Script kiểm SHA/shared paths, backup service, quyền source (chỉ cache/storage cho PHP ghi), boot aswww-data, cài worker hạn quyền và default-deny Nginx, kiểm cấu hình, chuyển release và reload, kiểm HTTP và job probe không email/provider. Có rollback release/config khi lỗi. SSH không có sudo không mật khẩu; operator cần tự nhập riêng. Giữ cửa sổ SSH mở.
+Kiểm source/hosted:185backend/2.221assertions,coverage91,43%,HTTPauth22,ops/frontend và30E2E đạt; SupabasePreview skipped. Dependency0advisories; Gitleaks commitsmới0,3finding lịch sử là văn bản. PostgreSQL loopback; chỉ public22/80/443 trong12 cổng đã kiểm. Đây không phải pentest đầy đủ hoặc cam kết điểm10.
 
-Kiểm chứng source: hosted185 backend tests/2.221 assertions,coverage91,43%,HTTPauth22,ops fixture,frontend và30browser tests đạt. Mail tests kiểm notification encrypted/afterCommit/rollback/duplicate, worker thật với mailarray, Resend SDK HTTPmock và lỗi provider. Đăng ký mới mới gửi email; email đã có không gửi lại. Chưa tự gửi testmail hoặc backfill danh sách cũ.
+Email xác nhận bản tin: đăng ký mới queue encrypted saucommit; trùngemail không gửi lại; rollback không gửi. Tests worker/database,CSRF/throttle vànativeResend mock đã đạt. Đã submit qua website với địa chỉ do chủ dự án cung cấp:HTTP202,job1→0,failed0. Chủ dự án đã xác nhận nhận được thư. Không tự gửi lại hoặc gửi hàng loạt cho danh sách cũ.
 
-Security audit: PostgreSQL loopback, public22/80/443;9cổng nội bộ không kết nối được trong targetedprobe;10sensitiveHTTPchecks đạt,corskhôngreflectoriginlạ,CSRF419,directTLSnocert400. Dependency0advisories. Gitleaks lịch sử3finding làvăn bản;commitsmới0. SEC-01 medium quyền ghi source/worker vàSEC-02lowdefaultNginx fingerprinting được xác nhận, chờ áp dụng. Nginx candidate chỉ dùng testports để kiểm nonroot; rootcheck thật nằm trong activation. Báo cáo docs/SECURITY-PERFORMANCE.md, bằng chứng private.runtime/security-newsletter.
-
-GRADING-FIX trước đó đã hoàn tất; frontend mobile92/94,CLS0,LCP3,4/3,0s. Đợt này không sửafrontend hoặc đo lại hiệu năng. Không phải chứng nhận pentest/tải lớn/điểm10.
-
-Sau operator chạy: kiểm current625a042, services/workerUserwww-data/ProtectSystemstrict, sourcekhôngghiđược, rawIP404 vàapi200/401; xác nhận email bằng một đăng ký mới do chủ dự án thực hiện; cập nhật checkpoints vàđóngissue27 khi acceptance đạt. Giữenv,APP_KEY,database,uploads,backup vàoldrelease. Không seed/migrate/queryVNPAY/bậtfinancialscheduler.
+Không còn bước bắt buộc trong phạm vi task này. Issue27/Project Closed theo bằng chứng acceptance. Giữenv,APP_KEY,database,uploads,backup vàreleasec9bd205. Không seed/migrate/queryVNPAY/bậtfinancialscheduler. Frontend đợt này không thay đổi; Lighthouse92/94,CLS0 là số đo đợt trước.

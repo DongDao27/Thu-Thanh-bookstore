@@ -122,7 +122,7 @@
       "id": "SECURITY-NEWSLETTER",
       "title": "Rà soát bề mặt tấn công và gửi xác nhận đăng ký bản tin",
       "phase": "MAINTENANCE",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "GRADING-FIX"
       ],
@@ -135,7 +135,10 @@
       "evidence": [
         "PR28 merged; candidate625a042 prepared on VPS without switching current. Hosted185backend/2221assertions,coverage91.43%,HTTP22,ops,frontend and30E2E passed. SupabasePreview skipped, not a pass.",
         "Composer/npm0advisories; Gitleaks newcommits0findings, historical3prosefalsepositives reviewed.12 targetedports;10sensitivecurlprobes;untrustedCORS not reflected; CSRF419 andoriginTLS400 checked.",
-        "Nginx default-deny validated with testports18080/18443 (root80/443 check pending), systemd-analyze verify and shell syntax passed. Activation script includes backup/rollback,www-data boot and restricted worker probe. Root activation/live newsletter delivery remain pending."
+        "Nginx default-deny validated with testports18080/18443 (root80/443 check pending), systemd-analyze verify and shell syntax passed. Activation script includes backup/rollback,www-data boot and restricted worker probe. Root activation/live newsletter delivery remain pending.",
+        "Live625a042 activated: services active; workerUserwww-data,ProtectSystemstrict,ProtectHomeyes,NoNewPrivilegesyes. App source group-writable files0; rawIPHTTP404/genericnginx andrawIPTLS rejected.6 HTTP live checks anddeployment config passed.",
+        "First filesystem observer probe could not read www-data-owned evidence asdeploy, and Laravel standalone handler returnedexit0. Corrected private probe usesdatabasecache/catchesThrowable, returnsPASS with separate workerPID55457/UID33; invalidinputexit1 verified. No permission widening.",
+        "Owner-authorized newsletter HTTP202 created1job, thenpending0/failed0. Owner confirmed receiving the newsletter confirmation in inbox. Issue27/Project can close after all acceptance checks."
       ],
       "required_checks": [
         "backend-tests",

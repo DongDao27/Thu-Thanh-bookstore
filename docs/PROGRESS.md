@@ -49,3 +49,11 @@ Theo yêu cầu chủ dự án: cài skill security, kiểm source/API/ports/sec
 
 
 SECURITY-NEWSLETTER: PR #28 đã merge main f149bc1, source candidate625a042 đã chuẩn bị trên VPS, current vẫn c9bd205. Hosted CI185tests/2221assertions,coverage91,43%,HTTP22,ops/frontend và30E2E đạt; SupabasePreview skipped. Script activation đã kiểm cú pháp/preflight; default-deny Nginx đạt trên testports18080/18443, fullroot80/443 chưa chạy. Còn operator sudo kích hoạt, kiểm lại worker UID/quyền source/defaultIP và thư xác nhận live; issue27/Project giữ In progress. Không gọi QueryDr hoặc gửi bulkmail.
+
+
+SECURITY-NEWSLETTER live activation: current625a042, nginx/PHP-FPM/worker active; workerUserwww-data/NoNewPrivileges/ProtectHome/ProtectSystemstrict; source app group-write0. HTTP live6/6 đạt, rawIP404 không version, TLS rawIP từ chối. Bước probe đầu lỗi quyền đọc file kết quả (ownerwww-data,deploy không thuộcgroup), PHP standalone handler trả0 khiến script inpassed sai. Đã sửa privateprobe sang databasecache và catchThrowable, rootactivation yêu cầuJSONPASS; kiểm lạiPASS workerPID55457/UID33, invalidinputexit1. Không nới quyền dữ liệu.
+
+Theo địa chỉ chủ dự án cung cấp, đã submit một đăng ký bản tin qua HTTP/CSRF thật:202, tạo1 encryptedjob, sau đópending0/failed0. Chờ chủ dự án xác nhận inbox; chưa đóngissue27 hoặc gọi đây là delivered vào inbox. Không gửi lại thư trùng.
+
+
+SECURITY-NEWSLETTER hoàn tất: chủ dự án xác nhận đã nhận email xác nhận đăng ký bản tin. Source/hostedCI/livehạ tầng vàdeliveryinbox đã kiểm; đóngissue27 vàchuyểnProjectitemClosed. Không cần operator chạy lại activation. Đã sửa lỗi riêng ởprivateprobe, không dùng thông báo passed sai trước đó làm bằng chứng.

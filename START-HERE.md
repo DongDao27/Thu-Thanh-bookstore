@@ -8,4 +8,4 @@ GRADING-FIX đã hoàn tất qua PR #26: clone mới, backend/coverage, frontend
 
 Chủ dự án chấp nhận VNPAY Sandbox và yêu cầu không điều tra QueryDr 99 (D119). Không tự bật scheduler tài chính hoặc thay đổi dữ liệu thật. Theo D120, bản nộp môn web chỉ cần GitHub và domain; Next.js đã được thầy chấp nhận theo xác nhận chủ dự án. Không dùng kết quả kiểm kỹ thuật để cam kết điểm 10 chính thức.
 
-SECURITY-NEWSLETTER mới đang chờ kích hoạt (PR #28, issue #27). Đọc HANDOFF để chạy script security-newsletter trên VPS; script grading-fix trước đó không dùng cho bản mới.
+SECURITY-NEWSLETTER đã kích hoạt625a042 và kiểm live (PR #28). Không chạy lại activation. Chủ dự án đã nhận email thử, issue #27/Project đã nghiệm thu; đọc HANDOFF.
