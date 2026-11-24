@@ -14,3 +14,6 @@ Không còn bước bắt buộc để chốt bản nộp trong phạm vi chủ 
 
 
 README-POLISH đã hoàn tất theo yêu cầu chủ dự án: README trình bày chuyên nghiệp, bỏ nội dung chấm điểm/rubric và giữ hướng dẫn cài/test chính xác. Link/Markdown/diff đã kiểm; chỉ thay tài liệu, không cần deploy thủ công hoặc mở lại Project4. Không còn việc bắt buộc trong phạm vi chỉnhREADME.
+
+
+README24/11 đã hoàn thiện: Nguyễn Văn Thiện vàGitHubthiennguyen230406, mục lục, badgeCI thật, shellnotes vàtroubleshooting. Liên kết/anchor/Markdown/diff đã kiểm. Không thay sourceapp/hạ tầng; không cần deploy thủ công, Project4 giữ đóng.

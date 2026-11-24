@@ -2,9 +2,25 @@
 
 Nền tảng bán sách và đồ dùng học tập, kết hợp cửa hàng trực tuyến với hệ thống quản trị sản phẩm, tồn kho, đơn hàng và doanh thu.
 
+[![Backend CI](https://github.com/DongDao27/Thu-Thanh-bookstore/actions/workflows/backend.yml/badge.svg?branch=main)](https://github.com/DongDao27/Thu-Thanh-bookstore/actions/workflows/backend.yml)
+[![Frontend CI](https://github.com/DongDao27/Thu-Thanh-bookstore/actions/workflows/frontend.yml/badge.svg?branch=main)](https://github.com/DongDao27/Thu-Thanh-bookstore/actions/workflows/frontend.yml)
+[![E2E CI](https://github.com/DongDao27/Thu-Thanh-bookstore/actions/workflows/e2e.yml/badge.svg?branch=main)](https://github.com/DongDao27/Thu-Thanh-bookstore/actions/workflows/e2e.yml)
+
 [Truy cập website](https://nhasachthuthanh.id.vn) · [Tài liệu API](docs/API.md) · [Thiết kế database](docs/DATABASE.md) · [Bảo mật và vận hành](docs/SECURITY-PERFORMANCE.md)
 
 ![Giao diện cửa hàng Thu Thanh với dữ liệu demo](docs/screenshots/storefront.jpg)
+
+## Mục lục
+
+- [Tính năng](#tính-năng)
+- [Công nghệ và kiến trúc](#công-nghệ-và-kiến-trúc)
+- [Cấu trúc repository](#cấu-trúc-repository)
+- [Cài đặt local](#cài-đặt-local)
+- [Kiểm thử](#kiểm-thử)
+- [API và giám sát](#api-và-giám-sát)
+- [Xử lý lỗi thường gặp](#xử-lý-lỗi-thường-gặp)
+- [Tài liệu](#tài-liệu)
+- [Thành viên](#thành-viên)
 
 ## Tính năng
 
@@ -66,6 +82,8 @@ docs/             Đặc tả API, database, nghiệp vụ và tài liệu kỹ 
 ## Cài đặt local
 
 ### 1. Chuẩn bị môi trường
+
+Các ví dụ lệnh dùng Bash trên Linux, macOS hoặc Git Bash/WSL trên Windows.
 
 | Công cụ | Phiên bản / yêu cầu |
 |---|---|
@@ -239,6 +257,17 @@ php backend/artisan ops:monitor
 
 Đăng nhập admin để truy cập Telescope và các API giám sát. Có thể chạy `php backend/artisan schedule:work` trong một terminal riêng trên demo local để thực thi lịch expiry, monitoring và pruning. Cấu hình scheduler của môi trường triển khai được quản lý riêng theo [tài liệu vận hành](docs/SECURITY-PERFORMANCE.md).
 
+## Xử lý lỗi thường gặp
+
+| Hiện tượng | Cách kiểm tra |
+|---|---|
+| PHP báo thiếu extension hoặc `could not find driver` | Chạy `composer check-platform-reqs` trong `backend/`; bật PDO PostgreSQL và các extension PHP còn thiếu. |
+| Không kết nối được PostgreSQL | Kiểm tra dịch vụ PostgreSQL, tên database, role và mật khẩu trong đúng file `.env` hoặc `.env.testing`. |
+| Đăng nhập hoặc gửi form trả `419` | Truy cập `http://localhost:3000`, dùng hostname `localhost` nhất quán và kiểm tra `LARAVEL_INTERNAL_URL`; chạy `php backend/artisan config:clear` sau khi sửa cấu hình. |
+| Không thấy sản phẩm demo hoặc ảnh | Kiểm tra database `thu_thanh_demo`, bước `DemoCatalogSeeder` và liên kết tạo bởi `php backend/artisan storage:link`. |
+| Email chưa được xử lý | Kiểm tra queue worker; với `MAIL_MAILER=log`, xem nội dung trong `backend/storage/logs` thay vì hộp thư. |
+| Monitoring báo thiếu `psutil` | Cài `scripts/monitoring-requirements.txt` vào `.venv` và đặt `OPS_PYTHON_BINARY` trỏ đúng interpreter đó. |
+
 ## Tài liệu
 
 | Tài liệu | Nội dung |
@@ -252,7 +281,7 @@ php backend/artisan ops:monitor
 
 ## Thành viên
 
-| Thành viên | Phụ trách |
-|---|---|
-| [Đào Ngọc Đông — DongDao27](https://github.com/DongDao27) | Frontend, thiết kế và tài liệu |
-| Thiện | Backend, database, thanh toán và hạ tầng |
+| Thành viên | GitHub | Phụ trách |
+|---|---|---|
+| Đào Ngọc Đông | [@DongDao27](https://github.com/DongDao27) | Frontend, thiết kế và tài liệu |
+| Nguyễn Văn Thiện | [@thiennguyen230406](https://github.com/thiennguyen230406) | Backend, database, thanh toán và hạ tầng |

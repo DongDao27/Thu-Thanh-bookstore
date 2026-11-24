@@ -186,7 +186,8 @@
       "acceptance": [
         "Bỏ ngôn ngữ chấm điểm/rubric, giới thiệu rõ sản phẩm và kiến trúc",
         "Giữ đủ hướng dẫn clone/setup/demo/test/monitoring chính xác, mô tả Sandbox trung tính",
-        "Kiểm liên kết/Markdown và xuất bản thay đổi tài liệu, không thay ứng dụng"
+        "Kiểm liên kết/Markdown và xuất bản thay đổi tài liệu, không thay ứng dụng",
+        "Cập nhật đầy đủ Nguyễn Văn Thiện và GitHub theo chủ dự án; bổ sung điều hướng và hỗ trợ cài đặt cần thiết"
       ],
       "required_checks": [
         "repository-links",
@@ -195,7 +196,8 @@
       ],
       "evidence": [
         "README biên tập lại theo sản phẩm/tính năng/kiến trúc/local setup/test/monitoring/tài liệu/thành viên; bỏ rubric và nhận xét chấm điểm; giữ mô tảSandbox cùng lệnh clone/demo/test đã đối chiếu source.",
-        "python3 scripts/check-repository.py đạt14documents/26links; gitdiffcheck đạt; kiểm không còn từ ngữ chấm điểm trongREADME. Chỉ thay tài liệu, không chạy lại test ứng dụng hoặc deploy thủ công."
+        "python3 scripts/check-repository.py đạt14documents/26links; gitdiffcheck đạt; kiểm không còn từ ngữ chấm điểm trongREADME. Chỉ thay tài liệu, không chạy lại test ứng dụng hoặc deploy thủ công.",
+        "24/11/2026: cập nhật Nguyễn Văn Thiện/GitHubthiennguyen230406; thêm9mục lục,3badgeCI theo workflow thật và troubleshooting6trườnghợp. Kiểmanchors/workflow/memberlinks,repository14docs/26links vàdiffcheck đạt; không sửa ứng dụng."
       ]
     }
   ]

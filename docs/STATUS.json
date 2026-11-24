@@ -13,7 +13,7 @@
   },
   "release_gate": "sandbox_deployed",
   "branch": "main",
-  "last_verified_commit": "6a1085dc9c84c1e6c856e346e12a51d5cc36b3f1",
+  "last_verified_commit": "438547c24a365eaf1d37c4891466453571af69d0",
   "git_dirty": false,
   "website": "https://nhasachthuthanh.id.vn",
   "api": "https://api.nhasachthuthanh.id.vn",
@@ -33,8 +33,8 @@
   "blockers": [
     "Representative large-load and continuous24x7 operations are not verified."
   ],
-  "notes": "README polished: removed grading/rubric commentary, reorganized product/setup/testing docs. Repository links and diff passed; app/runtime unchanged,Project4closed.",
-  "last_checkpoint_at": "2026-11-23T23:24:24.142883+07:00",
+  "notes": "README24/11: full member identity supplied by owner, navigation, real workflow badges and troubleshooting verified. Documentation only; app/runtime and closedProject4 unchanged.",
+  "last_checkpoint_at": "2026-11-24T20:59:54.638334+07:00",
   "last_test_run": {
     "at": "2026-11-23T03:18:00+07:00",
     "backend_tests": 185,
