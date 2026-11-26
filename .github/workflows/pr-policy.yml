@@ -1,0 +1,21 @@
+name: PR policy
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, ready_for_review]
+permissions:
+  contents: read
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check conventional title and linked issue
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          const { pull_request: pr } = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
+          if (!/^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([^\n)]+\))?!?: .+/.test(pr.title))
+            throw new Error('Use a Conventional Commit title, e.g. fix(catalog): preserve filter pagination');
+          if (!/\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\s+#\d+\b/i.test(pr.body ?? ''))
+            throw new Error('Link the issue with Closes #number in the PR description.');
+          console.log('PR title and closing issue reference passed. Human review remains a separate step.');
+          JS
