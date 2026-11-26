@@ -1,3 +1,4 @@
+import { fileURLToPath } from "node:url";
 if (
   process.env.VERCEL &&
   !process.env.LARAVEL_INTERNAL_URL?.startsWith("https://")
@@ -23,6 +24,25 @@ if (
 }
 const config = {
   output: "standalone",
+  ...(process.env.FRONTEND_COVERAGE === "1"
+    ? {
+        webpack(config) {
+          if (process.env.FRONTEND_COVERAGE === "1") {
+            config.module.rules.push({
+              test: /\.[jt]sx?$/,
+              include: fileURLToPath(new URL("./src", import.meta.url)),
+              enforce: "pre",
+              use:
+                process.env.FRONTEND_COVERAGE_LOADER ??
+                fileURLToPath(
+                  new URL("../scripts/coverage-loader.cjs", import.meta.url),
+                ),
+            });
+          }
+          return config;
+        },
+      }
+    : {}),
   images: { minimumCacheTTL: 86400 },
   async headers() {
     return [

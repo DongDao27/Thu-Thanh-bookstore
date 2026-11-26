@@ -27,6 +27,6 @@ for name in ['tsconfig.json']:
 for name in ['package.json', 'package-lock.json', 'jsconfig.json', 'postcss.config.mjs', 'playwright.config.js']:
     shutil.copy2(source / name, target / name)
 config = (source / 'next.config.js').read_text(encoding='utf-8')
-config = config.replace('output: "standalone",', 'output: "standalone",\n  turbopack: { root: '+repr(root.as_posix())+' },')
+config = config.replace('output: "standalone",', 'output: undefined,\n  turbopack: { root: '+repr(root.as_posix())+' },')
 (target / 'next.config.js').write_text(config, encoding='utf-8')
 print('Isolated E2E frontend prepared; owner build/cache unchanged.')

@@ -44,12 +44,18 @@ export default defineConfig({
     },
     {
       name: "Isolated Next",
-      command: `node "${resolve(root, "frontend/node_modules/next/dist/bin/next")}" dev --hostname localhost --port 3100`,
+      command:
+        process.env.FRONTEND_COVERAGE === "1"
+          ? `node "${resolve(root, "frontend/node_modules/next/dist/bin/next")}" build --webpack && node "${resolve(root, "frontend/node_modules/next/dist/bin/next")}" start --hostname localhost --port 3100`
+          : `node "${resolve(root, "frontend/node_modules/next/dist/bin/next")}" dev --hostname localhost --port 3100`,
       cwd: isolated,
-      env: { LARAVEL_INTERNAL_URL: "http://localhost:18082" },
+      env: {
+        LARAVEL_INTERNAL_URL: "http://localhost:18082",
+        FRONTEND_COVERAGE_LOADER: resolve(root, "scripts/coverage-loader.cjs"),
+      },
       url: "http://localhost:3100",
       reuseExistingServer: false,
-      timeout: 90000,
+      timeout: 180000,
     },
   ],
 });

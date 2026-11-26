@@ -9,7 +9,10 @@
     "check": "node ../scripts/check-frontend.mjs",
     "format": "prettier --write \"src/**/*.{js,jsx}\" \"tests/**/*.js\" \"e2e/**/*.js\" *.js",
     "test:api": "node --test tests/*.test.js",
-    "test:e2e": "node ../scripts/e2e.mjs"
+    "test:e2e": "node ../scripts/e2e.mjs",
+    "test:unit": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "coverage:report": "node ../scripts/frontend-coverage.mjs"
   },
   "dependencies": {
     "next": "16.4.6",
@@ -22,8 +25,18 @@
     "@babel/parser": "^8.1.2",
     "@playwright/test": "1.64.1",
     "@tailwindcss/postcss": "4.3.3",
+    "@testing-library/jest-dom": "^8.0.0",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.13",
+    "@vitest/coverage-istanbul": "^5.1.2",
+    "istanbul-lib-coverage": "^3.2.2",
+    "istanbul-lib-instrument": "^6.0.3",
+    "istanbul-lib-report": "^3.0.1",
+    "istanbul-reports": "^3.2.0",
+    "jsdom": "^31.0.1",
     "prettier": "^3.10.1",
-    "tailwindcss": "4.3.3"
+    "tailwindcss": "4.3.3",
+    "vitest": "^5.1.2"
   },
   "type": "module"
 }

@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, trackCoverage, saveCoverage } from "./fixtures";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
@@ -6,7 +6,8 @@ const base = "http://localhost:3100",
   backend = "http://localhost:18082";
 const password = "E2E-Local-Password-2026!";
 const browserIssues = new Map();
-function observe(page) {
+async function observe(page) {
+  await trackCoverage(page);
   const issues = [];
   browserIssues.set(page, issues);
   page.on("pageerror", (error) => issues.push(error.message));
@@ -22,7 +23,7 @@ function observe(page) {
 }
 test.beforeEach(async ({ page }) => {
   browserIssues.clear();
-  observe(page);
+  await observe(page);
   await page.route("https://www.google.com/maps/**", (r) =>
     r.fulfill({ body: "", contentType: "text/html" }),
   );
@@ -224,7 +225,7 @@ test("counter cash completes once and pickup offers three concise actions", asyn
       .data.payment_status,
   ).toBe("unpaid");
   const manager = await browser.newPage({ baseURL: base });
-  observe(manager);
+  await observe(manager);
   try {
     await admin(manager);
     await manager.goto(`/admin/orders?q=${code}`);
@@ -277,6 +278,7 @@ test("counter cash completes once and pickup offers three concise actions", asyn
       path: resolve(root, "output/e2e/counter-cash-375.png"),
     });
   } finally {
+    await saveCoverage(manager);
     await manager.close();
   }
 });
@@ -290,7 +292,7 @@ test("counter VNPAY displays local QR for exact amount and polls verified comple
     await (await page.request.get(`${base}/api/v1/orders/${code}`)).json()
   ).data;
   const manager = await browser.newPage({ baseURL: base });
-  observe(manager);
+  await observe(manager);
   try {
     await admin(manager);
     await manager.goto(`/admin/orders?q=${code}`);
@@ -370,6 +372,7 @@ test("counter VNPAY displays local QR for exact amount and polls verified comple
     ).toBe("completed");
     expect((await evidence(page.request, code)).receipts).toBe(1);
   } finally {
+    await saveCoverage(manager);
     await manager.close();
   }
 });
@@ -1036,7 +1039,7 @@ test("inventory adjustment records ledger; only admin changes order fulfillment"
     ).status(),
   ).toBe(403);
   const manager = await browser.newPage({ baseURL: base });
-  observe(manager);
+  await observe(manager);
   manager.on("dialog", (dialog) => dialog.accept());
   try {
     await admin(manager);
@@ -1108,6 +1111,7 @@ test("inventory adjustment records ledger; only admin changes order fulfillment"
       )
       .toBe("fulfilled");
   } finally {
+    await saveCoverage(manager);
     await manager.close();
   }
 });
@@ -1577,4 +1581,36 @@ test("pending read failure offers manual refresh and never submits a payment", a
   expect((await read).ok()).toBeTruthy();
   await expect(refresh).toHaveCount(0);
   expect(writes).toBe(0);
+});
+
+test("Tailwind catalog grid keeps intended density and no overflow at four widths", async ({
+  page,
+}) => {
+  for (const [width, columns] of [
+    [375, 1],
+    [768, 3],
+    [1024, 4],
+    [1440, 5],
+  ]) {
+    await page.setViewportSize({ width, height: 950 });
+    await page.goto("/products");
+    const grid = page.locator(".catalog-grid");
+    await expect(grid.locator(".product-card").first()).toBeVisible();
+    expect(
+      await grid.evaluate(
+        (node) => getComputedStyle(node).gridTemplateColumns.split(" ").length,
+      ),
+    ).toBe(columns);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    const bounds = await page.locator(".container.page-section").boundingBox();
+    expect(bounds.x).toBeGreaterThanOrEqual(12);
+    expect(bounds.x + bounds.width).toBeLessThanOrEqual(width - 12);
+    await page.screenshot({
+      path: resolve(root, `output/e2e/tailwind-catalog-${width}.png`),
+    });
+  }
 });
