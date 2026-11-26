@@ -38,7 +38,7 @@
     "check": "passed",
     "dependency_audit": "0 vulnerabilities"
   },
-  "hosted_ci": "pending_branch_publication",
+  "hosted_ci": "frontend/PR policy passed on aeedd94; backend audit failed, fixed locally; new hosted run pending",
   "official_score": false,
   "estimated_candidate_score": 9.25,
   "provider_video_links": {
@@ -46,5 +46,14 @@
     "resend": null
   },
   "production_activation": "not_requested_not_run",
-  "financial_scheduler": "unchanged_D119"
+  "financial_scheduler": "unchanged_D119",
+  "dependency_patch": {
+    "reason": "5 new Symfony advisories published 2026-11-25 failed hosted audit",
+    "symfony_version": "7.4.24",
+    "laravel_version": "12.73.0",
+    "composer_audit": "0 advisories",
+    "full_backend_after_patch": "188 tests / 2312 assertions passed",
+    "composer_lock_sha256": "a2e07f8cd508aba986333c4fe55bef69fa7e816e1d38302138fbc60d140ed7f8"
+  },
+  "pr": 30
 }

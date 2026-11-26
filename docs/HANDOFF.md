@@ -19,3 +19,5 @@ D119:khôngqueryVNPAY/điềutraQueryDr99,seed/migrateproductionhoặcbậtsched
 IPthật/rate-limitquaVercel/Cloudflare,nghiệmthuschcheduler,cachelock503,index dữliệulớn vàscale ngang vẫn cần phạm vi/kiểm riêng, có ghi trongSECURITY-PERFORMANCE. Backendgate vẫnexternally_blockedvềvậnhành24/7/tảilớn;khôngcoiđiểmước lượnglàgateproduction.
 
 Trước đợtnàyProject4đãđóngtheoD122;khôngtựmởlạihoặctickreview/thaymetadatahoànthànhthaychobằngchứng. Issue29mớidùngtheodõiđợtsửanày.
+
+PR #30 đã tạo dạng draft. Frontend và PR policy CI đạt trên aeedd94; Backend CI thất bại audit do5 advisory Symfony mới công bố25/11. Đã cập nhật7package patch tương thích, Laravel12.73.0 giữ nguyên, Composer audit0; đang chạy lại backend188test trước push. Không dùng kết quả CI thất bại để đánh dấu hoàn tất.

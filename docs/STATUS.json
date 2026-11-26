@@ -34,7 +34,7 @@
     "Representative large-load and continuous24x7 operations are not verified."
   ],
   "notes": "26/11 feedback: local source/tests complete; issue29, description set; branch publication/CI pending; owner records two provider videos. Production and D119 unchanged.",
-  "last_checkpoint_at": "2026-11-26T18:44:35.225705+07:00",
+  "last_checkpoint_at": "2026-11-26T18:49:06.690156+07:00",
   "last_test_run": {
     "at": "2026-11-23T03:18:00+07:00",
     "backend_tests": 185,
@@ -162,7 +162,9 @@
     "frontend_lines_coverage": 75.8,
     "frontend_statements_coverage": 73.12,
     "provider_videos": "owner_will_record_links_pending",
-    "hosted_ci": "pending",
-    "production_activation": "not_run"
+    "hosted_ci": "first_backend_audit_failed_patch_verified_locally_new_run_pending",
+    "production_activation": "not_run",
+    "pr": 30,
+    "dependency_audit": "Symfony7.4.24; composer0advisories"
   }
 }
