@@ -2,7 +2,7 @@
 
 Đối chiếu bản chấm thử `Advanced_Nhom5_ThuThanhBookstore.pdf`: 8,25/10, chấm commit 8190455 lúc 10:37 ngày 26/11. SHA256 tài liệu: `46353759166a900ea8f8501caf8a9bf0a87433d7721075f4fc122aab83b6f218`.
 
-Đây là **tự đánh giá kỹ thuật**, không thay điểm giảng viên. Source ứng viên nằm trên nhánh `fix/grading-feedback-20261126`, issue [#29](https://github.com/DongDao27/Thu-Thanh-bookstore/issues/29). Chỉ nhánh chính tại hạn nộp mới được giảng viên tính; chưa coi PR chưa merge là bài nộp đã cập nhật. Production/scheduler chưa được kích hoạt trong đợt này.
+Đây là **tự đánh giá kỹ thuật**, không thay điểm giảng viên. Source đã được CI kiểm tại commit7aa6a3b; [PR #30](https://github.com/DongDao27/Thu-Thanh-bookstore/pull/30) được chuẩn bị để review. Source ứng viên nằm trên nhánh `fix/grading-feedback-20261126`, issue [#29](https://github.com/DongDao27/Thu-Thanh-bookstore/issues/29). Chỉ nhánh chính tại hạn nộp mới được giảng viên tính; chưa coi PR chưa merge là bài nộp đã cập nhật. Production/scheduler chưa được kích hoạt trong đợt này.
 
 ## Điểm dự kiến theo cùng rubric
 
@@ -38,7 +38,7 @@ Local: Ubuntu 22.04, Node 24.22.3, PHP 8.4.28, PostgreSQL 17.12. Dùng cluster s
 - `FRONTEND_COVERAGE=1 node scripts/e2e.mjs`:30 passed trên build production; 1 kịch bản responsive bổ sung 375/768/1024/1440 passed; đã xem ảnh 375/1440 và sửa trùng tên utility container, kiểm lại lề trang đạt.
 - Coverage Chromium cuối, toàn bộ 65 file: **lines75,80%(1275/1682), statements73,12%(1347/1842)**. Functions 65,80%, branches 68,68%; không tuyên bố hai chỉ số này đạt70%.
 - Backend statement coverage mới:91,62% (1782/1945); Pint và npm audit 0 vulnerabilities đạt.
-- [Tóm tắt có thể tái kiểm](evidence/grading-feedback/verification.json), [coverage từng file](evidence/grading-feedback/frontend-coverage-summary.json), [hash source](evidence/grading-feedback/source-manifest.json). Hosted CI/PR hiện chờ xuất bản nhánh, cập nhật sau readback thực tế. Các số185tests/91,43%backendcoverage hay Lighthouse 92/94 ngày 23/11 là lịch sử, không giả làm lần đo mới.
+- [Tóm tắt có thể tái kiểm](evidence/grading-feedback/verification.json), [coverage từng file](evidence/grading-feedback/frontend-coverage-summary.json), [hash source](evidence/grading-feedback/source-manifest.json). Hosted CI của7aa6a3b: [Backend](https://github.com/DongDao27/Thu-Thanh-bookstore/actions/runs/45813979212), [Frontend](https://github.com/DongDao27/Thu-Thanh-bookstore/actions/runs/45813979271), [E2E](https://github.com/DongDao27/Thu-Thanh-bookstore/actions/runs/45813979120) và [PR policy](https://github.com/DongDao27/Thu-Thanh-bookstore/actions/runs/45813988922) đều passed. **31/31 E2E, coverage toàn source76,27% lines (1283/1682),73,56% statements (1355/1842)**; function66,60%,branch70,03%. [Snapshot hosted](evidence/grading-feedback/hosted-browser-summary.json); số local75,80%/73,12% phía trên được giữ đúng môi trường. Supabase Preview skipped, không tínhpassed. Các số185tests/91,43%backendcoverage hay Lighthouse 92/94 ngày 23/11 là lịch sử, không giả làm lần đo mới.
 
 Lần đo dev đầu tiên có29 passed / 1 failed vì Fast Refresh tải lại admin, đóng modal khi biên dịch route trả về. Đã chuyển coverage sang production build; kịch bản QR chạy đạt, không sửa logic thanh toán để bỏ qua lỗi test. Coverage unit JSX transform và browser có bản đồ statement khác nhau nên lưu riêng, không cộng hai mẫu số; ngưỡng dùng browser trên toàn source. Function/branch coverage có báo cáo riêng và không được tuyên bố >70% nếu chưa đạt.
 
@@ -50,4 +50,6 @@ TheoD119/D123, không tự bật scheduler tài chính, gọi lại QueryDr 99 h
 
 ## Bản vá dependency phát hiện trong CI
 
-Backend CI đầu tiên trên aeedd94 không đạt bước `composer audit`: 5 advisory mới ngày 25/11/2026 ảnh hưởng Symfony http-kernel/mailer/routing. Không bỏ qua audit. Đã cập nhật Symfony từ 7.4.22–23 lên 7.4.24 và các patch phụ thuộc tương thích; Laravel vẫn 12.73.0, PHP vẫn 8.4. Composer validate/platform checks và audit sau sửa không còn advisory. Full regression sau patch đã đạt 188 tests / 2.312 assertions; coverage 91,62%. Chờ CI trên lockfile mới trước khi ghi hosted passed.
+Backend CI đầu tiên trên aeedd94 không đạt bước `composer audit`: 5 advisory mới ngày 25/11/2026 ảnh hưởng Symfony http-kernel/mailer/routing. Không bỏ qua audit. Đã cập nhật Symfony từ 7.4.22–23 lên 7.4.24 và các patch phụ thuộc tương thích; Laravel vẫn 12.73.0, PHP vẫn 8.4. Composer validate/platform checks và audit sau sửa không còn advisory. Full regression sau patch đã đạt 188 tests / 2.312 assertions; coverage local 91,72%. Backend CI trên7aa6a3b cũng đã đạt, coverage91,62%, HTTP22 vàops smoke đạt, audit sạch. Frontend,31E2E vàPRpolicy của cùng commit đều đạt.
+
+Tham chiếu triển khai: [Next.js prefetch](https://nextjs.org/docs/app/guides/prefetching), [Tailwind phát hiện/exclude utility](https://tailwindcss.com/docs/detecting-classes-in-source-files), [Vitest coverage](https://vitest.dev/guide/coverage.html). Các kết luận đạt/chưa đạt ở trên dựa trên source/test/report của dự án, không dựa riêng vào hướng dẫn framework.

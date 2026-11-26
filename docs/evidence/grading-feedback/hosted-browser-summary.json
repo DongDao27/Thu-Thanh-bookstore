@@ -1,0 +1,36 @@
+{
+  "source_commit": "7aa6a3bd1727364917196ca8635bfdd3f6766298",
+  "run_url": "https://github.com/DongDao27/Thu-Thanh-bookstore/actions/runs/45813979120",
+  "browser_tests": 31,
+  "sourceFiles": 65,
+  "lines": {
+    "total": 1682,
+    "covered": 1283,
+    "skipped": 0,
+    "pct": 76.27
+  },
+  "statements": {
+    "total": 1842,
+    "covered": 1355,
+    "skipped": 0,
+    "pct": 73.56
+  },
+  "functions": {
+    "total": 500,
+    "covered": 333,
+    "skipped": 0,
+    "pct": 66.6
+  },
+  "branches": {
+    "total": 1702,
+    "covered": 1192,
+    "skipped": 0,
+    "pct": 70.03
+  },
+  "branchesTrue": {
+    "total": 0,
+    "covered": 0,
+    "skipped": 0,
+    "pct": "Unknown"
+  }
+}

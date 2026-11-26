@@ -1,5 +1,5 @@
 {
-  "verified_at": "2026-11-26T18:43:50.677719+07:00",
+  "verified_at": "2026-11-26T18:54:47.842343+07:00",
   "base_commit": "81904552a2",
   "backend_commit": "24771a1",
   "storefront_commit": "dcf634e",
@@ -13,12 +13,13 @@
     "browser": "Playwright Chromium production webpack build"
   },
   "backend": {
-    "command": "XDEBUG_MODE=coverage php artisan test --compact --coverage-clover=storage/logs/grading-feedback-coverage.xml",
+    "command": "php artisan test --log-junit=storage/logs/phpunit.xml --coverage-clover=storage/logs/coverage.xml (GitHub Actions)",
     "passed": 188,
     "assertions": 2312,
     "statement_coverage": 91.62,
     "covered_statements": 1782,
-    "total_statements": 1945
+    "total_statements": 1945,
+    "environment": "GitHub Actions on 7aa6a3b"
   },
   "frontend": {
     "unit": 15,
@@ -38,7 +39,12 @@
     "check": "passed",
     "dependency_audit": "0 vulnerabilities"
   },
-  "hosted_ci": "frontend/PR policy passed on aeedd94; backend audit failed, fixed locally; new hosted run pending",
+  "hosted_ci": {
+    "backend": "passed",
+    "frontend": "passed",
+    "e2e": "passed",
+    "pr_policy": "passed"
+  },
   "official_score": false,
   "estimated_candidate_score": 9.25,
   "provider_video_links": {
@@ -55,5 +61,29 @@
     "full_backend_after_patch": "188 tests / 2312 assertions passed",
     "composer_lock_sha256": "a2e07f8cd508aba986333c4fe55bef69fa7e816e1d38302138fbc60d140ed7f8"
   },
-  "pr": 30
+  "pr": 30,
+  "local_backend_after_patch": {
+    "passed": 188,
+    "assertions": 2312,
+    "statement_coverage": 91.72,
+    "covered_statements": 1784,
+    "total_statements": 1945
+  },
+  "backend_ci_url": "https://github.com/DongDao27/Thu-Thanh-bookstore/actions/runs/45813979212",
+  "verified_source_commit": "7aa6a3bd1727364917196ca8635bfdd3f6766298",
+  "ci_urls": {
+    "backend": "https://github.com/DongDao27/Thu-Thanh-bookstore/actions/runs/45813979212",
+    "frontend": "https://github.com/DongDao27/Thu-Thanh-bookstore/actions/runs/45813979271",
+    "e2e": "https://github.com/DongDao27/Thu-Thanh-bookstore/actions/runs/45813979120",
+    "pr_policy": "https://github.com/DongDao27/Thu-Thanh-bookstore/actions/runs/45813988922"
+  },
+  "hosted_browser": {
+    "passed": 31,
+    "source_files": 65,
+    "lines_percent": 76.27,
+    "statements_percent": 73.56,
+    "functions_percent": 66.6,
+    "branches_percent": 70.03
+  },
+  "publication": "PR30, source verified; owner review/merge and production authorization pending"
 }

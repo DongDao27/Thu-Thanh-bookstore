@@ -38,3 +38,7 @@ Làm theo phần Kiểm thử trong [README](../README.md). Chỉ dùng database
 Workflow Frontend lưu coverage unit; E2E build instrument chỉ trong môi trường test, chạy Chromium, chặn provider thật và lưu HTML/LCOV/JSON trong artifact `e2e-report`. Build production bình thường giữ SWC/Turbopack, không đưa instrumentation lên website.
 
 Kết quả và giới hạn của đợt26/11 được ghi trong [đánh giá sau sửa](GRADING-REASSESSMENT.md); artifact CI mới là nơi xem report đầy đủ. Không lấy số đo Lighthouse ngày23/11 làm phép đo mới.
+
+## Kết quả CI được lưu
+
+Source7aa6a3b đã đạt Backend/Frontend/E2E/PRpolicy. Backend188tests/2312assertions,statementcoverage91,62%,HTTP22 vàops smoke; frontend15unit/16APIclient,build/check; browser31/31 vàcoverage76,27%lines/73,56%statements trên65file. Xem [snapshot hosted](evidence/grading-feedback/hosted-browser-summary.json) và [liên kết CI](evidence/grading-feedback/verification.json). Supabase Preview skipped; chưa merge/deploy production.

@@ -67,3 +67,5 @@ Các góp ý không tính điểm còn cần nghiệm thu riêng:
 - **QueryDr:** adapter và lỗi99 giữ theo D119. Đề xuất logging QueryDr chưa áp dụng; IPN operational alert đã sửa riêng. Không gọi lại provider để thu bằng chứng.
 - **Cache/scale:** lock snapshot hết thời gian vẫn có thể503; chưa dùng stale price/stock làm fallback. Aggregate bestseller và scan thương hiệu vẫn chạy khi cache miss. ILIKE mô tả/POSITION tìm đơn chưa được tối ưu cho dữ liệu lớn. Cần EXPLAIN ANALYZE/tải đại diện trước khi thay schema/index; chưa tuyên bố đã giải quyết.
 - **Nhiều máy:** disk ảnh local và database session/cache/queue vẫn là cấu hình một máy. Chưa xác minh Redis/shared storage/onOneServer; cần kế hoạch riêng khi scale ngang. Không đưa migration/hạ tầng mới vào bản sửa điểm này.
+
+CI ngày26/11 phát hiện5 advisory mới ngày25/11 choSymfony http-kernel/mailer/routing. Đã cập nhật nhómSymfony7.4.22–23→7.4.24 vàegulias/email-validator4.0.4→4.0.5, giữLaravel12.73.0/PHP8.4. Commit7aa6a3b: Composer validate/platform/audit0advisory, backend188/2312 vàHTTP22/ops smoke trênhostedCI đạt; không dùng allowlist để bỏ qua audit. Chưa kích hoạt lockfile mới trênproduction.
