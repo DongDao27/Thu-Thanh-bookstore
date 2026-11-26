@@ -78,10 +78,6 @@
   }
 }
 @media (max-width: 420px) {
-  .clicon-home > .home-collection > .product-grid,
-  .product-grid.catalog-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
   .product-actions .product-buy { font-size: 14px; }
 }
 
@@ -94,17 +90,9 @@
 }
 
 @media (min-width: 1280px) {
-  .clicon-home > .home-collection > .product-grid,
-  .product-grid.catalog-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
 }
 
 /* Compact cards share the same image, title and action rows. */
-.clicon-home > .home-collection > .product-grid,
-.product-grid.catalog-grid {
-  gap: 12px;
-}
 .product-grid .product-card {
   padding: 10px;
   gap: 8px;

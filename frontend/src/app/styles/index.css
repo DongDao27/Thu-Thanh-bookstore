@@ -1,13 +1,18 @@
-@import "./base.css";
-@import "./layouts.css";
-@import "./commerce.css";
-@import "./storefront.css";
-@import "./experience.css";
-@import "./bestseller.css";
-@import "./payment-result.css";
-@import "./brand-carousel.css";
-@import "./mobile-density.css";
-@import "./compact-header.css";
-@import "./product-actions.css";
-@import "./counter-payment.css";
-@import "./product-detail.css";
+@layer theme, base, legacy, components, utilities;
+@import "tailwindcss";
+@import "./base.css" layer(legacy);
+@import "./layouts.css" layer(legacy);
+@import "./commerce.css" layer(legacy);
+@import "./storefront.css" layer(legacy);
+@import "./experience.css" layer(legacy);
+@import "./bestseller.css" layer(legacy);
+@import "./payment-result.css" layer(legacy);
+@import "./brand-carousel.css" layer(legacy);
+@import "./mobile-density.css" layer(legacy);
+@import "./compact-header.css" layer(legacy);
+@import "./product-actions.css" layer(legacy);
+@import "./counter-payment.css" layer(legacy);
+@import "./product-detail.css" layer(legacy);
+
+/* Preserve the existing width/margins of the store container. */
+@source not inline("container");
