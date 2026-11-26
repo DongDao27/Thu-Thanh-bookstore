@@ -9013,6 +9013,13 @@
               ],
               "additionalProperties": false
             }
+          },
+          "catalog": {
+            "type": "array",
+            "maxItems": 40,
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            }
           }
         },
         "required": [
@@ -9020,7 +9027,8 @@
           "hot",
           "bestseller",
           "new",
-          "recommended"
+          "recommended",
+          "catalog"
         ],
         "additionalProperties": false
       },

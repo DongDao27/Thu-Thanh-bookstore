@@ -134,3 +134,5 @@ Khách chọn tại quầy giữ pickup unpaid/hạn hiện tại, về danh sá
 POST /api/v1/broadcasting/auth: cookie session+CSRF, throttle60/phút; socket_id dạng digits.digits, channel_name=private-orders.{order_code}; chỉ owner/admin có thể authorize, foreign/nonexistent channel403, guest401, sai input422, disabled503. Trả signature tại data.auth trong envelope data/meta, no-store. Không chấp nhận bearer thay session.
 Pusher order.changed chỉ order_code/version để invalidate; client phải GET order API có ownership lại. Event queue sau commit, rollback không phát; không gửi địa chỉ/email/phone/amount. Reconnect/polling/manual GET đọc state thật, không tự POST thanh toán.
 PostgreSQL17 thay MySQL; search không dấu qua unaccent/pg_trgm index. HTTP tiền/quyền/tồn và các response cũ giữ hợp đồng. Provider/live VPS acceptance chưa chạy.
+
+26/11/2026: `/storefront` và `/home` bổ sung `data.catalog` (tối đa40 sản phẩm công khai mới nhất, cùng snapshot cache20giây). `data.new` vẫn tối đa12; recommendation của customer chỉ ở `/home` private. Frontend dùng `catalog` để chia feed, fallback `/products?sort=newest&per_page=40` khi backend cũ chưa cập nhật.
