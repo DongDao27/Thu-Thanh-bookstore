@@ -1,0 +1,13 @@
+
+> thu-thanh-frontend@0.1.0 test:unit
+> vitest run
+
+
+ RUN  v5.1.2 /home/dong/Downloads/ThuThanh-WebDesign/frontend
+
+
+ Test Files  3 passed (3)
+      Tests  15 passed (15)
+   Start at  18:37:47
+   Duration  648ms (environment 60%, tests 17%, setup 12%, transform 7%, import 3%, worker 1%)
+

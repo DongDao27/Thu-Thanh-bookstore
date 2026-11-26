@@ -1,5 +1,7 @@
 # Bắt đầu làm việc
 
+Đợt mới26/11: GRADING-FEEDBACK theo D123 đang làm trên nhánhfix/grading-feedback-20261126, issue29. Source/test local đã kiểm; đọc HANDOFF để tiếp tục PR/hostedCI. Không coi trạng thái đóng bản nộp cũ là hoàn tất yêu cầu mới.
+
 Đọc [README](README.md), [trạng thái](docs/STATUS.json), [bàn giao](docs/HANDOFF.md), tiến độ mới nhất và quyết định trước khi thay đổi. Khi sửa nghiệp vụ, đọc thêm PRD, domain rules, API và database.
 
 Repo chính: `DongDao27/Thu-Thanh-bookstore`. Website: https://nhasachthuthanh.id.vn. Source đã có ứng dụng và dữ liệu; không bootstrap lại hoặc tạo lại APP_KEY trên môi trường đang chạy. Giữ `.runtime`, `.env`, uploads và backup ngoài Git.

@@ -1,0 +1,50 @@
+{
+  "verified_at": "2026-11-26T18:43:50.677719+07:00",
+  "base_commit": "81904552a2",
+  "backend_commit": "24771a1",
+  "storefront_commit": "dcf634e",
+  "test_infrastructure_commit": "b62d315",
+  "environment": {
+    "os": "Ubuntu 22.04",
+    "php": "8.4.28",
+    "postgresql": "17.12",
+    "node": "24.22.3",
+    "database": "isolated thu_thanh_test",
+    "browser": "Playwright Chromium production webpack build"
+  },
+  "backend": {
+    "command": "XDEBUG_MODE=coverage php artisan test --compact --coverage-clover=storage/logs/grading-feedback-coverage.xml",
+    "passed": 188,
+    "assertions": 2312,
+    "statement_coverage": 91.62,
+    "covered_statements": 1782,
+    "total_statements": 1945
+  },
+  "frontend": {
+    "unit": 15,
+    "api_client": 16,
+    "browser_full_suite": 30,
+    "browser_additional_responsive": 1,
+    "widths": [
+      375,
+      768,
+      1024,
+      1440
+    ],
+    "source_files": 65,
+    "lines_percent": 75.8,
+    "statements_percent": 73.12,
+    "build": "passed",
+    "check": "passed",
+    "dependency_audit": "0 vulnerabilities"
+  },
+  "hosted_ci": "pending_branch_publication",
+  "official_score": false,
+  "estimated_candidate_score": 9.25,
+  "provider_video_links": {
+    "vnpay": null,
+    "resend": null
+  },
+  "production_activation": "not_requested_not_run",
+  "financial_scheduler": "unchanged_D119"
+}

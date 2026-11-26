@@ -2,9 +2,9 @@
   "schema_version": 1,
   "project": "Thu Thanh Bookstore",
   "phase": "MAINTENANCE",
-  "current_task_id": "README-POLISH",
-  "next_task_id": null,
-  "implementation_state": "submission_ready_project_closed",
+  "current_task_id": "GRADING-FEEDBACK",
+  "next_task_id": "GRADING-FEEDBACK",
+  "implementation_state": "local_verified_awaiting_hosted_ci_and_review",
   "backend_gate": "externally_blocked",
   "frontend_gate": "authorized_scoped",
   "frontend_authorization": {
@@ -12,9 +12,9 @@
     "scope": "Verified API and existing frontend"
   },
   "release_gate": "sandbox_deployed",
-  "branch": "main",
-  "last_verified_commit": "438547c24a365eaf1d37c4891466453571af69d0",
-  "git_dirty": false,
+  "branch": "fix/grading-feedback-20261126",
+  "last_verified_commit": null,
+  "git_dirty": true,
   "website": "https://nhasachthuthanh.id.vn",
   "api": "https://api.nhasachthuthanh.id.vn",
   "repository": "DongDao27/Thu-Thanh-bookstore",
@@ -33,8 +33,8 @@
   "blockers": [
     "Representative large-load and continuous24x7 operations are not verified."
   ],
-  "notes": "README24/11: full member identity supplied by owner, navigation, real workflow badges and troubleshooting verified. Documentation only; app/runtime and closedProject4 unchanged.",
-  "last_checkpoint_at": "2026-11-24T20:59:54.638334+07:00",
+  "notes": "26/11 feedback: local source/tests complete; issue29, description set; branch publication/CI pending; owner records two provider videos. Production and D119 unchanged.",
+  "last_checkpoint_at": "2026-11-26T18:44:35.225705+07:00",
   "last_test_run": {
     "at": "2026-11-23T03:18:00+07:00",
     "backend_tests": 185,
@@ -144,5 +144,25 @@
     "api_http": 200,
     "scope": "course GitHub/domain,Next.js accepted,VNPAY Sandbox",
     "remaining_required_steps": []
+  },
+  "grading_feedback": {
+    "status": "in_progress",
+    "issue": 29,
+    "base_commit": "8190455",
+    "estimated_score": 9.25,
+    "official_score": false,
+    "backend_tests": 188,
+    "backend_assertions": 2312,
+    "backend_statement_coverage": 91.62,
+    "react_unit_tests": 15,
+    "api_client_tests": 16,
+    "production_e2e": 30,
+    "additional_responsive_tests": 1,
+    "frontend_source_files": 65,
+    "frontend_lines_coverage": 75.8,
+    "frontend_statements_coverage": 73.12,
+    "provider_videos": "owner_will_record_links_pending",
+    "hosted_ci": "pending",
+    "production_activation": "not_run"
   }
 }

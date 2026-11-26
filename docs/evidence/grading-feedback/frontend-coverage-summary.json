@@ -1,0 +1,1724 @@
+{
+  "total": {
+    "lines": {
+      "total": 1682,
+      "covered": 1275,
+      "skipped": 0,
+      "pct": 75.8
+    },
+    "statements": {
+      "total": 1842,
+      "covered": 1347,
+      "skipped": 0,
+      "pct": 73.12
+    },
+    "functions": {
+      "total": 500,
+      "covered": 329,
+      "skipped": 0,
+      "pct": 65.8
+    },
+    "branches": {
+      "total": 1702,
+      "covered": 1169,
+      "skipped": 0,
+      "pct": 68.68
+    },
+    "branchesTrue": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/app/error.jsx": {
+    "lines": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "functions": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "statements": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "branches": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/app/layout.jsx": {
+    "lines": {
+      "total": 3,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "functions": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "statements": {
+      "total": 3,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "branches": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/app/loading.jsx": {
+    "lines": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "functions": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "statements": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "branches": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/app/not-found.jsx": {
+    "lines": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "functions": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "statements": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "branches": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/app/page.jsx": {
+    "lines": {
+      "total": 3,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "functions": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "statements": {
+      "total": 3,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "branches": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/app/account/page.jsx": {
+    "lines": {
+      "total": 32,
+      "covered": 30,
+      "skipped": 0,
+      "pct": 93.75
+    },
+    "functions": {
+      "total": 5,
+      "covered": 5,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 34,
+      "covered": 30,
+      "skipped": 0,
+      "pct": 88.23
+    },
+    "branches": {
+      "total": 44,
+      "covered": 29,
+      "skipped": 0,
+      "pct": 65.9
+    }
+  },
+  "frontend/src/app/admin/layout.jsx": {
+    "lines": {
+      "total": 3,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 100
+    },
+    "functions": {
+      "total": 2,
+      "covered": 2,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 3,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 100
+    },
+    "branches": {
+      "total": 2,
+      "covered": 2,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/app/admin/page.jsx": {
+    "lines": {
+      "total": 19,
+      "covered": 16,
+      "skipped": 0,
+      "pct": 84.21
+    },
+    "functions": {
+      "total": 9,
+      "covered": 6,
+      "skipped": 0,
+      "pct": 66.66
+    },
+    "statements": {
+      "total": 22,
+      "covered": 17,
+      "skipped": 0,
+      "pct": 77.27
+    },
+    "branches": {
+      "total": 12,
+      "covered": 7,
+      "skipped": 0,
+      "pct": 58.33
+    }
+  },
+  "frontend/src/app/admin/categories/page.jsx": {
+    "lines": {
+      "total": 37,
+      "covered": 14,
+      "skipped": 0,
+      "pct": 37.83
+    },
+    "functions": {
+      "total": 11,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 27.27
+    },
+    "statements": {
+      "total": 40,
+      "covered": 14,
+      "skipped": 0,
+      "pct": 35
+    },
+    "branches": {
+      "total": 38,
+      "covered": 6,
+      "skipped": 0,
+      "pct": 15.78
+    }
+  },
+  "frontend/src/app/admin/inventory/page.jsx": {
+    "lines": {
+      "total": 50,
+      "covered": 43,
+      "skipped": 0,
+      "pct": 86
+    },
+    "functions": {
+      "total": 16,
+      "covered": 11,
+      "skipped": 0,
+      "pct": 68.75
+    },
+    "statements": {
+      "total": 55,
+      "covered": 44,
+      "skipped": 0,
+      "pct": 80
+    },
+    "branches": {
+      "total": 31,
+      "covered": 21,
+      "skipped": 0,
+      "pct": 67.74
+    }
+  },
+  "frontend/src/app/admin/orders/page.jsx": {
+    "lines": {
+      "total": 59,
+      "covered": 52,
+      "skipped": 0,
+      "pct": 88.13
+    },
+    "functions": {
+      "total": 22,
+      "covered": 18,
+      "skipped": 0,
+      "pct": 81.81
+    },
+    "statements": {
+      "total": 64,
+      "covered": 54,
+      "skipped": 0,
+      "pct": 84.37
+    },
+    "branches": {
+      "total": 61,
+      "covered": 42,
+      "skipped": 0,
+      "pct": 68.85
+    }
+  },
+  "frontend/src/app/admin/products/page.jsx": {
+    "lines": {
+      "total": 160,
+      "covered": 101,
+      "skipped": 0,
+      "pct": 63.12
+    },
+    "functions": {
+      "total": 39,
+      "covered": 26,
+      "skipped": 0,
+      "pct": 66.66
+    },
+    "statements": {
+      "total": 169,
+      "covered": 103,
+      "skipped": 0,
+      "pct": 60.94
+    },
+    "branches": {
+      "total": 130,
+      "covered": 86,
+      "skipped": 0,
+      "pct": 66.15
+    }
+  },
+  "frontend/src/app/admin/reconciliation/page.jsx": {
+    "lines": {
+      "total": 43,
+      "covered": 17,
+      "skipped": 0,
+      "pct": 39.53
+    },
+    "functions": {
+      "total": 14,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 21.42
+    },
+    "statements": {
+      "total": 47,
+      "covered": 17,
+      "skipped": 0,
+      "pct": 36.17
+    },
+    "branches": {
+      "total": 38,
+      "covered": 7,
+      "skipped": 0,
+      "pct": 18.42
+    }
+  },
+  "frontend/src/app/admin/revenue/page.jsx": {
+    "lines": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "functions": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "statements": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "branches": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/app/cart/page.jsx": {
+    "lines": {
+      "total": 26,
+      "covered": 13,
+      "skipped": 0,
+      "pct": 50
+    },
+    "functions": {
+      "total": 12,
+      "covered": 8,
+      "skipped": 0,
+      "pct": 66.66
+    },
+    "statements": {
+      "total": 29,
+      "covered": 15,
+      "skipped": 0,
+      "pct": 51.72
+    },
+    "branches": {
+      "total": 26,
+      "covered": 18,
+      "skipped": 0,
+      "pct": 69.23
+    }
+  },
+  "frontend/src/app/checkout/page.jsx": {
+    "lines": {
+      "total": 109,
+      "covered": 99,
+      "skipped": 0,
+      "pct": 90.82
+    },
+    "functions": {
+      "total": 19,
+      "covered": 15,
+      "skipped": 0,
+      "pct": 78.94
+    },
+    "statements": {
+      "total": 125,
+      "covered": 109,
+      "skipped": 0,
+      "pct": 87.2
+    },
+    "branches": {
+      "total": 112,
+      "covered": 91,
+      "skipped": 0,
+      "pct": 81.25
+    }
+  },
+  "frontend/src/app/forgot-password/page.jsx": {
+    "lines": {
+      "total": 2,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "functions": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "statements": {
+      "total": 2,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "branches": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/app/login/page.jsx": {
+    "lines": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "functions": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "statements": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "branches": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/app/orders/page.jsx": {
+    "lines": {
+      "total": 19,
+      "covered": 16,
+      "skipped": 0,
+      "pct": 84.21
+    },
+    "functions": {
+      "total": 10,
+      "covered": 6,
+      "skipped": 0,
+      "pct": 60
+    },
+    "statements": {
+      "total": 21,
+      "covered": 16,
+      "skipped": 0,
+      "pct": 76.19
+    },
+    "branches": {
+      "total": 19,
+      "covered": 11,
+      "skipped": 0,
+      "pct": 57.89
+    }
+  },
+  "frontend/src/app/orders/[code]/page.jsx": {
+    "lines": {
+      "total": 62,
+      "covered": 53,
+      "skipped": 0,
+      "pct": 85.48
+    },
+    "functions": {
+      "total": 12,
+      "covered": 11,
+      "skipped": 0,
+      "pct": 91.66
+    },
+    "statements": {
+      "total": 65,
+      "covered": 54,
+      "skipped": 0,
+      "pct": 83.07
+    },
+    "branches": {
+      "total": 70,
+      "covered": 59,
+      "skipped": 0,
+      "pct": 84.28
+    }
+  },
+  "frontend/src/app/payment/vnpay-return/page.jsx": {
+    "lines": {
+      "total": 24,
+      "covered": 24,
+      "skipped": 0,
+      "pct": 100
+    },
+    "functions": {
+      "total": 12,
+      "covered": 9,
+      "skipped": 0,
+      "pct": 75
+    },
+    "statements": {
+      "total": 30,
+      "covered": 28,
+      "skipped": 0,
+      "pct": 93.33
+    },
+    "branches": {
+      "total": 26,
+      "covered": 21,
+      "skipped": 0,
+      "pct": 80.76
+    }
+  },
+  "frontend/src/app/policies/page.jsx": {
+    "lines": {
+      "total": 3,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "functions": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "statements": {
+      "total": 3,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "branches": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/app/products/page.jsx": {
+    "lines": {
+      "total": 57,
+      "covered": 29,
+      "skipped": 0,
+      "pct": 50.87
+    },
+    "functions": {
+      "total": 21,
+      "covered": 9,
+      "skipped": 0,
+      "pct": 42.85
+    },
+    "statements": {
+      "total": 61,
+      "covered": 32,
+      "skipped": 0,
+      "pct": 52.45
+    },
+    "branches": {
+      "total": 49,
+      "covered": 34,
+      "skipped": 0,
+      "pct": 69.38
+    }
+  },
+  "frontend/src/app/products/[id]/page.jsx": {
+    "lines": {
+      "total": 2,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "functions": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "statements": {
+      "total": 2,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "branches": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/app/register/page.jsx": {
+    "lines": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "functions": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "statements": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "branches": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/app/reset-password/page.jsx": {
+    "lines": {
+      "total": 2,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "functions": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "statements": {
+      "total": 2,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "branches": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/components/account-gate.jsx": {
+    "lines": {
+      "total": 7,
+      "covered": 6,
+      "skipped": 0,
+      "pct": 85.71
+    },
+    "functions": {
+      "total": 1,
+      "covered": 1,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 8,
+      "covered": 7,
+      "skipped": 0,
+      "pct": 87.5
+    },
+    "branches": {
+      "total": 17,
+      "covered": 8,
+      "skipped": 0,
+      "pct": 47.05
+    }
+  },
+  "frontend/src/components/admin-history.jsx": {
+    "lines": {
+      "total": 34,
+      "covered": 29,
+      "skipped": 0,
+      "pct": 85.29
+    },
+    "functions": {
+      "total": 19,
+      "covered": 14,
+      "skipped": 0,
+      "pct": 73.68
+    },
+    "statements": {
+      "total": 38,
+      "covered": 32,
+      "skipped": 0,
+      "pct": 84.21
+    },
+    "branches": {
+      "total": 59,
+      "covered": 35,
+      "skipped": 0,
+      "pct": 59.32
+    }
+  },
+  "frontend/src/components/admin-icon.jsx": {
+    "lines": {
+      "total": 3,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 100
+    },
+    "functions": {
+      "total": 2,
+      "covered": 2,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 3,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 100
+    },
+    "branches": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/components/auth-landing.jsx": {
+    "lines": {
+      "total": 9,
+      "covered": 9,
+      "skipped": 0,
+      "pct": 100
+    },
+    "functions": {
+      "total": 2,
+      "covered": 2,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 12,
+      "covered": 12,
+      "skipped": 0,
+      "pct": 100
+    },
+    "branches": {
+      "total": 15,
+      "covered": 15,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/components/bestseller-showcase.jsx": {
+    "lines": {
+      "total": 15,
+      "covered": 14,
+      "skipped": 0,
+      "pct": 93.33
+    },
+    "functions": {
+      "total": 5,
+      "covered": 5,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 17,
+      "covered": 15,
+      "skipped": 0,
+      "pct": 88.23
+    },
+    "branches": {
+      "total": 22,
+      "covered": 16,
+      "skipped": 0,
+      "pct": 72.72
+    }
+  },
+  "frontend/src/components/brand-carousel.jsx": {
+    "lines": {
+      "total": 26,
+      "covered": 25,
+      "skipped": 0,
+      "pct": 96.15
+    },
+    "functions": {
+      "total": 9,
+      "covered": 8,
+      "skipped": 0,
+      "pct": 88.88
+    },
+    "statements": {
+      "total": 28,
+      "covered": 26,
+      "skipped": 0,
+      "pct": 92.85
+    },
+    "branches": {
+      "total": 16,
+      "covered": 10,
+      "skipped": 0,
+      "pct": 62.5
+    }
+  },
+  "frontend/src/components/campaign-banner.jsx": {
+    "lines": {
+      "total": 9,
+      "covered": 9,
+      "skipped": 0,
+      "pct": 100
+    },
+    "functions": {
+      "total": 2,
+      "covered": 2,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 10,
+      "covered": 10,
+      "skipped": 0,
+      "pct": 100
+    },
+    "branches": {
+      "total": 12,
+      "covered": 8,
+      "skipped": 0,
+      "pct": 66.66
+    }
+  },
+  "frontend/src/components/counter-payment.jsx": {
+    "lines": {
+      "total": 84,
+      "covered": 72,
+      "skipped": 0,
+      "pct": 85.71
+    },
+    "functions": {
+      "total": 9,
+      "covered": 8,
+      "skipped": 0,
+      "pct": 88.88
+    },
+    "statements": {
+      "total": 95,
+      "covered": 75,
+      "skipped": 0,
+      "pct": 78.94
+    },
+    "branches": {
+      "total": 77,
+      "covered": 54,
+      "skipped": 0,
+      "pct": 70.12
+    }
+  },
+  "frontend/src/components/flame-icon.jsx": {
+    "lines": {
+      "total": 1,
+      "covered": 1,
+      "skipped": 0,
+      "pct": 100
+    },
+    "functions": {
+      "total": 1,
+      "covered": 1,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 1,
+      "covered": 1,
+      "skipped": 0,
+      "pct": 100
+    },
+    "branches": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/components/home-banners.jsx": {
+    "lines": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "functions": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "statements": {
+      "total": 1,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 0
+    },
+    "branches": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/components/home-storefront.jsx": {
+    "lines": {
+      "total": 20,
+      "covered": 18,
+      "skipped": 0,
+      "pct": 90
+    },
+    "functions": {
+      "total": 9,
+      "covered": 7,
+      "skipped": 0,
+      "pct": 77.77
+    },
+    "statements": {
+      "total": 24,
+      "covered": 21,
+      "skipped": 0,
+      "pct": 87.5
+    },
+    "branches": {
+      "total": 28,
+      "covered": 23,
+      "skipped": 0,
+      "pct": 82.14
+    }
+  },
+  "frontend/src/components/intent-link.jsx": {
+    "lines": {
+      "total": 10,
+      "covered": 8,
+      "skipped": 0,
+      "pct": 80
+    },
+    "functions": {
+      "total": 3,
+      "covered": 2,
+      "skipped": 0,
+      "pct": 66.66
+    },
+    "statements": {
+      "total": 11,
+      "covered": 9,
+      "skipped": 0,
+      "pct": 81.81
+    },
+    "branches": {
+      "total": 8,
+      "covered": 6,
+      "skipped": 0,
+      "pct": 75
+    }
+  },
+  "frontend/src/components/newsletter-form.jsx": {
+    "lines": {
+      "total": 20,
+      "covered": 19,
+      "skipped": 0,
+      "pct": 95
+    },
+    "functions": {
+      "total": 2,
+      "covered": 2,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 21,
+      "covered": 19,
+      "skipped": 0,
+      "pct": 90.47
+    },
+    "branches": {
+      "total": 8,
+      "covered": 6,
+      "skipped": 0,
+      "pct": 75
+    }
+  },
+  "frontend/src/components/password-field.jsx": {
+    "lines": {
+      "total": 4,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 75
+    },
+    "functions": {
+      "total": 2,
+      "covered": 1,
+      "skipped": 0,
+      "pct": 50
+    },
+    "statements": {
+      "total": 4,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 75
+    },
+    "branches": {
+      "total": 22,
+      "covered": 15,
+      "skipped": 0,
+      "pct": 68.18
+    }
+  },
+  "frontend/src/components/password-recovery.jsx": {
+    "lines": {
+      "total": 28,
+      "covered": 24,
+      "skipped": 0,
+      "pct": 85.71
+    },
+    "functions": {
+      "total": 4,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 75
+    },
+    "statements": {
+      "total": 31,
+      "covered": 24,
+      "skipped": 0,
+      "pct": 77.41
+    },
+    "branches": {
+      "total": 45,
+      "covered": 32,
+      "skipped": 0,
+      "pct": 71.11
+    }
+  },
+  "frontend/src/components/payment-result.jsx": {
+    "lines": {
+      "total": 7,
+      "covered": 7,
+      "skipped": 0,
+      "pct": 100
+    },
+    "functions": {
+      "total": 1,
+      "covered": 1,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 7,
+      "covered": 7,
+      "skipped": 0,
+      "pct": 100
+    },
+    "branches": {
+      "total": 40,
+      "covered": 38,
+      "skipped": 0,
+      "pct": 95
+    }
+  },
+  "frontend/src/components/product-actions.jsx": {
+    "lines": {
+      "total": 18,
+      "covered": 17,
+      "skipped": 0,
+      "pct": 94.44
+    },
+    "functions": {
+      "total": 4,
+      "covered": 4,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 19,
+      "covered": 17,
+      "skipped": 0,
+      "pct": 89.47
+    },
+    "branches": {
+      "total": 25,
+      "covered": 23,
+      "skipped": 0,
+      "pct": 92
+    }
+  },
+  "frontend/src/components/product-card.jsx": {
+    "lines": {
+      "total": 3,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 100
+    },
+    "functions": {
+      "total": 1,
+      "covered": 1,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 3,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 100
+    },
+    "branches": {
+      "total": 15,
+      "covered": 12,
+      "skipped": 0,
+      "pct": 80
+    }
+  },
+  "frontend/src/components/product-description.jsx": {
+    "lines": {
+      "total": 11,
+      "covered": 11,
+      "skipped": 0,
+      "pct": 100
+    },
+    "functions": {
+      "total": 6,
+      "covered": 6,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 11,
+      "covered": 11,
+      "skipped": 0,
+      "pct": 100
+    },
+    "branches": {
+      "total": 4,
+      "covered": 4,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/components/product-detail.jsx": {
+    "lines": {
+      "total": 30,
+      "covered": 24,
+      "skipped": 0,
+      "pct": 80
+    },
+    "functions": {
+      "total": 11,
+      "covered": 5,
+      "skipped": 0,
+      "pct": 45.45
+    },
+    "statements": {
+      "total": 32,
+      "covered": 25,
+      "skipped": 0,
+      "pct": 78.12
+    },
+    "branches": {
+      "total": 38,
+      "covered": 29,
+      "skipped": 0,
+      "pct": 76.31
+    }
+  },
+  "frontend/src/components/product-picture.jsx": {
+    "lines": {
+      "total": 20,
+      "covered": 4,
+      "skipped": 0,
+      "pct": 20
+    },
+    "functions": {
+      "total": 5,
+      "covered": 1,
+      "skipped": 0,
+      "pct": 20
+    },
+    "statements": {
+      "total": 22,
+      "covered": 4,
+      "skipped": 0,
+      "pct": 18.18
+    },
+    "branches": {
+      "total": 22,
+      "covered": 4,
+      "skipped": 0,
+      "pct": 18.18
+    }
+  },
+  "frontend/src/components/product-price.jsx": {
+    "lines": {
+      "total": 3,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 100
+    },
+    "functions": {
+      "total": 1,
+      "covered": 1,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 3,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 100
+    },
+    "branches": {
+      "total": 4,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 75
+    }
+  },
+  "frontend/src/components/product-pricing-fields.jsx": {
+    "lines": {
+      "total": 10,
+      "covered": 9,
+      "skipped": 0,
+      "pct": 90
+    },
+    "functions": {
+      "total": 5,
+      "covered": 4,
+      "skipped": 0,
+      "pct": 80
+    },
+    "statements": {
+      "total": 10,
+      "covered": 9,
+      "skipped": 0,
+      "pct": 90
+    },
+    "branches": {
+      "total": 18,
+      "covered": 17,
+      "skipped": 0,
+      "pct": 94.44
+    }
+  },
+  "frontend/src/components/product-search.jsx": {
+    "lines": {
+      "total": 63,
+      "covered": 52,
+      "skipped": 0,
+      "pct": 82.53
+    },
+    "functions": {
+      "total": 17,
+      "covered": 14,
+      "skipped": 0,
+      "pct": 82.35
+    },
+    "statements": {
+      "total": 66,
+      "covered": 54,
+      "skipped": 0,
+      "pct": 81.81
+    },
+    "branches": {
+      "total": 57,
+      "covered": 41,
+      "skipped": 0,
+      "pct": 71.92
+    }
+  },
+  "frontend/src/components/revenue-panel.jsx": {
+    "lines": {
+      "total": 54,
+      "covered": 26,
+      "skipped": 0,
+      "pct": 48.14
+    },
+    "functions": {
+      "total": 23,
+      "covered": 6,
+      "skipped": 0,
+      "pct": 26.08
+    },
+    "statements": {
+      "total": 61,
+      "covered": 26,
+      "skipped": 0,
+      "pct": 42.62
+    },
+    "branches": {
+      "total": 38,
+      "covered": 17,
+      "skipped": 0,
+      "pct": 44.73
+    }
+  },
+  "frontend/src/components/scroll-to-top.jsx": {
+    "lines": {
+      "total": 22,
+      "covered": 19,
+      "skipped": 0,
+      "pct": 86.36
+    },
+    "functions": {
+      "total": 7,
+      "covered": 6,
+      "skipped": 0,
+      "pct": 85.71
+    },
+    "statements": {
+      "total": 25,
+      "covered": 22,
+      "skipped": 0,
+      "pct": 88
+    },
+    "branches": {
+      "total": 10,
+      "covered": 6,
+      "skipped": 0,
+      "pct": 60
+    }
+  },
+  "frontend/src/components/store-provider.jsx": {
+    "lines": {
+      "total": 182,
+      "covered": 152,
+      "skipped": 0,
+      "pct": 83.51
+    },
+    "functions": {
+      "total": 44,
+      "covered": 27,
+      "skipped": 0,
+      "pct": 61.36
+    },
+    "statements": {
+      "total": 195,
+      "covered": 157,
+      "skipped": 0,
+      "pct": 80.51
+    },
+    "branches": {
+      "total": 162,
+      "covered": 121,
+      "skipped": 0,
+      "pct": 74.69
+    }
+  },
+  "frontend/src/components/store-shell.jsx": {
+    "lines": {
+      "total": 31,
+      "covered": 28,
+      "skipped": 0,
+      "pct": 90.32
+    },
+    "functions": {
+      "total": 15,
+      "covered": 11,
+      "skipped": 0,
+      "pct": 73.33
+    },
+    "statements": {
+      "total": 34,
+      "covered": 30,
+      "skipped": 0,
+      "pct": 88.23
+    },
+    "branches": {
+      "total": 45,
+      "covered": 45,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/components/time-series-chart.jsx": {
+    "lines": {
+      "total": 43,
+      "covered": 34,
+      "skipped": 0,
+      "pct": 79.06
+    },
+    "functions": {
+      "total": 16,
+      "covered": 11,
+      "skipped": 0,
+      "pct": 68.75
+    },
+    "statements": {
+      "total": 48,
+      "covered": 38,
+      "skipped": 0,
+      "pct": 79.16
+    },
+    "branches": {
+      "total": 63,
+      "covered": 33,
+      "skipped": 0,
+      "pct": 52.38
+    }
+  },
+  "frontend/src/components/ui.jsx": {
+    "lines": {
+      "total": 33,
+      "covered": 20,
+      "skipped": 0,
+      "pct": 60.6
+    },
+    "functions": {
+      "total": 13,
+      "covered": 10,
+      "skipped": 0,
+      "pct": 76.92
+    },
+    "statements": {
+      "total": 35,
+      "covered": 20,
+      "skipped": 0,
+      "pct": 57.14
+    },
+    "branches": {
+      "total": 24,
+      "covered": 12,
+      "skipped": 0,
+      "pct": 50
+    }
+  },
+  "frontend/src/lib/api-client.js": {
+    "lines": {
+      "total": 61,
+      "covered": 51,
+      "skipped": 0,
+      "pct": 83.6
+    },
+    "functions": {
+      "total": 11,
+      "covered": 9,
+      "skipped": 0,
+      "pct": 81.81
+    },
+    "statements": {
+      "total": 66,
+      "covered": 53,
+      "skipped": 0,
+      "pct": 80.3
+    },
+    "branches": {
+      "total": 82,
+      "covered": 67,
+      "skipped": 0,
+      "pct": 81.7
+    }
+  },
+  "frontend/src/lib/format.js": {
+    "lines": {
+      "total": 5,
+      "covered": 5,
+      "skipped": 0,
+      "pct": 100
+    },
+    "functions": {
+      "total": 2,
+      "covered": 2,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 5,
+      "covered": 5,
+      "skipped": 0,
+      "pct": 100
+    },
+    "branches": {
+      "total": 6,
+      "covered": 5,
+      "skipped": 0,
+      "pct": 83.33
+    }
+  },
+  "frontend/src/lib/home-collections.js": {
+    "lines": {
+      "total": 9,
+      "covered": 9,
+      "skipped": 0,
+      "pct": 100
+    },
+    "functions": {
+      "total": 2,
+      "covered": 2,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 11,
+      "covered": 10,
+      "skipped": 0,
+      "pct": 90.9
+    },
+    "branches": {
+      "total": 7,
+      "covered": 6,
+      "skipped": 0,
+      "pct": 85.71
+    }
+  },
+  "frontend/src/lib/order-realtime.js": {
+    "lines": {
+      "total": 33,
+      "covered": 2,
+      "skipped": 0,
+      "pct": 6.06
+    },
+    "functions": {
+      "total": 9,
+      "covered": 2,
+      "skipped": 0,
+      "pct": 22.22
+    },
+    "statements": {
+      "total": 35,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 8.57
+    },
+    "branches": {
+      "total": 25,
+      "covered": 5,
+      "skipped": 0,
+      "pct": 20
+    }
+  },
+  "frontend/src/lib/pricing.js": {
+    "lines": {
+      "total": 3,
+      "covered": 2,
+      "skipped": 0,
+      "pct": 66.66
+    },
+    "functions": {
+      "total": 2,
+      "covered": 2,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 4,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 75
+    },
+    "branches": {
+      "total": 4,
+      "covered": 1,
+      "skipped": 0,
+      "pct": 25
+    }
+  },
+  "frontend/src/lib/product-images.js": {
+    "lines": {
+      "total": 7,
+      "covered": 6,
+      "skipped": 0,
+      "pct": 85.71
+    },
+    "functions": {
+      "total": 1,
+      "covered": 1,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 8,
+      "covered": 6,
+      "skipped": 0,
+      "pct": 75
+    },
+    "branches": {
+      "total": 6,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 50
+    }
+  },
+  "frontend/src/lib/public-storefront.js": {
+    "lines": {
+      "total": 3,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 100
+    },
+    "functions": {
+      "total": 2,
+      "covered": 2,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 3,
+      "covered": 3,
+      "skipped": 0,
+      "pct": 100
+    },
+    "branches": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/lib/store-info.js": {
+    "lines": {
+      "total": 1,
+      "covered": 1,
+      "skipped": 0,
+      "pct": 100
+    },
+    "functions": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    },
+    "statements": {
+      "total": 1,
+      "covered": 1,
+      "skipped": 0,
+      "pct": 100
+    },
+    "branches": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "frontend/src/lib/use-order-polling.js": {
+    "lines": {
+      "total": 38,
+      "covered": 37,
+      "skipped": 0,
+      "pct": 97.36
+    },
+    "functions": {
+      "total": 15,
+      "covered": 11,
+      "skipped": 0,
+      "pct": 73.33
+    },
+    "statements": {
+      "total": 48,
+      "covered": 44,
+      "skipped": 0,
+      "pct": 91.66
+    },
+    "branches": {
+      "total": 20,
+      "covered": 15,
+      "skipped": 0,
+      "pct": 75
+    }
+  }
+}

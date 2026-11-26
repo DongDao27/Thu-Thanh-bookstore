@@ -1,19 +1,21 @@
 # Bàn giao repository
 
-SUBMISSION-CLOSE hoàn tất theo D122. GitHub Project4 đã đóng:22/22itemsClosed,22issuesclosed (18completed,4not_planned). Đã đọc lại API xác minh trạng thái và checklist hiện hành.
+## Công việc hiện tại — GRADING-FEEDBACK (26/11/2026)
 
-Bản nộp môn web: https://github.com/DongDao27/Thu-Thanh-bookstore và https://nhasachthuthanh.id.vn. RepoPUBLIC; website/API trả200 khi chốt; hosted Backend/Frontend/E2E của main3b3caa0 đạt. Đợt đóng Project chỉ đổi metadata/tài liệu, không cần deploy thủ công. Cần giữ VPS/tên miền hoạt động trong thời gian chấm.
+Chủ dự án yêu cầu hoàn thiện theo PDF chấm thử8,25/10 và chấm lại. D123 ghi phạm vi; nhánh `fix/grading-feedback-20261126` từmain8190455. Source đã sửa và kiểm local; đang chuẩn bị xuất bản PR/hostedCI. Task giữin_progress cho tới checkpoint thực tế tiếp theo. Tự chấm ứng viên9,25/10, không phải điểm chính thức hoặc xác nhận main đã cập nhật.
 
-Bốn mục đóng ngoài phạm vi/chưa tiếp tục nghiệm thu: #4Figma thuộc môn khác; #12QRtạiquầylive chưa nghiệm thu; #13scheduler tài chính trênVPS vẫn tắt theoD119; #19nghiên cứu người dùng đại diện chưa thực hiện. Không coi đóng hành chính là bằng chứng các phần này đã kiểm production/humanreview. Slide/video không thuộc bản nộp theoD120. Local B00-PG-LIVE vẫn ghi giới hạn vận hành24/7/tải lớn ngoài phạm vi nộp, không bịa testpassed.
+Source:24771a1 cachecatalog40/observer/alertIPN/schema/tests;dcf634e Tailwind/prefetch/staticISR;b62d315unit/coverage31E2E và0056cd0PRpolicy. Có test regression tiền/tồn/bestseller/notification; không đổi adapter QueryDr hoặc nghiệp vụ thanh toán. CSS giữ nhận diện, utilitycontainer bị chặn để giữ khung cũ.
 
-SECURITY-NEWSLETTER đã hoàn tất quaPR28; live625a042. SourcePHPgroup-write0, workerwww-data/ProtectSystemstrict/ProtectHome/NoNewPrivileges, rawIP404/TLSreject đã kiểm.185backend/2221assertions,coverage91,43%,HTTP22,ops/frontend và30E2E đạt; SupabasePreviewskipped. Chủ dự án xác nhận nhận thư bản tin thật sauHTTP202/queue1→0/failed0.
+Kiểm local:188backend/2312assertions,statementcoverage91,62%,Pint;15React/unit,16APIclient,build/check/npm audit0;30productionE2E và1responsive bổ sung đạt. Browser toàn65file75,80%lines/73,12%statements. Đã xem ảnh375/1440, test375/768/1024/1440khôngtràn và giữ lề. Lần dev đầu29/30doFastRefresh không tínhpassed; chuyển coverage production và kiểmQRđạt.
 
-Privateprobe đọc file từng lỗi và trảexit0 sai đã được sửa sangdatabasecache/catchThrowable; kiểm lại workerPID55457/UID33 vàinvalidinputexit1. Không chạy lại activation. Frontendmobile92/94,CLS0 là số đo đợt tối ưu trước; không phải chứng nhận bảo mật/tải lớn hoặc điểm10 chính thức.
+Minh chứng:docs/evidence/grading-feedback;reportdocs/GRADING-REASSESSMENT.md;checklistvideodocs/DEMO-EVIDENCE.md. Log/report đầy đủ private ở.runtime/grading-feedback vàoutput/coverage. Tiếp theo:commitdocs,pushnhánh,tạoPRCloses#29,đọchostedCI;chỉghiCIpassedkhicókếtquảthật. GitHubplugincreateissue403,ghđăngnhậphiệnhànhđãtạoissue29vàcậpnhậtdescription.
 
-Không còn bước bắt buộc để chốt bản nộp trong phạm vi chủ dự án đã xác nhận. Giữenv/APP_KEY/database/uploads/backup/private runtime. Không queryVNPAY/seed/migrate hoặc bậtfinancialscheduler. Bằng chứng thao tác Project ở.runtime/project-submission; security/mail ở.runtime/security-newsletter.
+Hai video VNPAYSandbox/Resend do chủ dự án tự quay/gửi; chưa cólink thì3(f) vẫn mộtphần. Không tự tạo review người khác hoặc sửa lịch sử commitlớn. PRchưa mergekhôngđượctínhlàbảnnộpnhánhchính.
 
+## Giới hạn vận hành cần giữ
 
-README-POLISH đã hoàn tất theo yêu cầu chủ dự án: README trình bày chuyên nghiệp, bỏ nội dung chấm điểm/rubric và giữ hướng dẫn cài/test chính xác. Link/Markdown/diff đã kiểm; chỉ thay tài liệu, không cần deploy thủ công hoặc mở lại Project4. Không còn việc bắt buộc trong phạm vi chỉnhREADME.
+D119:khôngqueryVNPAY/điềutraQueryDr99,seed/migrateproductionhoặcbậtscheduler tài chính. Production/deploycầnyêucầuriêng; chưa kích hoạt release mới. Bản live được nghiệmthu trướcđây625a042; không chạy lạiactivation cũ. Cần giữenv/APP_KEY/database/uploads/backups/private runtime.
 
+IPthật/rate-limitquaVercel/Cloudflare,nghiệmthuschcheduler,cachelock503,index dữliệulớn vàscale ngang vẫn cần phạm vi/kiểm riêng, có ghi trongSECURITY-PERFORMANCE. Backendgate vẫnexternally_blockedvềvậnhành24/7/tảilớn;khôngcoiđiểmước lượnglàgateproduction.
 
-README24/11 đã hoàn thiện: Nguyễn Văn Thiện vàGitHubthiennguyen230406, mục lục, badgeCI thật, shellnotes vàtroubleshooting. Liên kết/anchor/Markdown/diff đã kiểm. Không thay sourceapp/hạ tầng; không cần deploy thủ công, Project4 giữ đóng.
+Trước đợtnàyProject4đãđóngtheoD122;khôngtựmởlạihoặctickreview/thaymetadatahoànthànhthaychobằngchứng. Issue29mớidùngtheodõiđợtsửanày.
