@@ -2,9 +2,9 @@
   "schema_version": 1,
   "project": "Thu Thanh Bookstore",
   "phase": "MAINTENANCE",
-  "current_task_id": "README-POLISH",
-  "next_task_id": null,
-  "implementation_state": "submission_ready_project_closed",
+  "current_task_id": "GRADING-FEEDBACK",
+  "next_task_id": "GRADING-FEEDBACK",
+  "implementation_state": "source_verified_awaiting_owner_review_and_publication",
   "backend_gate": "externally_blocked",
   "frontend_gate": "authorized_scoped",
   "frontend_authorization": {
@@ -12,8 +12,8 @@
     "scope": "Verified API and existing frontend"
   },
   "release_gate": "sandbox_deployed",
-  "branch": "main",
-  "last_verified_commit": "438547c24a365eaf1d37c4891466453571af69d0",
+  "branch": "fix/grading-feedback-20261126",
+  "last_verified_commit": "7aa6a3bd1727364917196ca8635bfdd3f6766298",
   "git_dirty": false,
   "website": "https://nhasachthuthanh.id.vn",
   "api": "https://api.nhasachthuthanh.id.vn",
@@ -33,19 +33,26 @@
   "blockers": [
     "Representative large-load and continuous24x7 operations are not verified."
   ],
-  "notes": "README24/11: full member identity supplied by owner, navigation, real workflow badges and troubleshooting verified. Documentation only; app/runtime and closedProject4 unchanged.",
-  "last_checkpoint_at": "2026-11-24T20:59:54.638334+07:00",
+  "notes": "27/11: PR #30 includes three full-length redacted MP4 recordings and short clips. Candidate self-assessment 9.75/10. PR awaits review and merge.",
+  "last_checkpoint_at": "2026-11-27T15:11:23.155813+07:00",
   "last_test_run": {
-    "at": "2026-11-23T03:18:00+07:00",
-    "backend_tests": 185,
-    "backend_assertions": 2221,
-    "e2e": 30,
-    "frontend_tests": 16,
+    "at": "2026-11-26T18:54:47.842343+07:00",
+    "source_commit": "7aa6a3bd1727364917196ca8635bfdd3f6766298",
+    "backend_tests": 188,
+    "backend_assertions": 2312,
+    "backend_statement_coverage": 91.62,
+    "http_auth_checks": 22,
+    "e2e": 31,
+    "frontend_tests": 15,
+    "frontend_api_client_tests": 16,
+    "frontend_lines_coverage": 76.27,
+    "frontend_statements_coverage": 73.56,
     "frontend_build": "passed",
-    "repository_links": "14 documents/26 local links passed",
-    "figma": "V41 offline passed",
-    "assets": "passed",
-    "environment": "fresh GitHub clone with isolated PostgreSQL; hosted CI; 11 live read-only HTTP checks"
+    "ops_smoke": "passed",
+    "composer_audit": "0 advisories after Symfony7.4.24 patch",
+    "npm_audit": "0 vulnerabilities",
+    "environment": "GitHub Actions isolated PostgreSQL17, PHP8.4, Node24, Chromium production instrument; local separate socket cluster",
+    "supabase_preview": "skipped"
   },
   "publication_branch": "chore/repository-cleanup-20261122",
   "publication": {
@@ -144,5 +151,42 @@
     "api_http": 200,
     "scope": "course GitHub/domain,Next.js accepted,VNPAY Sandbox",
     "remaining_required_steps": []
+  },
+  "grading_feedback": {
+    "status": "source_verified_awaiting_owner_review",
+    "issue": 29,
+    "base_commit": "8190455",
+    "estimated_score": 9.75,
+    "official_score": false,
+    "backend_tests": 188,
+    "backend_assertions": 2312,
+    "backend_statement_coverage": 91.62,
+    "react_unit_tests": 15,
+    "api_client_tests": 16,
+    "production_e2e": 30,
+    "additional_responsive_tests": 1,
+    "frontend_source_files": 65,
+    "frontend_lines_coverage": 75.8,
+    "frontend_statements_coverage": 73.12,
+    "provider_videos": "three_full_redacted_recordings_and_short_clips",
+    "hosted_ci": "passed_on_7aa6a3b",
+    "production_activation": "not_run",
+    "pr": 30,
+    "dependency_audit": "Symfony7.4.24; composer0advisories",
+    "baseline_score": 8.25,
+    "verified_source_commit": "7aa6a3bd1727364917196ca8635bfdd3f6766298",
+    "hosted_e2e": 31,
+    "hosted_frontend_lines": 76.27,
+    "hosted_frontend_statements": 73.56,
+    "ci_urls": {
+      "backend": "https://github.com/DongDao27/Thu-Thanh-bookstore/actions/runs/45813979212",
+      "frontend": "https://github.com/DongDao27/Thu-Thanh-bookstore/actions/runs/45813979271",
+      "e2e": "https://github.com/DongDao27/Thu-Thanh-bookstore/actions/runs/45813979120",
+      "pr_policy": "https://github.com/DongDao27/Thu-Thanh-bookstore/actions/runs/45813988922"
+    },
+    "remaining": [
+      "owner review and merge authorization",
+      "separate production activation authorization"
+    ]
   }
 }

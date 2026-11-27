@@ -81,3 +81,23 @@ Chủ dự án xác nhận Nguyễn Văn Thiện/GitHubthiennguyen230406. Rà so
 
 
 Hoàn tấtREADME24/11: tên/linkNguyễn Văn Thiện đúng dữ liệu chủ dự án cung cấp; bảng3cột thành viên/GitHub/phụ trách. Thêm mục lục9anchor,3badgeCI động, hướng dẫn shellBash/Windows và6trườnghợp xử lý lỗi. Đã kiểm tất cảanchor,workflowtargets,memberlinks,14docs/26locallinks vàdiffcheck. Chỉ sửa tài liệu; không chạy lại testapp hoặcdeploy thủ công.
+
+## 26/11/2026 — GRADING-FEEDBACK bắt đầu
+
+Đã đọc PDF chấm thử8190455:8,25/10; xác định7mục mất điểm và góp ý kỹ thuật. Cây source sạch trênmain8190455, chuyển nhánhfix/grading-feedback-20261126. Tiêu chí ghiTASKS trước chỉnhsource; chủ dự án tự quay hai video. D119/scheduler/production giữ nguyên.
+
+26/11 — kiểm local hoàn tất lúc2026-11-26T18:44:35.225705+07:00: backend188/2312,coverage91,62%,Pint;frontendunit15/API16/build/check/audit0;productionE2E30 vàresponsive1đạt,coverage65file75,80%lines/73,12%statements. Đã xem ảnh375/1440, khắc phục utilitycontainer ghiđè lề. Dev-run đầu29/30doFastRefresh; không dùng làm pass. Đã tạoissue29/cập nhậtdescriptionqua gh sauplugin403. Source chia4commit24771a1/dcf634e/b62d315/0056cd0. Đang chuẩn bịPRvàhostedCI, chưa merge/deploy. GiữD119;videodochủdựántựquay.
+
+CI đầu trên aeedd94: Frontend/PR policy đạt; Backend test đi qua nhưng composer audit thất bại với5 advisory mới25/11 (Symfony http-kernel/mailer/routing). Đã cập nhật lênSymfony7.4.24 cùng4dependency patch tương thích; không đổiLaravel12/PHP8.4. Audit sau sửa0advisory; đang kiểm full regression trước xuất bản lockfile. PR30 draft, chưa merge/deploy.
+
+26/11 — source kiểm xong lúc2026-11-26T18:54:47.842343+07:00: commit7aa6a3b hosted Backend/Frontend/31E2E/PRpolicy đều passed; backend188/2312,coverage91,62%,HTTP22/ops smoke; Next toàn65file76,27%lines/73,56%statements. SupabasePreview skipped, không tínhpassed. PR30 chờ ownerreview/merge; chưa deployproduction vàvideothật chờchủdựán. Tựchấm9,25/10; không cộngđiểmvideo/reviewchưacó. ClusterPGprivate tựstartđểtest đãstop, dữliệugiữnguyên.
+
+## 27/11/2026 — Bổ sung video minh chứng
+
+Tiêu chí đạt: xem đủ ba screencast, xuất MP4 công khai đã loại dữ liệu nhạy cảm, kiểm video và liên kết, chấm lại đúng mục 3(f), commit và xác nhận push vào PR #30.
+
+Đã kiểm ba screencast và xuất clip VNPAY Sandbox, thư đặt lại mật khẩu và thư xác nhận bản tin. Kiểm phát MP4, SHA-256, diff và liên kết tài liệu. Tự chấm 9,75/10, tăng 0,5 điểm ở mục 3(f).
+
+Tiêu chí bổ sung: giữ đủ thời lượng của ba video, che dữ liệu nhập và nội dung riêng tư trước khi xuất bản, kiểm lại các cảnh minh chứng chính và cập nhật PR #30.
+
+Đã xuất ba bản MP4 đủ thời lượng đã che vùng nhạy cảm. Kiểm giải mã và thời lượng với bản gốc, cập nhật liên kết xem nhanh và bản đầy đủ. Giữ tự chấm 9,75/10, ghi phương án bổ sung bằng chứng cho hai tiêu chí Git.

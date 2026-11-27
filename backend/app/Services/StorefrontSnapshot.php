@@ -20,7 +20,7 @@ class StorefrontSnapshot
 
     public function data(): array
     {
-        $key = 'storefront:v2:'.Cache::get('storefront:revision', 'initial');
+        $key = 'storefront:v3:'.Cache::get('storefront:revision', 'initial');
         $cached = Cache::get($key);
         if ($cached !== null) {
             return $cached;
@@ -35,6 +35,7 @@ class StorefrontSnapshot
                         'hot' => ProductResource::collection($catalog->query(['section' => 'hot'])->limit(12)->get())->resolve(),
                         'bestseller' => ProductResource::collection($catalog->query(['section' => 'bestseller'])->limit(10)->get())->resolve(),
                         'brands' => $catalog->brands(),
+                        'catalog' => ProductResource::collection($catalog->query(['sort' => 'newest'])->limit(40)->get())->resolve(),
                         'new' => ProductResource::collection($catalog->query(['section' => 'new'])->limit(12)->get())->resolve(),
                         'recommended' => ProductResource::collection($catalog->recommendations(null))->resolve(),
                     ];

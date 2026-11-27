@@ -1,6 +1,6 @@
 "use client";
 import { ProductActions } from "./product-actions";
-import Link from "next/link";
+import { IntentLink as Link } from "./intent-link";
 import { ProductPicture } from "./product-picture";
 import { imageSrc } from "@/lib/product-images";
 export { imageSrc } from "@/lib/product-images";

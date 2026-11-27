@@ -90,7 +90,7 @@ class DiscountStorefrontTest extends TestCase
         });
         StorefrontSnapshot::invalidate();
         $this->getJson('/api/v1/storefront')->assertOk()->assertJsonCount(12, 'data.recommended');
-        $this->assertLessThanOrEqual(48, $retrieved);
+        $this->assertLessThanOrEqual(88, $retrieved);
     }
 
     public function test_rolled_back_price_change_does_not_invalidate_or_publish_uncommitted_prices(): void

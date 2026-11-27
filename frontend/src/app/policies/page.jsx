@@ -1,6 +1,9 @@
+// Prerender public content; account, price and stock remain live client/API reads.
+export const dynamic = "force-static";
+export const revalidate = 3600;
 export default function PoliciesPage() {
   return (
-    <article className="container page-section policy-page">
+    <article className="container page-section policy-page grid gap-6 md:gap-8">
       <h1>Thông tin mua hàng</h1>
       <section id="shipping">
         <h2>Giao hàng &amp; nhận tại cửa hàng</h2>

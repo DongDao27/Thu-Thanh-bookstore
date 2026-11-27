@@ -48,7 +48,13 @@ jobs:
         working-directory: frontend
       - run: npx playwright install --with-deps chromium
         working-directory: frontend
+      - run: npm run test:coverage
+        working-directory: frontend
       - run: npm run test:e2e
+        env:
+          FRONTEND_COVERAGE: '1'
+        working-directory: frontend
+      - run: npm run coverage:report
         working-directory: frontend
       - uses: actions/upload-artifact@v4
         if: always()
@@ -56,5 +62,6 @@ jobs:
           name: e2e-report
           path: |
             output/e2e/
+            output/coverage/
             .runtime/e2e-server.log
           retention-days: 7

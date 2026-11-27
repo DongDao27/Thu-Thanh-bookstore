@@ -21,14 +21,19 @@ export default function HomeStorefront() {
     const abort = new AbortController();
     setError("");
     async function load() {
-      const [result, catalog] = await Promise.all([
-        user?.role === "customer"
-          ? api("/home", { signal: abort.signal })
-          : publicStorefront(),
-        api("/products?sort=newest&per_page=40", { signal: abort.signal }),
-      ]);
-      if (!abort.signal.aborted)
-        setHome(homeCollections(result.data, catalog.data));
+      const result = await (user?.role === "customer"
+        ? api("/home", { signal: abort.signal })
+        : publicStorefront());
+      // The 40-item public catalog shares the server snapshot cache. The fallback
+      // allows the frontend to roll out before the additive backend contract.
+      const catalog =
+        result.data.catalog ??
+        (
+          await api("/products?sort=newest&per_page=40", {
+            signal: abort.signal,
+          })
+        ).data;
+      if (!abort.signal.aborted) setHome(homeCollections(result.data, catalog));
     }
     load().catch((error) => {
       if (!abort.signal.aborted) setError(errorMessage(error));
@@ -119,7 +124,7 @@ function Collection({
         title === "Bán chạy nhất" ? (
           <BestsellerShowcase products={products} />
         ) : (
-          <div className="product-grid">
+          <div className="product-grid grid grid-cols-1 min-[421px]:grid-cols-2 min-[761px]:grid-cols-3 min-[1021px]:grid-cols-4 xl:grid-cols-5 gap-3">
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

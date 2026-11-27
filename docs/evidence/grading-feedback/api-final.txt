@@ -1,0 +1,28 @@
+
+> thu-thanh-frontend@0.1.0 test:api
+> node --test tests/*.test.js
+
+✔ anonymous snapshot omits credentials and permits HTTP caching; private home does not (22.715769ms)
+✔ mutation first obtains CSRF and sends decoded token, cookie and idempotency key (1.202839ms)
+✔ CSRF rejection does not send the mutation or retry it (0.452382ms)
+✔ ambiguous network failures never automatically repeat a cart mutation (0.241013ms)
+✔ validation/status/request-id survive API error responses (0.395149ms)
+✔ external and traversal destinations rejected before fetch (0.22855ms)
+✔ encoded punctuation in a search query does not become a resource-path restriction (0.321544ms)
+✔ hung catalog reads time out without retry and the next read can recover (56.008911ms)
+✔ the read deadline also covers a response body stalled after headers (26.200023ms)
+✔ caller cancellation remains an abort and does not cancel another read (0.911226ms)
+✔ an already cancelled read preserves the caller's abort (0.427707ms)
+✔ read deadlines do not abort or repeat a slow mutation (26.544905ms)
+✔ home collections prioritize bestsellers and never repeat IDs across feeds (1.729681ms)
+✔ small catalog stays truthful and preserves overflow candidates for later feeds (0.232187ms)
+✔ private order subscription authorizes through CSRF API and only invalidates matching new versions (842.1351ms)
+✔ disabled realtime does not load a client or request credentials (0.259805ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 892.395229

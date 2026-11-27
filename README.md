@@ -211,6 +211,7 @@ Cập nhật thông tin kết nối PostgreSQL trong `backend/.env.testing`, đ�
 
 # Frontend: API client, kiểm tra source và production build
 npm run test:api --prefix frontend
+npm run test:coverage --prefix frontend
 npm run check --prefix frontend
 npm run build --prefix frontend
 
@@ -224,7 +225,19 @@ python3 scripts/check-repository.py
 
 Chạy backend tests và E2E lần lượt vì chúng tạo lại các bảng trong database test. E2E sử dụng dữ liệu, tài khoản và provider fixture riêng; cần hai cổng `18082` và `3100` trống. Các bộ kiểm thử không yêu cầu khóa Resend hoặc VNPAY thật.
 
-### Coverage và smoke tests
+### Coverage frontend
+
+Vitest/Testing Library kiểm component React; Playwright đo coverage trên build production được instrument riêng. Báo cáo trình duyệt tính toàn bộ `frontend/src/**/*.{js,jsx}`, kể cả file chưa chạy; CI bắt buộc **lines và statements đều >70%**. Coverage unit được lưu riêng, không cộng hai bản đồ statement khác nhau để tăng số đo.
+
+```bash
+npm run test:coverage --prefix frontend
+FRONTEND_COVERAGE=1 node scripts/e2e.mjs
+npm run coverage:report --prefix frontend
+```
+
+Mở `output/coverage/frontend/index.html` để xem từng file. Workflow Frontend lưu artifact `frontend-unit-coverage`; workflow E2E lưu báo cáo tổng trong `e2e-report`. Dữ liệu coverage local cần thuộc cùng một phiên source; trước lần đo lại, chuyển bản cũ ra khỏi `output/coverage/browser` để không trộn các phiên.
+
+### Coverage backend và smoke tests
 
 Cài Xdebug hoặc PCOV trước khi đo coverage:
 
@@ -238,7 +251,9 @@ php scripts/ops-smoke.php
 
 Hai smoke script đọc `.env.testing` và yêu cầu database `thu_thanh_test`. GitHub Actions chạy backend/coverage, frontend và browser E2E.
 
-Kết quả kiểm chứng ngày **23/11/2026**: **185 backend tests**, **2.221 assertions**, **91,43% statement coverage** và **30 browser E2E tests** đạt. Chi tiết được ghi tại [bảo mật và hiệu năng](docs/SECURITY-PERFORMANCE.md).
+Kết quả kiểm chứng lịch sử ngày **23/11/2026**: **185 backend tests**, **2.221 assertions**, **91,43% statement coverage** và **30 browser E2E tests** đạt. Chi tiết được ghi tại [bảo mật và hiệu năng](docs/SECURITY-PERFORMANCE.md). Các kết quả mới và hướng dẫn quay minh chứng nằm trong [video VNPAY Sandbox, khôi phục mật khẩu và đăng ký bản tin cùng bằng chứng kiểm thử](docs/DEMO-EVIDENCE.md).
+
+Kiểm chứng local mới ngày **26/11/2026**: **188 backend tests / 2.312 assertions**, backend statement coverage local sau patch **91,72%** (CI **91,62%**); **15 React/unit tests**, **16 API-client tests**, **30 E2E và 1 kịch bản responsive bổ sung** đạt. Coverage Chromium tính toàn65file Next.js: **75,80% lines / 73,12% statements**; report unit được lưu riêng. Hosted CI của source7aa6a3b đạt **31/31 E2E**, **76,27% lines / 73,56% statements**; xem artifact trong workflow E2E.
 
 ## API và giám sát
 

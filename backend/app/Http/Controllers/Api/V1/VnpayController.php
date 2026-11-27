@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Payments\PaymentGateway;
+use App\Services\OperationalAlerts;
 use App\Services\PaymentService;
 use App\Services\ReconciliationService;
 use App\Support\ApiResponse;
@@ -25,8 +26,9 @@ class VnpayController extends Controller
         try {
             $verified = $gateway->verifyCallback($request->query());
             $code = $verified ? $payments->apply($verified, 'ipn') : '97';
-        } catch (Throwable) {
+        } catch (Throwable $exception) {
             Log::error('VNPAY callback could not be applied. Inspect database/queue health with request_id.');
+            app(OperationalAlerts::class)->record('vnpay_ipn_failure', ['exception_class' => $exception::class]);
             $code = '99';
         }
         $messages = ['00' => 'Confirm Success', '01' => 'Order not found', '02' => 'Order already confirmed', '04' => 'Invalid amount', '97' => 'Invalid signature', '99' => 'Unknown error'];

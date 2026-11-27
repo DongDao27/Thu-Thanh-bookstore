@@ -1,6 +1,6 @@
 "use client";
 import { useId, useState } from "react";
-import Link from "next/link";
+import { IntentLink as Link } from "./intent-link";
 import { ProductDescription, productCopy } from "./product-description";
 import { ProductActions } from "./product-actions";
 import { ProductPicture } from "./product-picture";

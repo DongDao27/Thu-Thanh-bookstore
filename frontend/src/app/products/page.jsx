@@ -95,7 +95,7 @@ function Catalog() {
           </p>
         </div>
       </div>
-      <div className="catalog-layout">
+      <div className="catalog-layout grid grid-cols-1 min-[901px]:grid-cols-[264px_minmax(0,1fr)] gap-6 lg:gap-9">
         <aside className="catalog-sidebar">
           <h2>Danh mục sản phẩm</h2>
           <button
@@ -143,7 +143,7 @@ function Catalog() {
           )}
         </aside>
         <section className="catalog-main" aria-label="Danh sách sản phẩm">
-          <div className="catalog-toolbar">
+          <div className="catalog-toolbar flex flex-col sm:flex-row sm:flex-wrap items-start gap-4">
             <form className="catalog-search" onSubmit={submit}>
               <label className="sr-only" htmlFor="catalog-query">
                 Tìm trong sản phẩm
@@ -185,7 +185,7 @@ function Catalog() {
               </button>
             </Notice>
           ) : products.length ? (
-            <div className="product-grid catalog-grid">
+            <div className="product-grid catalog-grid grid grid-cols-1 min-[421px]:grid-cols-2 min-[761px]:grid-cols-3 min-[1021px]:grid-cols-4 xl:grid-cols-5 gap-3">
               {products.map((product, index) => (
                 <ProductCard
                   key={product.id}
