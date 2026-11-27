@@ -97,3 +97,7 @@ CI đầu trên aeedd94: Frontend/PR policy đạt; Backend test đi qua nhưng 
 Tiêu chí đạt: xem đủ ba screencast, xuất MP4 công khai đã loại dữ liệu nhạy cảm, kiểm video và liên kết, chấm lại đúng mục 3(f), commit và xác nhận push vào PR #30.
 
 Đã kiểm ba screencast và xuất clip VNPAY Sandbox, thư đặt lại mật khẩu và thư xác nhận bản tin. Kiểm phát MP4, SHA-256, diff và liên kết tài liệu. Tự chấm 9,75/10, tăng 0,5 điểm ở mục 3(f).
+
+Tiêu chí bổ sung: giữ đủ thời lượng của ba video, che dữ liệu nhập và nội dung riêng tư trước khi xuất bản, kiểm lại các cảnh minh chứng chính và cập nhật PR #30.
+
+Đã xuất ba bản MP4 đủ thời lượng đã che vùng nhạy cảm. Kiểm giải mã và thời lượng với bản gốc, cập nhật liên kết xem nhanh và bản đầy đủ. Giữ tự chấm 9,75/10, ghi phương án bổ sung bằng chứng cho hai tiêu chí Git.

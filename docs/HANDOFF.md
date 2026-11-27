@@ -21,7 +21,7 @@ Lệnh tiếp theo khi chủ dự án tiếp tục: `gh pr checks 30 --repo Dong
 
 ## Chờ chủ dự án và giới hạn vận hành
 
-Ba video do chủ dự án cung cấp đã được kiểm và lưu dưới dạng clip MP4 công khai tại `docs/evidence/provider-demos`. Mục 3(f) đủ căn cứ cộng 0,5 điểm trong bản tự chấm. Giữ các tệp gốc trong thư mục Screencasts của chủ dự án. PR #30 chờ review và merge.
+Ba video do chủ dự án cung cấp đã được kiểm và lưu dưới dạng MP4 đủ thời lượng đã che vùng nhạy cảm cùng clip ngắn tại `docs/evidence/provider-demos`. Mục 3(f) đủ căn cứ cộng 0,5 điểm trong bản tự chấm. Giữ các tệp gốc trong thư mục Screencasts của chủ dự án. PR #30 chờ review và merge.
 
 
 D119 giữ nguyên: không queryVNPAY/điều traQueryDr99, seed/migrate production hoặc tự bật scheduler tài chính. Production/deploy cần yêu cầu riêng theoAGENTS. Release live được nghiệm thu trước đây625a042; không chạy lạiactivation cũ. Giữenv/APP_KEY/database/uploads/backups/private runtime.

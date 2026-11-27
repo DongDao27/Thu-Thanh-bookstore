@@ -33,8 +33,8 @@
   "blockers": [
     "Representative large-load and continuous24x7 operations are not verified."
   ],
-  "notes": "27/11: three provider demo clips reviewed and included in PR #30. Candidate self-assessment 9.75/10. PR awaits review and merge.",
-  "last_checkpoint_at": "2026-11-27T15:05:33.249038+07:00",
+  "notes": "27/11: PR #30 includes three full-length redacted MP4 recordings and short clips. Candidate self-assessment 9.75/10. PR awaits review and merge.",
+  "last_checkpoint_at": "2026-11-27T15:11:23.155813+07:00",
   "last_test_run": {
     "at": "2026-11-26T18:54:47.842343+07:00",
     "source_commit": "7aa6a3bd1727364917196ca8635bfdd3f6766298",
@@ -168,7 +168,7 @@
     "frontend_source_files": 65,
     "frontend_lines_coverage": 75.8,
     "frontend_statements_coverage": 73.12,
-    "provider_videos": "three_redacted_clips_reviewed",
+    "provider_videos": "three_full_redacted_recordings_and_short_clips",
     "hosted_ci": "passed_on_7aa6a3b",
     "production_activation": "not_run",
     "pr": 30,

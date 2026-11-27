@@ -2,15 +2,15 @@
 
 ## Video minh chứng dịch vụ ngoài
 
-Ba clip dưới đây được trích từ video chủ dự án cung cấp ngày 27/11/2026. Bản công khai đã cắt thanh địa chỉ, thông tin hộp thư, màn hình nhập thẻ và các đoạn có dữ liệu khôi phục tài khoản. OTP và mã đơn được che. Mỗi clip có thể tải dưới dạng MP4.
+Ba bản quay đầy đủ có cùng thời lượng với các tệp gốc. Các bản công khai che thanh địa chỉ, thông tin giao hàng, dữ liệu thẻ và OTP Sandbox, token khôi phục, thông tin đăng nhập và nội dung riêng trong hộp thư. Tệp xuất bỏ track âm thanh vì các bản gốc không có tiếng nghe được.
 
-| Luồng | Video | Nội dung kiểm chứng |
-|---|---|---|
-| Thanh toán VNPAY Sandbox | [Xem MP4](evidence/provider-demos/vnpay-sandbox.mp4) | Cổng VNPAY ghi rõ chế độ Test, xác thực giao dịch và trở về Thu Thanh với trạng thái “Thanh toán thành công”. |
-| Quên mật khẩu | [Xem MP4](evidence/provider-demos/resend-forgot-password.mp4) | Sau khi gửi yêu cầu, thư “Đặt lại mật khẩu — Nhà sách Thu Thanh” xuất hiện trong Gmail. Thu Thanh xác nhận mật khẩu đã được cập nhật. |
-| Đăng ký bản tin | [Xem MP4](evidence/provider-demos/resend-subscribe.mp4) | Website ghi nhận đăng ký và Gmail nhận thư “Đăng ký nhận bản tin thành công — Nhà sách Thu Thanh”. |
+| Luồng | Video đầy đủ | Xem nhanh | Nội dung kiểm chứng |
+|---|---|---|---|
+| Thanh toán VNPAY Sandbox | [MP4 đầy đủ](evidence/provider-demos/vnpay-sandbox-full.mp4) | [Clip ngắn](evidence/provider-demos/vnpay-sandbox.mp4) | Cổng VNPAY ghi rõ chế độ Test, xác thực giao dịch và trở về Thu Thanh với trạng thái “Thanh toán thành công”. |
+| Quên mật khẩu | [MP4 đầy đủ](evidence/provider-demos/resend-forgot-password-full.mp4) | [Clip ngắn](evidence/provider-demos/resend-forgot-password.mp4) | Thư “Đặt lại mật khẩu — Nhà sách Thu Thanh” xuất hiện trong Gmail. Thu Thanh xác nhận mật khẩu đã được cập nhật. |
+| Đăng ký bản tin | [MP4 đầy đủ](evidence/provider-demos/resend-subscribe-full.mp4) | [Clip ngắn](evidence/provider-demos/resend-subscribe.mp4) | Website ghi nhận đăng ký và Gmail nhận thư “Đăng ký nhận bản tin thành công — Nhà sách Thu Thanh”. |
 
-Hai clip email ghi nhận thư đến hộp thư người nhận. Cấu hình Resend của dự án được ghi trong [tài liệu vận hành](SECURITY-PERFORMANCE.md). Video không quay dashboard Resend hoặc message ID. [Mã SHA-256 của các clip công khai](evidence/provider-demos/manifest.json).
+Hai clip email ghi nhận thư đến hộp thư người nhận. Cấu hình Resend của dự án được ghi trong [tài liệu vận hành](SECURITY-PERFORMANCE.md). Video không quay dashboard Resend hoặc message ID. [Mã SHA-256 của các MP4 công khai](evidence/provider-demos/manifest.json).
 
 ## Tái hiện kiểm thử
 

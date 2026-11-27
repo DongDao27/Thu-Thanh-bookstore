@@ -16,5 +16,25 @@
       "bytes": 113610,
       "sha256": "dea88011b410b72bbe7a49ccfae97193236fae05110d685b99e55d8b4bbeef5b"
     }
+  ],
+  "full_recordings": [
+    {
+      "file": "resend-forgot-password-full.mp4",
+      "duration_seconds": 50.792,
+      "bytes": 369564,
+      "sha256": "8a9336c5eb152dc3ed108f1936adf826a59d3df9ea89c96cb5c7e77d913fcb17"
+    },
+    {
+      "file": "resend-subscribe-full.mp4",
+      "duration_seconds": 25.792,
+      "bytes": 451361,
+      "sha256": "ef2e4e8c613d4817a4359330a325abd02a26c7108d689623ac3776c8b1a47c2e"
+    },
+    {
+      "file": "vnpay-sandbox-full.mp4",
+      "duration_seconds": 59.334,
+      "bytes": 670439,
+      "sha256": "c3270e399c4f1a7f49074fce5fa9a845db57e92f6c77b73421f1a2ff436d98bf"
+    }
   ]
 }

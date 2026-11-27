@@ -87,5 +87,10 @@
     "branches_percent": 70.03
   },
   "publication": "PR30, source verified; owner review/merge and production authorization pending",
-  "provider_video_reviewed_on": "2026-11-27"
+  "provider_video_reviewed_on": "2026-11-27",
+  "provider_full_video_links": {
+    "resend-forgot-password": "../provider-demos/resend-forgot-password-full.mp4",
+    "resend-subscribe": "../provider-demos/resend-subscribe-full.mp4",
+    "vnpay-sandbox": "../provider-demos/vnpay-sandbox-full.mp4"
+  }
 }

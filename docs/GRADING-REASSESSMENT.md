@@ -18,6 +18,11 @@
 
 Bản tự chấm ngày 26/11 đạt 9,25/10. Ba clip bổ sung ngày 27/11 đủ căn cứ cộng 0,5 điểm cho mục 3(f) theo tiêu chí chấp nhận video thực tế. Hai khoản trừ 0,125 điểm về lịch sử commit lớn và workflow/review vẫn được giữ. Giảng viên quyết định điểm chính thức. [Ba video minh chứng](DEMO-EVIDENCE.md#video-minh-chứng-dịch-vụ-ngoài).
 
+Hai khoản còn lại thuộc phần Git:
+
+- **1(d), 0,125 điểm.** PR #30 đã nối Issue #29 bằng `Closes #29`. Có thể bổ sung review thật từ một thành viên khác và merge qua PR sau khi CI đạt. Các thay đổi tiếp theo cũng đi qua PR có issue và review. Giảng viên quyết định có cập nhật điểm cho quy trình mới hay vẫn tính lịch sử trong PDF.
+- **1(b), 0,125 điểm.** Chia các thay đổi mới thành commit nhỏ theo từng mục đích. Các commit lớn được ghi trong bản chấm vẫn là bằng chứng lịch sử. Có thể dẫn các commit mới để giảng viên xem xét lại. D119 và D123 giữ lịch sử hiện tại.
+
 ## Thay đổi có thể kiểm tra
 
 - [Vitest config](../frontend/vitest.config.js), [component tests](../frontend/tests/unit/components.test.jsx), [prefetch tests](../frontend/tests/unit/intent-link.test.jsx); [coverage runner](../scripts/frontend-coverage.mjs) tính cả file không chạy, không chọn riêng vài component để nâng tỷ lệ.
@@ -44,7 +49,7 @@ Lần đo dev đầu tiên có29 passed / 1 failed vì Fast Refresh tải lại 
 
 ## Phần còn lại cần chủ dự án/production
 
-Ba clip minh chứng đã được kiểm nội dung và công khai trên nhánh PR. Chúng ghi lại kết quả chạy trên website hiện hành. Kết quả CI của ứng viên được dẫn ở phần kiểm chứng.
+Ba bản quay đủ thời lượng đã che vùng nhạy cảm được công khai trên nhánh PR, cùng các clip ngắn. Chúng ghi lại kết quả chạy trên website hiện hành. Kết quả CI của ứng viên được dẫn ở phần kiểm chứng.
 
 TheoD119/D123, không tự bật scheduler tài chính, gọi lại QueryDr 99 hay triển khai production. IP thật qua Vercel/Cloudflare và rate-limit hai client chưa được nghiệm thu; cache lock 503, tìm kiếm mô tả/đơn trên tập dữ liệu lớn, Redis/shared storage/onOneServer còn giới hạn. Xem [danh sách kỹ thuật có phân biệt đã sửa/chưa kiểm](SECURITY-PERFORMANCE.md). Các mục này không bị PDF trừ điểm nhưng cần trình bày trung thực khi vấn đáp.
 

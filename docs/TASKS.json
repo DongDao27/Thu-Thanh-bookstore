@@ -229,7 +229,8 @@
         "GitHubissue29; descriptionđã cập nhật/readback; commit24771a1backend,dcf634estorefront,b62d315tests,0056cd0PRpolicy. Chờ hostedCI/PR review; hai video do chủ dự án tự quay chưa cólink.",
         "Report/docs và minh chứng tại docs/evidence/grading-feedback. Tự chấm ứng viên9.25/10; chưa là điểm chính thức hoặc source main đã cập nhật.",
         "Hosted source7aa6a3b: Backend/Frontend/E2E/PRpolicy passed.188/2312,coverage91.62%,HTTP22/ops;31E2E,Nextcoverage76.27%lines/73.56%statements. Source đã đầy đủ để review; giữ in_progress vì chưa owner review/merge và video thật. SupabasePreview skipped.",
-        "27/11: kiểm ba screencast do chủ dự án cung cấp, xuất MP4 công khai đã che thông tin nhạy cảm. Mục 3(f) +0,5, tự chấm 9,75/10. PR #30 chờ review."
+        "27/11: kiểm ba screencast do chủ dự án cung cấp, xuất MP4 công khai đã che thông tin nhạy cảm. Mục 3(f) +0,5, tự chấm 9,75/10. PR #30 chờ review.",
+        "27/11: thêm ba MP4 đủ thời lượng đã che vùng nhạy cảm, kiểm giải mã, so thời lượng với bản gốc, lưu SHA-256 và cập nhật đề xuất cải thiện 1(b), 1(d)."
       ]
     }
   ]
