@@ -251,7 +251,7 @@ php scripts/ops-smoke.php
 
 Hai smoke script đọc `.env.testing` và yêu cầu database `thu_thanh_test`. GitHub Actions chạy backend/coverage, frontend và browser E2E.
 
-Kết quả kiểm chứng lịch sử ngày **23/11/2026**: **185 backend tests**, **2.221 assertions**, **91,43% statement coverage** và **30 browser E2E tests** đạt. Chi tiết được ghi tại [bảo mật và hiệu năng](docs/SECURITY-PERFORMANCE.md). Các kết quả mới và hướng dẫn quay minh chứng nằm trong [bằng chứng kiểm thử và demo](docs/DEMO-EVIDENCE.md).
+Kết quả kiểm chứng lịch sử ngày **23/11/2026**: **185 backend tests**, **2.221 assertions**, **91,43% statement coverage** và **30 browser E2E tests** đạt. Chi tiết được ghi tại [bảo mật và hiệu năng](docs/SECURITY-PERFORMANCE.md). Các kết quả mới và hướng dẫn quay minh chứng nằm trong [video VNPAY Sandbox, khôi phục mật khẩu và đăng ký bản tin cùng bằng chứng kiểm thử](docs/DEMO-EVIDENCE.md).
 
 Kiểm chứng local mới ngày **26/11/2026**: **188 backend tests / 2.312 assertions**, backend statement coverage local sau patch **91,72%** (CI **91,62%**); **15 React/unit tests**, **16 API-client tests**, **30 E2E và 1 kịch bản responsive bổ sung** đạt. Coverage Chromium tính toàn65file Next.js: **75,80% lines / 73,12% statements**; report unit được lưu riêng. Hosted CI của source7aa6a3b đạt **31/31 E2E**, **76,27% lines / 73,56% statements**; xem artifact trong workflow E2E.
 

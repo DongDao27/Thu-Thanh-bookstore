@@ -91,3 +91,9 @@ Hoàn tấtREADME24/11: tên/linkNguyễn Văn Thiện đúng dữ liệu chủ 
 CI đầu trên aeedd94: Frontend/PR policy đạt; Backend test đi qua nhưng composer audit thất bại với5 advisory mới25/11 (Symfony http-kernel/mailer/routing). Đã cập nhật lênSymfony7.4.24 cùng4dependency patch tương thích; không đổiLaravel12/PHP8.4. Audit sau sửa0advisory; đang kiểm full regression trước xuất bản lockfile. PR30 draft, chưa merge/deploy.
 
 26/11 — source kiểm xong lúc2026-11-26T18:54:47.842343+07:00: commit7aa6a3b hosted Backend/Frontend/31E2E/PRpolicy đều passed; backend188/2312,coverage91,62%,HTTP22/ops smoke; Next toàn65file76,27%lines/73,56%statements. SupabasePreview skipped, không tínhpassed. PR30 chờ ownerreview/merge; chưa deployproduction vàvideothật chờchủdựán. Tựchấm9,25/10; không cộngđiểmvideo/reviewchưacó. ClusterPGprivate tựstartđểtest đãstop, dữliệugiữnguyên.
+
+## 27/11/2026 — Bổ sung video minh chứng
+
+Tiêu chí đạt: xem đủ ba screencast, xuất MP4 công khai đã loại dữ liệu nhạy cảm, kiểm video và liên kết, chấm lại đúng mục 3(f), commit và xác nhận push vào PR #30.
+
+Đã kiểm ba screencast và xuất clip VNPAY Sandbox, thư đặt lại mật khẩu và thư xác nhận bản tin. Kiểm phát MP4, SHA-256, diff và liên kết tài liệu. Tự chấm 9,75/10, tăng 0,5 điểm ở mục 3(f).

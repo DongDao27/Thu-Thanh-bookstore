@@ -211,7 +211,7 @@
       "acceptance": [
         "Đo toàn bộ source Next.js, thêm React component tests, CI lưu coverage lines/statements >70% nếu đạt thực tế",
         "Prefetch theo ý định người dùng và prerender rõ ràng; Tailwind responsive dùng thật, không đổi nghiệp vụ",
-        "Ghi dẫn chứng dịch vụ thật hoặc chờ hai video chủ dự án tự quay; không bịa review/điểm",
+        "Bổ sung minh chứng VNPAY Sandbox và email thật, kiểm clip công khai trước khi push.",
         "Nhánh chủ đề, commit nhỏ; báo cáo rubric 8.25 ban đầu và điểm sau kiểm chứng",
         "Rà soát góp ý kỹ thuật; giữ D119, không deploy/payment thật hoặc tự bật scheduler"
       ],
@@ -228,7 +228,8 @@
         "React/unit15,APIclient16,build/check/npm audit0 đạt; productionChromium30passed và1responsive375/768/1024/1440passed. Toàn65file: lines75.80%,statements73.12%; unitreportriêng; không loại file0hit.",
         "GitHubissue29; descriptionđã cập nhật/readback; commit24771a1backend,dcf634estorefront,b62d315tests,0056cd0PRpolicy. Chờ hostedCI/PR review; hai video do chủ dự án tự quay chưa cólink.",
         "Report/docs và minh chứng tại docs/evidence/grading-feedback. Tự chấm ứng viên9.25/10; chưa là điểm chính thức hoặc source main đã cập nhật.",
-        "Hosted source7aa6a3b: Backend/Frontend/E2E/PRpolicy passed.188/2312,coverage91.62%,HTTP22/ops;31E2E,Nextcoverage76.27%lines/73.56%statements. Source đã đầy đủ để review; giữ in_progress vì chưa owner review/merge và video thật. SupabasePreview skipped."
+        "Hosted source7aa6a3b: Backend/Frontend/E2E/PRpolicy passed.188/2312,coverage91.62%,HTTP22/ops;31E2E,Nextcoverage76.27%lines/73.56%statements. Source đã đầy đủ để review; giữ in_progress vì chưa owner review/merge và video thật. SupabasePreview skipped.",
+        "27/11: kiểm ba screencast do chủ dự án cung cấp, xuất MP4 công khai đã che thông tin nhạy cảm. Mục 3(f) +0,5, tự chấm 9,75/10. PR #30 chờ review."
       ]
     }
   ]

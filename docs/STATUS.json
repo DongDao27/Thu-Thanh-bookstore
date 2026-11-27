@@ -33,8 +33,8 @@
   "blockers": [
     "Representative large-load and continuous24x7 operations are not verified."
   ],
-  "notes": "26/11: source7aa6a3b hosted Backend/Frontend/31E2E/PRpolicy passed; PR30 ready for owner review after documentation checkpoint. Main8190455 and production unchanged; videos pending.",
-  "last_checkpoint_at": "2026-11-26T18:54:47.842343+07:00",
+  "notes": "27/11: three provider demo clips reviewed and included in PR #30. Candidate self-assessment 9.75/10. PR awaits review and merge.",
+  "last_checkpoint_at": "2026-11-27T15:05:33.249038+07:00",
   "last_test_run": {
     "at": "2026-11-26T18:54:47.842343+07:00",
     "source_commit": "7aa6a3bd1727364917196ca8635bfdd3f6766298",
@@ -156,7 +156,7 @@
     "status": "source_verified_awaiting_owner_review",
     "issue": 29,
     "base_commit": "8190455",
-    "estimated_score": 9.25,
+    "estimated_score": 9.75,
     "official_score": false,
     "backend_tests": 188,
     "backend_assertions": 2312,
@@ -168,7 +168,7 @@
     "frontend_source_files": 65,
     "frontend_lines_coverage": 75.8,
     "frontend_statements_coverage": 73.12,
-    "provider_videos": "owner_will_record_links_pending",
+    "provider_videos": "three_redacted_clips_reviewed",
     "hosted_ci": "passed_on_7aa6a3b",
     "production_activation": "not_run",
     "pr": 30,
@@ -186,7 +186,6 @@
     },
     "remaining": [
       "owner review and merge authorization",
-      "two owner-recorded real-provider video links",
       "separate production activation authorization"
     ]
   }

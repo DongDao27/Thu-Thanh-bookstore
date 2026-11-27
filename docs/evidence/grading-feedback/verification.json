@@ -46,10 +46,11 @@
     "pr_policy": "passed"
   },
   "official_score": false,
-  "estimated_candidate_score": 9.25,
+  "estimated_candidate_score": 9.75,
   "provider_video_links": {
-    "vnpay": null,
-    "resend": null
+    "resend-forgot-password": "../provider-demos/resend-forgot-password.mp4",
+    "resend-subscribe": "../provider-demos/resend-subscribe.mp4",
+    "vnpay-sandbox": "../provider-demos/vnpay-sandbox.mp4"
   },
   "production_activation": "not_requested_not_run",
   "financial_scheduler": "unchanged_D119",
@@ -85,5 +86,6 @@
     "functions_percent": 66.6,
     "branches_percent": 70.03
   },
-  "publication": "PR30, source verified; owner review/merge and production authorization pending"
+  "publication": "PR30, source verified; owner review/merge and production authorization pending",
+  "provider_video_reviewed_on": "2026-11-27"
 }

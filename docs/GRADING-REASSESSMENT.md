@@ -1,4 +1,4 @@
-# Đánh giá sau sửa — 26/11/2026
+# Đánh giá sau sửa — cập nhật 27/11/2026
 
 Đối chiếu bản chấm thử `Advanced_Nhom5_ThuThanhBookstore.pdf`: 8,25/10, chấm commit 8190455 lúc 10:37 ngày 26/11. SHA256 tài liệu: `46353759166a900ea8f8501caf8a9bf0a87433d7721075f4fc122aab83b6f218`.
 
@@ -10,13 +10,13 @@
 |---|---:|---:|---|
 | Task1 — Git/workflow | 0,625/1 | 0,750/1 | Đã thêm description repo; commit theo phạm vi, issue29 và PR nối issue. Giữ trừ 0,125 commit lớn lịch sử và 0,125 workflow/review lịch sử; không viết lại Git hay tự nhận review người khác. |
 | Task2 — Database | 1/1 | 1/1 | Không đổi schema; giữ migration/seed và regression tests. |
-| Task3 — UI/chức năng | 1,875/3 | 2,500/3 | Tailwind thực sự điều khiển responsive grid/toolbar; có React component tests và coverage toàn source Next.js >70% lines/statements. Giữ3(f) một phần vì hai video provider thật chưa có link. |
+| Task3 — UI/chức năng | 1,875/3 | 3,000/3 | Tailwind thực sự điều khiển responsive grid/toolbar; có React component tests và coverage toàn source Next.js >70% lines/statements. Mục 3(f) đạt nhờ video VNPAY Sandbox và hai video thư đến hộp thư thật. |
 | Task4 — REST API | 2/2 | 2/2 | API/schema/tests đồng bộ trường catalog; full regression đạt. |
 | Task5 — Logging/monitoring | 1/1 | 1/1 | Giữ bằng chứng trước, bổ sung alert lỗi IPN qua cơ chế notification/cooldown đã có test. Không coi scheduler live đang chạy. |
 | Task6 — Performance | 1,75/2 | 2/2 | Intent prefetch và static/ISR một giờ được khai báo, test/build xác nhận; cache catalog 40 sản phẩm và giảm invalidation. |
-| **Tổng** | **8,25/10** | **9,25/10** | Dự kiến khi source và bằng chứng CI tương ứng vào main. |
+| **Tổng** | **8,25/10** | **9,75/10** | Dự kiến khi source và bằng chứng CI tương ứng vào main. |
 
-Bốn khoảng trống được xử lý có tổng 1 điểm:3(g) +0,5; 6(b) +0,25; 1(a) +0,125; 3(a) +0,125. Không cộng tự động 0,25 cho lịch sử Git. Sau khi hai video thực sự chứng minh VNPAY Sandbox và email Resend,3(f) có thể thêm 0,5, tương ứng **9,75/10** theo cách chấm này. Giảng viên quyết định mức cuối cùng.
+Bản tự chấm ngày 26/11 đạt 9,25/10. Ba clip bổ sung ngày 27/11 đủ căn cứ cộng 0,5 điểm cho mục 3(f) theo tiêu chí chấp nhận video thực tế. Hai khoản trừ 0,125 điểm về lịch sử commit lớn và workflow/review vẫn được giữ. Giảng viên quyết định điểm chính thức. [Ba video minh chứng](DEMO-EVIDENCE.md#video-minh-chứng-dịch-vụ-ngoài).
 
 ## Thay đổi có thể kiểm tra
 
@@ -44,7 +44,7 @@ Lần đo dev đầu tiên có29 passed / 1 failed vì Fast Refresh tải lại 
 
 ## Phần còn lại cần chủ dự án/production
 
-Hai video do chủ dự án tự quay: [checklist và nơi bổ sung link](DEMO-EVIDENCE.md). Chưa có link thì3(f) không full. Không có yêu cầu dựng video giả hoặc thay testfixture bằng provider thật.
+Ba clip minh chứng đã được kiểm nội dung và công khai trên nhánh PR. Chúng ghi lại kết quả chạy trên website hiện hành. Kết quả CI của ứng viên được dẫn ở phần kiểm chứng.
 
 TheoD119/D123, không tự bật scheduler tài chính, gọi lại QueryDr 99 hay triển khai production. IP thật qua Vercel/Cloudflare và rate-limit hai client chưa được nghiệm thu; cache lock 503, tìm kiếm mô tả/đơn trên tập dữ liệu lớn, Redis/shared storage/onOneServer còn giới hạn. Xem [danh sách kỹ thuật có phân biệt đã sửa/chưa kiểm](SECURITY-PERFORMANCE.md). Các mục này không bị PDF trừ điểm nhưng cần trình bày trung thực khi vấn đáp.
 

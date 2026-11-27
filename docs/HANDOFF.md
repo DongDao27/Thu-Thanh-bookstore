@@ -15,13 +15,14 @@ Kiểm local:188backend/2312assertions;15React/unit;16API client;build/check/Pin
 
 Hosted source7aa6a3b đã đạt Backend/Frontend/E2E/PRpolicy:188tests/2312assertions,coverage91,62%,HTTP22/ops smoke;31/31E2E,Nextcoverage76,27%lines/73,56%statements trên65file. SupabasePreview skipped, không tínhpassed. Backend CI đầu aeedd94 lỗi5advisory được giữ lịch sử riêng; đã sửa bằng patch7aa6a3b vàkiểm lại. Dev-run đầu29/30 doFastRefresh khôngtínhpassed; productionQRđãđạt.
 
-Minh chứng: `docs/evidence/grading-feedback`; báo cáo `docs/GRADING-REASSESSMENT.md`; checklistvideo `docs/DEMO-EVIDENCE.md`. Log/report đầy đủ private ở`.runtime/grading-feedback` và`output/coverage`. Kết quả chấm ứng viên9,25/10 chỉ là tự đánh giá; chưa xác nhận bài nộp main đã thay đổi.
+Minh chứng: `docs/evidence/grading-feedback`; báo cáo `docs/GRADING-REASSESSMENT.md`; checklistvideo `docs/DEMO-EVIDENCE.md`. Log/report đầy đủ private ở`.runtime/grading-feedback` và`output/coverage`. Kết quả chấm ứng viên 9,75/10 chỉ là tự đánh giá; chưa xác nhận bài nộp main đã thay đổi.
 
 Lệnh tiếp theo khi chủ dự án tiếp tục: `gh pr checks 30 --repo DongDao27/Thu-Thanh-bookstore`, đọc diff PR30 và xin chỉ định rõ về merge/production theoAGENTS trước activation. Source7aa6a3b đã có CI đầy đủ; commitcheckpoint cuối chỉ sửa tài liệu. Không tự tick review người khác. GitHub plugin trả403 với write issue/PR, nên đã dùnggh đăng nhập hiện hành; repo description đã cập nhật và đọc lại.
 
 ## Chờ chủ dự án và giới hạn vận hành
 
-Hai video VNPAYSandbox/Resend do chủ dự án tự quay/gửi; chưa cólink thì3(f) vẫn một phần. Không đổi testfixture thành lời khẳng định đã gọi provider thật. Không viết lại lịch sử commit lớn; PR chưa merge chưa được tính là source nhánh chính tại hạn nộp.
+Ba video do chủ dự án cung cấp đã được kiểm và lưu dưới dạng clip MP4 công khai tại `docs/evidence/provider-demos`. Mục 3(f) đủ căn cứ cộng 0,5 điểm trong bản tự chấm. Giữ các tệp gốc trong thư mục Screencasts của chủ dự án. PR #30 chờ review và merge.
+
 
 D119 giữ nguyên: không queryVNPAY/điều traQueryDr99, seed/migrate production hoặc tự bật scheduler tài chính. Production/deploy cần yêu cầu riêng theoAGENTS. Release live được nghiệm thu trước đây625a042; không chạy lạiactivation cũ. Giữenv/APP_KEY/database/uploads/backups/private runtime.
 

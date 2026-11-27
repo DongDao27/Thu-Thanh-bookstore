@@ -1,28 +1,16 @@
 # Bằng chứng kiểm thử và demo
 
-## Video của chủ dự án
+## Video minh chứng dịch vụ ngoài
 
-Chủ dự án xác nhận ngày26/11/2026 sẽ tự quay/gửi hai video. **Chưa có đường dẫn video**. Không dùng test fixture, HTTP mock hoặc câu xác nhận trong tài liệu làm bằng chứng đã gọi provider thật.
+Ba clip dưới đây được trích từ video chủ dự án cung cấp ngày 27/11/2026. Bản công khai đã cắt thanh địa chỉ, thông tin hộp thư, màn hình nhập thẻ và các đoạn có dữ liệu khôi phục tài khoản. OTP và mã đơn được che. Mỗi clip có thể tải dưới dạng MP4.
 
-### Video VNPAY Sandbox
+| Luồng | Video | Nội dung kiểm chứng |
+|---|---|---|
+| Thanh toán VNPAY Sandbox | [Xem MP4](evidence/provider-demos/vnpay-sandbox.mp4) | Cổng VNPAY ghi rõ chế độ Test, xác thực giao dịch và trở về Thu Thanh với trạng thái “Thanh toán thành công”. |
+| Quên mật khẩu | [Xem MP4](evidence/provider-demos/resend-forgot-password.mp4) | Sau khi gửi yêu cầu, thư “Đặt lại mật khẩu — Nhà sách Thu Thanh” xuất hiện trong Gmail. Thu Thanh xác nhận mật khẩu đã được cập nhật. |
+| Đăng ký bản tin | [Xem MP4](evidence/provider-demos/resend-subscribe.mp4) | Website ghi nhận đăng ký và Gmail nhận thư “Đăng ký nhận bản tin thành công — Nhà sách Thu Thanh”. |
 
-1. Cho thấy domain và tài khoản customer; chọn sản phẩm, số lượng, tổng tiền và tạo đơn.
-2. Mở VNPAY Sandbox, thực hiện giao dịch test. Không dùng tiền thật.
-3. Quay kết quả quay về, mã đơn và mã giao dịch provider; mở lại lịch sử đơn để cho thấy server đã xác nhận thanh toán.
-4. Nếu quay trang admin, cho thấy receipt đã accepted và trạng thái đơn phù hợp. Không đổi trạng thái đơn thủ công để tạo bằng chứng.
-5. Che cookie, mật khẩu, OTP, merchant secret/chữ ký hoặc dữ liệu cá nhân không cần thiết. Không gọi QueryDr để xử lý lỗi99 theo D119.
-
-Đường dẫn: **chờ chủ dự án bổ sung**.
-
-### Video email Resend
-
-1. Cho thấy đăng ký email mới và response/thông báo đã nhận yêu cầu.
-2. Mở hộp thư nhận để thấy nội dung và thời gian email xác nhận.
-3. Mở dashboard Resend để thấy message id, timestamp và delivery event tương ứng; che API key, người nhận và thông tin riêng nếu cần.
-4. Có thể cho thấy queue/failed jobs sau gửi; job hết không tự chứng minh thư đến inbox.
-5. Không gửi hàng loạt hoặc gửi lại thư chỉ để lấy video nếu không cần thiết.
-
-Đường dẫn: **chờ chủ dự án bổ sung**.
+Hai clip email ghi nhận thư đến hộp thư người nhận. Cấu hình Resend của dự án được ghi trong [tài liệu vận hành](SECURITY-PERFORMANCE.md). Video không quay dashboard Resend hoặc message ID. [Mã SHA-256 của các clip công khai](evidence/provider-demos/manifest.json).
 
 ## Tái hiện kiểm thử
 

@@ -1,6 +1,6 @@
 # Bắt đầu làm việc
 
-Đợt mới26/11: GRADING-FEEDBACK theo D123 đang làm trên nhánhfix/grading-feedback-20261126, issue29. Source7aa6a3b đã đạt hosted Backend/Frontend/31E2E/PRpolicy. PR30 chờ owner review/merge; hai video chủ dự án tự quay còn thiếu link. Đọc HANDOFF; không tự deploy/bật scheduler. Không coi trạng thái đóng bản nộp cũ là hoàn tất yêu cầu mới.
+Đợt mới26/11: GRADING-FEEDBACK theo D123 đang làm trên nhánhfix/grading-feedback-20261126, issue29. Source7aa6a3b đã đạt hosted Backend/Frontend/31E2E/PRpolicy. PR30 chờ owner review/merge; ba clip minh chứng đã được bổ sung ngày 27/11. Đọc HANDOFF; không tự deploy/bật scheduler. Không coi trạng thái đóng bản nộp cũ là hoàn tất yêu cầu mới.
 
 Đọc [README](README.md), [trạng thái](docs/STATUS.json), [bàn giao](docs/HANDOFF.md), tiến độ mới nhất và quyết định trước khi thay đổi. Khi sửa nghiệp vụ, đọc thêm PRD, domain rules, API và database.
 
